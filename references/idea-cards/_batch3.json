@@ -1,0 +1,275 @@
+[
+ {
+  "title": "Language Models can Subtly Deceive Without Lying: A Case Study on Strategic Phrasing in Legislation",
+  "venue": "ACL",
+  "year": 2024,
+  "abstract": "We explore the ability of large language models (LLMs) to engage in subtle deception through strategically phrasing and intentionally manipulating information. This harmful behavior can be hard to detect, unlike blatant lying or unintentional hallucination. We build a simple testbed mimicking a legislative environment where a corporate \\textit{lobbyist} module is proposing amendments to bills that benefit a specific company while evading identification of this benefactor. We use real-world legislative bills matched with potentially affected companies to ground these interactions. Our results show that LLM lobbyists can draft subtle phrasing to avoid such identification by strong LLM-based detectors. Further optimization of the phrasing using LLM-based re-planning and re-sampling increases deception rates by up to 40 percentage points. Our human evaluations to verify the quality of deceptive generations and their retention of self-serving intent show significant coherence with our automated metrics and also help in identifying certain strategies of deceptive phrasing. This study highlights the risk of LLMs'capabilities for strategic phrasing through seemingly neutral language to attain self-serving goals. This calls for future research to uncover and protect against such subtle deception.",
+  "authors": [
+   "Atharvan Dogra",
+   "Krishna Pillutla",
+   "A. Deshpande",
+   "Ananya B. Sai",
+   "John Nay",
+   "Tanmay Rajpurohit"
+  ],
+  "doi": "10.18653/v1/2025.acl-long.1600"
+ },
+ {
+  "title": "QSpec: Speculative Decoding with Complementary Quantization Schemes",
+  "venue": "EMNLP",
+  "year": 2024,
+  "abstract": "Quantization is widely adopted to accelerate inference and reduce memory consumption in large language models (LLMs). While activation-weight joint quantization enables efficient low-precision decoding, it suffers from substantial performance degradation on multi-step reasoning tasks. We propose QSpec, a novel quantization paradigm that decouples efficiency from quality by integrating two complementary schemes via speculative decoding: low-precision joint quantization for fast drafting and high-precision weight-only quantization for accurate verification. QSpec reuses both weights and KV cache across stages, enabling near-zero-cost switching without retraining or auxiliary models. Compared to high-precision baselines, QSpec achieves up to 1.64x speedup without quality degradation, and outperforms state-of-the-art speculative decoding methods by up to 1.55x in batched settings. Furthermore, QSpec supports plug-and-play deployment and generalizes well across model scales, quantization methods, and workloads. These properties make QSpec a practical and scalable solution for high-fidelity quantized LLM serving under memory-constrained scenarios. Our code is available at https://github.com/hku-netexplo-lab/QSpec.",
+  "authors": [
+   "Jun-Tao Zhao",
+   "Wenhao Lu",
+   "Sheng Wang",
+   "Ling-Peng Kong",
+   "Chuan Wu"
+  ],
+  "doi": "10.48550/arXiv.2410.11305"
+ },
+ {
+  "title": "A2ATS: Retrieval-Based KV Cache Reduction via Windowed Rotary Position Embedding and Query-Aware Vector Quantization",
+  "venue": "ACL",
+  "year": 2025,
+  "abstract": "Long context large language models (LLMs) pose significant challenges for efficient serving due to the large memory footprint and high access overhead of KV cache. Retrieval-based KV cache reduction methods can mitigate these challenges, typically by offloading the complete KV cache to CPU and retrieving necessary tokens on demand during inference. However, these methods still suffer from unsatisfactory accuracy degradation and extra retrieval overhead. To address these limitations, this paper proposes A$^2$ATS, a novel retrieval-based KV cache reduction method. A$^2$ATS aims to obtain an accurate approximation of attention scores by applying the vector quantization technique to key states, thereby enabling efficient and precise retrieval of the top-K tokens. First, we propose Windowed Rotary Position Embedding, which decouples the positional dependency from query and key states after position embedding. Then, we propose query-aware vector quantization that optimizes the objective of attention score approximation directly. Finally, we design the heterogeneous inference architecture for KV cache offloading, enabling long context serving with larger batch sizes. Experimental results demonstrate that A$^2$ATS can achieve a lower performance degradation with similar or lower overhead compared to existing methods, thereby increasing long context serving throughput by up to $2.7 \\times$.",
+  "authors": [
+   "Junhui He",
+   "Junna Xing",
+   "Nan Wang",
+   "Rui Xu",
+   "Shang-Yu Wu",
+   "Peng Zhou"
+  ],
+  "doi": "10.48550/arXiv.2502.12665"
+ },
+ {
+  "title": "Unveiling Environmental Impacts of Large Language Model Serving: A Functional Unit View",
+  "venue": "ACL",
+  "year": 2025,
+  "abstract": "Large language models (LLMs) offer powerful capabilities but come with significant environmental impact, particularly in carbon emissions. Existing studies benchmark carbon emissions but lack a standardized basis for comparison across different model configurations. To address this, we introduce the concept of functional unit (FU) as a standardized basis and develop FUEL, the first FU-based framework for evaluating LLM serving's environmental impact. Through three case studies, we uncover key insights and trade-offs in reducing carbon emissions by optimizing model size, quantization strategy, and hardware choice, paving the way for more sustainable LLM serving. The code is available at https://github.com/jojacola/FUEL.",
+  "authors": [
+   "Yan-Ran Wu",
+   "Inez Hua",
+   "Yi Ding"
+  ],
+  "doi": "10.48550/arXiv.2502.11256"
+ },
+ {
+  "title": "Taming System Complexity: Demystifying Software Engineering Agents in Diagnosing Linux Kernel Faults",
+  "venue": "ACL",
+  "year": 2025,
+  "abstract": "The Linux kernel is a critical system, serving as the foundation for numerous systems. Bugs in the Linux kernel can cause serious consequences, affecting billions of users. Fault localization (FL), which aims at identifying the buggy code elements in software, plays an essential role in software quality assurance. While recent LLM agents have achieved promising accuracy in FL on recent benchmarks like SWE-bench, it remains unclear how well these methods perform in the Linux kernel, where FL is much more challenging due to the large-scale code base, limited observability, and diverse impact factors. In this paper, we introduce LinuxFLBench, a FL benchmark constructed from real-world Linux kernel bugs. We conduct an empirical study to assess the performance of state-of-the-art LLM agents on the Linux kernel. Our initial results reveal that existing agents struggle with this task, achieving a best top-1 accuracy of only 41.6% at file level. To address this challenge, we propose LinuxFL$^+$, an enhancement framework designed to improve FL effectiveness of LLM agents for the Linux kernel. LinuxFL$^+$ substantially improves the FL accuracy of all studied agents (e.g., 7.2% - 11.2% accuracy increase) with minimal costs.",
+  "authors": [
+   "Zhen-Hao Zhou",
+   "Zhuo-Cheng Huang",
+   "Yi-Ke He",
+   "Chong Wang",
+   "Jia-Jun Wang",
+   "Yi-Jian Wu"
+  ],
+  "doi": "10.18653/v1/2026.acl-long.862"
+ },
+ {
+  "title": "Characterizing Performance–Energy Trade-offs of Large Language Models in Multi-Request Workflows",
+  "venue": "SIGMETRICS",
+  "year": 2026,
+  "abstract": "Large language models (LLMs) are increasingly deployed in applications forming multi-request workflows like document summarization, search-based copilots, and multi-agent programming. While these workflows unlock richer functionality, they also amplify latency and energy demand during inferences. Existing measurement and benchmarking efforts either focus on assessing performance of LLM inference systems or consider single-request evaluations, overlooking workflow dependencies and cross-request interactions unique to multi-request workflows. Moreover, the energy usage of such interdependent LLM calls is not explored in-depth. To address these gaps, this paper presents the first systematic characterization of performance--energy trade-offs in multi-request LLM inference. We develop and evaluate four representative workloads that capture sequential, interactive, agentic, and composite patterns common in modern deployments. Using an empirical NVIDIA A100 testbed with state-of-the-art serving systems (vLLM and Parrot), we systematically analyze how key energy knobs (e.g., input-output length, batch size, and GPU power cap) reshape latency, throughput, and component-level (e.g., CPU, GPU, and DRAM) energy use. Our findings reveal that batch size is the most impactful lever, though its benefits are highly workload dependent. While optimal batching benefits workloads with large shared prompts, it is ineffective for sequential summarization and only partially effective for mutli-agent",
+  "authors": [
+   "Md. Monzurul Amin Ifath",
+   "Israat Haque"
+  ],
+  "doi": "10.1145/3820171.3806907"
+ },
+ {
+  "title": "Outcome-Grounded Advantage Reshaping for Fine-Grained Credit Assignment in Mathematical Reasoning",
+  "venue": "ACL",
+  "year": 2026,
+  "abstract": "Group Relative Policy Optimization (GRPO) has emerged as a promising critic-free reinforcement learning paradigm for reasoning tasks. However, standard GRPO employs a coarse-grained credit assignment mechanism that propagates group-level rewards uniformly to to every token in a sequence, neglecting the varying contribution of individual reasoning steps. We address this limitation by introducing Outcome-grounded Advantage Reshaping (OAR), a fine-grained credit assignment mechanism that redistributes advantages based on how much each token influences the model's final answer. We instantiate OAR via two complementary strategies: (1) OAR-P, which estimates outcome sensitivity through counterfactual token perturbations, serving as a high-fidelity attribution signal; (2) OAR-G, which uses an input-gradient sensitivity proxy to approximate the influence signal with a single backward pass. These importance signals are integrated with a conservative Bi-Level advantage reshaping scheme that suppresses low-impact tokens and boosts pivotal ones while preserving the overall advantage mass. Empirical results on extensive mathematical reasoning benchmarks demonstrate that while OAR-P sets the performance upper bound, OAR-G achieves comparable gains with negligible computational overhead, both significantly outperforming a strong GRPO baseline, pushing the boundaries of critic-free LLM reasoning.",
+  "authors": [
+   "Zi-Heng Li",
+   "Liu Kang",
+   "Feng Xiao",
+   "Lu-Xi Xing",
+   "Qing-Yi Si",
+   "Zhuo-Ran Li"
+  ],
+  "doi": "10.48550/arXiv.2601.07408"
+ },
+ {
+  "title": "Hardware and Software Platform Inference",
+  "venue": "ICML",
+  "year": 2024,
+  "abstract": "It is now a common business practice to buy access to large language model (LLM) inference rather than self-host, because of significant upfront hardware infrastructure and energy costs. However, as a buyer, there is no mechanism to verify the authenticity of the advertised service including the serving hardware platform, e.g. that it is actually being served using an NVIDIA H100. Furthermore, there are reports suggesting that model providers may deliver models that differ slightly from the advertised ones, often to make them run on less expensive hardware. That way, a client pays premium for a capable model access on more expensive hardware, yet ends up being served by a (potentially less capable) cheaper model on cheaper hardware. In this paper we introduce hardware and software platform inference (HSPI) -- a method for identifying the underlying GPU architecture and software stack of a (black-box) machine learning model solely based on its input-output behavior. Our method leverages the inherent differences of various GPU architectures and compilers to distinguish between different GPU types and software stacks. By analyzing the numerical patterns in the model's outputs, we propose a classification framework capable of accurately identifying the GPU used for model inference as well as the underlying software configuration. Our findings demonstrate the feasibility of inferring GPU type from black-box models. We evaluate HSPI against models served on different real hardware ",
+  "authors": [
+   "Cheng Zhang",
+   "Hanna Foerster",
+   "Robert D. Mullins",
+   "Yi-Ren Zhao",
+   "Ilia Shumailov"
+  ],
+  "doi": "10.48550/arXiv.2411.05197"
+ },
+ {
+  "title": "A Case for a Simulation-Driven Exploration of Distributed GenAI Platforms",
+  "venue": "MLSys",
+  "year": 2026,
+  "abstract": "The rapid adoption of Generative AI (GenAI) workloads has driven the emergence of inference serving platforms like llm-d and Nvidia Dynamo. However, exploring the design space for these platforms, especially for large-scale, multi-layer optimizations, remains prohibitively expensive and slow due to limited hardware access and high engineering overheads. Current evaluation methods often focus on isolated components, failing to capture the complex interplay between hardware components, scheduling policies, and dynamic GenAI workloads. We argue that the design space exploration of GenAI platforms can be accelerated by leveraging a simulation-based approach that offers a fast, cheap, and scalable methodology to rapidly prototype and validate new ideas. To this end, we present Opal, an open-source, discrete-event simulation framework. Unlike prior simulators, Opal models interactions across multiple layers of the inference stack from hardware to workloads, enabling a holistic analysis of system-level behaviors and trade-offs. Opal is designed to be simple, extensible, reproducible, and fast, allowing researchers to rapidly explore a wide range of deployment scenarios and optimization strategies. In this paper, we present our motivation and Opal's design, and seek feedback from the community on open challenges.",
+  "authors": [
+   "Animesh Trivedi",
+   "Radu Stoica",
+   "J. Cohn",
+   "Danny Harnik",
+   "Yue Zhu",
+   "Jonathan Terner"
+  ],
+  "doi": "10.1145/3805621.3807623"
+ },
+ {
+  "title": "AdaSpec: Adaptive Speculative Decoding for Fast, SLO-Aware Large Language Model Serving",
+  "venue": "SoCC",
+  "year": 2025,
+  "abstract": "Cloud-based Large Language Model (LLM) services often face challenges in achieving low inference latency and meeting Service Level Objectives (SLOs) under dynamic request patterns. Speculative decoding, which exploits lightweight models for drafting and LLMs for verification, has emerged as a compelling technique to accelerate LLM inference. However, existing speculative decoding solutions often fail to adapt to fluctuating workloads and dynamic system environments, resulting in impaired performance and SLO violations. In this paper, we introduce AdaSpec, an efficient LLM inference system that dynamically adjusts speculative strategies according to real-time request loads and system configurations. AdaSpec proposes a theoretical model to analyze and predict the efficiency of speculative strategies across diverse scenarios. Additionally, it implements intelligent drafting and verification algorithms to maximize performance while ensuring high SLO attainment. Experimental results on real-world LLM service traces demonstrate that AdaSpec consistently meets SLOs and achieves substantial performance improvements, delivering up to 66% speedup compared to state-of-the-art speculative inference systems. The source code is publicly available at https://github.com/cerebellumking/AdaSpec",
+  "authors": [
+   "Kai-Yu Huang",
+   "Hao Wu",
+   "Zhubo Shi",
+   "Han Zou",
+   "Min-Chen Yu",
+   "Qing-Jiang Shi"
+  ],
+  "doi": "10.1145/3772052.3772239"
+ },
+ {
+  "title": "AgentKV: Phase-Aware KV Eviction for Agentic LLMs",
+  "venue": "EMNLP",
+  "year": 2026,
+  "abstract": "Agentic serving can consume orders of magnitude more tokens than chatbot workloads, stressing both KV-cache capacity and decode-time bandwidth. Most KV-eviction methods score cached keys against representative queries drawn from the most recent tokens, assuming future attention resembles recent attention. We show that agentic generation violates this assumption: future queries form a mixture over think, act, tool, and others phases, and principal-angle analysis shows these components occupy measurably different query subspaces, so recency representatives systematically undervalue keys that upcoming phases will need. We propose AGENTKV, which maintains a small query buffer per phase and scores cached keys against their union. We further implement AGENTKV in a persistent multi-turn serving path that carries compressed KV state across turns and compacts retained KV pages online. Across two models, six task domains, and three KV budgets each, AGENTKV improves task score by 5.5 points on average over R-KV and 5.3 over Tri-attention. Relative to upstream full-KV SGLang, AGENTKV improves output-token throughput by up to 1.80x. Code: https://github.com/LiuTaowen-Tony/agentkv.",
+  "authors": [
+   "T. Liu",
+   "Jeffrey T. H. Wong",
+   "Can Xiao",
+   "Bo-Wen Yang",
+   "H. Chen",
+   "Yi-Ren Zhao"
+  ],
+  "doi": "10.18653/2026.emnlp-main.2514"
+ },
+ {
+  "title": "Fast State Restoration in LLM Serving with HCache",
+  "venue": "EuroSys",
+  "year": 2024,
+  "abstract": "The growing complexity of LLM usage today, e.g., multi-round conversation and retrieval-augmented generation (RAG), makes contextual states (i.e., KV cache) reusable across user requests. Given the capacity constraints of GPU memory, only a limited number of contexts can be cached on GPU for reusing. Existing inference systems typically evict part of the KV cache and restore it by recomputing it from the original tokens or offloading it to host storage for later retrieval, both of which introduce substantial computational or I/O overheads. We propose HCache, a novel LLM state restoration method. Its key idea is to restore LLM states from intermediate activations and thus utilize computational and I/O resources with low overhead. We enhance HCache with two techniques, including i) a bubble-free restoration scheduler that integrates resource-complementary methods to optimize the balance between computation and IO tasks; and ii) a chunk-based storage manager to address the layout mismatch issue (i.e., layer-before-token saving versus token-before-layer restoration). Our evaluations, conducted using real-world tasks, show that HCache reduces the TTFT by up to 1.93× compared to KV offload while consuming 1.92-2.40× less storage space; compared to token recomputation, HCache achieves up to 5.73× reduction in TTFT.",
+  "authors": [
+   "Shi-Wei Gao",
+   "You-Min Chen",
+   "Ji-Wu Shu"
+  ],
+  "doi": "10.1145/3689031.3696072"
+ },
+ {
+  "title": "Efficient Training-Free Online Routing for High-Volume Multi-LLM Serving",
+  "venue": "NeurIPS",
+  "year": 2025,
+  "abstract": "Increasing demand for Large Language Models (LLMs) services imposes substantial deployment and computation costs on providers. LLM routing offers a cost-efficient solution by directing queries to the optimal LLM based on model and query features. However, existing works primarily focus on offline scenarios and struggle to adapt to online settings with high query volume and constrained token budgets. In this work, we introduce the first training-free algorithm for online routing scenarios. Our algorithm leverages approximate nearest neighbor search to efficiently estimate query features and performs a one-time optimization over a small set of initial queries to learn a routing strategy that guides future routing. We provide theoretical guarantees demonstrating that our algorithm achieves a competitive ratio of $1 - o(1)$ under natural assumptions, which is further validated by extensive experiments across 3 benchmark datasets and 8 baselines, showing an average improvement of 3.55$\\times$ in overall performance, 1.85$\\times$ in cost efficiency, and nearly 4.25$\\times$ in throughput. Our code is available at https://github.com/fzwark/PORT.",
+  "authors": [
+   "Fangzhou Wu",
+   "Sandeep Silwal"
+  ],
+  "doi": "10.48550/arXiv.2509.02718"
+ },
+ {
+  "title": "Position: LLMs Can be Good Tutors in English Education",
+  "venue": "EMNLP",
+  "year": 2025,
+  "abstract": "While recent efforts have begun integrating large language models (LLMs) into English education, they often rely on traditional approaches to learning tasks without fully embracing educational methodologies, thus lacking adaptability to language learning. To address this gap, we argue that LLMs have the potential to serve as effective tutors in English Education. Specifically, LLMs can play three critical roles: (1) as data enhancers, improving the creation of learning materials or serving as student simulations; (2) as task predictors, serving as learner assessment or optimizing learning pathway; and (3) as agents, enabling personalized and inclusive education. We encourage interdisciplinary research to explore these roles, fostering innovation while addressing challenges and risks, ultimately advancing English Education through the thoughtful integration of LLMs.",
+  "authors": [
+   "Jing-Heng Ye",
+   "Shen Wang",
+   "De-Qing Zou",
+   "Yibo Yan",
+   "Kun Wang",
+   "Hai-Tao Zheng"
+  ],
+  "doi": "10.18653/v1/2025.emnlp-main.885"
+ },
+ {
+  "title": "ORBITFLOW: SLO-Aware Long-Context LLM Serving with Fine-Grained KV Cache Reconfiguration",
+  "venue": "VLDB",
+  "year": 2026,
+  "abstract": "Serving long-context LLMs is challenging because request lengths and batch composition vary during token generation, causing the memory footprint to fluctuate significantly at runtime. Offloading KV caches to host memory limits effective GPU memory usage, but existing static and predetermined offloading strategies cannot adapt to the rapidly shifting memory demands of long-context serving. This often leads to excessive CPU-to-GPU KV transfers that translate into latency spikes and frequent SLO violations.\n To address these challenges, we introduce OrbitFlow, a finegrained and adaptive KV cache management system that meets latency SLOs in long-context LLM serving. OrbitFlow employs a lightweight ILP solver to decide which layers' KV caches to retain on the GPU for each request, within memory capacity constraints. It continuously refines KV placements based on runtime feedback when the active plan becomes suboptimal during token generation. Under heavy load, OrbitFlow invokes a fallback mechanism to temporarily defer in-flight requests with large memory footprints, preserving overall SLO attainment. Our experiments demonstrate that OrbitFlow improves SLO attainment for TPOT and TBT by 62% and 66%, respectively, while reducing the 95th percentile (i.e., P95) latency by 38% and achieving up to 3.3× higher throughput compared to existing offloading methods.",
+  "authors": [
+   "Xinyue Ma",
+   "Heelim Hong",
+   "Taegeon Um",
+   "Jongseop Lee",
+   "Seoyeong Choy",
+   "Woo-Yeon Lee"
+  ],
+  "doi": "10.48550/arXiv.2601.10729"
+ },
+ {
+  "title": "LMTracer: Fine-Grained and Real-Time Performance Profiling for Production LLM Systems",
+  "venue": "SOSP",
+  "year": 2026,
+  "abstract": "Training and serving large language models (LLMs) has become a core business for AI providers. To ensure a high-quality user experience while optimizing infrastructure costs, providers need to closely monitor the performance of LLM executions in production. However, existing performance profiling tools fall short in this context, as they are either too coarse-grained to capture performance bottlenecks, or too intrusive to avoid significant performance degradation. This paper presents LMTracer, a fine-grained and real-time performance profiling framework for production LLM services. We find that the inefficiency of existing techniques mainly stems from disruptions in highly asynchronous GPU execution flows. To address this, our key idea is to embed profiling logic into the execution through graph-embedded probing. This is achieved by compiling lightweight probe kernels that realize profiling logic as special trace nodes in GPU execution graphs, and streaming buffered profiling data to CPUs on demand to keep the execution of user kernels uninterrupted. LMTracer has been deployed in production for eight months. It incurs only 0.9% average overhead across various LLM workloads (e.g., training, serving, and fine-tuning), and has proactively uncovered 15 performance issues. After fixing these issues, we observed 21.2% latency reduction and 24.5% throughput improvement for LLM services.",
+  "authors": [
+   "Wei Liu",
+   "Yong-Chao He",
+   "Bo-Han Zhao",
+   "Hong-Yi Wang",
+   "Zhen-Hua Li",
+   "Jun-Ping Zhao"
+  ],
+  "doi": "10.1145/3830418.3843871"
+ },
+ {
+  "title": "Unified Static-Dynamic Pruning for Efficient LLM Inference",
+  "venue": "VLDB",
+  "year": 2026,
+  "abstract": "The increasing deployment of large language models (LLMs) has magnified the computational and memory bottlenecks of autoregressive decoding, where low compute intensity and bandwidth-bound kernels dominate inference cost. Weight pruning offers a promising remedy, but existing methods remain confined to either static pruning (SP)—which permanently removes redundant weights but lacks adaptivity—or dynamic pruning (DP)—which adapts to input sparsity but introduces runtime irregularity. This paper presents SPDP, a unified sparse-inference framework that integrates unstructured SP with input-adaptive DP for efficient LLM inference on GPUs. SPDP co-designs a new Tiled-Columnwise Bitmap Compressed (Tiled-CBC) format and two complementary GPU kernels: (1) a CUDA-core spMspV kernel featuring Hybrid Activation-aware Dynamic Shared-Memory Bitmap Decoding (HAD-SMBD) for fine-grained, runtime activation skipping, and (2) a Tensor-Core SpMM kernel optimized for prefill computation. This joint format-kernel design harmonizes static and dynamic sparsity, maintaining bandwidth-efficient memory access and high compute intensity under both phases of LLM inference. Comprehensive evaluations on inference-optimized GPUs demonstrate that SPDP achieves 1.24×–1.37× average speedup (up to 2.51×) over state-of-the-art sparse frameworks such as SpInfer, while matching perplexity with up to 25% higher sparsity. SPDP advances the inference efficiency-quality Pareto frontier, showing that unified static-dy",
+  "authors": [
+   "Jin-hong Kim",
+   "Yejoo Lee",
+   "Jaeyoung Do"
+  ],
+  "doi": "10.48550/arXiv.2607.21985"
+ },
+ {
+  "title": "Lung-R1: A Knowledge Graph-Guided LLM for Pulmonary Diagnostic Reasoning",
+  "venue": "EMNLP",
+  "year": 2026,
+  "abstract": "Diagnosing pulmonary diseases requires integrating heterogeneous evidence amid phenotypic variability and cross-disease overlap. Although large language models (LLMs) have shown progress on pulmonary knowledge question answering (QA) and information-processing tasks, reliable pulmonary diagnosis requires patient-specific, relation-aware reasoning over electronic medical record (EMR) evidence rather than isolated knowledge recall. We define this gap between pulmonary knowledge and case-level diagnostic reasoning as the Pulmonary Knowledge-to-Diagnosis Gap. To address it, we introduce LungKG, the first structured pulmonary knowledge graph for diagnostic knowledge organization and record-grounded reasoning. LungKG contains 59,038 nodes and 164,308 edges across 15 entity types and 112 relation types, serving as both a reusable pulmonary knowledge resource and the foundation for LungKG-guided model adaptation. Built on LungKG, we propose Lung-R1, a LungKG-guided pulmonary LLM trained through KG-constrained reasoning-chain construction and KG-guided reinforcement learning. In a 20-system evaluation, Lung-R1-14B achieves state-of-the-art performance across Choice, Pulmonary-QA, and EMR Diagnosis, reaching an EMR Diagnosis score of 4.3583 and surpassing the strongest non-Lung-R1 baseline by 0.1476 points. These results demonstrate the value of LungKG-guided training for EMR-based pulmonary diagnosis.",
+  "authors": [
+   "Hao-Yang Zeng",
+   "Yuanxi Fu",
+   "Rong-Zhen Li",
+   "Yu-Ming Yang",
+   "Xiao Sun",
+   "Jing-Wang Huang"
+  ],
+  "doi": "10.48550/arXiv.2606.11675"
+ },
+ {
+  "title": "Exploring the Integration of Large Language Models into Automatic Speech Recognition Systems: An Empirical Study",
+  "venue": "NeurIPS",
+  "year": 2023,
+  "abstract": "This paper explores the integration of Large Language Models (LLMs) into Automatic Speech Recognition (ASR) systems to improve transcription accuracy. The increasing sophistication of LLMs, with their in-context learning capabilities and instruction-following behavior, has drawn significant attention in the field of Natural Language Processing (NLP). Our primary focus is to investigate the potential of using an LLM's in-context learning capabilities to enhance the performance of ASR systems, which currently face challenges such as ambient noise, speaker accents, and complex linguistic contexts. We designed a study using the Aishell-1 and LibriSpeech datasets, with ChatGPT and GPT-4 serving as benchmarks for LLM capabilities. Unfortunately, our initial experiments did not yield promising results, indicating the complexity of leveraging LLM's in-context learning for ASR applications. Despite further exploration with varied settings and models, the corrected sentences from the LLMs frequently resulted in higher Word Error Rates (WER), demonstrating the limitations of LLMs in speech applications. This paper provides a detailed overview of these experiments, their results, and implications, establishing that using LLMs' in-context learning capabilities to correct potential errors in speech recognition transcriptions is still a challenging task at the current stage.",
+  "authors": [
+   "Ze-Ping Min",
+   "Jinbo Wang"
+  ],
+  "doi": "10.1007/978-981-99-8181-6_6"
+ },
+ {
+  "title": "Hardware-Aware Co-Design of Multi-Chip LLM Serving via Performance Modeling",
+  "venue": "MLSys",
+  "year": 2026,
+  "abstract": "Efficient LLM inference on multi-chip accelerators requires joint optimization of computation, memory movement, and inter-chip communication. Compilation-based exploration of fine-grained strategies is expensive and often obscured by compiler artifacts. We present a hardware-aware performance simulator that reconstructs accelerator execution at command granularity, modeling tiled computation, explicit DRAM-SRAM transfers, collective communication, and overlap constraints. The proposed simulation framework is general; in this work, we instantiate and validate it on the RNGD accelerator system. The simulator closely matches real hardware traces. Using it, we demonstrate: (i) a fine-grained parallelism design achieving up to 77% throughput improvement over full tensor parallelism, and (ii) a tail-constrained chunked prefill strategy that improves the TTFT-TPOT trade-off. The quantitative results in this paper are derived from the proposed simulator which is validated against hardware-level traces. Our results show that hardware-aware simulation enables scalable multi-chip inference optimization design.",
+  "authors": [
+   "Suyeol Lee",
+   "Gyunghee Park"
+  ],
+  "doi": "10.1145/3805621.3807651"
+ }
+]

@@ -93,6 +93,16 @@ trap list once before submission; each entry has a one-line check.
 NSDI 2026; Dell'Amico 2014). Use these as illustrations; never use an unpublished
 manuscript as the example.
 
+## Idea cards (100 papers, 2023-2026)
+
+`references/idea-cards/design-moves.md` — **40 reusable design moves** grouped by
+phase (framing, experiment design, measurement, mechanisms, writing/adoption,
+boundaries), distilled from 100 top-conference abstracts.
+
+`references/idea-cards/cards_batch1..5.md` — the 100 source cards (problem,
+assumption, mechanism, evidence, boundary, stealable move, pitch). Use a card to
+place a paper on the right axis; read the paper before citing a mechanism.
+
 ## Stop rules
 
 - Never delete evidence to gain space; cut wording, not facts.

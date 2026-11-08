@@ -1,0 +1,282 @@
+[
+ {
+  "title": "AUM: Unleashing the Efficiency Potential of Shared Processors with Accelerator Units for LLM Serving",
+  "venue": "HPCA",
+  "year": 2026,
+  "abstract": "Generative AI, especially LLM, is driving a fundamental shift in software paradigms, prompting cloud providers to build more efficient serving infrastructures. To meet the computational demands of emerging software, modern CPU processors are integrating Accelerator Units (AU) in the pipeline to accelerate key operations, such as Intel AMX for matrix multiplication. Current practices that dedicate AU-enabled CPU exclusively to LLM serving lead to significant resource waste and inferior efficiency. To this end, sharing AU-enabled CPU with general workloads is necessary to harvest redundant resources and improve platform performance-per-watt. However, perfectly sharing AU can be challenging since they introduce three-dimensional variations: variable usage patterns, compulsory frequency interferences, and dissimilar resource bounds. Existing resource managers are oblivious to complex Accelerator Unit Variations (AUV), resulting in performance and efficiency degradations of up to 50 % in shared environments. Therefore, this paper introduces AUM, a novel AU-aware resource manager designed to handle AUV and maximize the efficiency of shared processors. AUM has two cooperative components with three stages for three-dimensional AUV. The background profiler characterizes the usage, frequency, and resource information into a discrete model, guiding the runtime controller to analyze usage-aware requirements, select frequency-aware divisions, and make bound-aware resource decisions. Throu",
+  "authors": [
+   "Xin-Kai Wang",
+   "Chao Li",
+   "Yiming Zhuansun",
+   "Jin-Yang Guo",
+   "Xiao-Feng Hou",
+   "Jing Wang"
+  ],
+  "doi": "10.1109/HPCA68181.2026.11408539"
+ },
+ {
+  "title": "MFS: An Efficient Model Family Serving System for LLMs",
+  "venue": "EuroSys",
+  "year": 2026,
+  "abstract": "LLM serving providers typically offer a suite of structurally similar models, known as model families, such as the open-source Llama2 series featuring 7B, 13B, and 70B models. While numerous optimizations for LLM serving have been proposed, the potential for leveraging synergies between models within the same family has not been thoroughly explored. This paper introduces MFS, an innovative multi-tiered LLM model family serving system to exploit the structural similarities and parameter redundancies across different scales of models within a family. By utilizing a novel fine-tuning technique called Knowledge Precipitation, MFS restructures the largest model in a family to encapsulate smaller models within its architecture, enabling a unified multi-tiered serving pipeline. Based on the multi-tiered model, MFS realizes a highly parallelized tiered-level batching approach, significantly enhancing system efficiency. It also enables the sharing of intermediate features and KV-cache between models and facilitates multi-level sampling techniques during the inference phase. Experimental results demonstrate that MFS achieves substantial improvements over existing methods, including a 56.1% reduction in end-to-end token generation latency and a 47.8% decrease in GPU memory footprint without compromising the quality of generated content.",
+  "authors": [
+   "Yunxuan Zhang",
+   "Hao Wang",
+   "Han Tian",
+   "Liu Yang",
+   "Xu-Dong Liao",
+   "Wen-Xue Li"
+  ],
+  "doi": "10.1145/3767295.3769355"
+ },
+ {
+  "title": "Frontier: Simulating the Next Generation of LLM Inference Systems",
+  "venue": "SOSP",
+  "year": 2025,
+  "abstract": "Large Language Model (LLM) inference is growing increasingly complex with the rise of Mixture-of-Experts (MoE) models and disaggregated architectures that decouple components like prefill/decode (PD) or attention/FFN (AF) for heterogeneous scaling. Existing simulators, however, fall short in modeling the system-level complexities of distributed serving, and thus are unable to capture the intricate system dynamics of these emerging paradigms. We present Frontier, a high-fidelity simulator designed from the ground up for this new landscape. Frontier introduces a unified framework to model both co-located and disaggregated systems, providing native support for MoE inference with expert parallelism (EP). It enables the simulation of complex workflows like cross-cluster expert routing and advanced pipelining strategies for latency hiding. To ensure fidelity and usability, Frontier incorporates refined operator models for improved accuracy. Frontier empowers the community to design and optimize the future of LLM inference at scale.",
+  "authors": [
+   "Yicheng Feng",
+   "Xin Tan",
+   "Kin Hang Sew",
+   "Yi-Min Jiang",
+   "Yi-Bo Zhu",
+   "Hong Xu"
+  ],
+  "doi": "10.1145/3766882.3767173"
+ },
+ {
+  "title": "From Exploration to Mastery: Enabling LLMs to Master Tools via Self-Driven Interactions",
+  "venue": "ICLR",
+  "year": 2024,
+  "abstract": "Tool learning enables Large Language Models (LLMs) to interact with external environments by invoking tools, serving as an effective strategy to mitigate the limitations inherent in their pre-training data. In this process, tool documentation plays a crucial role by providing usage instructions for LLMs, thereby facilitating effective tool utilization. This paper concentrates on the critical challenge of bridging the comprehension gap between LLMs and external tools due to the inadequacies and inaccuracies inherent in existing human-centric tool documentation. We propose a novel framework, DRAFT, aimed at Dynamically Refining tool documentation through the Analysis of Feedback and Trials emanating from LLMs' interactions with external tools. This methodology pivots on an innovative trial-and-error approach, consisting of three distinct learning phases: experience gathering, learning from experience, and documentation rewriting, to iteratively enhance the tool documentation. This process is further optimized by implementing a diversity-promoting exploration strategy to ensure explorative diversity and a tool-adaptive termination mechanism to prevent overfitting while enhancing efficiency. Extensive experiments on multiple datasets demonstrate that DRAFT's iterative, feedback-based refinement significantly ameliorates documentation quality, fostering a deeper comprehension and more effective utilization of tools by LLMs. Notably, our analysis reveals that the tool documentation",
+  "authors": [
+   "Changle Qu",
+   "Sun-Hao Dai",
+   "Xiaochi Wei",
+   "Heng-Yi Cai",
+   "Shuai-Qiang Wang",
+   "Da-Wei Yin"
+  ],
+  "doi": "10.48550/arXiv.2410.08197"
+ },
+ {
+  "title": "KV Cache Transform Coding for Compact Storage in LLM Inference",
+  "venue": "ICLR",
+  "year": 2025,
+  "abstract": "Serving large language models (LLMs) at scale necessitates efficient key-value (KV) cache management. KV caches can be reused across conversation turns via shared-prefix prompts that are common in iterative code editing and chat. However, stale caches consume scarce GPU memory, require offloading, or force recomputation. We present KVTC, a lightweight transform coder that compresses KV caches for compact on-GPU and off-GPU storage. Drawing on classical media compression, KVTC combines PCA-based feature decorrelation, adaptive quantization, and entropy coding. It requires only a brief initial calibration and leaves model parameters unchanged. By exploiting redundancies in KV caches, KVTC achieves up to 20$\\times$ compression while maintaining reasoning and long-context accuracy, and 40$\\times$ or higher for specific use cases. We test KVTC with Llama 3, Mistral NeMo, and R1-Qwen 2.5 models across benchmarks including AIME25, GSM8K, LiveCodeBench, LongBench, MATH-500, MMLU, Qasper and RULER. It consistently outperforms inference-time baselines such as token eviction, quantization, and SVD-based methods, while achieving higher compression ratios. These results support KVTC as a practical building block for memory-efficient LLM serving with reusable KV caches.",
+  "authors": [
+   "Konrad Staniszewski",
+   "Adrian La'ncucki"
+  ],
+  "doi": "10.48550/arXiv.2511.01815"
+ },
+ {
+  "title": "Manage the Workloads not the Cluster: Designing a Control Plane for Large-Scale AI Clusters",
+  "venue": "MLSys",
+  "year": 2025,
+  "abstract": "The rapid adoption of large language model (LLM) services, such as ChatGPT and DeepSeek, has created unprecedented demand for computational resources, particularly on accelerator-equipped clusters (e.g., GPUs, NPUs). These workloads present unique challenges due to their highly dynamic traffic patterns and multi-dimensional resource demands, including power, memory, and computing. Existing GPU cluster management systems fall short, as they treat accelerators as monolithic units and allocate resources once at the placement time, leading to imbalanced utilization of the above three resource types across the cluster. To address these issues, we propose redefining the LLM serving cluster management as a bin-packing problem, where the resource-specific budgets abstract away hardware resources. We introduce Shapeshifter, the cluster manager that dynamically adjusts the workload deployments to balance the utilization levels of all three resources in the GPUs across the cluster. Shapeshifter monitors resource demands of LLM workload, abstracts away hardware resources with multi-dimensional resource budgets and continuously re-balances resource utilization of LLM workload before allocation of hardware resources. ShapeShifter aims to increase GPU cluster utilization and deployment density while delivering high-quality LLM inference serving. Key future research directions include exploring multidimensional model placement, exploring rapid resource rebalancing mechanisms without service ",
+  "authors": [
+   "Rui-Qi Lai",
+   "Siyu Cao",
+   "Le-Qi Li",
+   "Luo Mai",
+   "D. Ustiugov"
+  ],
+  "doi": "10.1145/3721146.3721937"
+ },
+ {
+  "title": "BanditSpec: Adaptive Speculative Decoding via Bandit Algorithms",
+  "venue": "ICML",
+  "year": 2025,
+  "abstract": "Speculative decoding has emerged as a popular method to accelerate the inference of Large Language Models (LLMs) while retaining their superior text generation performance. Previous methods either adopt a fixed speculative decoding configuration regardless of the prefix tokens, or train draft models in an offline or online manner to align them with the context. This paper proposes a training-free online learning framework to adaptively choose the configuration of the hyperparameters for speculative decoding as text is being generated. We first formulate this hyperparameter selection problem as a Multi-Armed Bandit problem and provide a general speculative decoding framework BanditSpec. Furthermore, two bandit-based hyperparameter selection algorithms, UCBSpec and EXP3Spec, are designed and analyzed in terms of a novel quantity, the stopping time regret. We upper bound this regret under both stochastic and adversarial reward settings. By deriving an information-theoretic impossibility result, it is shown that the regret performance of UCBSpec is optimal up to universal constants. Finally, extensive empirical experiments with LLaMA3 and Qwen2 demonstrate that our algorithms are effective compared to existing methods, and the throughput is close to the oracle best hyperparameter in simulated real-life LLM serving scenarios with diverse input prompts.",
+  "authors": [
+   "Yun-Long Hou",
+   "Feng-Zhuo Zhang",
+   "Cun-Xiao Du",
+   "Xuan Zhang",
+   "Jia-Chun Pan",
+   "Tianyu Pang"
+  ],
+  "doi": "10.48550/arXiv.2505.15141"
+ },
+ {
+  "title": "FlexPipe: Adapting Dynamic LLM Serving Through Inflight Pipeline Refactoring in Fragmented Serverless Clusters",
+  "venue": "EuroSys",
+  "year": 2025,
+  "abstract": "Serving Large Language Models (LLMs) in production faces significant challenges from highly variable request patterns and severe resource fragmentation in serverless clusters. Current systems rely on static pipeline configurations that struggle to adapt to dynamic workload conditions, leading to substantial inefficiencies. We present FlexPipe, a novel system that dynamically re-configures pipeline architectures during runtime to address these fundamental limitations. FlexPipe decomposes models into fine-grained stages and intelligently adjusts pipeline granularity based on real-time request pattern analysis, implementing three key innovations: fine-grained model partitioning with preserved computational graph constraints, inflight pipeline refactoring with consistent cache transitions, and topology-aware resource allocation that navigates GPU fragmentation. Comprehensive evaluation on an 82-GPU cluster demonstrates that FlexPipe achieves up to 8.5x better resource efficiency while maintaining 38.3% lower latency compared to state-of-the-art systems, reducing GPU reservation requirements from 75% to 30% of peak capacity.",
+  "authors": [
+   "Yan-Ying Lin",
+   "Shi-Jie Peng",
+   "Cheng-Zhi Lu",
+   "Cheng-Zhong Xu",
+   "Ke-Jiang Ye"
+  ],
+  "doi": "10.1145/3767295.3769316"
+ },
+ {
+  "title": "Cauchy: A Cost-Efficient LLM Serving System through Adaptive Heterogeneous Deployment",
+  "venue": "SoCC",
+  "year": 2025,
+  "abstract": "Recent advances in large language models (LLMs) have intensified the need for serving LLMs that are cost-efficient and QoS-guaranteed. Existing frameworks often co-locate computationally distinct prefill and decode instances on homogeneous GPUs, overlooking their unique resource demands and under-utilizing heterogeneous GPUs. This leads to suboptimal resource utilization and increased capital expenditure. We present Cauchy, a LLM serving framework that adaptively deploys prefill and decode computation to the most suitable heterogeneous GPUs and dynamically schedules user requests. At the core of Cauchy is choosing proper GPU Combo, a conceptual GPU combination encompassing diverse GPU configurations, for their cost efficiency in running prefill-decode pairs. Cauchy deploys a set of combos to satisfy QoS requirements (e.g., goodput) of LLM inference. Cauchy further employs hierarchical scheduling to handle user requests, using opportunistic scheduling within the allocated GPU Combos and a goodput-weighted round-robin policy across GPU Combos. Dynamic autoscaling is used to stabilize the cost-efficiency in the face of surging requests. Experiments show that Cauchy achieves up to a 38.3% improvement in Tokens/USD efficiency over the state-of-the-art baselines, while maintaining strict Service Level Objectives (SLOs). Our work highlights the importance of leveraging workload and GPU heterogeneity to achieve superior cost-efficient LLM serving.",
+  "authors": [
+   "Yihui Zhang",
+   "Han Shen",
+   "Ren-Yu Yang",
+   "Di Tian",
+   "Yuxi-ang Luo",
+   "Meng-Hao Zhang"
+  ],
+  "doi": "10.1145/3772052.3772264"
+ },
+ {
+  "title": "Demystifying Cost-Efficiency in LLM Serving over Heterogeneous GPUs",
+  "venue": "ICML",
+  "year": 2025,
+  "abstract": "Recent advancements in Large Language Models (LLMs) have led to increasingly diverse requests, accompanied with varying resource (compute and memory) demands to serve them. However, this in turn degrades the cost-efficiency of LLM serving as common practices primarily rely on homogeneous GPU resources. In response to this problem, this work conducts a thorough study about serving LLMs over heterogeneous GPU resources on cloud platforms. The rationale is that different GPU types exhibit distinct compute and memory characteristics, aligning well with the divergent resource demands of diverse requests. Particularly, through comprehensive benchmarking, we discover that the cost-efficiency of LLM serving can be substantially optimized by meticulously determining GPU composition, deployment configurations, and workload assignments. Subsequently, we design a scheduling algorithm via mixed-integer linear programming, aiming at deducing the most cost-efficient serving plan under the constraints of price budget and real-time GPU availability. Remarkably, our approach effectively outperforms homogeneous and heterogeneous baselines under a wide array of scenarios, covering diverse workload traces, varying GPU availablilities, and multi-model serving. This casts new light on more accessible and efficient LLM serving over heterogeneous cloud resources.",
+  "authors": [
+   "You-He Jiang",
+   "Fang-Cheng Fu",
+   "Xiaozhe Yao",
+   "Guo-Liang He",
+   "Xupeng Miao",
+   "A. Klimovic"
+  ],
+  "doi": "10.48550/arXiv.2502.00722"
+ },
+ {
+  "title": "DeltaZip: Efficient Serving of Multiple Full-Model-Tuned LLMs",
+  "venue": "EuroSys",
+  "year": 2023,
+  "abstract": "Fine-tuning large language models (LLMs) greatly improves model quality for downstream tasks. However, serving many fine-tuned LLMs concurrently is challenging due to the sporadic, bursty, and varying request patterns of different LLMs. To bridge this gap, we present DeltaZip, an LLM serving system that efficiently serves multiple full-parameter fine-tuned models concurrently by aggressively compressing model deltas by up to 10× while maintaining high model quality. The key insight behind this design is that fine-tuning results in small-magnitude changes to the pre-trained model. By co-designing the serving system with the compression algorithm, DeltaZip achieves 2× to 12× improvement in throughput compared to the state-of-the-art systems.",
+  "authors": [
+   "Xiaozhe Yao",
+   "Qing-Hao Hu",
+   "A. Klimovic"
+  ],
+  "doi": "10.1145/3689031.3717468"
+ },
+ {
+  "title": "Rethinking Key-Value Cache Compression Techniques for Large Language Model Serving",
+  "venue": "MLSys",
+  "year": 2025,
+  "abstract": "Key-Value cache (\\texttt{KV} \\texttt{cache}) compression has emerged as a promising technique to optimize Large Language Model (LLM) serving. It primarily decreases the memory consumption of \\texttt{KV} \\texttt{cache} to reduce the computation cost. Despite the development of many compression algorithms, their applications in production environments are still not prevalent. In this paper, we revisit mainstream \\texttt{KV} \\texttt{cache} compression solutions from a practical perspective. Our contributions are three-fold. First, we comprehensively review existing algorithmic designs and benchmark studies for \\texttt{KV} \\texttt{cache} compression and identify missing pieces in their performance measurement, which could hinder their adoption in practice. Second, we empirically evaluate representative \\texttt{KV} \\texttt{cache} compression methods to uncover two key issues that affect the computational efficiency: (1) while compressing \\texttt{KV} \\texttt{cache} can reduce memory consumption, current implementations (e.g., FlashAttention, PagedAttention) do not optimize for production-level LLM serving, resulting in suboptimal throughput performance; (2) compressing \\texttt{KV} \\texttt{cache} may lead to longer outputs, resulting in increased end-to-end latency. We further investigate the accuracy performance of individual samples rather than the overall performance, revealing the intrinsic limitations in \\texttt{KV} \\texttt{cache} compression when handling specific LLM tasks. T",
+  "authors": [
+   "Wei Gao",
+   "Xin-yan Zhou",
+   "Peng Sun",
+   "Tian-Wei Zhang",
+   "Yonggang Wen"
+  ],
+  "doi": "10.48550/arXiv.2503.24000"
+ },
+ {
+  "title": "Efficient Deployment of Large Language Model across Cloud-Device Systems",
+  "venue": "SoCC",
+  "year": 2024,
+  "abstract": "The capabilities of large language models (LLMs) in text comprehension and generation are advancing artificial intelligence. However, the growing number of parameters and computational demands challenge the efficient deployment of inference services. High-performance GPU clusters in the cloud can meet these requirements but incur high service costs and network stability issues, which struggle to meet service-level agreements (SLAs). The “cloud-device collaboration” approach leverages the heterogeneous hardware on both the cloud and device sides to satisfy SlAs efficiently. However, the varying operational intensity among different LLM operators and their dynamic nature complicate load scheduling for cloud-device systems. To address these challenges, we optimize LLM inference deployment on cloud-device systems through three aspects: scheduling algorithm, hardware modeling, and compilation deployment. For the scheduling algorithm, we analyze the LLM computation network, evaluate the computation-to-memory access ratio under different sequence lengths, and propose a greedy algorithm-based operator-level scheduling strategy. For the hardware modeling, we establish a relationship between operational intensity and GPU resource utilization to estimate operator running time. Finally, we designed a cloud-device LLM compiler framework for quantitative evaluation and efficient deployment across various hardware combinations and inference tasks. In specific inference scenarios, our framew",
+  "authors": [
+   "Fan Yang",
+   "Ze-Hao Wang",
+   "Haoyu Zhang",
+   "Zhen-Hua Zhu",
+   "Xin-Hao Yang",
+   "Guo-Hao Dai"
+  ],
+  "doi": "10.1109/SOCC62300.2024.10737825"
+ },
+ {
+  "title": "MoE-Lightning: High-Throughput MoE Inference on Memory-constrained GPUs",
+  "venue": "ASPLOS",
+  "year": 2024,
+  "abstract": "Efficient deployment of large language models, particularly Mixture of Experts (MoE) models, on resource-constrained platforms presents significant challenges in terms of computational efficiency and memory utilization. The MoE architecture, renowned for its ability to increase model capacity without a proportional increase in inference cost, greatly reduces the token generation latency compared with dense models. However, the large model size makes MoE models inaccessible to individuals without high-end GPUs. In this paper, we propose a high-throughput MoE batch inference system, MoE-Lightning, that significantly outperforms past work. MoE-Lightning introduces a novel CPU-GPU-I/O pipelining schedule, CGOPipe, with paged weights to achieve high resource utilization, and a performance model, HRM, based on a Hierarchical Roofline Model we introduce to help find policies with higher throughput than existing systems. MoE-Lightning can achieve up to (10.3x) higher throughput than state-of-the-art offloading-enabled LLM inference systems for Mixtral 8x7B on a single T4 GPU (16GB). When the theoretical system throughput is bounded by the GPU memory, MoE-Lightning can reach the throughput upper bound with 2-3x less CPU memory, significantly increasing resource utilization. MoE-Lightning also supports efficient batch inference for much larger MoEs (e.g., Mixtral 8x22B and DBRX) on multiple low-cost GPUs (e.g., 2--4 T4s).",
+  "authors": [
+   "Shi-Yi Cao",
+   "Shu Liu",
+   "Tyler Griggs",
+   "Peter Schafhalter",
+   "Xiaoxuan Liu",
+   "Ying Sheng"
+  ],
+  "doi": "10.1145/3669940.3707267"
+ },
+ {
+  "title": "Hydra: Scale-out FHE Accelerator Architecture for Secure Deep Learning on FPGA",
+  "venue": "HPCA",
+  "year": 2025,
+  "abstract": "Deep learning, including Convolutional Neural Network (CNN) and Large Language Model (LLM), under Fully Homomorphic Encryption (FHE) is very computationally intensive because of the burdensome computations like ciphertext convolution and matrix multiplication, non-linear layers, and bootstrapping. Existing FHE accelerators focus on the high throughput computational units, stacking parallelized clusters to maximize ciphertext inference performance. Nevertheless, this design philosophy cannot leverage the substantial parallelism at the application level and is not scalable for further performance enhancement by simply adding additional compute nodes to cope with the ever-increasing model sizes in the future. In this paper, we propose the high-performance FHE acceleration architecture in a “scale-out” manner for secure deep learning, termed as Hydra. It supports the multi-server scaling and arbitrary computational nodes theoretically, each handling a portion of the deep learning model governed by the central scheduling mechanism on the host server. Hydra exhibits excellent scalability and delivers outstanding performance across a range of compute resource sizes. We highlight the following results: (1) up to $74 \\times$ and $160 \\times$ speedup over the SOTA single card accelerator Poseidon and FAB; (2) outperforms 8-card FAB-2 by $12 \\times$ to $21 \\times$ for FHE-based CNNs and LLMs; (3) outperforms SOTA ASIC accelerators, CraterLake and SHARP, by $8.1 \\times$ and $2.5 \\times$ ",
+  "authors": [
+   "Ying-Hao Yang",
+   "Xi-Cheng Xu",
+   "Haibin Zhang",
+   "Jie Song",
+   "Xin Tang",
+   "Hang Lu"
+  ],
+  "doi": "10.1109/HPCA61900.2025.00090"
+ },
+ {
+  "title": "History Doesn't Repeat Itself but Rollouts Rhyme: Accelerating Reinforcement Learning with RhymeRL",
+  "venue": "ASPLOS",
+  "year": 2026,
+  "abstract": "With the rapid advancement of large language models (LLMs), reinforcement learning (RL) has emerged as a pivotal methodology for enhancing the reasoning capabilities of LLMs. Unlike traditional pre-training approaches, RL encompasses multiple stages: rollout, reward, and training, which necessitates collaboration among various worker types. However, current RL systems continue to grapple with substantial GPU underutilization, due to two primary factors: (1) The rollout stage dominates the overall RL process due to test-time scaling; (2) Imbalances in rollout lengths (within the same batch) result in GPU bubbles. While prior solutions like asynchronous execution and truncation offer partial relief, they may compromise training accuracy for efficiency. Our key insight stems from a previously overlooked observation: rollout responses exhibit remarkable similarity across adjacent training epochs. Based on the insight, we introduce RhymeRL, an LLM RL system designed to accelerate RL training with two key innovations. First, to enhance rollout generation, we present HistoSpec, a speculative decoding inference engine that utilizes the similarity of historical rollout token sequences to obtain accurate drafts. Second, to tackle rollout bubbles, we introduce HistoPipe, a two-tier scheduling strategy that leverages the similarity of historical rollout distributions to balance workload among rollout workers. Experimental results demonstrate that RhymeRL achieves up to a 2.6x performance",
+  "authors": [
+   "Jing-Kai He",
+   "Tianjian Li",
+   "Er-Hu Feng",
+   "Dong Du",
+   "Qian Liu",
+   "Tao Liu"
+  ],
+  "doi": "10.1145/3779212.3790172"
+ },
+ {
+  "title": "EdgeAgent: Orchestrating On-Device LLM inference for End-User Multi-Agent Systems on CPU-GPU Unified Memory Architectures",
+  "venue": "ASPLOS",
+  "year": 2026,
+  "abstract": "Emerging multi-agent LLMs demand privacy-preserving edge deployment, yet current inference systems struggle with these collaborative workflows. Specifically, the memory-bound decode phase causes severe bus contention on unified memory architectures (UMA), paralyzing naive CPU-GPU co-execution. Furthermore, speculative decoding in multi-agent workloads faces extreme variance in drafting difficulty, alternating between complex reasoning and predictable structured generation. Compounded by frequent tool-induced stalls, this highly fragmented execution severely underutilizes hardware and defeats traditional static batching. We present EdgeAgent, a cross-layer inference system explicitly co-designed for edge UMA and multi-agent workloads. At the micro-architectural level, it bypasses rigid graph-compiler constraints to enable zero-copy UMA-aware tensor parallelism, utilizing asymmetric memory layouts to fully saturate both CPU and GPU compute units. At the scheduling level, it dynamically allocates draft budgets based on real-time sequence predictability to bound bandwidth waste. Concurrently, an asynchronous suspend-and-yield mechanism actively evicts stalled agents, ensuring continuous hardware saturation during unpredictable tool invocations. Extensive evaluations on an Apple M4 SoC demonstrate that the UMA-aware execution alone contributes a 1.29× speedup over batched speculative decoding. Adding the agent-aware scheduling lifts the full EdgeAgent system to a 1.77× speedup und",
+  "authors": [
+   "Yu-Hai Long",
+   "Yuan-Xin Wei",
+   "Kai Wu",
+   "Jin-Hui Wei",
+   "Dan Huang",
+   "Jiang-Su Du"
+  ],
+  "doi": "10.1145/3845814.3850072"
+ },
+ {
+  "title": "LLM-42: Enabling Determinism in LLM Inference with Verified Speculation",
+  "venue": "SOSP",
+  "year": 2026,
+  "abstract": "In LLM inference, the same prompt often returns different outputs across different runs. At the system level, this non-determinism arises from floating-point non-associativity interacting with dynamic batching and GPU kernels whose reduction orders vary with batch size. A straightforward way to eliminate nondeterminism is to disable dynamic batching, but doing so severely degrades throughput. Another approach is to make the kernels batch-invariant; however, this tightly couples determinism to kernel design, requires new implementations, and imposes fixed overheads regardless of how much of the workload actually requires determinism. Inspired by self-speculative decoding, we present LLM-42 — a scheduling-based approach to enable determinism in LLM inference. Our key observation is that a given sequence of tokens is likely to emit the same next token across multiple runs, even with dynamic batching. Moreover, most GPU kernels use the same reduction schedules for all inputs of a given shape. Leveraging these insights, LLM-42 decodes tokens using a nondeterministic fast path and enforces determinism through a verify-rollback protocol. The verifier replays fast path tokens under a fixed batch size to obtain a deterministic reference output, commits tokens that match the reference, and rolls back those that do not. LLM-42 reuses many existing kernels unchanged and incurs overhead only proportional to the fraction of traffic that requires determinism.",
+  "authors": [
+   "Raja Gond",
+   "Aditya K Kamath",
+   "R. Ramjee",
+   "A. Panwar"
+  ],
+  "doi": "10.1145/3830418.3843901"
+ },
+ {
+  "title": "Linux AGX: An Adaptive GPU eXtension to Linux Fair Scheduling for Physical AI and Robotic Systems",
+  "venue": "SOSP",
+  "year": 2026,
+  "abstract": "Linux fair scheduling (EEVDF in kernel ≥ 6.6, CFS in older releases) is the default time-sharing policy on many production robots. ML-driven robotic pipelines, combining perception, planning, and on-device LLM/VLM inference, create workloads in which short CPU preparation steps gate GPU launches and the active task graph reconfigures at runtime as scenes change, humans intervene, or new behaviors are triggered. Because Linux fair scheduling observes only CPU service and sleep-wake events, it cannot identify GPU-gating feeder slices or adapt as the critical path shifts, leading to avoidable GPU idle time and inflated end-to-end latency on single-GPU embedded platforms. We present AGX (Adaptive GPU eXtension), a lightweight, scheduler-agnostic mechanism that preserves Linux fair scheduling's pick logic, virtual-deadline computation, and fairness semantics while making its weight interface GPU-, dependency-, and adaptation-aware. A user-space profiler periodically computes a bounded per-task importance score, which the kernel applies as an effective weight, requiring no new queues, locks, or vendor-specific paths. AGX tracks the evolving critical path online without manual retuning. We prove that AGX preserves proportional fairness under effective weights and bounds competition-induced GPU launch delay, yielding a K-independent bound when the bounded boost is not clipped and bounded coalescing otherwise. AGX instantiates on EEVDF, specializes to CFS, and generalizes to any propo",
+  "authors": [
+   "Soheil Shirvani",
+   "Cong Liu"
+  ],
+  "doi": "10.1145/3830418.3843893"
+ },
+ {
+  "title": "HealthServe: A Public Health-Aware Inference Framework",
+  "venue": "SIGMETRICS",
+  "year": 2026,
+  "abstract": "Large language model (LLM) inference consumes substantial datacenter energy and produces both carbon emissions and criteria pollutants (PM2.5, SO2, NOx). These criteria pollutants impact public health depending on the meteorological conditions of emission regions and population exposure. We apply health impact assessment to LLM inference, a use case of growing concern due to its rapidly rising energy consumption, and characterize health impacts from datacenter energy consumption as quantifiable health cost metrics. We then present HealthServe, a systems-level framework for health-aware LLM inference serving, which jointly minimizes carbon emissions and health costs across geo-distributed GPU clusters while meeting latency SLOs. HealthServe employs a hierarchical scheduling architecture with Social Cognitive Optimization (SCO) that maintains condition-indexed decision libraries for configuration reuse under recurring operating conditions. Evaluation on a heterogeneous GPU cluster across different U.S. datacenter locations demonstrates over 50% carbon footprint and over 25% health cost reductions over the state-of-the-art energy-aware LLM inference serving solutions. Additionally, we show that HealthServe can be augmented with existing carbon-aware serving approaches to provide additive sustainability benefits.",
+  "authors": [
+   "Sicheng Zhou",
+   "Rohan Basu Roy"
+  ],
+  "doi": "10.1145/3820171.3806868"
+ }
+]

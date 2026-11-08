@@ -1,0 +1,282 @@
+[
+ {
+  "title": "ORCHES: Orchestrated Test-Time-Compute-based LLM Reasoning on Collaborative GPU-PIM HEterogeneous System",
+  "venue": "MICRO",
+  "year": 2025,
+  "abstract": "Recent breakthroughs in AI reasoning, enabled by test-time compute (TTC) on compact large language models (LLMs), offer great potential for edge devices to effectively execute complex reasoning tasks. However, the intricate inference pipelines associated with TTC pose new efficiency bottlenecks, limiting achievable latency and hindering widespread adoption. Through an in-depth analysis, we identify three key barriers: (1) variable parallelism, characterized by inference-dependent dynamic control flows and varying batch sizes, complicating workload scheduling; (2) branch dependencies, hindering efficient pipelining across sequential reasoning steps; and (3) branch pruning, causing memory fragmentation and irregular data access patterns. Motivated by the memory-bound nature of LLMs and Processing-in-Memory (PIM)’s capability to reduce data movement, we propose ORCHES, a novel GPU–PIM collaborative system specifically designed to address these barriers. ORCHES integrates three key innovations: (1) adaptive workload assignment, dynamically balancing workloads between GPU and PIM units to maximize parallelism despite unpredictable branching; (2) branch-aware pipelining, leveraging speculative execution to substantially reduce inter-step pipeline stalls; and (3) fragmentation-aware memory structuring, enhancing data locality and access efficiency through coordinated caching and optimized memory layout reorganization. Experimental results demonstrate that ORCHES achieves average spe",
+  "authors": [
+   "Si-Xu Li",
+   "Yu-Zhou Chen",
+   "Chao-Jian Li",
+   "Yonggan Fu",
+   "Zhengyi Wang",
+   "Zhongzhi Yu"
+  ],
+  "doi": "10.1145/3725843.3756039"
+ },
+ {
+  "title": "Bridging the Gap Between LLMs and LNS with Dynamic Data Format and Architecture Codesign",
+  "venue": "MICRO",
+  "year": 2024,
+  "abstract": "Deep Neural Networks (DNNs) have achieved tremendous success in the past few years. However, their training and inference demand exceptional computational and memory resources. Quantization has been shown as an effective approach to mitigate the cost, with the mainstream data types reduced from FP32 to FP16/BF16 and recently FP4 in the latest NVIDIA B100 GPUs. With increasingly aggressive quantization, however, the conventional floating-point formats suffer from limited precision in representing numbers around zero. Recently, NVIDIA demonstrated the potential of using a Logarithmic Number System (LNS) for the next generation of tensor cores. While LNS mitigates the hurdles in representing small numbers, in this work we observed a mismatch between LNS and the emerging Large Language Models (LLM), where LLM exhibits significant outliers when directly adopting the LNS format. In this paper, we present a data-format/architecture codesign to bright this gap. On the format side, we propose a dynamic LNS format to flexibly represent outliers at a higher precision, by exploiting asymmetry in the LNS representation and identifying outliers through a per-block basis. On the architecture side, for demonstration, we realize the dynamic LNS format in a systolic array, which can handle the irregularity of the outliers at runtime. We implement our approach on an Alveo U280 FPGA as a prototype. Experimental results show that our design can effectively handle the outliers and resolve the mism",
+  "authors": [
+   "Pouya Haghi",
+   "Chun-Shu Wu",
+   "Zahra Azad",
+   "Yanfei Li",
+   "Andrew Gui",
+   "Yuchen Hao"
+  ],
+  "doi": "10.1109/MICRO61859.2024.00118"
+ },
+ {
+  "title": "SPARTA ALIGNMENT: Collectively Aligning Multiple Language Models through Combat",
+  "venue": "NeurIPS",
+  "year": 2025,
+  "abstract": "We propose SPARTA ALIGNMENT, an algorithm to collectively align multiple LLMs through competition and combat. To complement a single model's lack of diversity in generation and biases in evaluation, multiple LLMs form a\"sparta tribe\"to compete against each other in fulfilling instructions while serving as judges for the competition of others. For each iteration, one instruction and two models are selected for a duel, the other models evaluate the two responses, and their evaluation scores are aggregated through a adapted elo-ranking based reputation system, where winners/losers of combat gain/lose weight in evaluating others. The peer-evaluated combat results then become preference pairs where the winning response is preferred over the losing one, and all models learn from these preferences at the end of each iteration. SPARTA ALIGNMENT enables the self-evolution of multiple LLMs in an iterative and collective competition process. Extensive experiments demonstrate that SPARTA ALIGNMENT outperforms initial models and 4 self-alignment baselines across 10 out of 12 tasks and datasets with 7.0% average improvement. Further analysis reveals that SPARTA ALIGNMENT generalizes more effectively to unseen tasks and leverages the expertise diversity of participating models to produce more logical, direct and informative outputs.",
+  "authors": [
+   "Yuru Jiang",
+   "Wen-Xuan Ding",
+   "Shang-Bin Feng",
+   "Greg Durrett",
+   "Yulia Tsvetkov"
+  ],
+  "doi": "10.48550/arXiv.2506.04721"
+ },
+ {
+  "title": "SLANG: New Concept Comprehension of Large Language Models",
+  "venue": "EMNLP",
+  "year": 2024,
+  "abstract": "The dynamic nature of language, particularly evident in the realm of slang and memes on the Internet, poses serious challenges to the adaptability of Large Language Models (LLMs). Traditionally anchored to static datasets, these models often struggle to keep up with the rapid linguistic evolution characteristic of online communities. This research aims to bridge this gap by enhancing LLMs’ comprehension of the evolving new concepts on the Internet, without the high cost of continual retraining. In pursuit of this goal, we introduce SLNAG, a benchmark designed to autonomously integrate novel data and assess LLMs’ ability to comprehend emerging concepts, alongside FOCUS, an approach uses causal inference to enhance LLMs to understand new phrases and their colloquial context. Our benchmark and approach involves understanding real-world instances of linguistic shifts, serving as contextual beacons, to form more precise and contextually relevant connections between newly emerging expressions and their meanings. The empirical analysis shows that our causal inference-based approach outperforms the baseline methods in terms of precision and relevance in the comprehension of Internet slang and memes.",
+  "authors": [
+   "Lingrui Mei",
+   "Sheng-Hua Liu",
+   "Yi-Wei Wang",
+   "Bao-Long Bi",
+   "Xue-Qi Cheng"
+  ],
+  "doi": "10.18653/v1/2024.emnlp-main.698"
+ },
+ {
+  "title": "ImageNetVC: Zero- and Few-Shot Visual Commonsense Evaluation on 1000 ImageNet Categories",
+  "venue": "EMNLP",
+  "year": 2023,
+  "abstract": "Recently, Large Language Models (LLMs) have been serving as general-purpose interfaces, posing a significant demand for comprehensive visual knowledge. However, it remains unclear how well current LLMs and their visually augmented counterparts (VaLMs) can master visual commonsense knowledge. To investigate this, we propose ImageNetVC, a human-annotated dataset specifically designed for zero- and few-shot visual commonsense evaluation across 1,000 ImageNet categories. Utilizing ImageNetVC, we benchmark the fundamental visual commonsense knowledge of both unimodal LLMs and VaLMs. Furthermore, we analyze the factors affecting the visual commonsense knowledge of large-scale models, providing insights into the development of language models enriched with visual commonsense knowledge. Our code and dataset are available at https://github.com/hemingkx/ImageNetVC.",
+  "authors": [
+   "Heming Xia",
+   "Qingxiu Dong",
+   "Lei Li",
+   "Jingjing Xu",
+   "Tianyu Liu",
+   "Ziwei Qin"
+  ],
+  "doi": "10.18653/v1/2023.findings-emnlp.133"
+ },
+ {
+  "title": "S3: Increasing GPU Utilization during Generative Inference for Higher Throughput",
+  "venue": "NeurIPS",
+  "year": 2023,
+  "abstract": "Generating texts with a large language model (LLM) consumes massive amounts of memory. Apart from the already-large model parameters, the key/value (KV) cache that holds information about previous tokens in a sequence can grow to be even larger than the model itself. This problem is exacerbated in one of the current LLM serving frameworks which reserves the maximum sequence length of memory for the KV cache to guarantee generating a complete sequence as they do not know the output sequence length. This restricts us to use a smaller batch size leading to lower GPU utilization and above all, lower throughput. We argue that designing a system with a priori knowledge of the output sequence can mitigate this problem. To this end, we propose S$^{3}$, which predicts the output sequence length, schedules generation queries based on the prediction to increase device resource utilization and throughput, and handle mispredictions. Our proposed method achieves 6.49$\\times$ throughput over those systems that assume the worst case for the output sequence length.",
+  "authors": [
+   "Yunho Jin",
+   "Chun-Feng Wu",
+   "D. Brooks",
+   "Gu-Yeon Wei"
+  ],
+  "doi": "10.48550/arXiv.2306.06000"
+ },
+ {
+  "title": "Scalable Context Orchestration for Serving LLMs Over Voice",
+  "venue": "SOSP",
+  "year": 2026,
+  "abstract": "Voice AI applications are gaining popularity as advances in large language models (LLMs) enable more natural and accessible spoken interactions. Serving these applications requires accounting not only for what users say, but also for how they speak (e.g., speaking rate) and the conditions under which their audio is captured and transmitted (e.g., background noise and packet loss). However, existing LLM systems represent conversation context as a flat, growing sequence of messages, leaving voice-specific context implicit in the audio. As a result, they can generate responses that are poorly aligned with user preferences, degrade interaction quality under adverse environmental conditions, and incur high costs over long voice sessions. We present llmovoice, a context-management middleware that explicitly models voice context and orchestrates its use. At each turn, llmovoice constructs a bounded voice context from the current user input, relevant interaction history, and explicit paralinguistic and environmental states. It then uses the serving LLM to reason over this context and generate runtime directives that guide how the system responds. We evaluate llmovoice on real-world voice applications and benchmarks. It reduces speaking-rate alignment error by 52.4%, lowers the false-interruption rate from 46.0% to 0.9% under packet loss, and reduces model usage cost by 79.2%. For long sessions, llmovoice reduces per-turn cost by up to 24.9× while retaining up to 98.7% of baseline ans",
+  "authors": [
+   "Lin-Yi Jiang",
+   "Silvery D. Fu",
+   "Yi-Fei Zhu"
+  ],
+  "doi": "10.1145/3830418.3843860"
+ },
+ {
+  "title": "Tetris: Efficient Long-context LLM Serving with Chunkwise Dynamic Sequence Parallelism",
+  "venue": "ISCA",
+  "year": 2026,
+  "abstract": "With the advancement of large language models (LLMs), their context windows have rapidly expanded. To meet diverse demands from varying-length requests in online services, existing state-of-the-art systems adjust resource allocation by tuning the sequence parallelism (SP) allocation. However, current dynamic SP allocation lacks flexibility to (1) support stage-specific parallelism requirements in LLM inference, (2) mitigate the global latency degradation from excessive SP allocation, and (3) exploit resource fragments arising from SP size variation. To tackle this problem, we propose Chunkwise Dynamic Sequence Parallelism (CDSP), a fine-grained parallelism strategy that assigns SP sizes across intra-request token segments. Based on CDSP, we build Tetris, an LLM serving system that (1) efficiently integrates CDSP into disaggregated cluster architecture to satisfy parallelism heterogeneity, (2) dynamically regulates SP size expansion based on real-time load conditions, and (3) adaptively explores chunking plans to utilize fragmented resources while meeting per-request demands. Compared with state-ofthe-art systems, Tetris achieves up to $\\text{4.35} \\times$ lower time-to-firsttoken (TTFT) under max sustainable loads, reduces median timebetween-tokens (TBT) by up to 40.1%, and increases the max request capacity by up to 45%.",
+  "authors": [
+   "Cong Li",
+   "Yuzhe Yang",
+   "Xuegui Zheng",
+   "Qi-Fan Yang",
+   "Yijin Guan",
+   "Si-Ze Zheng"
+  ],
+  "doi": "10.1109/ISCA66397.2026.00098"
+ },
+ {
+  "title": "AdaServe: Accelerating Multi-SLO LLM Serving with SLO-Customized Speculative Decoding",
+  "venue": "EuroSys",
+  "year": 2026,
+  "abstract": "Modern large language model (LLM) applications exhibit diverse service-level objectives (SLOs), from low-latency requirements in interactive coding assistants to more relaxed constraints in data wrangling tasks. Existing LLM serving systems, which rely on uniform batching and scheduling strategies, often fail to meet these heterogeneous SLOs concurrently. We present AdaServe, the first LLM serving system designed to support efficient multi-SLO serving through SLO-customized speculative decoding. AdaServe formulates multi-SLO serving as a constrained optimization problem and introduces a hardware-aware algorithm that constructs a speculation tree tailored to each request's latency target. It features a speculate-select-verify pipeline that enables fine-grained control over decoding speed while maximizing system throughput. AdaServe further adapts to workload variation by dynamically adjusting speculation parameters. Evaluations across diverse workloads show that AdaServe reduces SLO violations by up to 4.3X and improves goodput by up to 1.9X compared to the best-performing baselines, highlighting its effectiveness in multi-SLO serving.",
+  "authors": [
+   "Zi-Kun Li",
+   "Zhuo-Fu Chen",
+   "Rémi Delacourt",
+   "Gabriele Oliaro",
+   "Zeyu Wang",
+   "Qinghan Chen"
+  ],
+  "doi": "10.1145/3767295.3769315"
+ },
+ {
+  "title": "High Throughput and Low Latency LLM Serving via Adaptive KV Caching",
+  "venue": "EuroSys",
+  "year": 2026,
+  "abstract": "The substantial memory demands of model weights and key-value (KV) caches often lead to severe memory bottlenecks in LLM serving. Existing systems address this by offloading KV caches to host memory and rapidly restoring them on demand before decoding. However, these approaches are too coarse-grained and fail to fully exploit the combined computational and storage capabilities of GPUs. In this paper, we introduce eLLM, a novel LLM serving system designed to achieve high throughput and low latency through fine-grained KV caching. The core innovation lies in adaptively storing partial tokens with KV caches while dynamically recomputing non-cached tokens in parallel with decoding, thereby balancing memory usage and computational efficiency. This new mechanism enables dual-level optimizations: At the request level, eLLM employs token-wise caching to adaptively adjust batch sizes and uncached token ratios in real time. At the layer level, eLLM leverages communication-computation overlap and kernel fusion for resource-complementary operations to further enhance throughput and reduce latency. Experiments demonstrate that eLLM achieves 3.03x higher throughput while satisfying strict per-output-token latency SLOs. It also reduces first-token latency by 2.63x compared to state-of-the-art systems.",
+  "authors": [
+   "Wen-Yan Chen",
+   "Cheng-Zhi Lu",
+   "Huan-Le Xu",
+   "Ke-Jiang Ye",
+   "Cheng-Zhong Xu"
+  ],
+  "doi": "10.1145/3767295.3803570"
+ },
+ {
+  "title": "KVCache Cache in the Wild: Characterizing and Optimizing KVCache Cache at a Large Cloud Provider",
+  "venue": "ATC",
+  "year": 2025,
+  "abstract": "Serving large language models (LLMs) is important for cloud providers, and caching intermediate results (KV\\$) after processing each request substantially improves serving throughput and latency. However, there is limited understanding of how LLM serving benefits from KV\\$ caching, where system design decisions like cache eviction policies are highly workload-dependent. In this paper, we present the first systematic characterization of the KV\\$ workload patterns from one of the leading LLM service providers. We draw observations that were not covered by previous studies focusing on synthetic workloads, including: KV\\$ reuses are skewed across requests, where reuses between single-turn requests are equally important as multi-turn requests; the reuse time and probability are diverse considering all requests, but for a specific request category, the pattern tends to be predictable; and the overall cache size required for an ideal cache hit ratio is moderate. Based on the characterization, we further propose a workload-aware cache eviction policy that improves the serving performance under real-world traces, especially with limited cache capacity.",
+  "authors": [
+   "Jiahao Wang",
+   "Jinbo Han",
+   "Xing-Da Wei",
+   "Si-Jie Shen",
+   "Dingyan Zhang",
+   "Chenguang Fang"
+  ],
+  "doi": "10.48550/arXiv.2506.02634"
+ },
+ {
+  "title": "Pie: A Programmable Serving System for Emerging LLM Applications",
+  "venue": "SOSP",
+  "year": 2025,
+  "abstract": "Emerging large language model (LLM) applications involve diverse reasoning strategies and agentic workflows, straining the capabilities of existing serving systems built on a monolithic token generation loop. This paper introduces Pie, a programmable LLM serving system designed for flexibility and efficiency. Pie decomposes the traditional generation loop into fine-grained service handlers exposed via an API and delegates control of the generation process to user-provided programs, called inferlets. This enables applications to implement new KV cache strategies, bespoke generation logic, and seamlessly integrate computation and I/O—entirely within the application, without requiring modifications to the serving system. Pie executes inferlets using WebAssembly, benefiting from its lightweight sandboxing. Our evaluation shows Pie matches state-of-the-art performance on standard tasks (3-12% latency overhead) while significantly improving latency and throughput (1.3×-3.4× higher) on agentic workflows by enabling application-specific optimizations.",
+  "authors": [
+   "In Gim",
+   "Zhiyao Ma",
+   "Seung-seob Lee",
+   "Lin Zhong"
+  ],
+  "doi": "10.1145/3731569.3764814"
+ },
+ {
+  "title": "Towards Effective and Efficient Multi-Agent Language Model Systems: Foundations, Prospects, and Applications",
+  "venue": "ACL",
+  "year": 2026,
+  "abstract": "Multi-agent systems powered by large language models (LLMs) offer a promising paradigm for tack-ling complex reasoning, decision-making, and problem-solving tasks. However, achieving both effectiveness and efficiency in such systems remains a critical challenge. This tutorial introduces recent advances in building effective and efficient multi-agent LLM systems, focusing on three core components. First, we discuss the design of individual LLM agents. We present state-of-the-art techniques for enabling capable agents using efficient and compact LLMs, including model distillation, dynamic routing, and memory-and compute efficient serving, providing a foundation for scalable and responsive agent design under resource constraints. Second, we cover coordination and communication among agents, crucial for collective performance, highlighting methods for improving multi-agent reasoning and decision-making through prompt and graph optimization, sycophancy mitigation, and structured LLM-based frameworks. Last, we explore real-world applications of LLM agents in areas such as industry, healthcare, quantum computing, and various scientific domains.",
+  "authors": [
+   "Xuan Wang",
+   "Shuxiang Cao",
+   "Yu-Chen Zhuang",
+   "Wenqi Shi"
+  ],
+  "doi": "10.18653/v1/2026.acl-tutorials.3"
+ },
+ {
+  "title": "COMET: Towards Practical W4A4KV4 LLMs Serving",
+  "venue": "ASPLOS",
+  "year": 2024,
+  "abstract": "Quantization is a widely-used compression technology to reduce the overhead of serving large language models (LLMs) on terminal devices and in cloud data centers. However, prevalent quantization methods, such as 8-bit weight-activation or 4-bit weight-only quantization, achieve limited performance improvements due to poor support for low-precision (e.g., 4-bit) activation. This work, for the first time, realizes practical W4A4KV4 serving for LLMs, fully utilizing the INT4 tensor cores on modern GPUs and reducing the memory bottleneck caused by the KV cache. Specifically, we propose a novel fine-grained mixed-precision quantization algorithm (FMPQ) that compresses most activations into 4-bit with negligible accuracy loss. To support mixed-precision matrix multiplication for W4A4 and W4A8, we develop a highly optimized W4Ax kernel. Our approach introduces a novel mixed-precision data layout to facilitate access and fast dequantization for activation and weight tensors, utilizing the GPU's software pipeline to hide the overhead of data loading and conversion. Additionally, we propose fine-grained streaming multiprocessor (SM) scheduling to achieve load balance across different SMs. We integrate the optimized W4Ax kernel into our inference framework, COMET, and provide efficient management to support popular LLMs such as LLaMA-3-70B. Extensive evaluations demonstrate that, when running LLaMA family models on a single A100-80G-SMX4, COMET achieves a kernel-level speedup of 2.88x o",
+  "authors": [
+   "Lian Liu",
+   "Long Cheng",
+   "Hai-Meng Ren",
+   "Zhaohui Xu",
+   "Yu-Dong Pan",
+   "Meng-Di Wang"
+  ],
+  "doi": "10.1145/3676641.3716252"
+ },
+ {
+  "title": "PipeLLM: Fast and Confidential Large Language Model Services with Speculative Pipelined Encryption",
+  "venue": "ASPLOS",
+  "year": 2024,
+  "abstract": "Confidential computing on GPUs, like NVIDIA H100, mitigates the security risks of outsourced Large Language Models (LLMs) by implementing strong isolation and data encryption. Nonetheless, this encryption incurs a significant performance overhead, reaching up to 52.8% and 88.2% throughput drop when serving OPT-30B and OPT-66B, respectively. To address this challenge, we introduce PipeLLM, a user-transparent runtime system. PipeLLM removes the overhead by overlapping the encryption and GPU computation through pipelining-an idea inspired by the CPU instruction pipelining-thereby effectively concealing the latency increase caused by encryption. The primary technical challenge is that, unlike CPUs, the encryption module lacks prior knowledge of the specific data needing encryption until it is requested by the GPUs. To this end, we propose speculative pipelined encryption to predict the data requiring encryption by analyzing the serving patterns of LLMs. Further, we have developed an efficient, low-cost pipeline relinquishing approach for instances of incorrect predictions. Our experiments show that compared with vanilla systems without confidential computing (e.g., vLLM, PEFT, and FlexGen), PipeLLM incurs modest overhead ( < 19.6% in throughput) across various LLM sizes, from 13B to 175B. PipeLLM's source code is available at https://github.com/SJTU-IPADS/PipeLLM.",
+  "authors": [
+   "Yifan Tan",
+   "Cheng Tan",
+   "Ze-Yu Mi",
+   "Hai-Bo Chen"
+  ],
+  "doi": "10.1145/3669940.3707224"
+ },
+ {
+  "title": "DHP Benchmark: Are LLMs Good NLG Evaluators?",
+  "venue": "ACL",
+  "year": 2024,
+  "abstract": "Large Language Models (LLMs) are increasingly serving as evaluators in Natural Language Generation (NLG) tasks; this is often referred to as ``LLM-as-a-judge'' paradigm. However, the capabilities of LLMs in evaluating NLG quality remain underexplored. Current studies depend on human assessments and simple metrics that fail to capture the discernment of LLMs across diverse NLG tasks. To address this gap, we propose the Discernment of Hierarchical Perturbation (DHP) benchmarking framework, which provides quantitative discernment scores for LLMs. This framework leverages hierarchically perturbed text data and statistical tests to systematically measure the NLG evaluation capabilities of LLMs. We re-established six evaluation datasets for this benchmark, covering four NLG tasks: Summarization, Story Completion, Question Answering, and Translation. Our comprehensive benchmarking of five major LLM families provides critical insight into their strengths and limitations as NLG evaluators. Our dataset is available at https://huggingface.co/datasets/YCWANGVINCE/DHP_Benchmark.",
+  "authors": [
+   "Yicheng Wang",
+   "Jiayi Yuan",
+   "Yu-Neng Chuang",
+   "Zhuoer Wang",
+   "Ying-Chi Liu",
+   "Mark Cusick"
+  ],
+  "doi": "10.48550/arXiv.2408.13704"
+ },
+ {
+  "title": "QServe: W4A8KV4 Quantization and System Co-design for Efficient LLM Serving",
+  "venue": "MLSys",
+  "year": 2024,
+  "abstract": "Quantization can accelerate large language model (LLM) inference. Going beyond INT8 quantization, the research community is actively exploring even lower precision, such as INT4. Nonetheless, state-of-the-art INT4 quantization techniques only accelerate low-batch, edge LLM inference, failing to deliver performance gains in large-batch, cloud-based LLM serving. We uncover a critical issue: existing INT4 quantization methods suffer from significant runtime overhead (20-90%) when dequantizing either weights or partial sums on GPUs. To address this challenge, we introduce QoQ, a W4A8KV4 quantization algorithm with 4-bit weight, 8-bit activation, and 4-bit KV cache. QoQ stands for quattuor-octo-quattuor, which represents 4-8-4 in Latin. QoQ is implemented by the QServe inference library that achieves measured speedup. The key insight driving QServe is that the efficiency of LLM serving on GPUs is critically influenced by operations on low-throughput CUDA cores. Building upon this insight, in QoQ algorithm, we introduce progressive quantization that can allow low dequantization overhead in W4A8 GEMM. Additionally, we develop SmoothAttention to effectively mitigate the accuracy degradation incurred by 4-bit KV quantization. In the QServe system, we perform compute-aware weight reordering and take advantage of register-level parallelism to reduce dequantization latency. We also make fused attention memory-bound, harnessing the performance gain brought by KV4 quantization. As a result",
+  "authors": [
+   "Yu-Jun Lin",
+   "Hao-Tian Tang",
+   "Shang Yang",
+   "Zhe-Kai Zhang",
+   "Guang-Xuan Xiao",
+   "Chuang Gan"
+  ],
+  "doi": "10.48550/arXiv.2405.04532"
+ },
+ {
+  "title": "3-in-1: 2D Rotary Adaptation for Efficient Finetuning, Efficient Batching and Composability",
+  "venue": "NeurIPS",
+  "year": 2024,
+  "abstract": "Parameter-efficient finetuning (PEFT) methods effectively adapt large language models (LLMs) to diverse downstream tasks, reducing storage and GPU memory demands. Despite these advantages, several applications pose new challenges to PEFT beyond mere parameter efficiency. One notable challenge involves the efficient deployment of LLMs equipped with multiple task- or user-specific adapters, particularly when different adapters are needed for distinct requests within the same batch. Another challenge is the interpretability of LLMs, which is crucial for understanding how LLMs function. Previous studies introduced various approaches to address different challenges. In this paper, we introduce a novel method, RoAd, which employs a straightforward 2D rotation to adapt LLMs and addresses all the above challenges: (1) RoAd is remarkably parameter-efficient, delivering optimal performance on GLUE, eight commonsense reasoning tasks and four arithmetic reasoning tasks with $<0.1\\%$ trainable parameters; (2) RoAd facilitates the efficient serving of requests requiring different adapters within a batch, with an overhead comparable to element-wise multiplication instead of batch matrix multiplication; (3) RoAd enhances LLM's interpretability through integration within a framework of distributed interchange intervention, demonstrated via composition experiments.",
+  "authors": [
+   "Baohao Liao",
+   "Christof Monz"
+  ],
+  "doi": "10.48550/arXiv.2409.00119"
+ },
+ {
+  "title": "Loquetier: A Virtualized Multi-LoRA Framework for Unified LLM Fine-tuning and Serving",
+  "venue": "NeurIPS",
+  "year": 2025,
+  "abstract": "Low-Rank Adaptation (LoRA) has become a widely adopted parameter-efficient fine-tuning (PEFT) technique for adapting large language models (LLMs) to downstream tasks. While prior work has explored strategies for integrating LLM training and serving, there still remains a gap in unifying fine-tuning and inference for LoRA-based models. We present Loquetier, a virtualized multi-LoRA framework that seamlessly integrates LoRA fine-tuning and serving within a single runtime. Loquetier introduces two key components: (1) a Virtualized Module that isolates PEFT-based modifications and supports multiple adapters on a shared base model, and (2) an optimized computation flow with a kernel design that merges fine-tuning and inference paths in forward propagation, enabling efficient batching and minimizing kernel invocation overhead. Extensive experiments across three task settings show that Loquetier consistently outperforms existing baselines in both performance and flexibility, achieving up to $3.0\\times$ the throughput of the state-of-the-art co-serving system on inference-only tasks and $46.4\\times$ higher SLO attainment than PEFT on unified fine-tuning and inference tasks. The implementation of Loquetier is publicly available at https://github.com/NJUDeepEngine/Loquetier.",
+  "authors": [
+   "Yu-Chen Zhang",
+   "Han-Yue Du",
+   "Chun Cao",
+   "Jing-Wei Xu"
+  ],
+  "doi": "10.48550/arXiv.2511.00101"
+ },
+ {
+  "title": "MoC: Mixtures of Text Chunking Learners for Retrieval-Augmented Generation System",
+  "venue": "ACL",
+  "year": 2025,
+  "abstract": "Retrieval-Augmented Generation (RAG), while serving as a viable complement to large language models (LLMs), often overlooks the crucial aspect of text chunking within its pipeline. This paper initially introduces a dual-metric evaluation method, comprising Boundary Clarity and Chunk Stickiness, to enable the direct quantification of chunking quality. Leveraging this assessment method, we highlight the inherent limitations of traditional and semantic chunking in handling complex contextual nuances, thereby substantiating the necessity of integrating LLMs into chunking process. To address the inherent trade-off between computational efficiency and chunking precision in LLM-based approaches, we devise the granularity-aware Mixture-of-Chunkers (MoC) framework, which consists of a three-stage processing mechanism. Notably, our objective is to guide the chunker towards generating a structured list of chunking regular expressions, which are subsequently employed to extract chunks from the original text. Extensive experiments demonstrate that both our proposed metrics and the MoC framework effectively settle challenges of the chunking task, revealing the chunking kernel while enhancing the performance of the RAG system.",
+  "authors": [
+   "Jihao Zhao",
+   "Zhi-Yuan Ji",
+   "Zhaoxin Fan",
+   "Han-Yu Wang",
+   "Si-Min Niu",
+   "Bo Tang"
+  ],
+  "doi": "10.48550/arXiv.2503.09600"
+ }
+]

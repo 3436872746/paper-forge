@@ -27,6 +27,7 @@ references/review-response.md
 references/reproducibility.md
 references/casebook.md       40 traps with one-line checks
 references/examples.md       worked examples from published papers
+references/idea-cards/       100 papers -> 40 design moves (2023-2026)
 scripts/check_refs.py
 scripts/page_audit.py
 scripts/stats_paired.py

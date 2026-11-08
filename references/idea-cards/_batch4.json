@@ -1,0 +1,279 @@
+[
+ {
+  "title": "Batched in Back: Characterizing and Optimizing Offline LLM Inference in Production with ACDC",
+  "venue": "SOSP",
+  "year": 2026,
+  "abstract": "Serving offline large language model (LLM) inference workloads (e.g., log summarization and bulk translation) can consume up to 30% of GPUs in production. Despite this significant share, the characteristics of offline inference remain largely understudied. In this paper, we start by analyzing 1.5 million tasks comprising 23 billion requests across text and multi-modal models. We discover that the key properties of offline workloads, namely inherent determinism and throughput orientation, are neither exploited by online LLM serving systems nor by existing offline serving frameworks. We design ACDC, a task-aware offline serving system that leverages these properties along three orthogonal axes, namely resource orchestration, cache management, and execution flow. ACDC has been deployed in production for over three months, achieving up to 3.9× higher output cost-efficiency. Beyond isolated deployment, we further identify that online prefill stages leave up to 38.3% of capacity idle as resource bubbles. We design a hybrid-serving mechanism that harvests these bubbles for offline tasks, improving end-to-end throughput by up to 35.7% over the state-of-the-art alternative.",
+  "authors": [
+   "Le-Ping Yang",
+   "Xue Li",
+   "Kun Qian",
+   "Er-Ci Xu",
+   "Ming-Zhe Han",
+   "Hao-Ran Zhu"
+  ],
+  "doi": "10.1145/3830418.3843877"
+ },
+ {
+  "title": "Oaken: Fast and Efficient LLM Serving with Online-Offline Hybrid KV Cache Quantization",
+  "venue": "ISCA",
+  "year": 2025,
+  "abstract": "Modern Large Language Model (LLM) serving system batches multiple requests to achieve high throughput, while batching attention operations is challenging, rendering memory bandwidth a critical bottleneck. Today, to mitigate this issue, the community relies on high-end GPUs with multiple high-bandwidth memory (HBM) channels. Unfortunately, HBM’s high bandwidth often comes at the expense of limited memory capacity, necessitating systems to scale, which reduces core utilization and increases costs. Moreover, recent advancements enabling longer contexts for LLMs have substantially increased the key-value (KV) cache size, further intensifying the pressures on memory capacity. To lower the pressure, the literature has explored KV cache quantization techniques, which commonly use low bitwidth (e.g., INT4) for most values, selectively using higher bitwidth (e.g., FP16) for outlier values. While this approach helps achieve high accuracy and low bitwidth simultaneously, it comes with the limitation that the cost for online outlier detection is excessively high, negating the advantages of quantization. Inspired by these insights, we propose Oaken, an acceleration solution that achieves high accuracy and high performance simultaneously through co-designing algorithm and hardware. To effectively find a sweet spot in the accuracy-performance trade-off space of KV cache quantization, Oaken employs an online-offline hybrid approach, setting outlier thresholds offline, which are then used to ",
+  "authors": [
+   "Minsu Kim",
+   "Seongmin Hong",
+   "Ryeowook Ko",
+   "Soongyu Choi",
+   "Hunjong Lee",
+   "Junsoo Kim"
+  ],
+  "doi": "10.1145/3695053.3731019"
+ },
+ {
+  "title": "MagicDec: Breaking the Latency-Throughput Tradeoff for Long Context Generation with Speculative Decoding",
+  "venue": "ICLR",
+  "year": 2024,
+  "abstract": "Large Language Models (LLMs) have become more prevalent in long-context applications such as interactive chatbots, document analysis, and agent workflows, but it is challenging to serve long-context requests with low latency and high throughput. Speculative decoding (SD) is a widely used technique to reduce latency losslessly, but the conventional wisdom suggests that its efficacy is limited to small batch sizes. In MagicDec, we show that surprisingly SD can achieve speedup even for a high throughput inference regime for moderate to long sequences. More interestingly, an intelligent drafting strategy can achieve better speedup with increasing batch size based on our rigorous analysis. MagicDec first identifies the bottleneck shifts with increasing batch size and sequence length, and uses these insights to deploy SD more effectively for high throughput inference. We leverage draft model with sparse KV cache to address the KV bottleneck, which scales with both sequence length and batch size. Additionally, we propose a theoretical model to select the optimal drafting strategy for maximum speedup. Our work highlights the broad applicability of speculative decoding in long-context serving, as it can enhance throughput and reduce latency without compromising accuracy. For moderate to long sequences, we demonstrate up to 2.51x speedup for Llama3.1-8B when serving batch sizes ranging from 32 to 256 on various types of hardware and tasks.",
+  "authors": [
+   "Ranajoy Sadhukhan",
+   "Jian Chen",
+   "Zhuo-Ming Chen",
+   "Vashisth Tiwari",
+   "Rui-Hang Lai",
+   "Jinyuan Shi"
+  ],
+  "doi": "10.48550/arXiv.2408.11049"
+ },
+ {
+  "title": "EPIC: Efficient Position-Independent Caching for Serving Large Language Models",
+  "venue": "ICML",
+  "year": 2024,
+  "abstract": "Large Language Models (LLMs) show great capabilities in a wide range of applications, but serving them efficiently becomes increasingly challenging as requests (prompts) become more complex. Context caching improves serving performance by reusing Key-Value (KV) vectors, the intermediate representations of tokens that are repeated across requests. However, existing context caching requires exact prefix matches across requests, limiting reuse cases in settings such as few-shot learning and retrieval-augmented generation, where immutable content (e.g., documents) remains unchanged across requests but is preceded by varying prefixes. Position-Independent Caching (PIC) addresses this issue by enabling modular reuse of the KV vectors regardless of prefixes. We formalize PIC and advance prior work by introducing EPIC, a serving system incorporating our new LegoLink algorithm, which mitigates the inappropriate\"attention sink\"effect at every document beginning, to maintain accuracy with minimal computation. Experiments show that EPIC achieves up to 8x improvements in Time-To-First-Token (TTFT) and 7x throughput gains over existing systems, with negligible or no accuracy loss.",
+  "authors": [
+   "Jun-Hao Hu",
+   "Wen-Rui Huang",
+   "Weidong Wang",
+   "Haoying Wang",
+   "Tian-Cheng Hu",
+   "Qin Zhang"
+  ],
+  "doi": ""
+ },
+ {
+  "title": "The VLLM Safety Paradox: Dual Ease in Jailbreak Attack and Defense",
+  "venue": "NeurIPS",
+  "year": 2024,
+  "abstract": "The vulnerability of Vision Large Language Models (VLLMs) to jailbreak attacks appears as no surprise. However, recent defense mechanisms against these attacks have reached near-saturation performance on benchmark evaluations, often with minimal effort. This \\emph{dual high performance} in both attack and defense raises a fundamental and perplexing paradox. To gain a deep understanding of this issue and thus further help strengthen the trustworthiness of VLLMs, this paper makes three key contributions: i) One tentative explanation for VLLMs being prone to jailbreak attacks--\\textbf{inclusion of vision inputs}, as well as its in-depth analysis. ii) The recognition of a largely ignored problem in existing defense mechanisms--\\textbf{over-prudence}. The problem causes these defense methods to exhibit unintended abstention, even in the presence of benign inputs, thereby undermining their reliability in faithfully defending against attacks. iii) A simple safety-aware method--\\textbf{LLM-Pipeline}. Our method repurposes the more advanced guardrails of LLMs on the shelf, serving as an effective alternative detector prior to VLLM response. Last but not least, we find that the two representative evaluation methods for jailbreak often exhibit chance agreement. This limitation makes it potentially misleading when evaluating attack strategies or defense mechanisms. We believe the findings from this paper offer useful insights to rethink the foundational development of VLLM safety with re",
+  "authors": [
+   "Yang-Yang Guo",
+   "Fangkai Jiao",
+   "Li-Qiang Nie",
+   "Mohan Kankanhalli"
+  ],
+  "doi": "10.48550/arXiv.2411.08410"
+ },
+ {
+  "title": "VectorLiteRAG: Latency-Aware and Fine-Grained Resource Partitioning for Efficient RAG",
+  "venue": "HPCA",
+  "year": 2025,
+  "abstract": "Retrieval-Augmented Generation leverages vector similarity search to enhance large language models with up-to-date, external knowledge, enabling accurate and reliable responses. While CPU-only vector search incurs high latency on large, high-dimensional indices, co-locating the retriever and the LLM on the GPU leads to resource sharing that can create resource contention. Specifically, vector search is memory and I/O intensive, placing it in direct conflict with LLM inference, which demands memory for KV cache and compute for higher throughput. We present VectorLiterAG, a latency-aware RAG serving system that explicitly orchestrates data placement and execution across retrieval and inference to meet strict end-to-end SLOs. VectorLiterAG is driven by access-pattern analysis and performance estimation to regulate how retrieval variability can be mitigated and managed in the system with LLM inference, enabling SLO-compliant execution under skewed and dynamic workloads. By jointly modeling search latency and query hit-rate distributions, VectorLiterAG identifies an optimal index partitioning point across CPU and GPU that minimizes contention and stabilizes batching behavior, thereby maximizing sustained throughput under skewed access patterns. A low-overhead online index update mechanism allows VectorLiterag to continuously adapt to evolving request distributions, preserving batching efficiency and throughput as access patterns evolve. Our evaluations demonstrate that VecTORLITER",
+  "authors": [
+   "Junkyum Kim",
+   "Divya Mahajan"
+  ],
+  "doi": "10.1109/HPCA68181.2026.11408552"
+ },
+ {
+  "title": "Sutradhara : An Intelligent Orchestrator-Engine Co-design for Tool-based Agentic Inference",
+  "venue": "ASPLOS",
+  "year": 2026,
+  "abstract": "Agentic applications are LLMs that iteratively invoke external tools to accomplish complex tasks. Such tool-based agents are rapidly becoming the dominant paradigm for deploying language models in production. Unlike traditional single-turn inference, agentic workloads chain together multiple LLM calls and tool executions before producing a final response, creating a new performance bottleneck that manifests as increased latency in First Token Rendered (FTR) of the final answer. Through analysis of requests at production scale, we reveal three critical challenges: tool calls account for 30-85% of FTR latency, KV cache hit rates collapse despite substantial context reuse across iterations, and sequential orchestration wastes potential intra-request parallelism. These bottlenecks stem from a design gap in which orchestrators and LLM engines operate as decoupled black boxes, preventing cross-layer optimizations. We present Sutradhara, a co-designed agentic inference system that integrates orchestration with LLM serving through a thin API enabling three optimizations: overlap tool execution with subsequent LLM prefill using tool-aware prompt splitting, streaming tool execution to dispatch tools incrementally during decode rather than waiting for complete output, and orchestrator-aware cache management that uses semantic hints to improve hit rates and reduce thrashing. Implemented on vLLM, Sutradhara improves the throughput–latency trade-off in agentic systems, sustains up to 77% h",
+  "authors": [
+   "Anish Biswas",
+   "Kanishk Goel",
+   "S. S",
+   "Jayashree Mohan",
+   "Alind Khare",
+   "Anjaly Parayil"
+  ],
+  "doi": "10.48550/arXiv.2601.12967"
+ },
+ {
+  "title": "MoESD: Unveil Speculative Decoding's Potential for Accelerating Sparse MoE",
+  "venue": "NeurIPS",
+  "year": 2025,
+  "abstract": "Large Language Models (LLMs) have achieved remarkable success across many applications, with Mixture of Experts (MoE) models demonstrating great potential. Compared to traditional dense models, MoEs achieve better performance with less computation. Speculative decoding (SD) is a widely used technique to accelerate LLM inference without accuracy loss, but it has been considered efficient only for dense models. In this work, we first demonstrate that, under medium batch sizes, MoE surprisingly benefits more from SD than dense models. Furthermore, as MoE becomes sparser -- the prevailing trend in MoE designs -- the batch size range where SD acceleration is expected to be effective becomes broader. To quantitatively understand tradeoffs involved in SD, we develop a reliable modeling based on theoretical analyses. While current SD research primarily focuses on improving acceptance rates of algorithms, changes in workload and model architecture can still lead to degraded SD acceleration even with high acceptance rates. To address this limitation, we introduce a new metric'target efficiency'that characterizes these effects, thus helping researchers identify system bottlenecks and understand SD acceleration more comprehensively. For scenarios like private serving, this work unveils a new perspective to speed up MoE inference, where existing solutions struggle. Experiments on different GPUs show up to 2.29x speedup for Qwen2-57B-A14B at medium batch sizes and validate our theoretical ",
+  "authors": [
+   "Zong-jun Huang",
+   "Lei Zhu",
+   "Zongyuan Zhan",
+   "Ting Hu",
+   "Weikai Mao",
+   "Xian Yu"
+  ],
+  "doi": "10.48550/arXiv.2505.19645"
+ },
+ {
+  "title": "Symbiotic MLLM Serving: Dynamically Balancing Parallelism Across GPUs and Resources Within GPUs",
+  "venue": "ISCA",
+  "year": 2026,
+  "abstract": "Multimodal Large Language Models (MLLMs) present a key serving challenge. Existing systems usually extend text-only LLM stacks. They either co-locate the vision encoder with the decoder on the same GPUs or move it to a fixed GPU pool. Both choices rely on ahead-of-time, static decisions for parallelism and GPU allocation. They ignore a key asymmetry in MLLMs: the encoder has a small memory footprint but inputdependent, often quadratic, compute cost, while the decoder is both memory-and compute-intensive. With mixed highand low-resolution requests, this leads to interference between encoder and decoder, persistent SM and HBM slack, poor GPU utilization, and frequent SLO violations. In this paper, we propose Resonator, an efficient MLLM serving system that uses fine-grained runtime scheduling along two axes. First, an intra-GPU sharing engine manages SM and HBM sharing between encoder and decoder. It exploits stagelevel complementarity and kernel-level slack to run computebound encoder kernels and memory-bound LLM kernels in a work-conserving way on the same GPU. Second, an interGPU parallelism engine selects the encoder's data-parallel and tensor-parallel plan at runtime based on input resolution, batch composition, and a lightweight Performance Atlas, and switches plans with near-zero overhead. Evaluation on three state-of-theart MLLMs against strong baselines shows that Resonator improves mean TTFT by up to $5.1 \\times$, TPOT by up to $3.0 \\times$, mean end-to-end latency by",
+  "authors": [
+   "Zhi-Cheng Li",
+   "Jia-Cheng Zhao",
+   "Yang-Yu Zhang",
+   "Zhaolin Duan",
+   "Xinyu Liu",
+   "Si-Qi Li"
+  ],
+  "doi": "10.1109/ISCA66397.2026.00173"
+ },
+ {
+  "title": "DynaPipe: Dynamic Layer Redistribution for Efficient Serving of LLMs with Pipeline Parallelism",
+  "venue": "NeurIPS",
+  "year": 2025,
+  "abstract": "To accelerate large language model (LLM) inference, pipeline parallelism partitions model layers into sequential stages, each assigned to a different device for concurrent execution. However, this method often suffers from pipeline bubbles caused by imbalanced computation in the tail stage. While upstream stages focus solely on layer-forward operations, the final stage must also handle additional post-processing tasks like sampling, which introduces significant latency. This discrepancy in workload leads to pipeline misalignment, forcing upstream stages to idle and degrading overall performance. Existing frameworks typically distribute layers evenly across stages without accounting for computational load differences. To address this, we propose DynaPipe , a dynamic layer redistribution scheme that adaptively balances computation by predicting execution latency in real time. Moreover, we introduce an asynchronous key-value (KV) cache migration coordinator to enable non-blocking layer redistribution during inference. Experiments on representative LLMs demonstrate that DynaPipe reduces average end-to-end request latency by 8% to 41% across diverse workloads, outperforming state-of-the-art pipeline parallelism systems. Our implementation is publicly available at https://github.com/xhx1022/DynaPipe .",
+  "authors": [
+   "Hongxin Xu",
+   "Tianyu Guo",
+   "Xian-Wei Zhang"
+  ],
+  "doi": "10.52202/085713-4569"
+ },
+ {
+  "title": "SERE: Similarity-based Expert Re-routing for Efficient Batch Decoding in MoE Models",
+  "venue": "ICLR",
+  "year": 2026,
+  "abstract": "Mixture-of-Experts (MoE) architectures employ sparse activation to deliver faster training and inference with higher accuracy than dense LLMs. However, in production serving, MoE models require batch inference to optimize hardware efficiency, which may cause excessive expert activation and thus slow the memory-bound decoding stage. To address the fundamental tension between batch decoding and expert sparsity, we present SERE, a Similarity-based Expert Re-routing method for Efficient batch decoding in MoE models. SERE dynamically reduces the number of active experts in an input-aware manner by re-routing tokens from secondary experts to their most similar primary counterparts. It also leverages similarity patterns to identify and preserve critical experts, thereby preventing capability loss. Notably, SERE avoids static expert pruning or merging, instead enabling dynamic expert skipping based on batch-level expert redundancy. Additionally, we provide an efficient custom CUDA kernel for SERE, enabling plug-and-play use in vLLM with only a single-line code change. Extensive experiments on various complex reasoning benchmarks demonstrate that SERE achieves up to 2.0x speedup with minimal quality loss, providing a practical solution for cost-efficient and latency-sensitive large-scale MoE deployment. Code implementation of SERE can be found in https://github.com/JL-Cheng/SERE.",
+  "authors": [
+   "Jun-Tong Wu",
+   "Jiali Cheng",
+   "Fu-Yu Lv",
+   "Dan Ou",
+   "Li Yuan"
+  ],
+  "doi": "10.48550/arXiv.2602.07616"
+ },
+ {
+  "title": "DynamoLLM: Designing LLM Inference Clusters for Performance and Energy Efficiency",
+  "venue": "HPCA",
+  "year": 2024,
+  "abstract": "The rapid evolution and widespread adoption of generative large language models (LLMs) have made them a pivotal workload in various applications. Today, LLM inference clusters receive a large number of queries with strict Service Level Objectives (SLOs). To achieve the desired performance, these models execute on power-hungry GPUs, causing inference clusters to consume large amounts of energy and, consequently, result in substantial carbon emissions. Fortunately, we find that there is an opportunity to improve energy efficiency by exploiting the heterogeneity in inference compute properties and the fluctuations in inference workloads. However, the diversity and dynamicity of these environments create a large search space, where different system configurations (e.g., number of instances, model parallelism, and GPU frequency) translate into different energy-performance trade-offs. To address these challenges, we propose DynamoLLM, the first energy-management framework for LLM inference environments. DynamoLLM automatically and dynamically reconfigures the inference cluster to optimize for energy of LLM serving under the services’ performance SLOs. We show that at a service level, on average, DynamoLLM conserves 52% of the energy and 38% of the operational carbon emissions, and reduces the cost to the customer by 61%, while meeting the latency SLOs.",
+  "authors": [
+   "Jovan Stojkovic",
+   "Chao-Jie Zhang",
+   "Íñigo Goiri",
+   "J. Torrellas",
+   "Esha Choukse"
+  ],
+  "doi": "10.1109/HPCA61900.2025.00102"
+ },
+ {
+  "title": "All You Need is One: Capsule Prompt Tuning with a Single Vector",
+  "venue": "NeurIPS",
+  "year": 2025,
+  "abstract": "Prompt-based learning has emerged as a parameter-efficient finetuning (PEFT) approach to facilitate Large Language Model (LLM) adaptation to downstream tasks by conditioning generation with task-aware guidance. Despite its successes, current prompt-based learning methods heavily rely on laborious grid searching for optimal prompt length and typically require considerable number of prompts, introducing additional computational burden. Worse yet, our pioneer findings indicate that the task-aware prompt design is inherently limited by its absence of instance-aware information, leading to a subtle attention interplay with the input sequence. In contrast, simply incorporating instance-aware information as a part of the guidance can enhance the prompt-tuned model performance without additional fine-tuning. Moreover, we find an interesting phenomenon, namely\"attention anchor\", that incorporating instance-aware tokens at the earliest position of the sequence can successfully preserve strong attention to critical structural information and exhibit more active attention interaction with all input tokens. In light of our observation, we introduce Capsule Prompt-Tuning (CaPT), an efficient and effective solution that leverages off-the-shelf, informative instance semantics into prompt-based learning. Our approach innovatively integrates both instance-aware and task-aware information in a nearly parameter-free manner (i.e., one single capsule prompt). Empirical results demonstrate that our",
+  "authors": [
+   "Yiyang Liu",
+   "J. Liang",
+   "Heng Fan",
+   "Wen-Hao Yang",
+   "Yiming Cui",
+   "Xiao-Tian Han"
+  ],
+  "doi": "10.48550/arXiv.2510.16670"
+ },
+ {
+  "title": "Tree of Attributes Prompt Learning for Vision-Language Models",
+  "venue": "ICLR",
+  "year": 2024,
+  "abstract": "Prompt learning has proven effective in adapting vision language models for downstream tasks. However, existing methods usually append learnable prompt tokens solely with the category names to obtain textual features, which fails to fully leverage the rich context indicated in the category name. To address this issue, we propose the Tree of Attributes Prompt learning (TAP), which first instructs LLMs to generate a tree of attributes with a\"concept - attribute - description\"structure for each category, and then learn the hierarchy with vision and text prompt tokens. Unlike existing methods that merely augment category names with a set of unstructured descriptions, our approach essentially distills structured knowledge graphs associated with class names from LLMs. Furthermore, our approach introduces text and vision prompts designed to explicitly learn the corresponding visual attributes, effectively serving as domain experts. Additionally, the general and diverse descriptions generated based on the class names may be wrong or absent in the specific given images. To address this misalignment, we further introduce a vision-conditional pooling module to extract instance-specific text features. Extensive experimental results demonstrate that our approach outperforms state-of-the-art methods on the zero-shot base-to-novel generalization, cross-dataset transfer, as well as few-shot classification across 11 diverse datasets. Code is available at https://github.com/HHenryD/TAP.",
+  "authors": [
+   "Tong Ding",
+   "Wan-Hua Li",
+   "Zhong-Qi Miao",
+   "Hanspeter Pfister"
+  ],
+  "doi": "10.48550/arXiv.2410.11201"
+ },
+ {
+  "title": "AdaGen: Workload-Adaptive Cluster Scheduler for Latency-Optimal LLM Inference Serving",
+  "venue": "EuroSys",
+  "year": 2026,
+  "abstract": "The inference workloads of Large Language Models (LLMs) pose significant latency and cost challenges due to increasing model sizes and demand for real-time responses. Existing cluster schedulers for multi-instance LLM serving primarily focus on load balancing to optimize memory usage, which is insufficient for workloads with diverse request characteristics. In such cases, the compute layout — the arrangement of tokens across iterations within each instance—plays a crucial role in determining latency. We propose AdaGen, a workload-adaptive cluster scheduler that minimizes latency and thus maximizes SLO attainment by optimizing compute layouts across instances. AdaGen employs a multi-step scheduling strategy: it first classifies requests based on prefill and decode lengths, then balances load, and finally performs selective distributed execution across instances. Each step incrementally refines the scheduling based on the compute layouts derived from the decision of the previous step. To avoid the overhead of actual execution to generate the layouts, AdaGen introduces a novel simulation-based estimator. Extensive experiments using production workloads show that AdaGen achieves up to 3.6× higher SLO attainment and 2× better cost-efficiency compared to the existing systems, while ensuring scalability.",
+  "authors": [
+   "Sudipta Saha Shubha",
+   "Ayush Goel",
+   "Diman Zad Tootaghaj",
+   "Khaled Diab",
+   "Hardik Soni",
+   "K. K. Ramakrishnan"
+  ],
+  "doi": "10.1145/3767295.3769345"
+ },
+ {
+  "title": "Rethinking Generative Large Language Model Evaluation for Semantic Comprehension",
+  "venue": "ICML",
+  "year": 2024,
+  "abstract": "Despite their sophisticated capabilities, large language models (LLMs) encounter a major hurdle in effective assessment. This paper first revisits the prevalent evaluation method-multiple choice question answering (MCQA), which allows for straightforward accuracy measurement. Through a comprehensive evaluation of 24 models across 11 benchmarks, we highlight several potential drawbacks of MCQA, for instance, the inconsistency between the MCQA evaluation and the generation of open-ended responses in practical scenarios. In response, we introduce an RWQ-Elo rating system, engaging 24 LLMs such as GPT-4, GPT-3.5, Google-Gemini-Pro and LLaMA-1/-2, in a two-player competitive format, with GPT-4 serving as the judge. Each LLM receives an Elo rating thereafter. This system is designed to mirror real-world usage, and for this purpose, we have compiled a new benchmark called ``Real-world questions'' (RWQ), comprising 20,772 authentic user inquiries. Additionally, we thoroughly analyze the characteristics of our system and compare it with prior leaderboards like AlpacaEval and MT-Bench. Our analysis reveals the stability of our RWQ-Elo system, the feasibility of registering new models, and its potential to reshape LLM leaderboards.",
+  "authors": [
+   "Fang-Yun Wei",
+   "Xi Chen",
+   "Linzi Luo"
+  ],
+  "doi": "10.48550/arXiv.2403.07872"
+ },
+ {
+  "title": "Asynchronous Verified Semantic Caching for Tiered LLM Architectures",
+  "venue": "MLSys",
+  "year": 2026,
+  "abstract": "Large language models (LLMs) now sit in the critical path of search, assistance, and agentic workflows, making semantic caching essential for reducing inference cost and latency. Production deployments typically use a tiered static-dynamic design: a static cache of curated, offline-vetted responses mined from logs, backed by a dynamic cache populated online. In practice, both tiers are commonly governed by a single embedding similarity threshold, which induces a hard tradeoff: conservative thresholds miss safe reuse opportunities, while aggressive thresholds risk serving semantically incorrect responses. We introduce Krites, an asynchronous, LLM-judged caching policy that expands static coverage without changing serving decisions. On the critical path, Krites behaves exactly like a standard static-threshold policy. When the nearest static neighbor of the prompt falls just below the static threshold, Krites asynchronously invokes an LLM judge to verify whether the static response is acceptable for the new prompt. Approved matches are promoted into the dynamic cache, allowing future repeats and paraphrases to reuse curated static answers and expanding static reach over time. In oracle-based trace-driven simulations on conversational and search workloads, Krites increases the fraction of requests served with curated static answers (direct static hits plus verified promotions) by up to 2.4× on conversational traffic and 3.9× on search-style queries relative to tuned baselines, wi",
+  "authors": [
+   "Asmita Singh",
+   "Haozhe Wang",
+   "Laxmi Naga Santosh Attaluri",
+   "T. Chiam",
+   "Wei-Hua Zhu"
+  ],
+  "doi": "10.1145/3805621.3807627"
+ },
+ {
+  "title": "NeuStream: Bridging Deep Learning Serving and Stream Processing",
+  "venue": "EuroSys",
+  "year": 2025,
+  "abstract": "Modern Deep Neural Network (DNN) exhibits a pattern where multiple sub-models are executed, guided by control flows such as loops and switch/merge operations. This dynamic nature introduces complexities in batching the requests of such DNNs for efficient execution on GPUs. In this paper, we present NeuStream, a programming model and runtime system for serving deep learning workloads using stream processing. NeuStream decomposes the inference workflow into modules and forms them into a streaming processing system where a request flows through. Based on such abstraction, NeuStream is able to batch requests at fine-grained module granularity. To maximize serving goodput, NeuStream exploits a two-level scheduling approach to decide the best batching requests and resource allocation for each module while satisfying service level objectives (SLOs). Our evaluation of NeuStream on a set of modern DNNs like Large Language Models (LLM) and diffusion models, etc., shows that NeuStream significantly improves goodput compared to state-of-the-art DNN serving systems.",
+  "authors": [
+   "Hao-Chen Yuan",
+   "Yuan-Qing Wang",
+   "Wen-Hao Xie",
+   "Yu Cheng",
+   "Zi-Ming Miao",
+   "Ling-Xiao Ma"
+  ],
+  "doi": "10.1145/3689031.3717489"
+ },
+ {
+  "title": "DéjàVu: KV-cache Streaming for Fast, Fault-tolerant Generative LLM Serving",
+  "venue": "ICML",
+  "year": 2024,
+  "abstract": "Distributed LLM serving is costly and often underutilizes hardware accelerators due to three key challenges: bubbles in pipeline-parallel deployments caused by the bimodal latency of prompt and token processing, GPU memory overprovisioning, and long recovery times in case of failures. In this paper, we propose D\\'ej\\`aVu, a system to address all these challenges using a versatile and efficient KV cache streaming library (D\\'ej\\`aVuLib). Using D\\'ej\\`aVuLib, we propose and implement efficient prompt-token disaggregation to reduce pipeline bubbles, microbatch swapping for efficient GPU memory management, and state replication for fault-tolerance. We highlight the efficacy of these solutions on a range of large models across cloud deployments.",
+  "authors": [
+   "F. Strati",
+   "Sara McAllister",
+   "Amar Phanishayee",
+   "Jakub Tarnawski",
+   "A. Klimovic"
+  ],
+  "doi": "10.48550/arXiv.2403.01876"
+ },
+ {
+  "title": "ConServe: Contiguity-Preserving Memory Management for Multi-Turn LLM Serving",
+  "venue": "ISCA",
+  "year": 2026,
+  "abstract": "Interacting with humans through multi-turn conversations is a fundamental capability of large language models (LLMs). Multi-turn serving stresses GPU memory systems as KV caches grow, persist, and are heavily reused across turns. PagedAttention, the prevailing dynamic allocator in modern systems, mitigates fragmentation and increases batch size by managing the KV cache in blocks, but in doing so converts an originally contiguous virtual address space into a non-contiguous layout, introducing non-trivial programming complexity and additional address translation overheads from scattered virtual pages and block table lookups. We reveal that translation locality is a critical bottleneck under such paged KV designs, and we present ConServe, a contiguity-aware virtual memory allocator that retains per-conversation contiguity in the virtual address space while mitigating fragmentation in physical memory. Con-Serve reserves a single contiguous virtual address slice per conversation, maps physical pages on demand with CUDA VMM, and resizes virtual address slices via lazy, copy-free remapping at negligible overhead. Across diverse models and workloads, ConServe achieves up to 74.4%,43.4%, and 19.1% lower TTFT and 35.1%, 15.6%, and 12.1% higher end-to-end throughput than vLLM, vAttention-Turn, and vAttention-Conv, respectively.",
+  "authors": [
+   "Bingyao Li"
+  ],
+  "doi": "10.1109/ISCA66397.2026.00075"
+ }
+]
