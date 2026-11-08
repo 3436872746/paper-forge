@@ -26,6 +26,7 @@ references/submission.md
 references/review-response.md
 references/reproducibility.md
 references/casebook.md       40 traps with one-line checks
+references/examples.md       worked examples from published papers
 scripts/check_refs.py
 scripts/page_audit.py
 scripts/stats_paired.py

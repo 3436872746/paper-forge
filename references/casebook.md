@@ -1,7 +1,8 @@
 # Casebook — silent traps
 
 Each entry: symptom -> root cause -> check. All are from real papers; details are
-generalised. Read this list once before submission.
+generalised, and no entry refers to an unpublished manuscript. Published worked
+examples are in `examples.md`. Read this list once before submission.
 
 ## Data and batches
 
@@ -28,8 +29,8 @@ generalised. Read this list once before submission.
 
 9. **Budget vs realization.** `max_tokens` is a client cap, not the generated
    length. Check: use a realized-length field; say so in the text.
-10. **Median convention.** Lower median vs interpolated changes a ratio (6.7 vs
-    6.5). Check: state the convention; recompute both.
+10. **Median convention.** Lower median vs interpolated median can shift a ratio
+    by a few percent. Check: state the convention; recompute both.
 11. **Coverage of a quantile predictor.** A 95% quantile is not a hard bound;
     report empirical coverage, not the nominal level.
 12. **Aggregate hides class.** A short-request median can be near-oracle while a
@@ -66,7 +67,7 @@ generalised. Read this list once before submission.
 
 ## Layout and submission
 
-27. **Manual spacing to fit pages.** Twelve `\setlength` lines compress floats.
+27. **Manual spacing to fit pages.** A dozen `\setlength` lines compress floats.
     Check: remove what is not necessary; if it is necessary, say so in the source.
 28. **Table referenced before Table I.** Check: first references in increasing
     order.

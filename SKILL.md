@@ -82,11 +82,16 @@ scripts/stats_paired.py   # paired bootstrap CI, permutation test, floor
 scripts/build_from_zero.sh
 ```
 
-## Casebook
+## Casebook and worked examples
 
 `references/casebook.md` — 40 silent traps (stale .bbl, wrong median convention,
 two batches in one sentence, page-limit hacks, defensive-stacking, ...). Read the
 trap list once before submission; each entry has a one-line check.
+
+`references/examples.md` — worked examples drawn from **published** papers
+(Wierman & Nuyens 2008; SRPT fairness; Beyond Prediction, ICML 2026; JITServe,
+NSDI 2026; Dell'Amico 2014). Use these as illustrations; never use an unpublished
+manuscript as the example.
 
 ## Stop rules
 
