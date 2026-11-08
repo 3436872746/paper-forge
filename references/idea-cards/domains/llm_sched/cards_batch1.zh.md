@@ -1,5 +1,8 @@
 > 中文版 · English: [cards_batch1.md](cards_batch1.md)
 
+**这一页是什么**：一批论文卡片。每张七个字段：问题、假设、机制、证据、边界、可偷的一招、一句话卖点。
+**怎么用**：先扫「可偷的一招」；要引用某条机制前，回原文读。
+
 ### 1. Preble: Efficient Distributed Prompt Scheduling for LLM Serving (arXiv 2024)
 - **问题（Problem）**：提示词（prompt）如今会在多个请求之间重复大量共享部分，但每一个 KV 复用方案都局限在单块 GPU 内，而生产环境的服务是分布式的。
 - **假设（Assumption）**：提示词共享在真实流量中足够普遍，因此 KV 复用的收益可以与负载均衡相互权衡，而不会让一方摧毁另一方。

@@ -1,5 +1,8 @@
 > 中文版 · English: [cards_batch1.md](cards_batch1.md)
 
+**这一页是什么**：一批论文卡片。每张七个字段：问题、假设、机制、证据、边界、可偷的一招、一句话卖点。
+**怎么用**：先扫「可偷的一招」；要引用某条机制前，回原文读。
+
 ### 1. Taming Throughput-Latency Tradeoff in LLM Inference with Sarathi-Serve (OSDI 2024)
 - **问题（Problem）**：批处理把 prefill 与 decode 交织在一起，因此高吞吐与低延迟相互冲突。
 - **假设（Assumption）**：等长的 prefill 分块让新请求无需暂停 decode 即可加入；均匀的批次可缩小流水线气泡。

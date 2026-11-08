@@ -1,5 +1,8 @@
 > 中文版 · English: [cards_batch2.md](cards_batch2.md)
 
+**这一页是什么**：一批论文卡片。每张七个字段：问题、假设、机制、证据、边界、可偷的一招、一句话卖点。
+**怎么用**：先扫「可偷的一招」；要引用某条机制前，回原文读。
+
 ### 1. Unleashing Collaborative Computing for Adaptive Video Streaming with Multi-objective Optimization in Satellite Terrestrial Networks (arXiv 2024)
 - **问题（Problem）:** 星地网络资源太少，难以卸载计算密集的视频流媒体任务，因此服务质量与 QoE 受损。
 - **假设（Assumption）:** 连接卫星网与地面网的地面站可以充当一个能同时看到两侧的智能体，而多个这样的智能体协商优于集中式分配。

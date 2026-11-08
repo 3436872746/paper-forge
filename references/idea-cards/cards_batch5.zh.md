@@ -1,5 +1,8 @@
 > 中文版 · English: [cards_batch5.md](cards_batch5.md)
 
+**这一页是什么**：一批论文卡片。每张七个字段：问题、假设、机制、证据、边界、可偷的一招、一句话卖点。
+**怎么用**：先扫「可偷的一招」；要引用某条机制前，回原文读。
+
 ### 1. AUM: Unleashing the Efficiency Potential of Shared Processors with Accelerator Units for LLM Serving (HPCA 2026)
 - **问题（Problem）：** 把带加速器单元（AU, Accelerator Unit）的 CPU 专门用于 LLM 服务是浪费；与通用负载共享又会造成最高 50% 的性能/效率下降，因为管理器对"加速器单元变体"（Accelerator Unit Variations）一无所知。
 - **假设（Assumption）：** AU 的行为沿三个维度变化——使用模式、强制频率干扰、资源边界——且可以用一个离散的画像模型刻画。

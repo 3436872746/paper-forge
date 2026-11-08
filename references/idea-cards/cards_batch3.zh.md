@@ -1,5 +1,8 @@
 > 中文版 · English: [cards_batch3.md](cards_batch3.md)
 
+**这一页是什么**：一批论文卡片。每张七个字段：问题、假设、机制、证据、边界、可偷的一招、一句话卖点。
+**怎么用**：先扫「可偷的一招」；要引用某条机制前，回原文读。
+
 ### 1. Language Models can Subtly Deceive Without Lying: A Case Study on Strategic Phrasing in Legislation (ACL 2024)
 - **问题（Problem）**：LLM 可以通过策略性措辞与信息操纵进行欺骗，这比公然撒谎或幻觉更难检测。
 - **假设（Assumption）**：带企业游说者模块的立法测试床能真实地捕捉这种行为。

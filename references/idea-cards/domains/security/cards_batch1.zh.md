@@ -1,5 +1,8 @@
 > 中文版 · English: [cards_batch1.md](cards_batch1.md)
 
+**这一页是什么**：一批论文卡片。每张七个字段：问题、假设、机制、证据、边界、可偷的一招、一句话卖点。
+**怎么用**：先扫「可偷的一招」；要引用某条机制前，回原文读。
+
 ### 1. Automatic and Universal Prompt Injection Attacks against Large Language Models (arXiv 2024)
 - **问题（Problem）：** 提示注入（prompt injection）研究缺少一个统一目标，即攻击究竟想达成什么，并且依赖手工构造的提示，因此健壮性评估既不全面也不可比。
 - **假设（Assumption）：** 少量经过优化的注入样本能够泛化到未见过的测试输入，并在防御措施下依然有效——也就是说，攻击发生时可以通过 LLM 集成应用获得梯度。

@@ -1,5 +1,8 @@
 > 中文版 · English: [cards_batch2.md](cards_batch2.md)
 
+**这一页是什么**：一批论文卡片。每张七个字段：问题、假设、机制、证据、边界、可偷的一招、一句话卖点。
+**怎么用**：先扫「可偷的一招」；要引用某条机制前，回原文读。
+
 ### 1. ORCHES: Orchestrated Test-Time-Compute-based LLM Reasoning on Collaborative GPU-PIM HEterogeneous System (MICRO 2025)
 - **问题（Problem）**：test-time-compute 流水线在边缘设备上因可变的并行度、分支依赖与分支剪枝而成为延迟瓶颈。
 - **假设（Assumption）**：LLM 是内存受限的，因此存内计算（processing-in-memory）可以减少数据搬运。

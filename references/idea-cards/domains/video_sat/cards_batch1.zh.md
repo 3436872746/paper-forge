@@ -1,5 +1,8 @@
 > 中文版 · English: [cards_batch1.md](cards_batch1.md)
 
+**这一页是什么**：一批论文卡片。每张七个字段：问题、假设、机制、证据、边界、可偷的一招、一句话卖点。
+**怎么用**：先扫「可偷的一招」；要引用某条机制前，回原文读。
+
 ### 1. A control-theoretic simplification of adaptive bitrate (ABR) video streaming (arXiv 2023)
 - **问题（Problem）:** HTTP 之上的 ABR 提出了许多微妙的问题，却缺少一个原理清晰、基础的码率与缓冲区水位控制设计。
 - **假设（Assumption）:** 码率/缓冲区的动力学是平坦（flat）的，因此可以一次性规划出一条前馈轨迹，而残余失配小到足以由反馈环吸收。

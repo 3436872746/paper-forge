@@ -1,5 +1,8 @@
 > 中文版 · English: [cards_batch2.md](cards_batch2.md)
 
+**这一页是什么**：一批论文卡片。每张七个字段：问题、假设、机制、证据、边界、可偷的一招、一句话卖点。
+**怎么用**：先扫「可偷的一招」；要引用某条机制前，回原文读。
+
 ### 1. Application-Specific Power Side-Channel Attacks and Countermeasures: A Survey (arXiv 2025)
 - **问题（Problem）：** 现有的功耗侧信道综述几乎只关注密码学实现，其他应用领域的攻击未被刻画。
 - **假设（Assumption）：** 近期跨应用领域的功耗侧信道工作，可以沿应用特定（application-specific）的维度被有意义地分类和比较。

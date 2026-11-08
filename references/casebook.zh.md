@@ -1,97 +1,299 @@
 > 中文版 · English: [casebook.md](casebook.md)
 
-# 案例集（Casebook）——沉默的陷阱（silent traps）
+# 案例集：沉默的陷阱（silent traps）
 
-每条：症状（symptom）-> 根因（root cause）-> 检查（check）。全部来自真实论文；细节已泛化，
-没有任何一条指向未发表的稿件。已发表的完整示例见 `examples.md`。投稿前先把这份清单读一遍。
+**这一页是干什么的**：这里收集 40 个不会报错的坑。每个坑都会让论文悄悄出错，而屏幕上看不出问题。
 
-## 数据与批次（Data and batches）
+**什么时候看它**：
 
-1. **完美数字（Perfect numbers）**。延迟接近零、失败恰好为零、满载系统上 SLO 100%。
-   根因：引擎已经死了，而代理（proxy）在报告成功。
-   检查：通过同一条路径发一个哨兵请求（sentinel request）；看延迟分布。
-2. **批次被覆盖（Overwritten batch）**。没有新 OUT 的重跑静默替换了一个批次。
-   检查：`OUT` 必须不存在，或者必须声明为重跑复用。
-3. **模型标签写错（Wrong model label）**。输出目录写的是 14B；引擎其实是 7B。
-   检查：`EXPECT_MODEL` 守卫 + `meta.txt` 记录实际查询的模型。
-4. **预热被计入（Warm-up counted）**。最前面几轮包含校准漂移（calibration drift）。
-   检查：预先登记（pre-register）分析哪几轮；地板（floor）在同一批轮次上计算。
-5. **一句话里两个批次（Two batches in one sentence）**。来自不同批次的数字被当作配对（paired）
-   来比较。检查：每个句子只点明一个批次，或者写明"separate"（分开的）。
-6. **把有放回采样当作单位（Sampling with replacement as the unit）**。重复四次的请求并不独立。
-   检查：配对单位是种子/轮次（seed/round）。
-7. **杀错了 PID（Killed the wrong PID）**。宽模式匹配命中了别的用户的进程。
-   检查：pidfile + 精确 PID + 复查；绝不用 `pkill -f`。
-8. **setsid 报的"完成"（"Done" from setsid）**。shell 任务结束了；批次没有。
-   检查：进程检查加记录计数。
+- 你准备跑一个新批次的时候。
+- 你看到一个好得不像真的结果的时候。
+- 你发现两个数字对不上、又说不清为什么的时候。
+- 投稿前一晚做最后检查的时候。
+- 你打包上传之前。
 
-## 测量（Measurement）
+每条按「症状 → 为什么没报错 → 怎么查」写。全部来自真实论文，细节已泛化，没有一条指向未发表的稿件。
+已发表的完整示例见 `examples.md`。投稿前先把这份清单读一遍。
 
-9. **预算 vs 实际（Budget vs realization）**。`max_tokens` 是客户端上限，不是生成长度。
-   检查：使用实际长度（realized-length）字段；在正文中说明这一点。
-10. **中位数约定（Median convention）**。取下中位数还是插值中位数，会让一个比值偏移几个百分点。
-    检查：写明约定；两种都算一遍。
-11. **分位数预测器的覆盖率（Coverage of a quantile predictor）**。95% 分位数不是硬上界；
-    报告经验覆盖率（empirical coverage），而不是名义水平（nominal level）。
-12. **聚合掩盖类别（Aggregate hides class）**。短请求的中位数可能接近最优（near-oracle），
-    而某一类别差了 50 倍。检查：报告一个类别级或尾部指标。
-13. **地板取自错误的臂（Floor from the wrong arm）**。地板必须来自完全相同的实验臂（arm），
-    而不是来自一个会带来真实后果的安慰剂（placebo）策略。
-14. **CI 与 min-max 混用（CI vs min-max）**。一篇论文里混用 `[min,max]` 和 95% CI。
-    检查：只定义一次，并标注例外。
-15. **需要置换检验（Permutation needed）**。离线重放（offline replay）比较时没有零分布
-    （null distribution）。检查：打乱标签（shuffle labels），报告零带（null band）。
-16. **G 最大值依赖流顺序（G max depends on the stream order）**。窗口统计量在一个任意顺序上
-    计算。检查：报告多个顺序上的最大值，或固定顺序。
-17. **配对数少于声称数（Fewer than the stated pairs）**。`C(7,2)=21`，但只测了其中一部分；
-    正文说"显著反转"却不给分母。检查：数一遍。
+## 1. 数据与批次（Data and batches）
 
-## 论断与行文（Claims and prose）
+这一节做什么：保证你比较的数字。来自你真正想比较的那些运行。
 
-18. **平均误差与它的分布（Average error vs its distribution）**。"估计器错了"不等于"顺序错了"。
-    检查：给出排序上的后果。
-19. **方向写反（Direction reversed）**。写成"让长任务类别被服务得晚"，而注入实际让它排到最前。
-    检查：抽一个请求，沿关键路径（key）走一遍。
-20. **没有稳健性扫描就说"稳健"（"Robust" without a robustness sweep）**。检查：每个形容词都
-    被检验过。
-21. **没有对照臂的对照（A control without its comparator）**。一个没有基线臂（baseline arm）的
-    负载被引来当作机制的证据。检查：论断要点明比较对象。
-22. **有条件的机制当作普适结论卖（Conditional mechanism sold as universal）**。检查：摘要和
-    标题都带上该条件。
-23. **防御性堆叠（Defensive stacking）**。同一个局限在四个小节里解释。检查：Limits 里一句话，
-    摘要里一个从句。
-24. **为省空间删范围（Deleting scope to save space）**。检查：砍措辞；台账（ledger）保护证据。
-25. **引用失实（Citation mischaracterised）**。凭记忆描述先前系统的机制。检查：读那一节的原文
-    并引用它。
-26. **双盲下用第一人称自引（Self-citation in first person）**。检查：第三人称。
+凡是重跑、绕开脚本、换机器、换模型，都可能在这里留下假数据。
 
-## 版式与投稿（Layout and submission）
+**陷阱 1｜完美数字（Perfect numbers）**
 
-27. **手工调间距以塞进页数（Manual spacing to fit pages）**。十几行 `\setlength` 把浮动体压缩。
-    检查：去掉不必要的东西；如果确有必要，就在源码里说明。
-28. **在 Table I 之前引用表（Table referenced before Table I）**。检查：首次引用按递增顺序。
-29. **过期的参考文献（Stale bibliography）**。改了引用却没有重跑 bibtex。
-    检查：首次使用顺序 == `.bbl` 顺序。
-30. **从旧目录打包（Package built from an old directory）**。检查：在空文件夹里做从零构建。
-31. **拿错了 zip（The wrong zip）**。一个同命名模式的长版本被当作投稿上传了。
-    检查：看模板 + 页数，不要看文件名。
-32. **匿名元数据泄漏（Anonymous metadata leak）**。PDF 标题/作者、致谢、本地路径。
-    检查：元数据 + `strings`。
-33. **摘要字数限制（Abstract word limit）**。投稿表单里的摘要不是论文的摘要。
-    检查：数字单里那段文本。
-34. **缺作者/COI（Missing authors/COI）**。desk reject（直接拒稿）。检查：摘要截止前把名单列全；
-    作者之后不能改。
-35. **漏掉 AI 披露（AI disclosure omitted）**。检查当前 CFP，并明确做出决定。
+**症状**：延迟接近零，失败恰好为零，满载系统上 SLO（service level objective，服务等级目标）100%。
+**为什么没报错**：引擎已经死了，代理（proxy，挡在引擎前面的中间层）在替它报成功。
+**怎么查**：通过同一条路径发一个哨兵请求（sentinel request，一条你知道答案的探针请求）；再看延迟分布。
 
-## 工具与环境（Tools and environment）
+**陷阱 2｜批次被覆盖（Overwritten batch）**
 
-36. **经包装器传 heredoc 会吃掉反斜杠（Heredoc through a wrapper eats backslashes）**。用编辑器
-    写 `.tex`/脚本，不要用穿过另一层 shell 的 shell heredoc。
-37. **Windows 上的 Python 看不到 Unix 环境变量（Windows Python does not see Unix env vars）**。
-    用参数传递；运行前打印选中的批次。
-38. **import 会执行修复脚本（Import executes a fixer）**。一个没有 `__main__` 的模块，在被 import
-    以取其批次表时写进了论文里。检查：用 `ast` 解析，绝不 import。
-39. **两份图（Two copies of a figure）**。LaTeX 用的是工作目录里的那一份，不是 `figs/` 里的。
-    检查：两份都更新，或设置 `\graphicspath`。
-40. **编码（Encoding）**。控制台编解码器（GBK）会在脚本中途打断中文/Unicode 输出。
-    检查：设置 `PYTHONIOENCODING=utf-8`。
+**症状**：没有新 OUT 的重跑，静默替换了一个批次。
+**为什么没报错**：脚本写文件前不检查目录是否已存在。
+**怎么查**：`OUT` 必须不存在；如果复用旧目录，必须在脚本里显式声明。
+
+**陷阱 3｜模型标签写错（Wrong model label）**
+
+**症状**：输出目录写的是 14B，引擎其实是 7B。
+**为什么没报错**：标签是人手填的字符串，没有人核对。
+**怎么查**：加 `EXPECT_MODEL` 守卫（guard，运行前比对模型名，不符就退出）；`meta.txt` 记录实际查询的模型。
+
+**陷阱 4｜预热被计入（Warm-up counted）**
+
+**症状**：最前面几轮的结果带着校准漂移（calibration drift，系统还没进入稳定状态）。
+**为什么没报错**：脚本把第 1 轮当成普通一轮来统计。
+**怎么查**：预先登记（pre-register）分析哪几轮；地板（floor，噪声下限）在同一批轮次上计算。
+
+**陷阱 5｜一句话里两个批次（Two batches in one sentence）**
+
+**症状**：来自不同批次的数字，被当作配对（paired，同一条件下成对测出）来比较。
+**为什么没报错**：数字格式一样，读起来像一组。
+**怎么查**：每个句子只点明一个批次，或者写明 "separate"（分开的）。
+
+**陷阱 6｜把有放回采样当作单位（Sampling with replacement as the unit）**
+
+**症状**：重复四次的同一个请求，被当成四个独立样本。
+**为什么没报错**：行数变多了，脚本照常统计。
+**怎么查**：配对单位是种子/轮次（seed/round），不是请求。
+
+**陷阱 7｜杀错了 PID（Killed the wrong PID）**
+
+**症状**：宽模式匹配命中了别的用户的进程。
+**为什么没报错**：命令返回成功，但杀的不是你的进程。
+**怎么查**：pidfile（存 PID 的小文件）+ 精确 PID + 杀完复查；绝不用 `pkill -f`。
+
+**陷阱 8｜setsid 报的"完成"（"Done" from setsid）**
+
+**症状**：终端说任务结束了，批次其实没结束。
+**为什么没报错**：setsid（让进程脱离终端的工具）只报告 shell 任务结束，不管后台批次。
+**怎么查**：查进程，再数记录条数。
+
+## 2. 测量（Measurement）
+
+这一节做什么：保证每个数字的算法，就是你以为的那个算法。
+
+算法差一点点，结论就可能反过来。
+
+**陷阱 9｜预算 vs 实际（Budget vs realization）**
+
+**症状**：正文把 `max_tokens` 当成了实际生成长度。
+**为什么没报错**：大多数请求这两个值很接近。
+**怎么查**：使用实际长度（realized-length）字段；并在正文中说明用的是它。
+
+**陷阱 10｜中位数约定（Median convention）**
+
+**症状**：取下中位数还是插值中位数，会让一个比值偏移几个百分点。
+**为什么没报错**：两种都叫"中位数"，函数名一样。
+**怎么查**：写明约定；两种都算一遍。
+
+**陷阱 11｜分位数预测器的覆盖率（Coverage of a quantile predictor）**
+
+**症状**：把 95% 分位数当成了硬上界。
+**为什么没报错**：95% 听起来已经足够高。
+**怎么查**：报告经验覆盖率（empirical coverage，实际落在界内的比例），而不是名义水平（nominal level，嘴上声明的 95%）。
+
+**陷阱 12｜聚合掩盖类别（Aggregate hides class）**
+
+**症状**：短请求的中位数接近最优（near-oracle，几乎等于知道真实答案），但某一类别差了 50 倍。
+**为什么没报错**：总体中位数很好看。
+**怎么查**：报告一个类别级或尾部指标。
+
+**陷阱 13｜地板取自错误的臂（Floor from the wrong arm）**
+
+**症状**：地板来自一个会带来真实后果的安慰剂（placebo）策略。
+**为什么没报错**：安慰剂看上去"什么都没做"。
+**怎么查**：地板必须来自完全相同的实验臂（arm，一组配置）。
+
+**陷阱 14｜CI 与 min-max 混用（CI vs min-max）**
+
+**症状**：一篇论文里同时用 `[min,max]` 和 95% CI（confidence interval，置信区间）。
+**为什么没报错**：两种写法都叫"区间"。
+**怎么查**：只定义一次，并标注例外。
+
+**陷阱 15｜需要置换检验（Permutation needed）**
+
+**症状**：离线重放（offline replay，用日志重跑策略）的差异，没有零分布（null distribution，假设没差别时差异该有多大）。
+**为什么没报错**：两组数字算出来本来就不一样。
+**怎么查**：打乱标签（shuffle labels），报告零带（null band）。
+
+**陷阱 16｜G 最大值依赖流顺序（G max depends on the stream order）**
+
+**症状**：窗口统计量在一个任意顺序上算出了 G 的最大值。
+**为什么没报错**：顺序是输入文件自带的，没有人选过。
+**怎么查**：报告多个顺序上的最大值，或固定顺序。
+
+**陷阱 17｜配对数少于声称数（Fewer than the stated pairs）**
+
+**症状**：`C(7,2)=21`，但只测了其中一部分；正文说"显著反转"，却不给分母。
+**为什么没报错**：被挑出来的那几对确实显著。
+**怎么查**：数一遍。
+
+## 3. 论断与行文（Claims and prose）
+
+这一节做什么：保证句子只说到证据撑得住的地方。
+
+多一个形容词，多一次被拒的风险。
+
+**陷阱 18｜平均误差与它的分布（Average error vs its distribution）**
+
+**症状**：正文从"估计器错了"跳到了"顺序错了"。
+**为什么没报错**：平均误差确实变大了。
+**怎么查**：给出排序上的后果。
+
+**陷阱 19｜方向写反（Direction reversed）**
+
+**症状**：写成"让长任务类别被服务得晚"，而注入实际让它排到最前。
+**为什么没报错**：两个方向读起来都合理。
+**怎么查**：抽一个请求，沿关键路径（key）走一遍。
+
+**陷阱 20｜没有稳健性扫描就说"稳健"（"Robust" without a robustness sweep）**
+
+**症状**："robust"（稳健）这个形容词没有对应的扫描实验。
+**为什么没报错**：审稿人很少逐词核对。
+**怎么查**：每个形容词都被检验过。
+
+**陷阱 21｜没有对照臂的对照（A control without its comparator）**
+
+**症状**：一个没有基线臂（baseline arm）的负载，被引来当作机制的证据。
+**为什么没报错**：这个负载自己跑出了数字。
+**怎么查**：论断要点明比较对象。
+
+**陷阱 22｜有条件的机制当作普适结论卖（Conditional mechanism sold as universal）**
+
+**症状**：只在某个条件下成立的机制，写成了通用结论。
+**为什么没报错**：正文里写了条件，摘要和标题忘了。
+**怎么查**：摘要和标题都带上该条件。
+
+**陷阱 23｜防御性堆叠（Defensive stacking）**
+
+**症状**：同一个局限在四个小节里各解释一遍。
+**为什么没报错**：每一处单独看都合理。
+**怎么查**：Limits 里一句话，摘要里一个从句。
+
+**陷阱 24｜为省空间删范围（Deleting scope to save space）**
+
+**症状**：为了压页数，把适用范围删掉了。
+**为什么没报错**：句子变短了，看起来更干净。
+**怎么查**：砍措辞；台账（ledger，记录每条主张与证据的文件）保护证据。
+
+**陷阱 25｜引用失实（Citation mischaracterised）**
+
+**症状**：凭记忆描述先前系统的机制。
+**为什么没报错**：记忆里的版本通常八九不离十。
+**怎么查**：读那一节的原文，并引用它。
+
+**陷阱 26｜双盲下用第一人称自引（Self-citation in first person）**
+
+**症状**：双盲（double-blind，审稿人看不到作者）评审下，写了"我们之前的工作"。
+**为什么没报错**：这句话里没有作者名。
+**怎么查**：改成第三人称。
+
+## 4. 版式与投稿（Layout and submission）
+
+这一节做什么：保证你交上去的那份文件，就是你审过的那份文件。
+
+这一节的坑大多在最后一天出现。
+
+**陷阱 27｜手工调间距以塞进页数（Manual spacing to fit pages）**
+
+**症状**：十几行 `\setlength` 把浮动体压缩进去。
+**为什么没报错**：编译通过，页数刚好。
+**怎么查**：去掉不必要的东西；如果确有必要，就在源码里说明。
+
+**陷阱 28｜在 Table I 之前引用表（Table referenced before Table I）**
+
+**症状**：正文先引 Table III，再引 Table I。
+**为什么没报错**：LaTeX 不做这个检查。
+**怎么查**：首次引用按递增顺序。
+
+**陷阱 29｜过期的参考文献（Stale bibliography）**
+
+**症状**：改了引用，却没有重跑 bibtex。
+**为什么没报错**：旧的 `.bbl` 还在，编译照样通过。
+**怎么查**：首次使用顺序 == `.bbl` 顺序。
+
+**陷阱 30｜从旧目录打包（Package built from an old directory）**
+
+**症状**：上传的包来自一个旧目录。
+**为什么没报错**：目录名一模一样。
+**怎么查**：在空文件夹里做从零构建。
+
+**陷阱 31｜拿错了 zip（The wrong zip）**
+
+**症状**：一个同命名模式的长版本，被当作投稿上传了。
+**为什么没报错**：文件名看上去是对的。
+**怎么查**：看模板 + 页数，不要看文件名。
+
+**陷阱 32｜匿名元数据泄漏（Anonymous metadata leak）**
+
+**症状**：PDF 标题/作者、致谢、本地路径里带着身份。
+**为什么没报错**：正文已经匿名好了。
+**怎么查**：查元数据，再跑 `strings`（把二进制文件里的可见文本打印出来）。
+
+**陷阱 33｜摘要字数限制（Abstract word limit）**
+
+**症状**：投稿表单里的摘要，不是论文里的摘要。
+**为什么没报错**：两处都叫 abstract。
+**怎么查**：数表单里那段文本。
+
+**陷阱 34｜缺作者/COI（Missing authors/COI）**
+
+**症状**：作者名单或 COI（conflict of interest，利益冲突声明）不全，被 desk reject（编辑不送审即拒）。
+**为什么没报错**：系统允许你之后补。
+**怎么查**：摘要截止前把名单列全；作者之后不能改。
+
+**陷阱 35｜漏掉 AI 披露（AI disclosure omitted）**
+
+**症状**：CFP（call for papers，征稿说明）要求披露 AI 使用，你没有写。
+**为什么没报错**：往届模板里没有这一栏。
+**怎么查**：查当前 CFP，并明确做出决定。
+
+## 5. 工具与环境（Tools and environment）
+
+这一节做什么：保证脚本真的写进了你看到的那些内容。
+
+这一节全是环境问题，换一台机器就复现不了。
+
+**陷阱 36｜经包装器传 heredoc 会吃掉反斜杠（Heredoc through a wrapper eats backslashes）**
+
+**症状**：脚本里的反斜杠，到了文件里变少或变多。
+**为什么没报错**：多一层 shell 在传话时吃掉了转义。
+**怎么查**：用编辑器写 `.tex`/脚本，不要用穿过另一层 shell 的 shell heredoc。
+
+**陷阱 37｜Windows 上的 Python 看不到 Unix 环境变量（Windows Python does not see Unix env vars）**
+
+**症状**：在 WSL 里设的环境变量，Windows 的 Python 读不到。
+**为什么没报错**：程序只是拿到空值。
+**怎么查**：用参数传递；运行前打印选中的批次。
+
+**陷阱 38｜import 会执行修复脚本（Import executes a fixer）**
+
+**症状**：一个模块没有 `__main__` 保护，被 import 去取批次表时，写进了论文里。
+**为什么没报错**：import 本来就会执行模块顶层代码。
+**怎么查**：用 `ast` 解析，绝不 import。
+
+**陷阱 39｜两份图（Two copies of a figure）**
+
+**症状**：LaTeX 用的是工作目录里的那一份，不是 `figs/` 里的。
+**为什么没报错**：两份文件同名。
+**怎么查**：两份都更新，或设置 `\graphicspath`。
+
+**陷阱 40｜编码（Encoding）**
+
+**症状**：控制台编解码器（GBK）在脚本中途打断中文/Unicode 输出。
+**为什么没报错**：前几十行都是 ASCII，直到第一个中文字符才炸。
+**怎么查**：设置 `PYTHONIOENCODING=utf-8`。
+
+## 一页速查
+
+- 好得不像真的结果，先发哨兵请求。
+- 每个句子只点一个批次。
+- 地板必须同臂、同轮次。
+- 聚合好看时，去看一个类别。
+- 差异先过地板，再谈显著。
+- 形容词都要有对应实验。
+- 引用之前，先读原文那一节。
+- 首次引用顺序 == `.bbl` 顺序。
+- 打包在空目录里从零构建。
+- 看不见的坑，用命令查，不靠眼睛。

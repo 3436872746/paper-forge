@@ -1,5 +1,8 @@
 > 中文版 · English: [cards_batch4.md](cards_batch4.md)
 
+**这一页是什么**：一批论文卡片。每张七个字段：问题、假设、机制、证据、边界、可偷的一招、一句话卖点。
+**怎么用**：先扫「可偷的一招」；要引用某条机制前，回原文读。
+
 ### 1. Batched in Back: Characterizing and Optimizing Offline LLM Inference in Production with ACDC (SOSP 2026)
 - **问题（Problem）：** 离线推理最多吞掉生产环境中 30% 的 GPU，却研究不足；在线与离线框架都没有利用它的特性。
 - **假设（Assumption）：** 离线工作负载本质上是确定性的、面向吞吐的；在线 prefill 会留下容量气泡（capacity bubble），离线工作可以从中收获。

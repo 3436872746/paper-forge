@@ -1,5 +1,8 @@
 > 中文版 · English: [cards_batch2.md](cards_batch2.md)
 
+**这一页是什么**：一批论文卡片。每张七个字段：问题、假设、机制、证据、边界、可偷的一招、一句话卖点。
+**怎么用**：先扫「可偷的一招」；要引用某条机制前，回原文读。
+
 ### 1. HAServe: Horizon-Aware Scheduling and Memory Co-Design for Efficient LLM Serving (arXiv 2026)
 - **问题（Problem）**：在线请求共享上下文，但前缀结构与到达时间各不相同；有限容量把准入与 KV 保留耦合在一起，二者都无法单独决策得当。
 - **假设（Assumption）**：对可见需求的统一视图——精确的前缀路径、被允许的序列化方式、已释放的消费者——足以在速率变化时预测联合准入/KV 保留候选的延迟成本。
