@@ -1,0 +1,360 @@
+[
+ {
+  "title": "A control-theoretic simplification of adaptive bitrate (ABR) video streaming",
+  "venue": "arXiv preprint",
+  "year": 2023,
+  "abstract": "Adaptive bitrate streaming (ABR) over the HyperText Transfer Protocol (HTTP), which raises numerous delicate questions, is nowadays almost the only approach to video streaming. This paper presents elementary solutions to three key issues: 1) A straightforward feedforward control strategy for the bitrate and the buffer level via flatness-based control. 2) Closing the loop permits mitigating unavoidable mismatches and disturbances, such as Internet fluctuations. This is adapted from the new HEOL setting, which mixes model-free and flatness-based controls. 3) An easily implementable closed-form estimate of the bandwidth via algebraic identification techniques is derived, perhaps for the first time. It permits handling severe variations in channel capacity. Several computer experiments and metrics for evaluating the Quality of Experience (QoE) are displayed and discussed.",
+  "authors": [
+   "Michel Fliess",
+   "Cédric Join"
+  ],
+  "doi": "2310.00934v3",
+  "cited_by": 0
+ },
+ {
+  "title": "Semantic-Aware Adaptive Video Streaming Using Latent Diffusion Models for Wireless Networks",
+  "venue": "arXiv preprint",
+  "year": 2025,
+  "abstract": "This paper proposes a novel Semantic Communication (SemCom) framework for real-time adaptive-bitrate video streaming by integrating Latent Diffusion Models (LDMs) within the FFmpeg techniques. This solution addresses the challenges of high bandwidth usage, storage inefficiencies, and quality of experience (QoE) degradation associated with traditional Constant Bitrate Streaming (CBS) and Adaptive Bitrate Streaming (ABS). The proposed approach leverages LDMs to compress I-frames into a latent space, offering significant storage and semantic transmission savings without sacrificing high visual quality. While retaining B-frames and P-frames as adjustment metadata to support efficient refinement of video reconstruction at the user side, the proposed framework further incorporates state-of-the-art denoising and Video Frame Interpolation (VFI) techniques. These techniques mitigate semantic ambiguity and restore temporal coherence between frames, even in noisy wireless communication environments. Experimental results demonstrate the proposed method achieves high-quality video streaming with optimized bandwidth usage, outperforming state-of-the-art solutions in terms of QoE and resource efficiency. This work opens new possibilities for scalable real-time video streaming in 5G and future post-5G networks.",
+  "authors": [
+   "Zijiang Yan",
+   "Jianhua Pei",
+   "Hongda Wu",
+   "Hina Tabassum",
+   "Ping Wang"
+  ],
+  "doi": "2502.05695v3",
+  "cited_by": 0
+ },
+ {
+  "title": "Imitation Learning for Adaptive Video Streaming with Future Adversarial Information Bottleneck Principle",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "Adaptive video streaming plays a crucial role in ensuring high-quality video streaming services. Despite extensive research efforts devoted to Adaptive BitRate (ABR) techniques, the current reinforcement learning (RL)-based ABR algorithms may benefit the average Quality of Experience (QoE) but suffers from fluctuating performance in individual video sessions. In this paper, we present a novel approach that combines imitation learning with the information bottleneck technique, to learn from the complex offline optimal scenario rather than inefficient exploration. In particular, we leverage the deterministic offline bitrate optimization problem with the future throughput realization as the expert and formulate it as a mixed-integer non-linear programming (MINLP) problem. To enable large-scale training for improved performance, we propose an alternative optimization algorithm that efficiently solves the MINLP problem. To address the issues of overfitting due to the future information leakage in MINLP, we incorporate an adversarial information bottleneck framework. By compressing the video streaming state into a latent space, we retain only action-relevant information. Additionally, we introduce a future adversarial term to mitigate the influence of future information leakage, where Model Prediction Control (MPC) policy without any future information is employed as the adverse expert. Experimental results demonstrate the effectiveness of our proposed approach in significantly enhancing the quality of adaptive video streaming, providing a 7.30\\% average QoE improvement and a 30.",
+  "authors": [
+   "Shuoyao Wang",
+   "Jiawei Lin",
+   "Fangwei Ye"
+  ],
+  "doi": "2405.03692v1",
+  "cited_by": 0
+ },
+ {
+  "title": "DIGITWISE: Digital Twin-based Modeling of Adaptive Video Streaming Engagement",
+  "venue": "arXiv preprint",
+  "year": 2025,
+  "abstract": "As the popularity of video streaming entertainment continues to grow, understanding how users engage with the content and react to its changes becomes a critical success factor for every stakeholder. User engagement, i.e., the percentage of video the user watches before quitting, is central to customer loyalty, content personalization, ad relevance, and A/B testing. This paper presents DIGITWISE, a digital twin-based approach for modeling adaptive video streaming engagement. Traditional adaptive bitrate (ABR) algorithms assume that all users react similarly to video streaming artifacts and network issues, neglecting individual user sensitivities. DIGITWISE leverages the concept of a digital twin, a digital replica of a physical entity, to model user engagement based on past viewing sessions. The digital twin receives input about streaming events and utilizes supervised machine learning to predict user engagement for a given session. The system model consists of a data processing pipeline, machine learning models acting as digital twins, and a unified model to predict engagement. DIGITWISE employs the XGBoost model in both digital twins and unified models. The proposed architecture demonstrates the importance of personal user sensitivities, reducing user engagement prediction error by up to 5.8% compared to non-user-aware models. Furthermore, DIGITWISE can optimize content provisioning and delivery by identifying the features that maximize engagement, providing an average engagement increase of up to 8.6%.",
+  "authors": [
+   "Emanuele Artioli",
+   "Farzad Tashtarian",
+   "Christian Timmerer"
+  ],
+  "doi": "2510.13267v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Video Streaming Over QUIC: A Comprehensive Study",
+  "venue": "arXiv preprint",
+  "year": 2025,
+  "abstract": "The QUIC transport protocol represents a significant evolution in web transport technologies, offering improved performance and reduced latency compared to traditional protocols like TCP. Given the growing number of QUIC implementations, understanding their performance, particularly in video streaming contexts, is essential. This paper presents a comprehensive analysis of various QUIC implementations, focusing on their transport-layer congestion control (CC) performance and its impact on HTTP Adaptive Streaming (HAS) in single-server, multi-client environments. Through extensive trace-driven experiments, we explore how different QUIC CCs impact adaptive bitrate (ABR) algorithms in two video streaming scenarios: video-on-demand (VoD) and low-latency live streaming (LLL). Our study aims to shed light on the impact of QUIC CC implementations, queuing strategies, and cooperative versus competitive dynamics of QUIC streams on user QoE under diverse network conditions. Our results demonstrate that identical CC algorithms across different QUIC implementations can lead to significant performance variations, directly impacting the QoE of video streaming sessions. These findings offer valuable insights into the effectiveness of various QUIC implementations and their implications for optimizing QoE, underscoring the need for intelligent cross-layer designs that integrate QUIC CC and ABR schemes to enhance overall streaming performance.",
+  "authors": [
+   "Jashanjot Singh Sidhu",
+   "Abdelhak Bentaleb"
+  ],
+  "doi": "2505.21769v2",
+  "cited_by": 0
+ },
+ {
+  "title": "EVAN: Evolutional Video Streaming Adaptation via Neural Representation",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "Adaptive bitrate (ABR) using conventional codecs cannot further modify the bitrate once a decision has been made, exhibiting limited adaptation capability. This may result in either overly conservative or overly aggressive bitrate selection, which could cause either inefficient utilization of the network bandwidth or frequent re-buffering, respectively. Neural representation for video (NeRV), which embeds the video content into neural network weights, allows video reconstruction with incomplete models. Specifically, the recovery of one frame can be achieved without relying on the decoding of adjacent frames. NeRV has the potential to provide high video reconstruction quality and, more importantly, pave the way for developing more flexible ABR strategies for video transmission. In this work, a new framework, named Evolutional Video streaming Adaptation via Neural representation (EVAN), which can adaptively transmit NeRV models based on soft actor-critic (SAC) reinforcement learning, is proposed. EVAN is trained with a more exploitative strategy and utilizes progressive playback to avoid re-buffering. Experiments showed that EVAN can outperform existing ABRs with 50% reduction in re-buffering and achieve nearly 20% .",
+  "authors": [
+   "Mufan Liu",
+   "Le Yang",
+   "Yiling Xu",
+   "Ye-kui Wang",
+   "Jenq-Neng Hwang"
+  ],
+  "doi": "2406.02557v1",
+  "cited_by": 0
+ },
+ {
+  "title": "A Global Perspective on the Past, Present, and Future of Video Streaming over Starlink",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "This study presents the first global analysis of on-demand video streaming over Low Earth Orbit (LEO) satellite networks, using data from over one million households across 85 countries. We highlight Starlink's role as a major LEO provider, enhancing connectivity in underserved regions. Our findings reveal that while overall video quality on Starlink matches that of traditional networks, the inherent variability in LEO conditions -- such as throughput fluctuations and packet loss -- leads to an increase in bitrate switches and rebuffers. To further improve the quality of experience for the LEO community, we manipulate existing congestion control and adaptive bitrate streaming algorithms using simulation and real A/B tests deployed on over one million households. Our results underscore the need for video streaming and congestion control algorithms to adapt to rapidly evolving network landscapes, ensuring high-quality service across diverse and dynamic network types.",
+  "authors": [
+   "Liz Izhikevich",
+   "Reese Enghardt",
+   "Te-Yuan Huang",
+   "Renata Teixeira"
+  ],
+  "doi": "2409.09846v1",
+  "cited_by": 0
+ },
+ {
+  "title": "LiveVV: Human-Centered Live Volumetric Video Streaming System",
+  "venue": "arXiv preprint",
+  "year": 2023,
+  "abstract": "Volumetric video has emerged as a prominent medium within the realm of eXtended Reality (XR) with the advancements in computer graphics and depth capture hardware. Users can fully immersive themselves in volumetric video with the ability to switch their viewport in six degree-of-freedom (DOF), including three rotational dimensions (yaw, pitch, roll) and three translational dimensions (X, Y, Z). Different from traditional 2D videos that are composed of pixel matrices, volumetric videos employ point clouds, meshes, or voxels to represent a volumetric scene, resulting in significantly larger data sizes. While previous works have successfully achieved volumetric video streaming in video-on-demand scenarios, the live streaming of volumetric video remains an unresolved challenge due to the limited network bandwidth and stringent latency constraints. In this paper, we for the first time propose a holistic live volumetric video streaming system, LiveVV, which achieves multi-view capture, scene segmentation \\& reuse, adaptive transmission, and rendering. LiveVV contains multiple lightweight volumetric video capture modules that are capable of being deployed without prior preparation. To reduce bandwidth consumption, LiveVV processes static and dynamic volumetric content separately by reusing static data with low disparity and decimating data with low visual saliency. Besides, to deal with network fluctuation, LiveVV integrates a volumetric video adaptive bitrate streaming algorithm (VABR) to enable fluent playback with the maximum quality of experience. Extensive real-world experime",
+  "authors": [
+   "Kaiyuan Hu",
+   "Yongting Chen",
+   "Kaiying Han",
+   "Junhua Liu",
+   "Haowen Yang",
+   "Yili Jin"
+  ],
+  "doi": "2310.08205v2",
+  "cited_by": 0
+ },
+ {
+  "title": "Improving ABR Performance for Short Video Streaming Using Multi-Agent Reinforcement Learning with Expert Guidance",
+  "venue": "arXiv preprint",
+  "year": 2023,
+  "abstract": "In the realm of short video streaming, popular adaptive bitrate (ABR) algorithms developed for classical long video applications suffer from catastrophic failures because they are tuned to solely adapt bitrates. Instead, short video adaptive bitrate (SABR) algorithms have to properly determine which video at which bitrate level together for content prefetching, without sacrificing the users' quality of experience (QoE) and yielding noticeable bandwidth wastage jointly. Unfortunately, existing SABR methods are inevitably entangled with slow convergence and poor generalization. Thus, in this paper, we propose Incendio, a novel SABR framework that applies Multi-Agent Reinforcement Learning (MARL) with Expert Guidance to separate the decision of video ID and video bitrate in respective buffer management and bitrate adaptation agents to maximize the system-level utilized score modeled as a compound function of QoE and bandwidth wastage metrics. To train Incendio, it is first initialized by imitating the hand-crafted expert rules and then fine-tuned through the use of MARL. Results from extensive experiments indicate that Incendio outperforms the current state-of-the-art SABR algorithm with a 53.2% improvement measured by the utility score while maintaining low training complexity and inference time.",
+  "authors": [
+   "Yueheng Li",
+   "Qianyuan Zheng",
+   "Zicheng Zhang",
+   "Hao Chen",
+   "Zhan Ma"
+  ],
+  "doi": "2304.04637v1",
+  "cited_by": 0
+ },
+ {
+  "title": "LL-GABR: Energy Efficient Live Video Streaming Using Reinforcement Learning",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "Over the recent years, research and development in adaptive bitrate (ABR) algorithms for live video streaming have been successful in improving users' quality of experience (QoE) by reducing latency to near real-time levels while delivering higher bitrate videos with minimal rebuffering time. However, the QoE models used by these ABR algorithms do not take into account that a large portion of live video streaming clients use mobile devices where a higher bitrate does not necessarily translate into higher perceived quality. Ignoring perceived quality results in playing videos at higher bitrates without a significant increase in perceptual video quality and becomes a burden for battery-constrained mobile devices due to higher energy consumption. In this paper, we propose LL-GABR, a deep reinforcement learning approach that models the QoE using perceived video quality instead of bitrate and uses energy consumption along with other metrics like latency, rebuffering events, and smoothness. LL-GABR makes no assumptions about the underlying video, environment, or network settings and can operate flexibly on different video titles, each having a different bitrate encoding ladder without additional re-training, unlike existing learning-based ABRs. Trace-driven experimental results show that LL-GABR outperforms the state-of-the-art approaches by up to 44% in terms of perceptual QoE and a 73% increase in energy efficiency as a result of reducing net energy consumption by 11%.",
+  "authors": [
+   "Adithya Raman",
+   "Bekir Turkkan",
+   "Tevfik Kosar"
+  ],
+  "doi": "2402.09392v1",
+  "cited_by": 0
+ },
+ {
+  "title": "SafeLink-Agent: Agentic Maintenance for Adaptive Bitrate Controllers over Dynamic Starlink Networks",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Low Earth orbit (LEO) satellite broadband, represented by Starlink, is making high-resolution video streaming feasible beyond fixed terrestrial coverage. However, Starlink access links change across time and regions, exposing adaptive bitrate (ABR) streaming to shifting throughput tails, latency, volatility, and handover conditions. Existing ABR controllers are usually designed, tuned, or trained for specific network conditions, making it difficult to handle newly exposed hard Starlink profiles. This paper proposes SafeLink-Agent, an agentic maintenance framework for ABR controllers over dynamic Starlink networks. SafeLink-Agent summarizes exposed failures and uses a large language model (LLM)-based agentic patch proposer to generate candidate patches, while replay verification determines whether each patch can be safely committed. The framework supports both rule-based controllers and learned controllers under the same maintenance workflow. Experiments on real Starlink networks show that SafeLink-Agent reduces the severe-session ratio of RobustMPC from 2.60% to 0.40% and reduces cumulative severe sessions from 45 to 7 in rolling maintenance. For learned controllers, verified adaptive auditing lowers the average severe-session ratio from 39.01% to 9.79%. These results demonstrate that agentic maintenance can improve ABR robustness under dynamic Starlink access conditions.",
+  "authors": [
+   "Hongjun Xie",
+   "Bowen Zhang",
+   "Genke Yang",
+   "Pengcheng Luo"
+  ],
+  "doi": "2608.28194v1",
+  "cited_by": 0
+ },
+ {
+  "title": "SafeSABR: Risk-Calibrated Adaptive Bitrate Streaming over Starlink Networks",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Starlink, as a representative low Earth orbit (LEO) satellite broadband system, makes high-bitrate video streaming possible in regions where terrestrial broadband is unavailable. However, its access links exhibit rapid throughput fluctuations caused by satellite mobility and handovers. Existing learned adaptive bitrate (ABR) algorithms can achieve high average quality of experience (QoE), yet high-bitrate Starlink streaming exposes severe session-level rebuffering that is not captured by average QoE alone. To address it, this paper proposes SafeSABR, a risk-calibrated learned ABR framework for Starlink networks. SafeSABR formulates Starlink ABR as a QoE--severe-risk tradeoff and follows a three-stage design: behavior-cloning pretraining learns a high-QoE ABR prior, risk-calibrated reinforcement learning (RL) fine-tuning reduces severe-tail action tendencies, and a runtime safety auditor uses safe-capacity lower bounds to check policy-requested bitrates before execution. Experiments on real Starlink traces compare SafeSABR with online, prediction-assisted, and learned ABR baselines. Compared with advanced methods, SafeSABR reduces severe-stall sessions from 22.8% to 7.2% and worst-5% session rebuffering from 54.30 s to 22.68 s, with a 1.8% QoE cost. Component analyses further show that risk-calibrated fine-tuning and safe-capacity auditing reduce unsafe bitrate decisions and downstream severe-session rebuffering. These results show that combining risk-calibrated policy learning with decision-aware safe throughput forecasting can move learned ABR toward a safer QoE--severe-ri",
+  "authors": [
+   "Hongjun Xie",
+   "Jiahang Zhu",
+   "Zhiming Shao",
+   "Chao Fan",
+   "Zenghui Zhang",
+   "Genke Yang"
+  ],
+  "doi": "2605.23560v2",
+  "cited_by": 0
+ },
+ {
+  "title": "Goal-Oriented Semantic Communication for Wireless Video Transmission via Generative AI",
+  "venue": "arXiv preprint",
+  "year": 2025,
+  "abstract": "Efficient video transmission is essential for seamless communication and collaboration within the visually-driven digital landscape. To achieve low latency and high-quality video transmission over a bandwidth-constrained noisy wireless channel, we propose a stable diffusion (SD)-based goal-oriented semantic communication (GSC) framework. In this framework, we first design a semantic encoder that effectively identify the keyframes from video and extract the relevant semantic information (SI) to reduce the transmission data size. We then develop a semantic decoder to reconstruct the keyframes from the received SI and further generate the full video from the reconstructed keyframes using frame interpolation to ensure high-quality reconstruction. Recognizing the impact of wireless channel noise on SI transmission, we also propose an SD-based denoiser for GSC (SD-GSC) condition on an instantaneous channel gain to remove the channel noise from the received noisy SI under a known channel. For scenarios with an unknown channel, we further propose a parallel SD denoiser for GSC (PSD-GSC) to jointly learn the distribution of channel gains and denoise the received SI. It is shown that, with the known channel, our proposed SD-GSC outperforms state-of-the-art ADJSCC, Latent-Diff DNSC, DeepWiVe and DVST, improving Peak Signal-to-Noise Ratio (PSNR) by 69%, 58%, 33% and 38%, reducing mean squared error (MSE) by 52%, 50%, 41% and 45%, and reducing Fréchet Video Distance (FVD) by 38%, 32%, 22% and 24%, respectively. With the unknown channel, our PSD-GSC achieves a 17% improvement in PSNR, a ",
+  "authors": [
+   "Nan Li",
+   "Yansha Deng",
+   "Dusit Niyato"
+  ],
+  "doi": "2502.20927v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Real-time Extended Reality Video Transmission Optimization Based on Frame-priority Scheduling",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "Extended reality (XR) is one of the most important applications of 5G. For real-time XR video transmission in 5G networks, a low latency and high data rate are required. In this paper, we propose a resource allocation scheme based on frame-priority scheduling to meet these requirements. The optimization problem is modelled as a frame-priority-based radio resource scheduling problem to improve transmission quality. We propose a scheduling framework based on multi-step Deep Q-network (MS-DQN) and design a neural network model based on convolutional neural network (CNN). Simulation results show that the scheduling framework based on frame-priority and MS-DQN can improve transmission quality by 49.9%-80.2%.",
+  "authors": [
+   "Guangjin Pan",
+   "Shugong Xu",
+   "Shunqing Zhang",
+   "Xiaojing Chen",
+   "Yanzan Sun"
+  ],
+  "doi": "2402.01180v2",
+  "cited_by": 0
+ },
+ {
+  "title": "AnalogDepth: Multi-view Geometry from FPV drones under Analog Video Transmission",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Analog video transmission (VTX) remains widespread in FPV drones due to low latency, weight and low cost. However analog VTX suffers from complex spatially structured image degradation which differ fundamentally from digital image corruption (e.g. AWGN) used in standard training augmentation. This work shows that this type of noise severely degrades the accuracy of Depth Anything 3 (DA3), a state-of-the-art feed forward visual geometry foundation model. To address this gap, we present AnalogDepth, a parameter-efficient training pipeline that adapts DA3 to analog FPV imagery using student-teacher knowledge distillation with Low-Rank Adaptation (LoRA) injected into the DINOv2 backbone. Rather than synthesizing noise analytically, we build a noise bank from static FPV recordings under diverse conditions and compare real-noise injection against PSD-matched Gaussian synthesis and AWGN as baselines. Experiments on six real FPV flight sequences across three indoor scenes show that training with our noise bank consistently reduces per-frame depth RMSE and 3D reconstruction Chamfer distance compared to the pretrained DA3 baseline and both Gaussian noise variants. These results demonstrate that replicating the spatial structure of real analog transmission noise is critical for effective adaptation.",
+  "authors": [
+   "André Amorim",
+   "Pedro F. Proença"
+  ],
+  "doi": "2609.24312v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Semantic-Aware Neural Video Codec for Error-Resilient Low-Latency Transmission",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Emerging physical AI systems require low-latency, task-oriented video communication over unreliable channels. We propose a semantic-aware multi-level neural video coding method for robust low-latency video transmission over unreliable channels that are abstracted as multi-level packet erasure channels. Built upon the real-time DCVC-RT neural video codec, the proposed framework introduces a semantic- and feature-aware coding strategy that partitions encoded representations into packets carrying different levels of semantic and latent-feature importance and assigns these packets to different streams, each associated with a priority level when transmitted over unreliable communication channels. We also developed an error-resilient entropy model that removes inter-packet dependencies, allowing each packet to be decoded independently under packet losses. The complete system is trained end-to-end over the abstracted multi-level packet erasure channels, enabling learning of channel-aware representations together with importance-aware packet assignment while facilitating the network for differentiated packet prioritization. Experiments show that the proposed framework significantly improves robustness over baseline DCVC-RT under packet erasures, achieving graceful degradation in less important regions while better preserving task-relevant visual content.",
+  "authors": [
+   "Matin Mortaheb",
+   "Homa Esfahanizadeh",
+   "Jinfeng Du",
+   "Harish Viswanathan"
+  ],
+  "doi": "2609.16279v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Quality of Experience Optimization for Real-time XR Video Transmission with Energy Constraints",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "Extended Reality (XR) is an important service in the 5G network and in future 6G networks. In contrast to traditional video on demand services, real-time XR video is transmitted frame-by-frame, requiring low latency and being highly sensitive to network fluctuations. In this paper, we model the quality of experience (QoE) for real-time XR video transmission on a frame-by-frame basis. Based on the proposed QoE model, we formulate an optimization problem that maximizes QoE with constraints on wireless resources and long-term energy consumption. We utilize Lyapunov optimization to transform the original problem into a single-frame optimization problem and then allocate wireless subchannels. We propose an adaptive XR video bitrate algorithm that employs a Long Short Term Memory (LSTM) based Deep Q-Network (DQN) algorithm for video bitrate selection. Through numerical results, we show that our proposed algorithm outperforms the baseline algorithms, with the average QoE improvements of 0.04 to 0.46. Specifically, compared to baseline algorithms, the proposed algorithm reduces average video quality variations by 29% to 50% and improves the frame transmission success rate by 5% to 48%.",
+  "authors": [
+   "Guangjin Pan",
+   "Shugong Xu",
+   "Shunqing Zhang",
+   "Xiaojing Chen",
+   "Yanzan Sun"
+  ],
+  "doi": "2405.07689v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Real-Time Transmission of Uncompressed High-Definition Video Via A VCSEL-Based Optical Wireless Link With Ultra-Low Latency",
+  "venue": "arXiv preprint",
+  "year": 2025,
+  "abstract": "Real-time transmission of high-resolution video signals in an uncompressed and unencrypted format requires an ultra-reliable and low-latency communications (URLLC) medium with high bandwidth to maintain the quality of experience (QoE) for users. We put forward the design and experimental demonstration of a high-performance laser-based optical wireless communication (OWC) system that enables high-definition (HD) video transmission with submillisecond latencies. The serial digital interface (SDI) output of a camera is used to transmit the live video stream over an optical wireless link by directly modulating the SDI signal on the intensity of a 940 nm vertical cavity surface emitting laser (VCSEL). The proposed SDI over light fidelity (LiFi) system corroborates error-free transmission of full HD (FHD) and 4K ultra-high-definition (UHD) resolutions at data rates of 2.97 Gb/s and 5.94 Gb/s, respectively, with a measured end-to-end latency of under 35 ns. Since SDI standards support various video formats and VCSELs are high-bandwidth and low-power devices, this presents a scalable and inexpensive solution for wireless connectivity between professional broadcast equipment using off-the-shelf SDI components.",
+  "authors": [
+   "Hossein Kazemi",
+   "Isaac N. O. Osahon",
+   "Tiankuo Jiao",
+   "David Butler",
+   "Nikolay Ledentsov",
+   "Ilya Titkov"
+  ],
+  "doi": "2507.23746v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Multiple description video coding for real-time applications using HEVC",
+  "venue": "arXiv preprint",
+  "year": 2023,
+  "abstract": "Remote control vehicles require the transmission of large amounts of data, and video is one of the most important sources for the driver. To ensure reliable video transmission, the encoded video stream is transmitted simultaneously over multiple channels. However, this solution incurs a high transmission cost due to the wireless channel's unreliable and random bit loss characteristics. To address this issue, it is necessary to use more efficient video encoding methods that can make the video stream robust to noise. In this paper, we propose a low-complexity, low-latency 2-channel Multiple Description Coding (MDC) solution with an adaptive Instantaneous Decoder Refresh (IDR) frame period, which is compatible with the HEVC standard. This method shows better resistance to high packet loss rates with lower complexity.",
+  "authors": [
+   "Trung Hieu Le",
+   "Marc Antonini",
+   "Marc Lambert",
+   "Karima Alioua"
+  ],
+  "doi": "2303.05843v2",
+  "cited_by": 0
+ },
+ {
+  "title": "5G Aero: A Prototyping Platform for Evaluating Aerial 5G Communications",
+  "venue": "arXiv preprint",
+  "year": 2025,
+  "abstract": "The application of small-factor, 5G-enabled Unmanned Aerial Vehicles (UAVs) has recently gained significant interest in various aerial and Industry 4.0 applications. However, ensuring reliable, high-throughput, and low-latency 5G communication in aerial applications remains a critical and underexplored problem. This paper presents the 5th generation (5G) Aero, a compact UAV optimized for 5G connectivity, aimed at fulfilling stringent 3rd Generation Partnership Project (3GPP) requirements. We conduct a set of experiments in an indoor environment, evaluating the UAV's ability to establish high-throughput, low-latency communications in both Line-of-Sight (LoS) and Non-Line-of-Sight (NLoS) conditions. Our findings demonstrate that the 5G Aero meets the required 3GPP standards for Command and Control (C2) packets latency in both LoS and NLoS, and video latency in LoS communications and it maintains acceptable latency levels for video transmission in NLoS conditions. Additionally, we show that the 5G module installed on the UAV introduces a negligible 1% decrease in flight time, showing that 5G technologies can be integrated into commercial off-the-shelf UAVs with minimal impact on battery lifetime. This paper contributes to the literature by demonstrating the practical capabilities of current 5G networks to support advanced UAV operations in telecommunications, offering insights into potential enhancements and optimizations for UAV performance in 5G networks",
+  "authors": [
+   "Matteo Bordin",
+   "Madhukara S. Holla",
+   "Sakthivel Velumani",
+   "Salvatore D'Oro",
+   "Tommaso Melodia"
+  ],
+  "doi": "2506.08386v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Architecture Design of a Networked Music Performance Platform for a Chamber Choir",
+  "venue": "arXiv preprint",
+  "year": 2023,
+  "abstract": "This paper describes an architecture design process for Networked Music Performance (NMP) platform for medium-sized conducted music ensembles, based on remote rehearsals of Academic Choir of Gdansk University of Technology. The issues of real-time remote communication, in-person music performance, and NMP are described. Three iterative steps defining and extending the architecture of the NMP platform with additional features to enhance its utility in remote rehearsals are presented. The first iteration uses a regular video conferencing platform, the second iteration uses dedicated NMP devices and tools, and the third iteration adds video transmission and utilizes professional low-latency audio and video workstations. For each iteration, the platform architecture is defined and deployed with simultaneous usability tests. Its strengths and weaknesses are identified through qualitative and quantitative measurements - statistical analysis shows a significant improvement in rehearsal quality after each iteration. The final optimal architecture is described and concluded with guidelines for creating NMP systems for said music ensembles.",
+  "authors": [
+   "Jan Cychnerski",
+   "Bartłomiej Mróz"
+  ],
+  "doi": "2310.17388v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Simulative Comparison of DVB-S2X/RCS2 and 3GPP 5G NR NTN Technologies in a Geostationary Satellite Scenario",
+  "venue": "arXiv preprint",
+  "year": 2025,
+  "abstract": "Comparison between existing, well-established satellite technologies, like the Digital Video Broadcasting (DVB) satellite specifications, and the emerging Third Generation Partnership Project (3GPP) specified 5th Generation New Radio (5G NR) Non-Terrestrial Networks (NTN) is an actively discussed topic in the satellite industry standardization groups. This article presents a thorough performance comparison between DVB Second Generation Satellite Extensions (DVBS2X) and Return Channel via Satellite 2nd Generation (DVBRCS2), and NR NTN in a Geostationary Orbit (GEO) satellite scenario, using system-level simulators (SLS) for evaluation, namely Satellite Network Simulator 3 (SNS3) and ALIX 5G (TN-)NTN SLS, built on the same Network Simulator 3 (ns-3) platform. With the satellite system geometry, beam layout, and link budget aligned to use the 3GPP NTN example parameterization for a fair comparison between DVB and NR NTN, the results show that DVB-S2X consistently achieves higher spectral efficiency than the NR Physical Downlink Shared Channel (PDSCH) on the forward user link. In contrast, on the return link, the NR Physical Uplink Shared Channel (PUSCH) demonstrates better spectral efficiency at the system level. The SLS results incorporate link-level performance, obtained through link-level simulations (LLS) for different modulation and coding schemes (MCS) and waveforms supported by each technology.",
+  "authors": [
+   "Lauri Sormunen",
+   "Tuomas Huikko",
+   "Verneri Rönty",
+   "Erno Seppänen",
+   "Sami Rantanen",
+   "Frans Laakso"
+  ],
+  "doi": "2502.13704v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Joint Optimization of Handoff and Video Rate in LEO Satellite Networks",
+  "venue": "INFOCOM (arXiv)",
+  "year": 2025,
+  "abstract": "Low Earth Orbit (LEO) satellite communication is a promising approach to providing Internet connectivity to users in many remote areas. As videos are likely to account for most traffic in the LEO satellite network, as in the rest of the Internet, this work introduces a novel video-aware mobility management framework tailored for LEO satellite networks. Utilizing simulation models alongside real-world datasets, we show the importance of handoff strategy and throughput prediction algorithms in single-user and multi-user video streaming scenarios. Motivated by these observations, we propose a set of novel algorithms that can jointly choose the satellite and video bitrate to optimize the Quality of Experience (QoE). We first develop Model Predictive Control (MPC) and Reinforcement Learning (RL) based algorithms for a single user, and then extend them to accommodate multiple competing users that may share the same satellite. We introduce centralized training and distributed inference for our RL design, enabling a distributed policy informed by a global perspective. We demonstrate the effectiveness of our proposed models using trace-driven simulation and testbed experiments. We share our code and data with the research community.",
+  "authors": [
+   "Kyoungjun Park",
+   "Zhiyuan He",
+   "Cheng Luo",
+   "Yi Xu",
+   "Lili Qiu",
+   "Changhan Ge"
+  ],
+  "doi": "2504.04586v2",
+  "cited_by": 0
+ },
+ {
+  "title": "VISTA: A Benchmark for Real-Time Video Streaming under Network Impairments in Surgical Teleoperation",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Real-time video streaming is crucial in surgical teleoperation, yet reproducible evaluation under realistic network impairments remains limited. This paper presents VISTA, a benchmark designed to study how impairments along the forward video path affect received video quality, temporal continuity, and human task performance. VISTA employs Linux Traffic Control with NetEm and a Gilbert-Elliott loss model to emulate five network conditions: Hospital LAN, 5G Urban, 4G Rural, LEO Satellite, and GEO Satellite. The benchmark integrates a standardised peg transfer task with synchronized measurements of network quality of service (QoS), objective video quality (PSNR, SSIM, and VMAF), and temporal continuity through freeze rate, while maintaining a stable reverse control channel. Across 375 experimental trials, network degradation substantially reduced teleoperation performance: success rate decreased from 97% in Hospital LAN to 79% in 5G Urban, 35% in 4G Rural, 71% in LEO Satellite, and 12% in GEO Satellite, while mean task completion time for successful trials increased from 80 s in Hospital LAN to 117 s in 5G Urban, 211 s in 4G Rural, 152 s in LEO Satellite, and 255 s in GEO Satellite. These findings show that network impairments have a direct impact on task completion and success in surgical teleoperation, and provide a reproducible basis for evaluating teleoperation video under realistic network constraints. Source code available at https://github.com/Dzxx623/VISTA.",
+  "authors": [
+   "Zexin Deng",
+   "Zhenhui Yuan",
+   "Tian Lu",
+   "Gaofeng Li",
+   "Meipeng Huang",
+   "Longhao Zou"
+  ],
+  "doi": "2605.08886v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Satellite Streaming Video QoE Prediction: A Real-World Subjective Database and Network-Level Prediction Models",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "Demand for streaming services, including satellite, continues to exhibit unprecedented growth. Internet Service Providers find themselves at the crossroads of technological advancements and rising customer expectations. To stay relevant and competitive, these ISPs must ensure their networks deliver optimal video streaming quality, a key determinant of user satisfaction. Towards this end, it is important to have accurate Quality of Experience prediction models in place. However, achieving robust performance by these models requires extensive data sets labeled by subjective opinion scores on videos impaired by diverse playback disruptions. To bridge this data gap, we introduce the LIVE-Viasat Real-World Satellite QoE Database. This database consists of 179 videos recorded from real-world streaming services affected by various authentic distortion patterns. We also conducted a comprehensive subjective study involving 54 participants, who contributed both continuous-time opinion scores and endpoint (retrospective) QoE scores. Our analysis sheds light on various determinants influencing subjective QoE, such as stall events, spatial resolutions, bitrate, and certain network parameters. We demonstrate the usefulness of this unique new resource by evaluating the efficacy of prevalent QoE-prediction models on it. We also created a new model that maps the network parameters to predicted human perception scores, which can be used by ISPs to optimize the video streaming quality of their networks. Our proposed model, which we call SatQA, is able to accurately predict QoE using only netw",
+  "authors": [
+   "Bowen Chen",
+   "Zaixi Shang",
+   "Jae Won Chung",
+   "David Lerner",
+   "Werner Robitza",
+   "Rakesh Rao Ramachandra Rao"
+  ],
+  "doi": "2410.13952v1",
+  "cited_by": 0
+ }
+]

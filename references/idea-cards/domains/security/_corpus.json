@@ -1,0 +1,723 @@
+[
+ {
+  "title": "Automatic and Universal Prompt Injection Attacks against Large Language Models",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "Large Language Models (LLMs) excel in processing and generating human language, powered by their ability to interpret and follow instructions. However, their capabilities can be exploited through prompt injection attacks. These attacks manipulate LLM-integrated applications into producing responses aligned with the attacker's injected content, deviating from the user's actual requests. The substantial risks posed by these attacks underscore the need for a thorough understanding of the threats. Yet, research in this area faces challenges due to the lack of a unified goal for such attacks and their reliance on manually crafted prompts, complicating comprehensive assessments of prompt injection robustness. We introduce a unified framework for understanding the objectives of prompt injection attacks and present an automated gradient-based method for generating highly effective and universal prompt injection data, even in the face of defensive measures. With only five training samples (0.3% relative to the test data), our attack can achieve superior performance compared with baselines. Our findings emphasize the importance of gradient-based testing, which can avoid overestimation of robustness, especially for defense mechanisms.",
+  "authors": [
+   "Xiaogeng Liu",
+   "Zhiyuan Yu",
+   "Yizhe Zhang",
+   "Ning Zhang",
+   "Chaowei Xiao"
+  ],
+  "doi": "2403.04957v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Detecting Prompt Injection Attacks Against Application Using Classifiers",
+  "venue": "arXiv preprint",
+  "year": 2025,
+  "abstract": "Prompt injection attacks can compromise the security and stability of critical systems, from infrastructure to large web applications. This work curates and augments a prompt injection dataset based on the HackAPrompt Playground Submissions corpus and trains several classifiers, including LSTM, feed forward neural networks, Random Forest, and Naive Bayes, to detect malicious prompts in LLM integrated web applications. The proposed approach improves prompt injection detection and mitigation, helping protect targeted applications and systems.",
+  "authors": [
+   "Safwan Shaheer",
+   "G. M. Refatul Islam",
+   "Mohammad Rafid Hamid",
+   "Md. Abrar Faiaz Khan",
+   "Md. Omar Faruk",
+   "Yaseen Nur"
+  ],
+  "doi": "2512.12583v1",
+  "cited_by": 0
+ },
+ {
+  "title": "SecAlign: Defending Against Prompt Injection with Preference Optimization",
+  "venue": "CCS (arXiv)",
+  "year": 2024,
+  "abstract": "Large language models (LLMs) are becoming increasingly prevalent in modern software systems, interfacing between the user and the Internet to assist with tasks that require advanced language understanding. To accomplish these tasks, the LLM often uses external data sources such as user documents, web retrieval, results from API calls, etc. This opens up new avenues for attackers to manipulate the LLM via prompt injection. Adversarial prompts can be injected into external data sources to override the system's intended instruction and instead execute a malicious instruction. To mitigate this vulnerability, we propose a new defense called SecAlign based on the technique of preference optimization. Our defense first constructs a preference dataset with prompt-injected inputs, secure outputs (ones that respond to the legitimate instruction), and insecure outputs (ones that respond to the injection). We then perform preference optimization on this dataset to teach the LLM to prefer the secure output over the insecure one. This provides the first known method that reduces the success rates of various prompt injections to <10%, even against attacks much more sophisticated than ones seen during training. This indicates our defense generalizes well against unknown and yet-to-come attacks. Also, SecAlign models are still practical with similar utility to the one before defensive training in our evaluations. Our code is at https://github.com/facebookresearch/SecAlign",
+  "authors": [
+   "Sizhe Chen",
+   "Arman Zharmagambetov",
+   "Saeed Mahloujifar",
+   "Kamalika Chaudhuri",
+   "David Wagner",
+   "Chuan Guo"
+  ],
+  "doi": "2410.05451v3",
+  "cited_by": 0
+ },
+ {
+  "title": "StruQ: Defending Against Prompt Injection with Structured Queries",
+  "venue": "USENIX Security (arXiv)",
+  "year": 2024,
+  "abstract": "Recent advances in Large Language Models (LLMs) enable exciting LLM-integrated applications, which perform text-based tasks by utilizing their advanced language understanding capabilities. However, as LLMs have improved, so have the attacks against them. Prompt injection attacks are an important threat: they trick the model into deviating from the original application's instructions and instead follow user directives. These attacks rely on the LLM's ability to follow instructions and inability to separate prompts and user data. We introduce structured queries, a general approach to tackle this problem. Structured queries separate prompts and data into two channels. We implement a system that supports structured queries. This system is made of (1) a secure front-end that formats a prompt and user data into a special format, and (2) a specially trained LLM that can produce high-quality outputs from these inputs. The LLM is trained using a novel fine-tuning strategy: we convert a base (non-instruction-tuned) LLM to a structured instruction-tuned model that will only follow instructions in the prompt portion of a query. To do so, we augment standard instruction tuning datasets with examples that also include instructions in the data portion of the query, and fine-tune the model to ignore these. Our system significantly improves resistance to prompt injection attacks, with little or no impact on utility. Our code is released at https://github.com/Sizhe-Chen/StruQ.",
+  "authors": [
+   "Sizhe Chen",
+   "Julien Piet",
+   "Chawin Sitawarin",
+   "David Wagner"
+  ],
+  "doi": "2402.06363v2",
+  "cited_by": 0
+ },
+ {
+  "title": "WebInject: Prompt Injection Attack to Web Agents",
+  "venue": "arXiv preprint",
+  "year": 2025,
+  "abstract": "Multi-modal large language model (MLLM)-based web agents interact with webpage environments by generating actions based on screenshots of the webpages. In this work, we propose WebInject, a prompt injection attack that manipulates the webpage environment to induce a web agent to perform an attacker-specified action. Our attack adds a perturbation to the raw pixel values of the rendered webpage. After these perturbed pixels are mapped into a screenshot, the perturbation induces the web agent to perform the attacker-specified action. We formulate the task of finding the perturbation as an optimization problem. A key challenge in solving this problem is that the mapping between raw pixel values and screenshot is non-differentiable, making it difficult to backpropagate gradients to the perturbation. To overcome this, we train a neural network to approximate the mapping and apply projected gradient descent to solve the reformulated optimization problem. Extensive evaluation on multiple datasets shows that WebInject is highly effective and significantly outperforms baselines.",
+  "authors": [
+   "Xilong Wang",
+   "John Bloch",
+   "Zedian Shao",
+   "Yuepeng Hu",
+   "Shuyan Zhou",
+   "Neil Zhenqiang Gong"
+  ],
+  "doi": "2505.11717v4",
+  "cited_by": 0
+ },
+ {
+  "title": "UniGuardian: A Unified Defense for Detecting Prompt Injection, Backdoor Attacks and Adversarial Attacks in Large Language Models",
+  "venue": "arXiv preprint",
+  "year": 2025,
+  "abstract": "Large Language Models (LLMs) are vulnerable to attacks like prompt injection, backdoor attacks, and adversarial attacks, which manipulate prompts or models to generate harmful outputs. In this paper, departing from traditional deep learning attack paradigms, we explore their intrinsic relationship and collectively term them Prompt Trigger Attacks (PTA). This raises a key question: Given a prompt, can we tell whether a hidden trigger is steering the model's behavior? We propose UniGuardian, to the best of our knowledge the first training-free LLM detector to jointly detect successfully activated prompt injection, backdoor, and adversarial attacks without knowing the attack type. Its shared mechanism measures how structured prompt perturbations shift the model's output distribution. Additionally, we introduce a single-forward strategy to optimize the detection pipeline, enabling simultaneous attack detection and text generation within a shared batched forward pass at each decoding step. Our experiments confirm that UniGuardian accurately and efficiently identifies trigger-activated prompts in LLMs.",
+  "authors": [
+   "Huawei Lin",
+   "Yingjie Lao",
+   "Tony Geng",
+   "Tan Yu",
+   "Weijie Zhao"
+  ],
+  "doi": "2502.13141v2",
+  "cited_by": 0
+ },
+ {
+  "title": "Beyond Instruction Override: Benchmarking Indirect Prompt Injection with Task-Tampering Attacks",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Indirect prompt-injection (IPI) benchmarks predominantly test planted instructions that redirect a tool-using agent toward an attacker-chosen task. Yet attacker-controlled content can instead tamper with the outcome of the task already in progress. A buyer's dispute evidence can cite a false refund policy to inflate a refund without changing the task. We define IPI by authority rather than instruction-like wording: planted content constitutes an attack when it attempts to influence a decision that its source is not authorized to determine. We introduce a benchmark that makes this boundary explicit: in each of 90 validated cases across three tool-use environments, the user request specifies the source that resolves the targeted decision. Every attack tampers with a decision required by the benign task rather than replacing that task. Each case has attacks with the same harmful outcome that target up to six parts of the agent's decision making: its objective, decision rules, available actions, expected consequences, reading of observations, or beliefs about the current state. Without a defense, attacks on three of the five other targets (decision rules, available actions, and state) have higher mean success than objective attacks across five LLMs. A detection-and-removal defense reduces objective-targeting attacks to 2.4% success but leaves observation- and state-targeting attacks at 9.5% and 12.1%; this gap persists under detection-optimized rewrites. A tool-policy defense still allows 15.4% attack success, close to 17.0% without a defense, because these attacks generally re",
+  "authors": [
+   "Rongting Zhang",
+   "Martin Bertran",
+   "Sandeep Avula",
+   "Chia-Jung Lee",
+   "Vanessa Murdock"
+  ],
+  "doi": "2611.07640v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Backdoor-Powered Prompt Injection Attacks Nullify Defense Methods",
+  "venue": "arXiv preprint",
+  "year": 2025,
+  "abstract": "With the development of technology, large language models (LLMs) have dominated the downstream natural language processing (NLP) tasks. However, because of the LLMs' instruction-following abilities and inability to distinguish the instructions in the data content, such as web pages from search engines, the LLMs are vulnerable to prompt injection attacks. These attacks trick the LLMs into deviating from the original input instruction and executing the attackers' target instruction. Recently, various instruction hierarchy defense strategies are proposed to effectively defend against prompt injection attacks via fine-tuning. In this paper, we explore more vicious attacks that nullify the prompt injection defense methods, even the instruction hierarchy: backdoor-powered prompt injection attacks, where the attackers utilize the backdoor attack for prompt injection attack purposes. Specifically, the attackers poison the supervised fine-tuning samples and insert the backdoor into the model. Once the trigger is activated, the backdoored model executes the injected instruction surrounded by the trigger. We construct a benchmark for comprehensive evaluation. Our experiments demonstrate that backdoor-powered prompt injection attacks are more harmful than previous prompt injection attacks, nullifying existing prompt injection defense methods, even the instruction hierarchy techniques.",
+  "authors": [
+   "Yulin Chen",
+   "Haoran Li",
+   "Yuan Sui",
+   "Yangqiu Song",
+   "Bryan Hooi"
+  ],
+  "doi": "2510.03705v1",
+  "cited_by": 0
+ },
+ {
+  "title": "LongPIBench: A Long-Context Benchmark for Prompt Injection",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Prompt injection attacks pose a serious security risk to large language models in real-world applications. However, existing prompt injection benchmarks primarily focus on short-context inputs, leaving the attacks and defenses in long-context settings largely unexplored. This gap leads to a substantial overestimation of the effectiveness of current defenses. In this paper, we bridge the gap by introducing LongPIBench, a long-context benchmark for prompt injection covering 4 realistic application scenarios: paper peer review, resume screening, code review, and email summary. For each scenario, we construct a synthetic dataset and a real-world dataset, with context lengths ranging from thousands to tens of thousands of tokens. The evaluation results on LongPIBench reveal significant vulnerabilities of prompt injection defenses under long-context settings: even simple heuristic prompt injection attacks achieve high success rates and frequently bypass state-of-the-art defenses. We hope LongPIBench can serve as a practical benchmark for systematically evaluating prompt injection defenses in realistic long-context scenarios.",
+  "authors": [
+   "Yupei Liu",
+   "Yuqi Jia",
+   "Neil Zhenqiang Gong",
+   "Jinyuan Jia"
+  ],
+  "doi": "2608.28411v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Maatphor: Automated Variant Analysis for Prompt Injection Attacks",
+  "venue": "arXiv preprint",
+  "year": 2023,
+  "abstract": "Prompt injection has emerged as a serious security threat to large language models (LLMs). At present, the current best-practice for defending against newly-discovered prompt injection techniques is to add additional guardrails to the system (e.g., by updating the system prompt or using classifiers on the input and/or output of the model.) However, in the same way that variants of a piece of malware are created to evade anti-virus software, variants of a prompt injection can be created to evade the LLM's guardrails. Ideally, when a new prompt injection technique is discovered, candidate defenses should be tested not only against the successful prompt injection, but also against possible variants. In this work, we present, a tool to assist defenders in performing automated variant analysis of known prompt injection attacks. This involves solving two main challenges: (1) automatically generating variants of a given prompt according, and (2) automatically determining whether a variant was effective based only on the output of the model. This tool can also assist in generating datasets for jailbreak and prompt injection attacks, thus overcoming the scarcity of data in this domain. We evaluate Maatphor on three different types of prompt injection tasks. Starting from an ineffective (0%) seed prompt, Maatphor consistently generates variants that are at least 60% effective within the first 40 iterations.",
+  "authors": [
+   "Ahmed Salem",
+   "Andrew Paverd",
+   "Boris Köpf"
+  ],
+  "doi": "2312.11513v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Latent Jailbreak: A Benchmark for Evaluating Text Safety and Output Robustness of Large Language Models",
+  "venue": "arXiv preprint",
+  "year": 2023,
+  "abstract": "Considerable research efforts have been devoted to ensuring that large language models (LLMs) align with human values and generate safe text. However, an excessive focus on sensitivity to certain topics can compromise the model's robustness in following instructions, thereby impacting its overall performance in completing tasks. Previous benchmarks for jailbreaking LLMs have primarily focused on evaluating the safety of the models without considering their robustness. In this paper, we propose a benchmark that assesses both the safety and robustness of LLMs, emphasizing the need for a balanced approach. To comprehensively study text safety and output robustness, we introduce a latent jailbreak prompt dataset, each involving malicious instruction embedding. Specifically, we instruct the model to complete a regular task, such as translation, with the text to be translated containing malicious instructions. To further analyze safety and robustness, we design a hierarchical annotation framework. We present a systematic analysis of the safety and robustness of LLMs regarding the position of explicit normal instructions, word replacements (verbs in explicit normal instructions, target groups in malicious instructions, cue words for explicit normal instructions), and instruction replacements (different explicit normal instructions). Our results demonstrate that current LLMs not only prioritize certain instruction verbs but also exhibit varying jailbreak rates for different instruction verbs in explicit normal instructions. Code and data are available at https://github.com/qiuhuach",
+  "authors": [
+   "Huachuan Qiu",
+   "Shuai Zhang",
+   "Anqi Li",
+   "Hongliang He",
+   "Zhenzhong Lan"
+  ],
+  "doi": "2307.08487v3",
+  "cited_by": 0
+ },
+ {
+  "title": "Gradient Cuff: Detecting Jailbreak Attacks on Large Language Models by Exploring Refusal Loss Landscapes",
+  "venue": "NeurIPS (arXiv)",
+  "year": 2024,
+  "abstract": "Large Language Models (LLMs) are becoming a prominent generative AI tool, where the user enters a query and the LLM generates an answer. To reduce harm and misuse, efforts have been made to align these LLMs to human values using advanced training techniques such as Reinforcement Learning from Human Feedback (RLHF). However, recent studies have highlighted the vulnerability of LLMs to adversarial jailbreak attempts aiming at subverting the embedded safety guardrails. To address this challenge, this paper defines and investigates the Refusal Loss of LLMs and then proposes a method called Gradient Cuff to detect jailbreak attempts. Gradient Cuff exploits the unique properties observed in the refusal loss landscape, including functional values and its smoothness, to design an effective two-step detection strategy. Experimental results on two aligned LLMs (LLaMA-2-7B-Chat and Vicuna-7B-V1.5) and six types of jailbreak attacks (GCG, AutoDAN, PAIR, TAP, Base64, and LRL) show that Gradient Cuff can significantly improve the LLM's rejection capability for malicious jailbreak queries, while maintaining the model's performance for benign user queries by adjusting the detection threshold.",
+  "authors": [
+   "Xiaomeng Hu",
+   "Pin-Yu Chen",
+   "Tsung-Yi Ho"
+  ],
+  "doi": "2403.00867v3",
+  "cited_by": 0
+ },
+ {
+  "title": "Jailbreak Distillation: Renewable Safety Benchmarking",
+  "venue": "arXiv preprint",
+  "year": 2025,
+  "abstract": "Large language models (LLMs) are rapidly deployed in critical applications, raising urgent needs for robust safety benchmarking. We propose Jailbreak Distillation (JBDistill), a novel benchmark construction framework that \"distills\" jailbreak attacks into high-quality and easily-updatable safety benchmarks. JBDistill utilizes a small set of development models and existing jailbreak attack algorithms to create a candidate prompt pool, then employs prompt selection algorithms to identify an effective subset of prompts as safety benchmarks. JBDistill addresses challenges in existing safety evaluation: the use of consistent evaluation prompts across models ensures fair comparisons and reproducibility. It requires minimal human effort to rerun the JBDistill pipeline and produce updated benchmarks, alleviating concerns on saturation and contamination. Extensive experiments demonstrate our benchmarks generalize robustly to 13 diverse evaluation models held out from benchmark construction, including proprietary, specialized, and newer-generation LLMs, significantly outperforming existing safety benchmarks in effectiveness while maintaining high separability and diversity. Our framework thus provides an effective, sustainable, and adaptable solution for streamlining safety evaluation.",
+  "authors": [
+   "Jingyu Zhang",
+   "Ahmed Elgohary",
+   "Xiawei Wang",
+   "A S M Iftekhar",
+   "Ahmed Magooda",
+   "Benjamin Van Durme"
+  ],
+  "doi": "2505.22037v1",
+  "cited_by": 0
+ },
+ {
+  "title": "JailbreakBench: An Open Robustness Benchmark for Jailbreaking Large Language Models",
+  "venue": "NeurIPS (arXiv)",
+  "year": 2024,
+  "abstract": "Jailbreak attacks cause large language models (LLMs) to generate harmful, unethical, or otherwise objectionable content. Evaluating these attacks presents a number of challenges, which the current collection of benchmarks and evaluation techniques do not adequately address. First, there is no clear standard of practice regarding jailbreaking evaluation. Second, existing works compute costs and success rates in incomparable ways. And third, numerous works are not reproducible, as they withhold adversarial prompts, involve closed-source code, or rely on evolving proprietary APIs. To address these challenges, we introduce JailbreakBench, an open-sourced benchmark with the following components: (1) an evolving repository of state-of-the-art adversarial prompts, which we refer to as jailbreak artifacts; (2) a jailbreaking dataset comprising 100 behaviors -- both original and sourced from prior work (Zou et al., 2023; Mazeika et al., 2023, 2024) -- which align with OpenAI's usage policies; (3) a standardized evaluation framework at https://github.com/JailbreakBench/jailbreakbench that includes a clearly defined threat model, system prompts, chat templates, and scoring functions; and (4) a leaderboard at https://jailbreakbench.github.io/ that tracks the performance of attacks and defenses for various LLMs. We have carefully considered the potential ethical implications of releasing this benchmark, and believe that it will be a net positive for the community.",
+  "authors": [
+   "Patrick Chao",
+   "Edoardo Debenedetti",
+   "Alexander Robey",
+   "Maksym Andriushchenko",
+   "Francesco Croce",
+   "Vikash Sehwag"
+  ],
+  "doi": "2404.01318v5",
+  "cited_by": 0
+ },
+ {
+  "title": "LLMs Can Defend Themselves Against Jailbreaking in a Practical Manner: A Vision Paper",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "Jailbreaking is an emerging adversarial attack that bypasses the safety alignment deployed in off-the-shelf large language models (LLMs). A considerable amount of research exists proposing more effective jailbreak attacks, including the recent Greedy Coordinate Gradient (GCG) attack, jailbreak template-based attacks such as using \"Do-Anything-Now\" (DAN), and multilingual jailbreak. In contrast, the defensive side has been relatively less explored. This paper proposes a lightweight yet practical defense called SELFDEFEND, which can defend against all existing jailbreak attacks with minimal delay for jailbreak prompts and negligible delay for normal user prompts. Our key insight is that regardless of the kind of jailbreak strategies employed, they eventually need to include a harmful prompt (e.g., \"how to make a bomb\") in the prompt sent to LLMs, and we found that existing LLMs can effectively recognize such harmful prompts that violate their safety policies. Based on this insight, we design a shadow stack that concurrently checks whether a harmful prompt exists in the user prompt and triggers a checkpoint in the normal stack once a token of \"No\" or a harmful prompt is output. The latter could also generate an explainable LLM response to adversarial prompts. We demonstrate our idea of SELFDEFEND works in various jailbreak scenarios through manual analysis in GPT-3.5/4. We also list three future directions to further enhance SELFDEFEND.",
+  "authors": [
+   "Daoyuan Wu",
+   "Shuai Wang",
+   "Yang Liu",
+   "Ning Liu"
+  ],
+  "doi": "2402.15727v2",
+  "cited_by": 0
+ },
+ {
+  "title": "TombRaider: Entering the Vault of History to Jailbreak Large Language Models",
+  "venue": "arXiv preprint",
+  "year": 2025,
+  "abstract": "Warning: This paper contains content that may involve potentially harmful behaviours, discussed strictly for research purposes. Jailbreak attacks can hinder the safety of Large Language Model (LLM) applications, especially chatbots. Studying jailbreak techniques is an important AI red teaming task for improving the safety of these applications. In this paper, we introduce TombRaider, a novel jailbreak technique that exploits the ability to store, retrieve, and use historical knowledge of LLMs. TombRaider employs two agents, the inspector agent to extract relevant historical information and the attacker agent to generate adversarial prompts, enabling effective bypassing of safety filters. We intensively evaluated TombRaider on six popular models. Experimental results showed that TombRaider could outperform state-of-the-art jailbreak techniques, achieving nearly 100% attack success rates (ASRs) on bare models and maintaining over 55.4% ASR against defence mechanisms. Our findings highlight critical vulnerabilities in existing LLM safeguards, underscoring the need for more robust safety defences.",
+  "authors": [
+   "Junchen Ding",
+   "Jiahao Zhang",
+   "Yi Liu",
+   "Ziqi Ding",
+   "Gelei Deng",
+   "Yuekang Li"
+  ],
+  "doi": "2501.18628v2",
+  "cited_by": 0
+ },
+ {
+  "title": "EnJa: Ensemble Jailbreak on Large Language Models",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "As Large Language Models (LLMs) are increasingly being deployed in safety-critical applications, their vulnerability to potential jailbreaks -- malicious prompts that can disable the safety mechanism of LLMs -- has attracted growing research attention. While alignment methods have been proposed to protect LLMs from jailbreaks, many have found that aligned LLMs can still be jailbroken by carefully crafted malicious prompts, producing content that violates policy regulations. Existing jailbreak attacks on LLMs can be categorized into prompt-level methods which make up stories/logic to circumvent safety alignment and token-level attack methods which leverage gradient methods to find adversarial tokens. In this work, we introduce the concept of Ensemble Jailbreak and explore methods that can integrate prompt-level and token-level jailbreak into a more powerful hybrid jailbreak attack. Specifically, we propose a novel EnJa attack to hide harmful instructions using prompt-level jailbreak, boost the attack success rate using a gradient-based attack, and connect the two types of jailbreak attacks via a template-based connector. We evaluate the effectiveness of EnJa on several aligned models and show that it achieves a state-of-the-art attack success rate with fewer queries and is much stronger than any individual jailbreak.",
+  "authors": [
+   "Jiahao Zhang",
+   "Zilong Wang",
+   "Ruofan Wang",
+   "Xingjun Ma",
+   "Yu-Gang Jiang"
+  ],
+  "doi": "2408.03603v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Jailbreaking Attack against Multimodal Large Language Model",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "This paper focuses on jailbreaking attacks against multi-modal large language models (MLLMs), seeking to elicit MLLMs to generate objectionable responses to harmful user queries. A maximum likelihood-based algorithm is proposed to find an \\emph{image Jailbreaking Prompt} (imgJP), enabling jailbreaks against MLLMs across multiple unseen prompts and images (i.e., data-universal property). Our approach exhibits strong model-transferability, as the generated imgJP can be transferred to jailbreak various models, including MiniGPT-v2, LLaVA, InstructBLIP, and mPLUG-Owl2, in a black-box manner. Moreover, we reveal a connection between MLLM-jailbreaks and LLM-jailbreaks. As a result, we introduce a construction-based method to harness our approach for LLM-jailbreaks, demonstrating greater efficiency than current state-of-the-art methods. The code is available here. \\textbf{Warning: some content generated by language models may be offensive to some readers.}",
+  "authors": [
+   "Zhenxing Niu",
+   "Haodong Ren",
+   "Xinbo Gao",
+   "Gang Hua",
+   "Rong Jin"
+  ],
+  "doi": "2402.02309v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Foot In The Door: Understanding Large Language Model Jailbreaking via Cognitive Psychology",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "Large Language Models (LLMs) have gradually become the gateway for people to acquire new knowledge. However, attackers can break the model's security protection (\"jail\") to access restricted information, which is called \"jailbreaking.\" Previous studies have shown the weakness of current LLMs when confronted with such jailbreaking attacks. Nevertheless, comprehension of the intrinsic decision-making mechanism within the LLMs upon receipt of jailbreak prompts is noticeably lacking. Our research provides a psychological explanation of the jailbreak prompts. Drawing on cognitive consistency theory, we argue that the key to jailbreak is guiding the LLM to achieve cognitive coordination in an erroneous direction. Further, we propose an automatic black-box jailbreaking method based on the Foot-in-the-Door (FITD) technique. This method progressively induces the model to answer harmful questions via multi-step incremental prompts. We instantiated a prototype system to evaluate the jailbreaking effectiveness on 8 advanced LLMs, yielding an average success rate of 83.9%. This study builds a psychological perspective on the explanatory insights into the intrinsic decision-making logic of LLMs.",
+  "authors": [
+   "Zhenhua Wang",
+   "Wei Xie",
+   "Baosheng Wang",
+   "Enze Wang",
+   "Zhiwen Gui",
+   "Shuoyoucheng Ma"
+  ],
+  "doi": "2402.15690v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Jailbreaking Large Language Models with Morality Attacks",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Pluralism alignment with AI has the sophisticated and necessary goal of creating AI that can coexist with and serve morally multifaceted humanity. Research towards pluralism alignment has many efforts in enhancing the learning of large language models (LLMs) to accomplish pluralism. Although this is essential, the robustness of LLMs to produce moral content over pluralistic values is still under exploration.Inspired by the astonishing persuasion abilities via jailbreak prompts, we propose to leverage jailbreak attacks to study LLMs' internal pluralistic values. In detail, we develop a morality dataset with 10.3K instances in two categories: Value Ambiguity and Value Conflict. We further formalize four adversarial attacks with the constructed dataset, to manipulate LLMs' judgment over the morality questions. We evaluate both the large language models and guardrail models which are typically used in generative systems with flexible user input. Our experiment results show that there is a critical vulnerability of LLMs and guardrail models to these subtle and sophisticated moral-aware attacks.",
+  "authors": [
+   "Ying Su",
+   "Mingen Zheng",
+   "Weili Diao",
+   "Haoran Li"
+  ],
+  "doi": "2604.17053v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Off-Path TCP Hijacking in Wi-Fi Networks: A Packet-Size Side Channel Attack",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "In this paper, we unveil a fundamental side channel in Wi-Fi networks, specifically the observable frame size, which can be exploited by attackers to conduct TCP hijacking attacks. Despite the various security mechanisms (e.g., WEP and WPA2/WPA3) implemented to safeguard Wi-Fi networks, our study reveals that an off path attacker can still extract sufficient information from the frame size side channel to hijack the victim's TCP connection. Our side channel attack is based on two significant findings: (i) response packets (e.g., ACK and RST) generated by TCP receivers vary in size, and (ii) the encrypted frames containing these response packets have consistent and distinguishable sizes. By observing the size of the victim's encrypted frames, the attacker can detect and hijack the victim's TCP connections. We validate the effectiveness of this side channel attack through two case studies, i.e., SSH DoS and web traffic manipulation. Precisely, our attack can terminate the victim's SSH session in 19 seconds and inject malicious data into the victim's web traffic within 28 seconds. Furthermore, we conduct extensive measurements to evaluate the impact of our attack on real-world Wi-Fi networks. We test 30 popular wireless routers from 9 well-known vendors, and none of these routers can protect victims from our attack. Besides, we implement our attack in 80 real-world Wi-Fi networks and successfully hijack the victim's TCP connections in 75 (93.75%) evaluated Wi-Fi networks. We have responsibly disclosed the vulnerability to the Wi-Fi Alliance and proposed several mitigation stra",
+  "authors": [
+   "Ziqiang Wang",
+   "Xuewei Feng",
+   "Qi Li",
+   "Kun Sun",
+   "Yuxiang Yang",
+   "Mengyuan Li"
+  ],
+  "doi": "2402.12716v5",
+  "cited_by": 0
+ },
+ {
+  "title": "A Practical Deep Learning-Based Acoustic Side Channel Attack on Keyboards",
+  "venue": "S&P (arXiv)",
+  "year": 2023,
+  "abstract": "With recent developments in deep learning, the ubiquity of micro-phones and the rise in online services via personal devices, acoustic side channel attacks present a greater threat to keyboards than ever. This paper presents a practical implementation of a state-of-the-art deep learning model in order to classify laptop keystrokes, using a smartphone integrated microphone. When trained on keystrokes recorded by a nearby phone, the classifier achieved an accuracy of 95%, the highest accuracy seen without the use of a language model. When trained on keystrokes recorded using the video-conferencing software Zoom, an accuracy of 93% was achieved, a new best for the medium. Our results prove the practicality of these side channel attacks via off-the-shelf equipment and algorithms. We discuss a series of mitigation methods to protect users against these series of attacks.",
+  "authors": [
+   "Joshua Harrison",
+   "Ehsan Toreini",
+   "Maryam Mehrnezhad"
+  ],
+  "doi": "2308.01074v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Beyond the Bridge: Contention-Based Covert and Side Channel Attacks on Multi-GPU Interconnect",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "High-speed interconnects, such as NVLink, are integral to modern multi-GPU systems, acting as a vital link between CPUs and GPUs. This study highlights the vulnerability of multi-GPU systems to covert and side channel attacks due to congestion on interconnects. An adversary can infer private information about a victim's activities by monitoring NVLink congestion without needing special permissions. Leveraging this insight, we develop a covert channel attack across two GPUs with a bandwidth of 45.5 kbps and a low error rate, and introduce a side channel attack enabling attackers to fingerprint applications through the shared NVLink interconnect.",
+  "authors": [
+   "Yicheng Zhang",
+   "Ravan Nazaraliyev",
+   "Sankha Baran Dutta",
+   "Nael Abu-Ghazaleh",
+   "Andres Marquez",
+   "Kevin Barker"
+  ],
+  "doi": "2404.03877v2",
+  "cited_by": 0
+ },
+ {
+  "title": "PREFENDER: A Prefetching Defender against Cache Side Channel Attacks as A Pretender",
+  "venue": "arXiv preprint",
+  "year": 2023,
+  "abstract": "Cache side channel attacks are increasingly alarming in modern processors due to the recent emergence of Spectre and Meltdown attacks. A typical attack performs intentional cache access and manipulates cache states to leak secrets by observing the victim's cache access patterns. Different countermeasures have been proposed to defend against both general and transient execution based attacks. Despite their effectiveness, they mostly trade some level of performance for security, or have restricted security scope. In this paper, we seek an approach to enforcing security while maintaining performance. We leverage the insight that attackers need to access cache in order to manipulate and observe cache state changes for information leakage. Specifically, we propose Prefender, a secure prefetcher that learns and predicts attack-related accesses for prefetching the cachelines to simultaneously help security and performance. Our results show that Prefender is effective against several cache side channel attacks while maintaining or even improving performance for SPEC CPU 2006 and 2017 benchmarks.",
+  "authors": [
+   "Luyi Li",
+   "Jiayi Huang",
+   "Lang Feng",
+   "Zhongfeng Wang"
+  ],
+  "doi": "2307.06756v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Timing the Transient Execution: A New Side-Channel Attack on Intel CPUs",
+  "venue": "arXiv preprint",
+  "year": 2023,
+  "abstract": "The transient execution attack is a type of attack leveraging the vulnerability of modern CPU optimization technologies. New attacks surface rapidly. The side-channel is a key part of transient execution attacks to leak data. In this work, we discover a vulnerability that the change of the EFLAGS register in transient execution may have a side effect on the Jcc (jump on condition code) instruction after it in Intel CPUs. Based on our discovery, we propose a new side-channel attack that leverages the timing of both transient execution and Jcc instructions to deliver data. This attack encodes secret data to the change of register which makes the execution time of context slightly slower, which can be measured by the attacker to decode data. This attack doesn't rely on the cache system and doesn't need to reset the EFLAGS register manually to its initial state before the attack, which may make it more difficult to detect or mitigate. We implemented this side-channel on machines with Intel Core i7-6700, i7-7700, and i9-10980XE CPUs. In the first two processors, we combined it as the side-channel of the Meltdown attack, which could achieve 100\\% success leaking rate. We evaluate and discuss potential defenses against the attack. Our contributions include discovering security vulnerabilities in the implementation of Jcc instructions and EFLAGS register and proposing a new side-channel attack that does not rely on the cache system.",
+  "authors": [
+   "Yu Jin",
+   "Pengfei Qiu",
+   "Chunlu Wang",
+   "Yihao Yang",
+   "Dongsheng Wang",
+   "Gang Qu"
+  ],
+  "doi": "2304.10877v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Application-Specific Power Side-Channel Attacks and Countermeasures: A Survey",
+  "venue": "arXiv preprint",
+  "year": 2025,
+  "abstract": "Side-channel attacks try to extract secret information from a system by analyzing different side-channel signatures, such as power consumption, electromagnetic emanation, thermal dissipation, acoustics, time, etc. Power-based side-channel attack is one of the most prominent side-channel attacks in cybersecurity, which rely on data-dependent power variations in a system to extract sensitive information. While there are related surveys, they primarily focus on power side-channel attacks on cryptographic implementations. In recent years, power-side channel attacks have been explored in diverse application domains, including key extraction from cryptographic implementations, reverse engineering of machine learning models, user behavior data exploitation, and instruction-level disassembly. In this paper, we provide a comprehensive survey of power side-channel attacks and their countermeasures in different application domains. Specifically, this survey aims to classify recent power side-channel attacks and provide a comprehensive comparison based on application-specific considerations.",
+  "authors": [
+   "Sahan Sanjaya",
+   "Aruna Jayasena",
+   "Prabhat Mishra"
+  ],
+  "doi": "2512.23785v1",
+  "cited_by": 0
+ },
+ {
+  "title": "A Survey on Acoustic Side Channel Attacks on Keyboards",
+  "venue": "arXiv preprint",
+  "year": 2023,
+  "abstract": "Most electronic devices utilize mechanical keyboards to receive inputs, including sensitive information such as authentication credentials, personal and private data, emails, plans, etc. However, these systems are susceptible to acoustic side-channel attacks. Researchers have successfully developed methods that can extract typed keystrokes from ambient noise. As the prevalence of keyboard-based input systems continues to expand across various computing platforms, and with the improvement of microphone technology, the potential vulnerability to acoustic side-channel attacks also increases. This survey paper thoroughly reviews existing research, explaining why such attacks are feasible, the applicable threat models, and the methodologies employed to launch and enhance these attacks.",
+  "authors": [
+   "Alireza Taheritajar",
+   "Zahra Mahmoudpour Harris",
+   "Reza Rahaeimehr"
+  ],
+  "doi": "2309.11012v2",
+  "cited_by": 0
+ },
+ {
+  "title": "THOR: A Non-Speculative Value Dependent Timing Side Channel Attack Exploiting Intel AMX",
+  "venue": "arXiv preprint",
+  "year": 2025,
+  "abstract": "The rise of on-chip accelerators signifies a major shift in computing, driven by the growing demands of artificial intelligence (AI) and specialized applications. These accelerators have gained popularity due to their ability to substantially boost performance, cut energy usage, lower total cost of ownership (TCO), and promote sustainability. Intel's Advanced Matrix Extensions (AMX) is one such on-chip accelerator, specifically designed for handling tasks involving large matrix multiplications commonly used in machine learning (ML) models, image processing, and other computational-heavy operations. In this paper, we introduce a novel value-dependent timing side-channel vulnerability in Intel AMX. By exploiting this weakness, we demonstrate a software-based, value-dependent timing side-channel attack capable of inferring the sparsity of neural network weights without requiring any knowledge of the confidence score, privileged access or physical proximity. Our attack method can fully recover the sparsity of weights assigned to 64 input elements within 50 minutes, which is 631% faster than the maximum leakage rate achieved in the Hertzbleed attack.",
+  "authors": [
+   "Farshad Dizani",
+   "Azam Ghanbari",
+   "Joshua Kalyanapu",
+   "Darsh Asher",
+   "Samira Mirbagher Ajorpaz"
+  ],
+  "doi": "2502.17658v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Acoustic Side Channel Attack on Keyboards Based on Typing Patterns",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "Acoustic side-channel attacks on keyboards can bypass security measures in many systems that use keyboards as one of the input devices. These attacks aim to reveal users' sensitive information by targeting the sounds made by their keyboards as they type. Most existing approaches in this field ignore the negative impacts of typing patterns and environmental noise in their results. This paper seeks to address these shortcomings by proposing an applicable method that takes into account the user's typing pattern in a realistic environment. Our method achieved an average success rate of 43% across all our case studies when considering real-world scenarios.",
+  "authors": [
+   "Alireza Taheritajar",
+   "Reza Rahaeimehr"
+  ],
+  "doi": "2403.08740v1",
+  "cited_by": 0
+ },
+ {
+  "title": "A Survey of Side-Channel Attacks in Context of Cache -- Taxonomies, Analysis and Mitigation",
+  "venue": "arXiv preprint",
+  "year": 2023,
+  "abstract": "Side-channel attacks have become prominent attack surfaces in cyberspace. Attackers use the side information generated by the system while performing a task. Among the various side-channel attacks, cache side-channel attacks are leading as there has been an enormous growth in cache memory size in last decade, especially Last Level Cache (LLC). The adversary infers the information from the observable behavior of shared cache memory. This paper covers the detailed study of cache side-channel attacks and compares different microarchitectures in the context of side-channel attacks. Our main contributions are: (1) We have summarized the fundamentals and essentials of side-channel attacks and various attack surfaces (taxonomies). We also discussed different exploitation techniques, highlighting their capabilities and limitations. (2) We discussed cache side-channel attacks and analyzed the existing literature on cache side-channel attacks on various parameters like microarchitectures, cross-core exploitation, methodology, target, etc. (3) We discussed the detailed analysis of the existing mitigation strategies to prevent cache side-channel attacks. The analysis includes hardware- and software-based countermeasures, examining their strengths and weaknesses. We also discussed the challenges and trade-offs associated with mitigation strategies. This survey is supposed to provide a deeper understanding of the threats posed by these attacks to the research community with valuable insights into effective defense mechanisms.",
+  "authors": [
+   "Ankit Pulkit",
+   "Smita Naval",
+   "Vijay Laxmi"
+  ],
+  "doi": "2312.11094v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Protocol-Aware Firmware Rehosting for Effective Fuzzing of Embedded Network Stacks",
+  "venue": "CCS (arXiv)",
+  "year": 2025,
+  "abstract": "One of the biggest attack surfaces of embedded systems is their network interfaces, which enable communication with other devices. Unlike their general-purpose counterparts, embedded systems are designed for specialized use cases, resulting in unique and diverse communication stacks. Unfortunately, current approaches for evaluating the security of these embedded network stacks require manual effort or access to hardware, and they generally focus only on small parts of the embedded system. A promising alternative is firmware rehosting, which enables fuzz testing of the entire firmware by generically emulating the physical hardware. However, existing rehosting methods often struggle to meaningfully explore network stacks due to their complex, multi-layered input formats. This limits their ability to uncover deeply nested software faults. To address this problem, we introduce a novel method to automatically detect and handle the use of network protocols in firmware called Pemu. By automatically deducing the available network protocols, Pemu can transparently generate valid network packets that encapsulate fuzzing data, allowing the fuzzing input to flow directly into deeper layers of the firmware logic. Our approach thus enables a deeper, more targeted, and layer-by-layer analysis of firmware components that were previously difficult or impossible to test. Our evaluation demonstrates that Pemu consistently improves the code coverage of three existing rehosting tools for embedded network stacks. Furthermore, our fuzzer rediscovered several known vulnerabilities and identified f",
+  "authors": [
+   "Moritz Bley",
+   "Tobias Scharnowski",
+   "Simon Wörner",
+   "Moritz Schloegel",
+   "Thorsten Holz"
+  ],
+  "doi": "2509.13740v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Poster: Machine Learning for Vulnerability Detection as Target Oracle in Automated Fuzz Driver Generation",
+  "venue": "arXiv preprint",
+  "year": 2025,
+  "abstract": "In vulnerability detection, machine learning has been used as an effective static analysis technique, although it suffers from a significant rate of false positives. Contextually, in vulnerability discovery, fuzzing has been used as an effective dynamic analysis technique, although it requires manually writing fuzz drivers. Fuzz drivers usually target a limited subset of functions in a library that must be chosen according to certain criteria, e.g., the depth of a function, the number of paths. These criteria are verified by components called target oracles. In this work, we propose an automated fuzz driver generation workflow composed of: (1) identifying a likely vulnerable function by leveraging a machine learning for vulnerability detection model as a target oracle, (2) automatically generating fuzz drivers, (3) fuzzing the target function to find bugs which could confirm the vulnerability inferred by the target oracle. We show our method on an existing vulnerability in libgd, with a plan for large-scale evaluation.",
+  "authors": [
+   "Gianpietro Castiglione",
+   "Marcello Maugeri",
+   "Giampaolo Bella"
+  ],
+  "doi": "2505.01123v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Vulnerability Detection Through an Adversarial Fuzzing Algorithm",
+  "venue": "arXiv preprint",
+  "year": 2023,
+  "abstract": "Fuzzing is a popular vulnerability automated testing method utilized by professionals and broader community alike. However, despite its abilities, fuzzing is a time-consuming, computationally expensive process. This is problematic for the open source community and smaller developers, as most people will not have dedicated security professionals and/or knowledge to perform extensive testing on their own. The goal of this project is to increase the efficiency of existing fuzzers by allowing fuzzers to explore more paths and find more bugs in shorter amounts of time, while still remaining operable on a personal device. To accomplish this, adversarial methods are built on top of current evolutionary algorithms to generate test cases for further and more efficient fuzzing. The results of this show that adversarial attacks do in fact increase outpaces existing fuzzers significantly and, consequently, crashes found.",
+  "authors": [
+   "Michael Wang",
+   "Michael Robinson"
+  ],
+  "doi": "2307.11917v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Systematic Meets Unintended: Prior Knowledge Adaptive 5G Vulnerability Detection via Multi-Fuzzing",
+  "venue": "arXiv preprint",
+  "year": 2023,
+  "abstract": "The virtualization and softwarization of 5G and NextG are critical enablers of the shift to flexibility, but they also present a potential attack surface for threats. However, current security research in communication systems focuses on specific aspects of security challenges and lacks a holistic perspective. To address this challenge, a novel systematic fuzzing approach is proposed to reveal, detect, and predict vulnerabilities with and without prior knowledge assumptions from attackers. It also serves as a digital twin platform for system testing and defense simulation pipeline. Three fuzzing strategies are proposed: Listen-and-Learn (LAL), Synchronize-and-Learn (SyAL), and Source-and-Learn (SoAL). The LAL strategy is a black-box fuzzing strategy used to discover vulnerabilities without prior protocol knowledge, while the SyAL strategy, also a black-box fuzzing method, targets vulnerabilities more accurately with attacker-accessible user information and a novel probability-based fuzzing approach. The white-box fuzzing strategy, SoAL, is then employed to identify and explain vulnerabilities through fuzzing of significant bits. Using the srsRAN 5G platform, the LAL strategy identifies 129 RRC connection vulnerabilities with an average detection duration of 0.072s. Leveraging the probability-based fuzzing algorithm, the SyAL strategy outperforms existing models in precision and recall, using significantly fewer fuzzing cases. SoAL detects three man-in-the-middle vulnerabilities stemming from 5G protocol vulnerabilities. The proposed solution is scalable to other open-source",
+  "authors": [
+   "Jingda Yang",
+   "Ying Wang",
+   "Yanjun Pan",
+   "Tuyen X. Tran"
+  ],
+  "doi": "2305.08039v2",
+  "cited_by": 0
+ },
+ {
+  "title": "TransferFuzz: Fuzzing with Historical Trace for Verifying Propagated Vulnerability Code",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "Code reuse in software development frequently facilitates the spread of vulnerabilities, making the scope of affected software in CVE reports imprecise. Traditional methods primarily focus on identifying reused vulnerability code within target software, yet they cannot verify if these vulnerabilities can be triggered in new software contexts. This limitation often results in false positives. In this paper, we introduce TransferFuzz, a novel vulnerability verification framework, to verify whether vulnerabilities propagated through code reuse can be triggered in new software. Innovatively, we collected runtime information during the execution or fuzzing of the basic binary (the vulnerable binary detailed in CVE reports). This process allowed us to extract historical traces, which proved instrumental in guiding the fuzzing process for the target binary (the new binary that reused the vulnerable function). TransferFuzz introduces a unique Key Bytes Guided Mutation strategy and a Nested Simulated Annealing algorithm, which transfers these historical traces to implement trace-guided fuzzing on the target binary, facilitating the accurate and efficient verification of the propagated vulnerability. Our evaluation, conducted on widely recognized datasets, shows that TransferFuzz can quickly validate vulnerabilities previously unverifiable with existing techniques. Its verification speed is 2.5 to 26.2 times faster than existing methods. Moreover, TransferFuzz has proven its effectiveness by expanding the impacted software scope for 15 vulnerabilities listed in CVE reports, increasin",
+  "authors": [
+   "Siyuan Li",
+   "Yuekang Li",
+   "Zuxin Chen",
+   "Chaopeng Dong",
+   "Yongpan Wang",
+   "Hong Li"
+  ],
+  "doi": "2411.18347v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Formal and Fuzzing Amplification: Targeting Vulnerability Detection in 5G and Beyond",
+  "venue": "arXiv preprint",
+  "year": 2023,
+  "abstract": "Softwarization and virtualization in 5G and beyond require rigorous testing against vulnerabilities and unintended emergent behaviors for critical infrastructure and network security assurance. Formal methods operates efficiently in protocol-level abstract specification models, and fuzz testing offers comprehensive experimental evaluation of system implementations. In this paper, we propose a novel framework that leverages the respective advantages and coverage of both formal and fuzzing methods to efficiently detect vulnerabilities from protocol logic to implementation stacks hierarchically. The detected attack traces from the formal verification results in critical protocols guide the case generation of fuzz testing, and the feedbacks from fuzz testing further broaden the scope of the formal verification. We examine the proposed framework with the 5G Non Standard-Alone (NSA) security processes, focusing on the Radio Resource Control (RRC) connection process. We first identify protocol-level vulnerabilities of user credentials via formal methods. Following this, we implement bit-level fuzzing to evaluate potential impacts and risks of integrity-vulnerable identifier variation. Concurrently, we conduct command-level mutation-based fuzzing by fixing the assumption identifier to assess the potential impacts and risks of confidentiality-vulnerable identifiers. During this approach, we established 1 attack model and detected 53 vulnerabilities. The vulnerabilities identified used to fortify protocol-level assumptions could further refine search space for the following detection",
+  "authors": [
+   "Jingda Yang",
+   "Ying Wang"
+  ],
+  "doi": "2307.05758v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Multi-Agent Collaborative Fuzzing with Continuous Reflection for Smart Contracts Vulnerability Detection",
+  "venue": "arXiv preprint",
+  "year": 2025,
+  "abstract": "Fuzzing is a widely used technique for detecting vulnerabilities in smart contracts, which generates transaction sequences to explore the execution paths of smart contracts. However, existing fuzzers are falling short in detecting sophisticated vulnerabilities that require specific attack transaction sequences with proper inputs to trigger, as they (i) prioritize code coverage over vulnerability discovery, wasting considerable effort on non-vulnerable code regions, and (ii) lack semantic understanding of stateful contracts, generating numerous invalid transaction sequences that cannot pass runtime execution. In this paper, we propose SmartFuzz, a novel collaborative reflective fuzzer for smart contract vulnerability detection. It employs large language model-driven agents as the fuzzing engine and continuously improves itself by learning and reflecting through interactions with the environment. Specifically, we first propose a new Continuous Reflection Process (CRP) for fuzzing smart contracts, which reforms the transaction sequence generation as a self-evolving process through continuous reflection on feedback from the runtime environment. Then, we present the Reactive Collaborative Chain (RCC) to orchestrate the fuzzing process into multiple sub-tasks based on the dependencies of transaction sequences. Furthermore, we design a multi-agent collaborative team, where each expert agent is guided by the RCC to jointly generate and refine transaction sequences from both global and local perspectives. We conduct extensive experiments to evaluate SmartFuzz's performance on real-w",
+  "authors": [
+   "Jie Chen",
+   "Liangmin Wang"
+  ],
+  "doi": "2511.12164v1",
+  "cited_by": 0
+ },
+ {
+  "title": "AI-Driven Fuzzing for Vulnerability Assessment of 5G Traffic Steering Algorithms",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Traffic Steering (TS) dynamically allocates user traffic across cells to enhance Quality of Experience (QoE), load balance, and spectrum efficiency in 5G networks. However, TS algorithms remain vulnerable to adversarial conditions such as interference spikes, handover storms, and localized outages. To address this, an AI-driven fuzz testing framework based on the Non-Dominated Sorting Genetic Algorithm II (NSGA-II) is proposed to systematically expose hidden vulnerabilities. Using NVIDIA Sionna, five TS algorithms are evaluated across six scenarios. Results show that AI-driven fuzzing detects 34.2% more total vulnerabilities and 5.8% more critical failures than traditional testing, achieving superior diversity and edge-case discovery. The observed variance in critical failure detection underscores the stochastic nature of rare vulnerabilities. These findings demonstrate that AI-driven fuzzing offers an effective and scalable validation approach for improving TS algorithm robustness and ensuring resilient 6G-ready networks.",
+  "authors": [
+   "Seyed Bagher Hashemi Natanzi",
+   "Hossein Mohammadi",
+   "Bo Tang",
+   "Vuk Marojevic"
+  ],
+  "doi": "2601.18690v2",
+  "cited_by": 0
+ },
+ {
+  "title": "Fixing Security Vulnerabilities with AI in OSS-Fuzz",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "Critical open source software systems undergo significant validation in the form of lengthy fuzz campaigns. The fuzz campaigns typically conduct a biased random search over the domain of program inputs, to find inputs which crash the software system. Such fuzzing is useful to enhance the security of software systems in general since even closed source software may use open source components. Hence testing open source software is of paramount importance. Currently OSS-Fuzz is the most significant and widely used infrastructure for continuous validation of open source systems. Unfortunately even though OSS-Fuzz has identified more than 10,000 vulnerabilities across 1000 or more software projects, the detected vulnerabilities may remain unpatched, as vulnerability fixing is often manual in practice. In this work, we rely on the recent progress in Large Language Model (LLM) agents for autonomous program improvement including bug fixing. We customise the well-known AutoCodeRover agent for fixing security vulnerabilities. This is because LLM agents like AutoCodeRover fix bugs from issue descriptions via code search. Instead for security patching, we rely on the test execution of the exploit input to extract code elements relevant to the fix. Our experience with OSS-Fuzz vulnerability data shows that LLM agent autonomy is useful for successful security patching, as opposed to approaches like Agentless where the control flow is fixed. More importantly our findings show that we cannot measure quality of patches by code similarity of the patch with reference codes (as in CodeBLEU sco",
+  "authors": [
+   "Yuntong Zhang",
+   "Jiawei Wang",
+   "Dominic Berzin",
+   "Martin Mirchev",
+   "Dongge Liu",
+   "Abhishek Arya"
+  ],
+  "doi": "2411.03346v2",
+  "cited_by": 0
+ },
+ {
+  "title": "WhisperFuzz: White-Box Fuzzing for Detecting and Locating Timing Vulnerabilities in Processors",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "Timing vulnerabilities in processors have emerged as a potent threat. As processors are the foundation of any computing system, identifying these flaws is imperative. Recently fuzzing techniques, traditionally used for detecting software vulnerabilities, have shown promising results for uncovering vulnerabilities in large-scale hardware designs, such as processors. Researchers have adapted black-box or grey-box fuzzing to detect timing vulnerabilities in processors. However, they cannot identify the locations or root causes of these timing vulnerabilities, nor do they provide coverage feedback to enable the designer's confidence in the processor's security. To address the deficiencies of the existing fuzzers, we present WhisperFuzz--the first white-box fuzzer with static analysis--aiming to detect and locate timing vulnerabilities in processors and evaluate the coverage of microarchitectural timing behaviors. WhisperFuzz uses the fundamental nature of processors' timing behaviors, microarchitectural state transitions, to localize timing vulnerabilities. WhisperFuzz automatically extracts microarchitectural state transitions from a processor design at the register-transfer level (RTL) and instruments the design to monitor the state transitions as coverage. Moreover, WhisperFuzz measures the time a design-under-test (DUT) takes to process tests, identifying any minor, abnormal variations that may hint at a timing vulnerability. WhisperFuzz detects 12 new timing vulnerabilities across advanced open-sourced RISC-V processors: BOOM, Rocket Core, and CVA6. Eight of these violate ",
+  "authors": [
+   "Pallavi Borkar",
+   "Chen Chen",
+   "Mohamadreza Rostami",
+   "Nikhilesh Singh",
+   "Rahul Kande",
+   "Ahmad-Reza Sadeghi"
+  ],
+  "doi": "2402.03704v2",
+  "cited_by": 0
+ },
+ {
+  "title": "GoSurf: Identifying Software Supply Chain Attack Vectors in Go",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "In Go, the widespread adoption of open-source software has led to a flourishing ecosystem of third-party dependencies, which are often integrated into critical systems. However, the reuse of dependencies introduces significant supply chain security risks, as a single compromised package can have cascading impacts. Existing supply chain attack taxonomies overlook language-specific features that can be exploited by attackers to hide malicious code. In this paper, we propose a novel taxonomy of 12 distinct attack vectors tailored for the Go language and its package lifecycle. Our taxonomy identifies patterns in which language-specific Go features, intended for benign purposes, can be misused to propagate malicious code stealthily through supply chains. Additionally, we introduce GoSurf, a static analysis tool that analyzes the attack surface of Go packages according to our proposed taxonomy. We evaluate GoSurf on a corpus of widely used, real-world Go packages. Our work provides preliminary insights for securing the open-source software supply chain within the Go ecosystem, allowing developers and security analysts to prioritize code audit efforts and uncover hidden malicious behaviors.",
+  "authors": [
+   "Carmine Cesarano",
+   "Vivi Andersson",
+   "Roberto Natella",
+   "Martin Monperrus"
+  ],
+  "doi": "2407.04442v2",
+  "cited_by": 0
+ },
+ {
+  "title": "SoK: Analysis of Software Supply Chain Security by Establishing Secure Design Properties",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "This paper systematizes knowledge about secure software supply chain patterns. It identifies four stages of a software supply chain attack and proposes three security properties crucial for a secured supply chain: transparency, validity, and separation. The paper describes current security approaches and maps them to the proposed security properties, including research ideas and case studies of supply chains in practice. It discusses the strengths and weaknesses of current approaches relative to known attacks and details the various security frameworks put out to ensure the security of the software supply chain. Finally, the paper highlights potential gaps in actor and operation-centered supply chain security techniques",
+  "authors": [
+   "Chinenye Okafor",
+   "Taylor R. Schorlemmer",
+   "Santiago Torres-Arias",
+   "James C. Davis"
+  ],
+  "doi": "2406.10109v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Maven-Hijack: Software Supply Chain Attack Exploiting Packaging Order",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "Java projects frequently rely on package managers such as Maven to manage complex webs of external dependencies. While these tools streamline development, they also introduce subtle risks to the software supply chain. In this paper, we present Maven-Hijack, a novel attack that exploits the order in which Maven packages dependencies and the way the Java Virtual Machine resolves classes at runtime. By injecting a malicious class with the same fully qualified name as a legitimate one into a dependency that is packaged earlier, an attacker can silently override core application behavior without modifying the main codebase or library names. We demonstrate the real-world feasibility of this attack by compromising the Corona-Warn-App, a widely used open-source COVID-19 contact tracing system, and gaining control over its database connection logic. We evaluate three mitigation strategies, such as sealed JARs, Java Modules, and the Maven Enforcer plugin. Our results show that, while Java Modules offer strong protection, the Maven Enforcer plugin with duplicate class detection provides the most practical and effective defense for current Java projects. These findings highlight the urgent need for improved safeguards in Java's build and dependency management processes to prevent stealthy supply chain attacks.",
+  "authors": [
+   "Frank Reyes",
+   "Federico Bono",
+   "Aman Sharma",
+   "Benoit Baudry",
+   "Martin Monperrus"
+  ],
+  "doi": "2407.18760v4",
+  "cited_by": 0
+ },
+ {
+  "title": "What Gets Measured Gets Managed: Mitigating Supply Chain Attacks with a Link Integrity Management System",
+  "venue": "CCS (arXiv)",
+  "year": 2025,
+  "abstract": "The web continues to grow, but dependency-monitoring tools and standards for resource integrity lag behind. Currently, there exists no robust method to verify the integrity of web resources, much less in a generalizable yet performant manner, and supply chains remain one of the most targeted parts of the attack surface of web applications. In this paper, we present the design of LiMS, a transparent system to bootstrap link integrity guarantees in web browsing sessions with minimal overhead. At its core, LiMS uses a set of customizable integrity policies to declare the (un)expected properties of resources, verifies these policies, and enforces them for website visitors. We discuss how basic integrity policies can serve as building blocks for a comprehensive set of integrity policies, while providing guarantees that would be sufficient to defend against recent supply chain attacks detailed by security industry reports. Finally, we evaluate our open-sourced prototype by simulating deployments on a representative sample of 450 domains that are diverse in ranking and category. We find that our proposal offers the ability to bootstrap marked security improvements with an overall overhead of hundreds of milliseconds on initial page loads, and negligible overhead on reloads, regardless of network speeds. In addition, from examining archived data for the sample sites, we find that several of the proposed policy building blocks suit their dependency usage patterns, and would incur minimal administrative overhead.",
+  "authors": [
+   "Johnny So",
+   "Michael Ferdman",
+   "Nick Nikiforakis"
+  ],
+  "doi": "2509.14583v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Reinforcement Learning for Supply Chain Attacks Against Frequency and Voltage Control",
+  "venue": "ICML (arXiv)",
+  "year": 2023,
+  "abstract": "The ongoing modernization of the power system, involving new equipment installations and upgrades, exposes the power system to the introduction of malware into its operation through supply chain attacks. Supply chain attacks present a significant threat to power systems, allowing cybercriminals to bypass network defenses and execute deliberate attacks at the physical layer. Given the exponential advancements in machine intelligence, cybercriminals will leverage this technology to create sophisticated and adaptable attacks that can be incorporated into supply chain attacks. We demonstrate the use of reinforcement learning for developing intelligent attacks incorporated into supply chain attacks against generation control devices. We simulate potential disturbances impacting frequency and voltage regulation. The presented method can provide valuable guidance for defending against supply chain attacks.",
+  "authors": [
+   "Amr S. Mohamed",
+   "Sumin Lee",
+   "Deepa Kundur"
+  ],
+  "doi": "2309.05814v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Finding Software Supply Chain Attack Paths with Logical Attack Graphs",
+  "venue": "arXiv preprint",
+  "year": 2025,
+  "abstract": "Cyberattacks are becoming increasingly frequent and sophisticated, often exploiting the software supply chain (SSC) as an attack vector. Attack graphs provide a detailed representation of the sequence of events and vulnerabilities that could lead to a successful security breach in a system. MulVal is a widely used open-source tool for logical attack graph generation in networked systems. However, its current lack of support for capturing and reasoning about SSC threat propagation makes it unsuitable for addressing modern SSC attacks, such as the XZ compromise or the 3CX double SSC attack. To address this limitation, we propose an extension to MulVal that integrates SSC threat propagation analysis with existing network-based threat analysis. This extension introduces a new set of predicates within the familiar MulVal syntax, enabling seamless integration. The new facts and interaction rules model SSC assets, their dependencies, interactions, compromises, additional security mechanisms, initial system states, and known threats. We explain how this integration operates in both directions and demonstrate the practical application of the extension.",
+  "authors": [
+   "Luıs Soeiro",
+   "Thomas Robert",
+   "Stefano Zacchiroli"
+  ],
+  "doi": "2511.11171v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Software supply chain: review of attacks, risk assessment strategies and security controls",
+  "venue": "arXiv preprint",
+  "year": 2023,
+  "abstract": "The software product is a source of cyber-attacks that target organizations by using their software supply chain as a distribution vector. As the reliance of software projects on open-source or proprietary modules is increasing drastically, SSC is becoming more and more critical and, therefore, has attracted the interest of cyber attackers. While existing studies primarily focus on software supply chain attacks' prevention and detection methods, there is a need for a broad overview of attacks and comprehensive risk assessment for software supply chain security. This study conducts a systematic literature review to fill this gap. We analyze the most common software supply chain attacks by providing the latest trend of analyzed attacks, and we identify the security risks for open-source and third-party software supply chains. Furthermore, this study introduces unique security controls to mitigate analyzed cyber-attacks and risks by linking them with real-life security incidence and attacks.",
+  "authors": [
+   "Betul Gokkaya",
+   "Leonardo Aniello",
+   "Basel Halak"
+  ],
+  "doi": "2305.14157v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Journey to the Center of Software Supply Chain Attacks",
+  "venue": "arXiv preprint",
+  "year": 2023,
+  "abstract": "This work discusses open-source software supply chain attacks and proposes a general taxonomy describing how attackers conduct them. We then provide a list of safeguards to mitigate such attacks. We present our tool \"Risk Explorer for Software Supply Chains\" to explore such information and we discuss its industrial use-cases.",
+  "authors": [
+   "Piergiorgio Ladisa",
+   "Serena Elisa Ponta",
+   "Antonino Sabetta",
+   "Matias Martinez",
+   "Olivier Barais"
+  ],
+  "doi": "2304.05200v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Robot Collapse: Supply Chain Backdoor Attacks Against VLM-based Robotic Manipulation",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "Robotic manipulation policies are increasingly empowered by \\textit{large language models} (LLMs) and \\textit{vision-language models} (VLMs), leveraging their understanding and perception capabilities. Recently, inference-time attacks against robotic manipulation have been extensively studied, yet backdoor attacks targeting model supply chain security in robotic policies remain largely unexplored. To fill this gap, we propose \\texttt{TrojanRobot}, a backdoor injection framework for model supply chain attack scenarios, which embeds a malicious module into modular robotic policies via backdoor relationships to manipulate the LLM-to-VLM pathway and compromise the system. Our vanilla design instantiates this module as a backdoor-finetuned VLM. To further enhance attack performance, we propose a prime scheme by introducing the concept of \\textit{LVLM-as-a-backdoor}, which leverages \\textit{in-context instruction learning} (ICIL) to steer \\textit{large vision-language model} (LVLM) behavior through backdoored system prompts. Moreover, we develop three types of prime attacks, \\textit{permutation}, \\textit{stagnation}, and \\textit{intentional}, achieving flexible backdoor attack effects. Extensive physical-world and simulator experiments on 18 real-world manipulation tasks and 4 VLMs verify the superiority of proposed \\texttt{TrojanRobot}",
+  "authors": [
+   "Xianlong Wang",
+   "Hewen Pan",
+   "Hangtao Zhang",
+   "Minghui Li",
+   "Shengshan Hu",
+   "Ziqi Zhou"
+  ],
+  "doi": "2411.11683v7",
+  "cited_by": 0
+ },
+ {
+  "title": "SOK: A Taxonomy of Attack Vectors and Defense Strategies for Agentic Supply Chain Runtime",
+  "venue": "ICLR (arXiv)",
+  "year": 2026,
+  "abstract": "Agentic systems based on large language models (LLMs) operate not merely as text generators but as autonomous entities that dynamically retrieve information and invoke tools. This execution model shifts the attack surface from traditional build-time artifacts to inference-time dependencies, exposing agents to manipulation through untrusted data and probabilistic capability resolution. While prior work has examined model-level vulnerabilities, security risks arising from the complex, cyclic runtime behavior of agents remain fragmented. This paper systematizes existing research into a unified runtime framework. We categorize threats into data supply chain attacks (distinguishing between transient context injection and persistent memory poisoning) and tool supply chain attacks (spanning discovery, implementation, and invocation phases). Crucially, we identify the emergence of the Viral Agent Loop, where agents effectively become vectors for self-propagating generative worms that require no code vulnerabilities to spread. We argue for a transition to a Zero-Trust Runtime Architecture, where context is treated as untrusted control flow, and tool execution is bounded by cryptographic provenance rather than semantic likelihood.",
+  "authors": [
+   "Xiaochong Jiang",
+   "Shiqi Yang",
+   "Wenting Yang",
+   "Yichen Liu",
+   "Cheng Ji"
+  ],
+  "doi": "2602.19555v2",
+  "cited_by": 0
+ }
+]

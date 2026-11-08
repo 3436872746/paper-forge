@@ -1,0 +1,377 @@
+[
+ {
+  "title": "HAServe: Horizon-Aware Scheduling and Memory Co-Design for Efficient LLM Serving",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Online large language model (LLM) services process requests that share context but differ in prefix structure and arrival timing. Finite capacity couples request admission and key-value (KV) retention. This paper addresses one online serving problem: using a unified view of visible demand to choose the feasible joint admission and KV-retention candidate with the lowest predicted latency cost as prefix structures and arrival rates vary. To model this problem, we introduce HorizonSchema, a workload abstraction that connects exact prefix paths, permitted serializations, and released consumers as shared inputs to both decisions. Our analysis shows that useful reuse depends on demand and prefix survival, while service order changes latency even at equal computation. Furthermore, we present HAServe, which turns this abstraction into a scheduling--memory co-design method of systematic optimization for online LLM serving. We implement HAServe on SGLang and evaluate Qwen3-4B-Instruct-2507 and Llama2-13B on five workloads using eight H100 GPUs. Across the evaluated workloads, HAServe achieves up to $1.14$--$5.90\\times$ P99 TTFT speedups and up to $1.08$--$1.44\\times$ the throughput, with KV-cache hit rate up to 20.59 percentage points higher than the strongest baseline for each metric and setting.",
+  "authors": [
+   "Xingyu Qu",
+   "Tianhao Lin",
+   "Yiqi Li",
+   "Zhiyu Chen",
+   "Sheng Wang"
+  ],
+  "doi": "2605.08581v2",
+  "cited_by": 0
+ },
+ {
+  "title": "Trinity: Disaggregating Vector Search from Prefill-Decode Disaggregation in LLM Serving",
+  "venue": "arXiv preprint",
+  "year": 2025,
+  "abstract": "Prefill and decode (PD) disaggregation separates prompt prefill and token-by-token decode stages into distinct GPU pools and has become the dominant architecture for large-scale LLM serving in industry. Also, retrieval tasks via vector search remains entangled with the model inference process, like heterogeneous RAG requests and prompt answer caches, inflating tail latency. We are motivated to investigate how vector search should be orchestrated along with PD disaggregation with a dedicated deployment architecture without violating SLOs in various retrieval workloads. We present Trinity, a practical framework that consolidates all retrieval into a single, shared vector-search GPU pool and make it work with PD disaggregated LLM serving in match. Trinity introduces (1) a novel architecture for deploying GPU-based vector search service in PD disaggregation. (2) Continuous batching for vector search that make full used of GPUs under heterogeneous queries; (3) Stage-aware scheduling that preempts vector search requests between both decode and prefill tasks.",
+  "authors": [
+   "Yi Liu",
+   "Chen Qian"
+  ],
+  "doi": "2512.02281v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Efficient LLM Serving for Agentic Workflows: A Data Systems Perspective",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Agentic workflows are composed of sequences of interdependent Large Language Model (LLM) calls, and they have become a dominant workload in modern AI systems. These workflows exhibit extensive redundancy from overlapping prompts and intermediate results due to speculative and parallel exploration. Existing LLM serving systems, such as vLLM, focus on optimizing individual inference calls and overlook cross-call dependencies, leading to significant inefficiencies. This paper rethinks LLM and agent serving from a data systems perspective and introduces Helium, a workflow-aware serving framework that models agentic workloads as query plans and treats LLM invocations as first-class operators. Helium integrates proactive caching and cache-aware scheduling to maximize reuse across prompts, KV states, and workflows. Through these techniques, Helium bridges classic query optimization principles with LLM serving, achieving up to 1.56x speedup over state-of-the-art agent serving systems on various workloads. Our results demonstrate that end-to-end optimization across workflows is essential for scalable and efficient LLM-based agents.",
+  "authors": [
+   "Noppanat Wadlom",
+   "Junyi Shen",
+   "Yao Lu"
+  ],
+  "doi": "2603.16104v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Cross-Model Autoscaling for Shared LLM Serving",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Multi-model LLM serving is moving toward shared MaaS clusters, where co-hosted models compete for a fixed GPU budget while each model experiences time-varying demand and must satisfy its own latency SLO. Existing LLM autoscalers remain largely model-local: their signals expose local runtime activity or delayed latency outcomes, and their scale-up or provisioning decisions do not directly determine how shared capacity should be allocated across competing models. We present the Token-service-share Rebalancing Engine (TRE), a control-plane framework for hot-switched multi-model LLM serving. TRE introduces Token Service Share (TSS), a calibrated, demand-normalized signal that estimates effective token service per active or queued request and yields a comparable health score across heterogeneous models and SLO classes. Guided by TSS, TRE coordinates bounded receiver--donor capacity movement under a fixed GPU budget: it separates fast rescue from slower rebalancing and incrementally reallocates active replicas toward models with the largest calibrated service deficits. We implement TRE on a Kubernetes-based hot-switch serving stack without modifying the inference scheduler. Across seven LLM serving traces, TRE reduces P95 end-to-end latency by 11.9--79.0\\% and P99 latency by 12.5--72.6\\% compared with a state-of-the-art KV-cache-based reactive autoscaler running on the same hot-switch runtime. The gains hold on both targeted stress probes and production-derived conversation/code traces, where TRE reduces P95/P99 latency by 50.8/63.7\\% and 79.0/72.6\\%, respectively. These results ",
+  "authors": [
+   "Xin Zhang",
+   "Xianyan Xie",
+   "Zhen He",
+   "Xijin Yin",
+   "Xingtong Lin",
+   "Bangbo Liang"
+  ],
+  "doi": "2609.29160v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Astrolabe: Balancing Load in LLM Serving with Randomized Prediction-Guided Scheduling",
+  "venue": "ATC (arXiv)",
+  "year": 2025,
+  "abstract": "This paper presents Astrolabe, a randomized prediction-guided scheduler for one-shot request dispatch in multi-instance large language model (LLM) serving. Astrolabe improves load balancing without relying on migration-based rebalancing, whose KV-cache transfers can introduce substantial overhead and network contention under high load. It combines response-length estimation, per-instance simulation-based latency prediction, and a power-of-two-choices dispatch policy to balance load while avoiding request herding. On the default Llama-2-7B/ShareGPT setup, Astrolabe matches the SLO capacity of the best load-aware baseline (31.6 versus 31.5 QPS), while reducing mean time-to-first-token (TTFT) by 8 to 36 percent, P99 TTFT by 16 to 77 percent, and mean end-to-end (E2E) latency by up to 5.6 percent, with approximately six times fewer preemptions once capacity is reached. Under configuration shifts, Astrolabe improves SLO capacity by up to 6 percent on Qwen2-7B and 7.1 percent under tight batching, reduces mean E2E latency by 6 to 9 percent under bursty arrivals, and achieves an approximately 2.8-fold reduction in per-predictor CPU usage relative to full fanout. With migration enabled on A100 GPUs, Astrolabe outperforms Llumnix by up to 2.6 times in throughput while achieving orders-of-magnitude lower per-token latency at saturation.",
+  "authors": [
+   "Wei Da",
+   "Evangelia Kalyvianaki"
+  ],
+  "doi": "2508.03611v3",
+  "cited_by": 0
+ },
+ {
+  "title": "FineServe: A Fine-Grained Dataset and Characterization of Global LLM Serving Workloads",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Large language models (LLMs) are increasingly deployed as always-on online services, making efficient LLM serving a critical systems challenge. Achieving low latency and high throughput under volatile demand requires deep understanding of real-world serving workloads, yet existing studies often rely on proxy traces or coarse-grained characterizations that fail to capture the heterogeneity of modern multi-model LLM platforms. We present FineServe, an in-the-wild, multi-model LLM serving workload dataset collected from a global commercial marketplace, enabling fine-grained characterization of real-world serving dynamics across heterogeneous models and tasks. Leveraging FineServe, we conduct a comprehensive analysis of arrival dynamics and token behavior, revealing fundamentally different fluctuation regimes across model architectures, scales and task intents. Building on these insights, we develop the FineServe workload generator, which composes fine-grained model-aware workloads into configurable mixtures tailored for benchmarking multi-model serving platforms. By exposing these fine-grained workload dynamics, FineServe provides a realistic foundation for evaluating routing, scheduling, and capacity-planning strategies in LLM serving systems. FineServe is available at https://github.com/hihiztc1/FineServe.",
+  "authors": [
+   "Tiancheng Zhang",
+   "Shaoyuan Huang",
+   "Mingyuan Wang",
+   "Yunfeng Zhao",
+   "Xiaofei Wang",
+   "Wenyu Wang"
+  ],
+  "doi": "2607.19349v1",
+  "cited_by": 0
+ },
+ {
+  "title": "PrefixBench-H100: Characterizing Prefix Reuse and Time-to-First-Token in H100 LLM Serving",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Repeated prompt prefixes are increasingly common in LLM serving workloads, appearing in system prompts, templated retrieval-augmented generation pipelines, agent frameworks, and multi-turn conversations. Modern inference runtimes such as vLLM and TensorRT-LLM provide mechanisms for reusing previously computed KV-cache state across requests, yet it remains unclear when prefix reuse materially improves serving performance on contemporary accelerators and when its benefits are limited by scheduling, cache granularity, concurrency, or memory pressure. This paper presents PrefixBench-H100, a reproducible benchmark and measurement framework for characterizing prefix reuse on a single NVIDIA H100. PrefixBench-H100 combines controlled synthetic traces with chat-style and retrieval-style workloads, and evaluates two widely used LLM serving runtimes under matched workload conditions. The benchmark varies shared-prefix length, suffix diversity, request arrival pattern, concurrency, output length, and cache configuration, while collecting time-to-first-token, inter-token latency, end-to-end latency, throughput, cache-hit statistics, GPU memory usage, and selected profiling traces. The goal of PrefixBench-H100 is not to introduce a new caching algorithm, but to expose the practical operating envelope of prefix reuse for H100-class LLM serving. The study identifies the regime where prefix reuse provides substantial first-token latency reductions and the regime where cache pressure erodes them, while showing that cache effectiveness itself is largely insensitive to concurrency and output ",
+  "authors": [
+   "Omkar Shewale",
+   "Deepak Kumar",
+   "Divakar Kumar Yadav"
+  ],
+  "doi": "2609.19657v1",
+  "cited_by": 0
+ },
+ {
+  "title": "BOute: Cost-Efficient LLM Serving with Heterogeneous LLMs and GPUs via Multi-Objective Bayesian Optimization",
+  "venue": "MLSys (arXiv)",
+  "year": 2026,
+  "abstract": "The rapid growth of large language model (LLM) deployments has made cost-efficient serving systems essential. Recent efforts to enhance system cost-efficiency adopt two main perspectives: (i) An algorithmic perspective that exploits heterogeneous model capabilities to route simpler queries to lower-cost models and complex queries to higher-cost models (i.e., heterogeneous query routing); and (ii) a systems perspective that utilizes heterogeneous GPU resources as cost-effective alternatives to homogeneous high-end GPUs (i.e., heterogeneous model deployment). However, algorithm-system co-design for cost-efficient LLM serving necessitates sophisticated management: (i) Determining optimal query routing strategies under latency and quality requirements, (ii) configuring model deployment across heterogeneous GPUs with appropriate resource allocation and parallelism strategies, and (iii) co-optimizing routing and deployment decisions to maximize overall system performance. To address these challenges, we present BOute, a quality-aware scheduling system that jointly exploits heterogeneous model and GPU capabilities for cost-efficient LLM serving. BOute employs a multi-objective Bayesian optimization (MOBO) framework to co-optimize the routing strategy and model deployment, thereby maximizing the cost-efficiency of the serving system while guaranteeing response quality. Evaluation results demonstrate that BOute outperforms state-of-the-art LLM serving systems by up to 157% and 59% on average under identical cost budgets and quality requirements, or reducing serving costs by 15%-61% ",
+  "authors": [
+   "Youhe Jiang",
+   "Fangcheng Fu",
+   "Eiko Yoneki"
+  ],
+  "doi": "2602.10729v1",
+  "cited_by": 0
+ },
+ {
+  "title": "LAPS: A Length-Aware-Prefill LLM Serving System",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "LAPS identifies and disaggregates requests with different prompt lengths in LLM serving to reduce TTFT latency. While recent systems have decoupled the prefill and decode stages to improve throughput, they still rely on unified scheduling policies that fail to adapt to heterogeneous workload characteristics. We observe that prompt-length variations lead to distinct performance bottlenecks, motivating an adaptive scheduling strategy. LAPS disaggregates multi-turn long-prefill requests from short-prefill ones and introduces a length-aware smart batching mechanism for short-prefill workloads. It adopts a dual-queue design that supports temporal disaggregation on a single prefill instance or spatial disaggregation across multiple instances. For short-prefill batches, a batch waiting window and CUDA Graph-based clustering mitigate interference from heterogeneous computation, reducing batching delay and lowering average latency. In real multi-turn workloads, LAPS reduces prefill latency by over 30\\% compared to vanilla SGLang under prefill-decode disaggregation, and further decreases SLO violations by 28\\% in multi-instance deployments with vanilla data-parallel configuration. Compared to the SGLang router with load balancing, it further lowers SLO violations by 12\\% in multi-GPU settings. Under high concurrency and mixed-request scenarios, LAPS improves request throughput by 35\\% serving Qwen2.5-32B model for prefill instance, demonstrating its effectiveness in optimizing heterogeneous LLM serving workloads.",
+  "authors": [
+   "Jianshu She",
+   "Zonghang Li",
+   "Hongchao Du",
+   "Shangyu Wu",
+   "Wenhao Zheng",
+   "Eric Xing"
+  ],
+  "doi": "2601.11589v2",
+  "cited_by": 0
+ },
+ {
+  "title": "Characterizing High Bandwidth Flash for LLM Serving",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Large language model (LLM) serving requires substantial memory to store model weights and KV caches. As models grow larger and contexts become longer, memory capacity and bandwidth increasingly become bottlenecks for serving performance. Agentic workloads compound this pressure through repeated interactions over growing contexts, making it increasingly important to retain KV state for reuse. High-bandwidth flash (HBF) offers a way to expand accelerator memory capacity for large language model (LLM) serving, but its access costs and limited write endurance complicate its use. We evaluate HBF for high-throughput agentic serving across system design and scheduling choices to understand when additional capacity improves serving performance and energy efficiency. We introduce an HBM-HBF-host hierarchical storage system and buffered cache-aware scheduling, and use trace-driven simulations to analyze their effects on performance, energy consumption, and HBF write lifetime. Across the evaluated workloads, the fastest HBF-augmented systems reduce completion time by 36.1-87.7% relative to HBM-only systems. Modeled energy savings reach 59.1%, with benefits depending on the workload and weight placement. Buffered cache-aware scheduling extends estimated HBF write lifetime from 1.21 to 14.82 years in the evaluated configuration. These results demonstrate the importance of coordinating data placement and scheduling to improve serving efficiency while sustaining a practical HBF write lifetime.",
+  "authors": [
+   "Zack Yu",
+   "Chloe Wong",
+   "Coleman Hooper",
+   "Minjae Lee",
+   "Wonjun Kang",
+   "Youngjin Cho"
+  ],
+  "doi": "2609.39131v2",
+  "cited_by": 0
+ },
+ {
+  "title": "LLMServingSim 2.0: A Unified Simulator for Heterogeneous and Disaggregated LLM Serving Infrastructure",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Large language model (LLM) serving infrastructures are undergoing a shift toward heterogeneity and disaggregation. Modern deployments increasingly integrate diverse accelerators and near-memory processing technologies, introducing significant hardware heterogeneity, while system software increasingly separates computation, memory, and model components across distributed resources to improve scalability and efficiency. As a result, LLM serving performance is no longer determined by hardware or software choices in isolation, but by their runtime interaction through scheduling, data movement, and interconnect behavior. However, understanding these interactions remains challenging, as existing simulators lack the ability to jointly model heterogeneous hardware and disaggregated serving techniques within a unified, runtime-driven framework. This paper presents LLMServingSim 2.0, a unified system-level simulator designed to make runtime-driven hardware-software interactions in heterogeneous and disaggregated LLM serving infrastructures explicit and analyzable. LLMServingSim 2.0 embeds serving decisions and hardware behavior into a single runtime loop, enabling interaction-aware modeling of batching, routing, offloading, memory, and power. The simulator supports extensible integration of emerging accelerators and memory systems through profile-based modeling, while capturing dynamic serving behavior and system-level effects. We validate LLMServingSim 2.0 against real deployments, showing that it reproduces key performance, memory, and power metrics with an average error of 0.95%, ",
+  "authors": [
+   "Jaehong Cho",
+   "Hyunmin Choi",
+   "Guseul Heo",
+   "Jongse Park"
+  ],
+  "doi": "2602.23036v2",
+  "cited_by": 0
+ },
+ {
+  "title": "ThunderServe: High-performance and Cost-efficient LLM Serving in Cloud Environments",
+  "venue": "MLSys (arXiv)",
+  "year": 2025,
+  "abstract": "Recent developments in large language models (LLMs) have demonstrated their remarkable proficiency in a range of tasks. Compared to in-house homogeneous GPU clusters, deploying LLMs in cloud environments with diverse types of GPUs is crucial for addressing the GPU shortage problem and being more cost-effective. However, the diversity of network environments and various GPU types on the cloud bring difficulties to achieving high-performance serving. In this work, we propose ThunderServe, a high-performance and cost-efficient LLM serving system for heterogeneous cloud environments. We introduce a novel scheduling algorithm, which optimizes the deployment plan of LLM serving to accommodate the heterogeneous resource and network bandwidth conditions in cloud environments. Furthermore, we propose a lightweight re-scheduling mechanism, designed to adapt to fluctuating online conditions (e.g., node failures, workload shifts) without the need for costly restarts of ongoing services. Empirical results in both heterogeneous cloud and homogeneous in-house environments reveal that ThunderServe delivers up to a 2.1$\\times$ and on average a $1.7\\times$ increase in throughput and achieves up to a 2.5$\\times$ and on average a $1.5\\times$ reduction in latency deadlines compared with state-of-the-art systems given the same price budget, suggesting opting for cloud services provides a more cost-efficient solution.",
+  "authors": [
+   "Youhe Jiang",
+   "Fangcheng Fu",
+   "Xiaozhe Yao",
+   "Taiyi Wang",
+   "Bin Cui",
+   "Ana Klimovic"
+  ],
+  "doi": "2502.09334v2",
+  "cited_by": 0
+ },
+ {
+  "title": "Efficient LLM Serving on Hybrid Real-time and Best-effort Requests",
+  "venue": "arXiv preprint",
+  "year": 2025,
+  "abstract": "Recent breakthroughs in large Language Models (LLMs) have enabled various generative tasks on a single model. Real-world services (e.g., OpenAI's ChatGPT [27]) powered by an LLM often concurrently support latency-critical requests for interactive applications (e.g., question-answering systems, referred to as real-time or RT requests) and throughput-oriented requests for back-of-house processing (e.g., documents batch processing [28], referred to best-effort or BE requests), with complex hybrid inference workloads to the underlying model. State-of-the-art (SOTA) LLM serving systems dedicate machines to each type of request, towards either low inference latency or high serving throughput, respectively. This practice simplifies request scheduling and management but suffers from poor resource utilization. We propose BROS, a hybrid LLM serving system that aims to collocate RT/BE requests, meeting RT requests' latency requirements while maintaining BE requests' throughput. BROS formulates the problem of hybrid RT/BE request scheduling and solves it with a dynamic priority-based algorithm. BROS designs a bidirectional KV cache management mechanism, allowing RT requests to share KV memory with BE requests to remove the scheduling restrictions caused by insufficient KV memory and improve utilization. Extensive experiments validate that BROS achieves a good trade-off when serving hybrid RT and BE requests. It significantly reduces the latency of RT requests (up to 74.20%), improving their fine-grained service level objectives (SLOs) attainments (up to 36.38x), with negligible through",
+  "authors": [
+   "Wan Borui",
+   "Zhao Juntao",
+   "Jiang Chenyu",
+   "Guo Chuanxiong",
+   "Wu Chuan"
+  ],
+  "doi": "2504.09590v1",
+  "cited_by": 0
+ },
+ {
+  "title": "DualMap: Enabling Both Cache Affinity and Load Balancing for Distributed LLM Serving",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "In LLM serving, reusing the KV cache of prompts across requests is critical for reducing TTFT and serving costs. Cache-affinity scheduling, which co-locates requests with the same prompt prefix to maximize KV cache reuse, often conflicts with load-balancing scheduling that distributes requests evenly across compute instances. Existing schedulers fail to reconcile this trade-off as they operate within a single mapping space, typically applying cache-affinity routing to a subset of requests and load-balanced routing to the rest, without a unified solution to achieve both goals. To address this limitation, we propose DualMap, a dual-mapping scheduling strategy for distributed LLM serving that achieves both cache affinity and load balancing. Its key idea is to map each request to two candidate instances via two independent hash functions based on the request prompt, then intelligently select the better candidate based on current system states. This design increases the likelihood that requests with shared prefixes are co-located, while evenly dispersing distinct prefixes across the cluster via ``the power of two choices''. To make DualMap robust under dynamic and skewed real-world workloads, we incorporate three techniques: 1) SLO-aware request routing, which prioritizes cache affinity but switches to load-aware scheduling when TTFT exceeds the SLO, enhancing load balance without sacrificing cache reuse; 2) hotspot-aware rebalancing, which dynamically migrates requests from overloaded to underloaded instances, mitigating hotspots and rebalancing the system; 3) lightweight dual-",
+  "authors": [
+   "Ying Yuan",
+   "Pengfei Zuo",
+   "Bo Wang",
+   "Zhangyu Chen",
+   "Zhipeng Tan",
+   "Zhou Yu"
+  ],
+  "doi": "2602.06502v1",
+  "cited_by": 0
+ },
+ {
+  "title": "EcoServe: Enabling Cost-effective LLM Serving with Proactive Intra- and Inter-Instance Orchestration",
+  "venue": "arXiv preprint",
+  "year": 2025,
+  "abstract": "Existing LLM serving strategies can be categorized based on whether prefill and decode phases are disaggregated: non-disaggregated (NoDG) or fully disaggregated (FuDG). However, the NoDG strategy leads to strong prefill-decode interference and the FuDG strategy highly relies on high-performance interconnects, making them less cost-effective. We introduce EcoServe, a system that enables cost-effective LLM serving on clusters with commodity interconnects. EcoServe is built on the partially disaggregated (PaDG) strategy, applying temporal disaggregation and rolling activation for proactive intra- and inter-instance scheduling. It first disaggregates the prefill and decode phases along the time dimension within a single instance to mitigate inter-phase interference and enhance throughput. Next, it coordinates multiple instances and cyclically activates them to ensure the continuous availability of prefill processing, thereby improving latency. Thus, EcoServe's basic serving unit is the macro instance, within which multiple instances collaborate. It further integrates an adaptive scheduling algorithm to route requests in a macro instance and a mitosis scaling approach to enable fine-grained capacity scaling. Beyond delivering high goodput, EcoServe excels in load balancing, hardware cost, parallelism compatibility, and even engineering simplicity compared to existing solutions. When serving 30B- and 70B-scale models on a production-level cluster with 32 NVIDIA L20 GPUs using commodity Ethernet, EcoServe averagely improves goodput by 82.49%, 86.17%, 122.76%, and 126.96% over four",
+  "authors": [
+   "Jiangsu Du",
+   "Hongbin Zhang",
+   "Taosheng Wei",
+   "Zhenyi Zheng",
+   "Kaiyi Wu",
+   "Zhiguang Chen"
+  ],
+  "doi": "2504.18154v1",
+  "cited_by": 0
+ },
+ {
+  "title": "PAM: Processing Across Memory Hierarchy for Efficient KV-centric LLM Serving System",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "The widespread adoption of Large Language Models (LLMs) has exponentially increased the demand for efficient serving systems. With growing requests and context lengths, key-value (KV)-related operations, including attention computation and KV cache storage, have emerged as critical bottlenecks. They require massive memory bandwidth and capacity. Unfortunately, existing LLM serving systems, optimized for compute-bound workloads, fail to handle these memory-intensive operations effectively. Even with Processing-In-Memory (PIM) technology, current single-level memory designs cannot simultaneously satisfy the bandwidth and capacity requirements. To address these challenges, we propose Processing Across Memory (PAM), a KV-centric LLM serving system that coordinates heterogeneous PIM-enabled memory devices within a hierarchical architecture. PAM introduces a novel computing paradigm to balance high memory bandwidth with scalable capacity. First, PAM exploits the inherent context locality in KV access patterns to intelligently distribute KV tokens across the memory hierarchy. Second, to further exploit context locality, it introduces the PAMattention algorithm, enabling fine-grained parallel attention computation across heterogeneous PIM devices. Finally, PAM incorporates an intra-device KV mapping, inter-device KV migration interface, and an inter-device online KV scheduling algorithm to dynamically balance computational workloads. By addressing both bandwidth and capacity demands simultaneously, PAM significantly enhances the efficiency and scalability of LLM serving systems, pa",
+  "authors": [
+   "Lian Liu",
+   "Shixin Zhao",
+   "Yutian Zhou",
+   "Yintao He",
+   "Mengdi Wang",
+   "Yinhe Han"
+  ],
+  "doi": "2602.11521v1",
+  "cited_by": 0
+ },
+ {
+  "title": "PALS: Power-Aware LLM Serving for Mixture-of-Experts Models",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Large language model (LLM) inference has become a dominant workload in modern data centers, driving significant GPU utilization and energy consumption. While prior systems optimize throughput and latency by batching, scheduling, and parallelism, they largely treat GPU power as a static constraint rather than a controllable resource. In this paper, we present a power-aware runtime for LLM serving, PALS, that treats GPU power caps as a first-class control knob and jointly optimizes them with software parameters such as batch size. The system combines lightweight offline power-performance models with a feedback-driven controller to select configurations that satisfy throughput targets while maximizing energy efficiency. We implement PALS within an existing LLM serving framework, vLLM, demonstrating that it requires no model retraining or API changes. Across multi-GPU systems and both dense and mixture-of-experts (MoE) models, PALS improves energy efficiency by up to 26.3%, reduces QoS violations by 4x to 7x under power constraints, and tracks dynamic power budgets. These results highlight the potential of integrating power control directly into LLM inference runtimes, enabling energy-proportional and grid-interactive AI systems.",
+  "authors": [
+   "Can Hankendi",
+   "Rana Shahout",
+   "Minlan Yu",
+   "Ayse K. Coskun"
+  ],
+  "doi": "2605.21427v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Autopoiesis: A Self-Evolving System Paradigm for LLM Serving Under Runtime Dynamics",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Modern Large Language Model (LLM) serving operates in highly volatile environments characterized by severe runtime dynamics, such as workload fluctuations and elastic cluster autoscaling. Traditional serving systems rely on static, human-engineered serving policies (e.g., scheduling algorithms and rescheduling strategies) to manage these dynamics. However, these policies must navigate deeply intertwined runtime trade-offs (e.g., scheduling overhead vs. execution efficiency, rescheduling frequency vs. reconfiguration overhead), whose optimal balance is workload-specific and shifts continuously as runtime conditions evolve, rendering any fixed policy fundamentally unable to adapt. We propose Autopoiesis, a novel online self-evolving system that shifts LLM serving from static policy deployment to continuous online policy evolution. First, Autopoiesis introduces an LLM-driven program synthesis workflow to evolve serving policies with respect to real-time observed dynamics, where the evolved policies reflect the optimal decision in navigating the complex, multi-dimensional trade-off space. Second, Autopoiesis enables this synthesis process to operate continuously during serving, observing real-world system behavior, and rewriting the policy code as runtime trade-offs shift, thereby transforming policy design from a one-time offline endeavor into an ongoing system component, enabling autonomous adaptation to evolving runtime conditions. Together, we establish a new paradigm: Serving policies are no longer static artifacts designed by humans before deployment, but living code that",
+  "authors": [
+   "Youhe Jiang",
+   "Ran Yan",
+   "You Peng",
+   "Wenshuang Li",
+   "Taiyi Wang",
+   "Fangcheng Fu"
+  ],
+  "doi": "2604.07144v1",
+  "cited_by": 0
+ },
+ {
+  "title": "C2CServe: Leveraging NVLink-C2C for Elastic Serverless LLM Serving on MIG",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Modern LLM serving is increasingly serverless in shape: large model catalogs, long-tail invocations, and multi-tenant demand. Existing GPU serving systems face a tradeoff: dedicated-GPU allocation wastes scarce HBM under sparse traffic, while GPU time sharing places model initialization and weight loading on the cold-start path. Spatial GPU sharing such as multi-instance GPU (MIG) provides isolation and accounting, but each slice has too little HBM for modern LLM weights. We observe that high-bandwidth CPU--GPU interconnects, such as NVLink-C2C (C2C) in NVIDIA GH200 and GB200 Superchips, change the memory constraint: model weights can reside in CPU memory and be streamed on demand to MIG instances, shifting model residency from scarce HBM to abundant host memory. Leveraging this capability, we present C2CServe, a request-granularity serverless LLM serving system that allows MIG instances to switch models across requests without reloading weights into HBM. C2CServe introduces HybridGEMM, a heterogeneous-memory-aware GEMM kernel that adapts data access patterns to balance HBM and C2C bandwidth across MIG partitions using a single tuning knob. To mitigate shared-C2C contention, C2CServe further uses a hierarchical scheduler that coordinates model placement, input chunking, and kernel selection with online feedback control. On GH200, C2CServe reduces cold-start latency by up to 7.1x for dense models and 4.6x for MoE models compared with state-of-the-art serverless LLM serving systems, while maintaining over 95\\% TTFT and TPOT attainment under C2C contention.",
+  "authors": [
+   "Shutian Luo",
+   "Ali Zafar Sadiq",
+   "Rui Yang",
+   "Mingye Zhang",
+   "Haiying Shen",
+   "Wei Wang"
+  ],
+  "doi": "2605.19481v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Injecting Adrenaline into LLM Serving: Boosting Resource Utilization and Throughput via Attention Disaggregation",
+  "venue": "arXiv preprint",
+  "year": 2025,
+  "abstract": "In large language model (LLM) serving systems, executing each request consists of two phases: the compute-intensive prefill phase and the memory-intensive decoding phase. To prevent performance interference between the two phases, current LLM serving systems typically adopt prefill-decoding disaggregation, where the two phases are split across separate machines. However, we observe this approach leads to significant resource underutilization. Specifically, prefill instances that are compute-intensive suffer from low memory utilization, while decoding instances that are memory-intensive experience low compute utilization. To address this problem, this paper proposes Adrenaline, an attention disaggregation and offloading mechanism designed to enhance resource utilization and performance in LLM serving systems. Adrenaline's key innovation lies in disaggregating part of the attention computation in the decoding phase and offloading them to prefill instances. The memory-bound nature of decoding-phase attention computation inherently enables an effective offloading strategy, yielding two complementary advantages: 1) improved memory capacity and bandwidth utilization in prefill instances, and 2) increased decoding batch sizes that enhance compute utilization in decoding instances, collectively boosting overall system performance. Adrenaline achieves these gains through three key techniques: low-latency decoding synchronization, resource-efficient prefill colocation, and load-aware offloading scheduling. Experimental results show that Adrenaline achieves 2.28x higher memory capacit",
+  "authors": [
+   "Yunkai Liang",
+   "Zhangyu Chen",
+   "Pengfei Zuo",
+   "Zhi Zhou",
+   "Xu Chen",
+   "Zhou Yu"
+  ],
+  "doi": "2503.20552v1",
+  "cited_by": 0
+ },
+ {
+  "title": "MuxServe: Flexible Spatial-Temporal Multiplexing for Multiple LLM Serving",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "Large language models (LLMs) have demonstrated remarkable performance, and organizations are racing to serve LLMs of varying sizes as endpoints for use-cases like chat, programming and search. However, efficiently serving multiple LLMs poses significant challenges for existing approaches due to varying popularity of LLMs. In the paper, we present MuxServe, a flexible spatial-temporal multiplexing system for efficient multiple LLM serving. The key insight behind is to colocate LLMs considering their popularity to multiplex memory resources, and leverage the characteristics of prefill and decoding phases to separate and flexibly colocate them to multiplex computation resources. MuxServe formally formulates the multiplexing problem, and proposes a novel placement algorithm and adaptive batch scheduling strategy to identify optimal colocations and maximize utilization. MuxServe designs a unified resource manager to enable flexible and efficient multiplexing. Evaluation results show that MuxServe can achieves up to $1.8\\times$ higher throughput or processes $2.9\\times$ more requests within $99\\%$ SLO attainment. The code is available at: \\url{https://github.com/hao-ai-lab/MuxServe}.",
+  "authors": [
+   "Jiangfei Duan",
+   "Runyu Lu",
+   "Haojie Duanmu",
+   "Xiuhong Li",
+   "Xingcheng Zhang",
+   "Dahua Lin"
+  ],
+  "doi": "2404.02015v2",
+  "cited_by": 0
+ },
+ {
+  "title": "PEEK: Predictive Queue-Informed KV Cache Management for LLM Serving",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "We present PEEK, a lightweight scheduling and eviction framework for both online (streaming) and offline (batch) LLM serving; this paper focuses on the online regime. PEEK maintains an incremental radix tree over the pending queue, exposing prefix-sharing clusters no existing engine surfaces. A low-overhead dual-walk matches the tree against the engine's prefix cache to yield longest-prefix-match for every waiting request; PEEK then admits cluster pioneers first so siblings inherit the freshly cached prefix, a co-designed eviction hook protects blocks ancestral to queued demand, and a multi-lane stride scheduler bounds starvation. On SGLang and vLLM across five workloads up to 4$\\times$H100 (DP=2 over TP=2), PEEK delivers up to 3.0$\\times$/2.6$\\times$ cache hit, 7.9$\\times$/7.1$\\times$ TTFT, 6.7$\\times$/5.5$\\times$ E2E, and 3.6$\\times$/4.5$\\times$ throughput gains over each engine's strongest stock baseline (SGLang/vLLM), while matching baselines within noise on workloads with no exploitable prefix structure. Wins hold as KV-cache pressure and inference parallelism scale.",
+  "authors": [
+   "Bing Xie",
+   "Zhipeng Wang",
+   "Masahiro Tanaka",
+   "Zhen Zheng"
+  ],
+  "doi": "2607.02525v2",
+  "cited_by": 0
+ },
+ {
+  "title": "A Shape-Adaptive Architecture with Disaggregated Quantization for Efficient LLM Serving",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Large language models (LLMs) have become the backbone of modern AI applications, but pose significant challenges for efficient inference. Their autoregressive generation divides execution into two phases: prefill, dominated by large GEMMs, and decoding, dominated by small GEMVs. Modern serving systems further introduce complexity through continuous batching and prefill-decoding disaggregation, leading to dynamic workloads and phase separation. However, existing accelerators remain poorly aligned with these system-level behaviors, resulting in inefficiencies in LLM serving. In this work, we present DynaCore, a unified architecture for efficient LLM serving via system-architecture co-design. We observe that the compute tile a systolic array executes, its Minimum Efficient Unit (MEU), spans all three GEMM dimensions. DynaCore reshapes the MEU along all three: spatially it trades array width against height asymmetrically, raising weight delivery while leaving the input path untouched, and temporally Split-K maps the reduction onto the array, folding partial sums through the interconnect the array already has. To exploit phase separation, we further propose disaggregated quantization, applying dual-side quantization to prefill and weight-only quantization to decoding, with an inner-product mixed-precision datapath that keeps output width invariant to precision. A runtime scheduling framework then selects an MEU per batch. Evaluation with real-world serving traces shows that DynaCore substantially reduces service-level latency over quantization and reconfigurable accelerators, im",
+  "authors": [
+   "Cong Guo",
+   "Chiyue Wei",
+   "Bowen Duan",
+   "Haoxuan Shan",
+   "Benjamin F. Morris",
+   "Yintao He"
+  ],
+  "doi": "2610.07443v1",
+  "cited_by": 0
+ },
+ {
+  "title": "ENOVA: Autoscaling towards Cost-effective and Stable Serverless LLM Serving",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "Since the increasing popularity of large language model (LLM) backend systems, it is common and necessary to deploy stable serverless serving of LLM on multi-GPU clusters with autoscaling. However, there exist challenges because the diversity and co-location of applications in multi-GPU clusters will lead to low service quality and GPU utilization. To address them, we build ENOVA, a deployment, monitoring and autoscaling service towards serverless LLM serving. ENOVA deconstructs the execution process of LLM service comprehensively, based on which ENOVA designs a configuration recommendation module for automatic deployment on any GPU clusters and a performance detection module for autoscaling. On top of them, ENOVA implements a deployment execution engine for multi-GPU cluster scheduling. The experiment results show that ENOVA significantly outperforms other state-of-the-art methods and is suitable for wide deployment in large online systems.",
+  "authors": [
+   "Tao Huang",
+   "Pengfei Chen",
+   "Kyoka Gong",
+   "Jocky Hawk",
+   "Zachary Bright",
+   "Wenxin Xie"
+  ],
+  "doi": "2407.09486v1",
+  "cited_by": 0
+ },
+ {
+  "title": "NELSSA: A GPU-PNM Heterogeneous System for Mixed-Length LLM Serving via Length-based Request Placement",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Modern LLMs and their agentic applications are broadening the range of serving workloads, spanning context lengths from a few hundred tokens to hundreds of thousands. As these requests frequently interleave within the same serving window, LLM serving systems must handle highly heterogeneous mixed-length workloads. Such mixed-length workloads expose fundamental inefficiencies in GPU-centric serving architectures, whose throughput depends on large, memory-constrained batches. In this paper, we present NELSSA, an LLM serving system that integrates GPUs with real-world Processing-near-Memory (PNM) accelerator devices to efficiently support mixed-length workloads. NELSSA employs length-based request placement to route short-context requests to GPUs and long-context requests to the PNM tier, incorporating runtime migration to accommodate dynamic context growth without recomputation. We prototype NELSSA as an end-to-end system, implementing device-level sparse attention on PNM, GPU decode kernels, and a host-side runtime that orchestrates scheduling and cross-tier memory movement over a CXL-enabled infrastructure with RPC and RDMA support. Across mixed-length LLM workloads, NELSSA improves decode throughput by up to 5.5x in tokens/sec and reduces P99 latency by up to 15x compared to GPU-only baselines. Our end-to-end prototype and experimental results suggest that integrated GPU-PNM serving, enabled by CXL-based disaggregation, is a promising system paradigm for scalable and flexible LLM infrastructures that support evolving workloads.",
+  "authors": [
+   "Sookyung Choi",
+   "Seungyong Lee",
+   "Kangkyu Park",
+   "Yunseo Chun",
+   "Junseok Lee",
+   "Hyeongseok Gwak"
+  ],
+  "doi": "2607.26633v1",
+  "cited_by": 0
+ }
+]

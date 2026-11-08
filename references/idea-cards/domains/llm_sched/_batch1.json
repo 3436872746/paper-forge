@@ -1,0 +1,376 @@
+[
+ {
+  "title": "Preble: Efficient Distributed Prompt Scheduling for LLM Serving",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "Prompts to large language models (LLMs) have evolved beyond simple user questions. For LLMs to solve complex problems, today's practices are to include domain-specific instructions, illustration of tool usages, and/or long context such as textbook chapters in prompts. As such, many parts of prompts are repetitive across requests. Recent works propose to cache and reuse KV state of prompts. However, they are all confined to a single-GPU optimization, while production LLM serving systems are distributed by nature. This paper proposes Preble, the first distributed LLM serving platform that targets and optimizes for prompt sharing. We designed a distributed scheduling system that co-optimizes KV state reuse and computation load-balancing with a new scheduling algorithm and a hierarchical scheduling mechanism. Our evaluation of Preble with real workloads and request arrival patterns on two open-source LLMs shows that Preble outperforms the SOTA serving systems by 1.5X to 14.5X on average latency and 2X to 10X on p99 latency.",
+  "authors": [
+   "Vikranth Srivatsa",
+   "Zijian He",
+   "Reyna Abhyankar",
+   "Dongming Li",
+   "Yiying Zhang"
+  ],
+  "doi": "2407.00023v2",
+  "cited_by": 0
+ },
+ {
+  "title": "Locality-aware Fair Scheduling in LLM Serving",
+  "venue": "arXiv preprint",
+  "year": 2025,
+  "abstract": "Large language model (LLM) inference workload dominates a wide variety of modern AI applications, ranging from multi-turn conversation to document analysis. Balancing fairness and efficiency is critical for managing diverse client workloads with varying prefix patterns. Unfortunately, existing fair scheduling algorithms for LLM serving, such as Virtual Token Counter (VTC), fail to take prefix locality into consideration and thus suffer from poor performance. On the other hand, locality-aware scheduling algorithms in existing LLM serving frameworks tend to maximize the prefix cache hit rate without considering fair sharing among clients. This paper introduces the first locality-aware fair scheduling algorithm, Deficit Longest Prefix Match (DLPM), which can maintain a high degree of prefix locality with a fairness guarantee. We also introduce a novel algorithm, Double Deficit LPM (D$^2$LPM), extending DLPM for the distributed setup that can find a balance point among fairness, locality, and load-balancing. Our extensive evaluation demonstrates the superior performance of DLPM and D$^2$LPM in ensuring fairness while maintaining high throughput (up to 2.87$\\times$ higher than VTC) and low per-client (up to 7.18$\\times$ lower than state-of-the-art distributed LLM serving system) latency.",
+  "authors": [
+   "Shiyi Cao",
+   "Yichuan Wang",
+   "Ziming Mao",
+   "Pin-Lun Hsu",
+   "Liangsheng Yin",
+   "Tian Xia"
+  ],
+  "doi": "2501.14312v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Energy-Aware Scheduling for Serverless LLM Serving on Shared GPUs",
+  "venue": "ATC (arXiv)",
+  "year": 2026,
+  "abstract": "As LLM inference becomes a major cloud workload, its growing energy footprint makes cluster-wide energy optimization increasingly important. Serverless LLM serving helps platforms absorb traffic volatility by elastically sharing GPU resources across models, but this sharing also makes energy optimization difficult. Multiple co-resident models run under one device-wide operating point, while their resource demands and latency slack change across execution phases and load conditions. As a result, minimizing energy requires coordinated scheduling across request placement, runtime resource adaptation, and workload consolidation. We present Festina, a profiling-guided, power-aware control plane to minimize cluster-wide energy for serverless LLM serving. Unlike common global-local schedulers that focus on throughput or tail latency, Festina makes energy-first decisions by jointly coordinating request placement, SM partitioning, and GPU operating points under TTFT/TBT SLOs. In our system, a lightweight global scheduler performs fast, SLO-safe, energy-aware placement using constant-time lookups from offline profiles and GPU state summaries. On each GPU, a phase-aware local scheduler continuously adapts task batching and compute resources to minimize power consumption. Festina further performs energy-aware workload consolidation to reduce GPUs' static power consumption via SLO-aware migration. Comparison with four SOTA LLM serving systems and one DVFS-augmented system demonstrates that Festina reduces energy consumption by up to 56% while maintaining parity in SLO attainment (within",
+  "authors": [
+   "Tianyu Wang",
+   "Gourav Rattihalli",
+   "Aditya Dhakal",
+   "Longfei Shangguan",
+   "Dejan Milojicic"
+  ],
+  "doi": "2606.30391v2",
+  "cited_by": 0
+ },
+ {
+  "title": "Coordinated Scheduling for MoE LLM Serving",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Serving Mixture-of-Experts (MoE) large language models (LLMs) is challenging because dynamic request workloads interact with sparse expert routing, creating both data-parallel (DP) engine imbalance and expert-level hotspots. Existing LLM serving systems typically make these decisions in isolation: frontend schedulers route requests using coarse request counters, while backend expert balancers rely mainly on aggregate expert activation counts. This separation prevents the serving system from reacting to fine-grained engine pressure, backend MoE pressure, and source-dependent expert traffic. To address this gap, we propose Gimbal, a coordinated cross-level scheduling system for efficient MoE-based LLM serving. First, Gimbal presents a fine-grained DP-engine scheduler that uses online backend pressure signals, including key-value (KV) cache usage, remaining prefill work, queue pressure, and MoE expert pressure, to dispatch requests away from overloaded engines. Inside each engine, Gimbal further applies a lightweight prefill-aware queue ordering policy with aging to reduce head-of-line blocking without output-length prediction. Second, Gimbal extends expert load balancing with online source-DP-to-expert routing statistics and uses a heuristic guided by a mixed-integer nonlinear program (MINLP) to place experts while jointly considering expert load, source-aware communication, and migration stability. Our evaluation shows that Gimbal reduces average Time To First Token (TTFT) by 42.9% and average Time Per Output Token (TPOT) by 33.3% compared with the state-of-the-art serving s",
+  "authors": [
+   "Yifan Sun",
+   "Zhexiang Zhang",
+   "Jiantong Jiang",
+   "Gholamreza Haffari",
+   "Minxian Xu",
+   "Feng Liu"
+  ],
+  "doi": "2606.15177v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Kalypso: Relational LLM Serving",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Large language models are increasingly used as semantic operators for filtering, extracting, ranking, joining, and transforming unstructured data. Existing semantic query processing systems invoke request-centric LLM serving systems that are unaware of the query plan, leaving substantial performance opportunities unused. This paper introduces relational LLM serving, an abstraction that makes LLM serving aware of semantic query structure while preserving query semantics and output accuracy. The key opportunity is pipelined execution across semantic operators: when intermediate tuples flow directly from one operator to the next, their KV-cache state can be reused instead of recomputed. We present Kalypso, a relational LLM serving system that exposes an API for semantic query plans and executes them using an adaptive, memory-aware scheduling algorithm. Kalypso addresses a new online scheduling problem in which pipelined operator execution is coupled with GPU memory pressure management to reuse KV-cache state in the serving engine before eviction. Its scheduler continuously adjusts memory allocations to balance upstream parallelism, downstream progress, and GPU utilization. Our evaluation shows that Kalypso improves query completion time over baselines using request-centric LLM serving, with speedups up to 4.57x across diverse workloads, demonstrating that query-aware LLM serving can substantially improve the efficiency of semantic query execution.",
+  "authors": [
+   "Hojae Son",
+   "Md Ashraful Islam",
+   "Huy Gia Cao",
+   "Hui Guan",
+   "Marco Serafini"
+  ],
+  "doi": "2607.23815v2",
+  "cited_by": 0
+ },
+ {
+  "title": "FREESH: Fair, Resource- and Energy-Efficient Scheduling for LLM Serving on Heterogeneous GPUs",
+  "venue": "arXiv preprint",
+  "year": 2025,
+  "abstract": "The ever-increasing computation and energy demand for LLM and AI agents call for holistic and efficient optimization of LLM serving systems. In practice, heterogeneous GPU clusters can be deployed in a geographically distributed manner, while LLM load also observes diversity in terms of both query traffic and serving patterns. LLM queries running on advanced GPUs during a high-emission hour at one location can lead to significantly higher carbon footprints versus same queries running on mid-level GPUs at a low-emission time and location. By observing LLM serving requirements and leveraging spatiotemporal computation flexibility, we consider the joint routing and scheduling problem, and propose FREESH to cooperatively run a group of data centers while minimizing user-specified carbon or energy objectives. FREESH identifies the optimal configurations of balanced load serving by matching distinct GPU instance's power-throughput characteristics with predictable LLM query length and workloads. To ensure both latency and fairness requirements, FREESH identifies optimized parallelism and query routing schedules together with dynamic GPU frequency scaling for power saving, and Least-Laxity-First (LLF) serving strategy for query scheduling. During the 1-hour serving on production workloads, FREESH reduces energy by 28.6% and emissions by 45.45% together with improvements in SLO attainment and fairness.",
+  "authors": [
+   "Xuan He",
+   "Zequan Fang",
+   "Jinzhao Lian",
+   "Danny H. K. Tsang",
+   "Baosen Zhang",
+   "Yize Chen"
+  ],
+  "doi": "2511.00807v2",
+  "cited_by": 0
+ },
+ {
+  "title": "DualPace: Decoupled Scheduling and Cooperative GPU--CPU Decoding for LLM Serving",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Large language model (LLM) serving relies on batching to improve inference throughput, but the key-value (KV) cache grows with sequence length and limits GPU-resident concurrency. CPU offloading can expand KV capacity using host memory, yet existing systems remain largely GPU-gated: CPU-resident requests make progress only when the GPU scheduler exposes suitable overlap opportunities. As a result, host memory and CPU compute cannot act as an independent serving resource, leading to bursty CPU-side progress and inflated tail inter-token latency (ITL) under load. We present DualPace, an LLM serving runtime that turns the host into an independently scheduled decode engine. DualPace separates scheduling authority across two engines: the GPU engine executes prefills and GPU-resident decodes, while an AMX-enabled CPU engine independently batches and advances CPU-resident decodes. The engines are decoupled in scheduling but cooperative in execution: the CPU can execute a complete decode iteration locally or selectively invoke GPU Dense Assist for dense stages, while offline profiles guide hardware-specific batching and routing. Our evaluations show that, in decode-oriented scenarios, DualPace improves serving throughput by 6.9--43.2\\% over NEO, a state-of-the-art open-source CPU-offloading system, and by 11.5--90.6\\% over vLLM, a widely used GPU serving system, while maintaining the same level of latency. DualPace also preserves NEO's P99 time-to-first-token (TTFT) advantage over vLLM while sustaining 7.3--50.5\\% higher request rates than NEO at the same level of P99 ITL.",
+  "authors": [
+   "YuXuan Lin",
+   "KeQiang Wu",
+   "Kingsum Chow"
+  ],
+  "doi": "2610.33501v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Stage-Aware Communication Scheduling for Disaggregated LLM Serving",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Meeting stringent Time-To-First-Token (TTFT) requirements is crucial for LLM applications. To improve efficiency, modern LLM serving systems adopt disaggregated architectures with diverse parallelisms, introducing complex multi-stage workflows involving reusable KV-block retrieval, collective communication, and P2D transfer. Flows from dependent stages overlap within and across requests on shared bottleneck links, making TTFT highly susceptible to network contention and necessitating stage-aware scheduling. Unfortunately, most existing works schedule flows in a stage-agnostic manner, leading to uncoordinated contention that constitutes a primary cause of SLO violations. In this paper, we present Nuska, a holistic multi-stage flow scheduling mechanism designed to maximize TTFT SLO attainment. At its core, Nuska approximates the Least-Laxity-First (LLF) scheduling policy without requiring precise knowledge of a request's remaining slack. It achieves this through a Defer-and-Promote principle implemented through a Reverse Multi-Level Queue (RMLQ) structure. By dynamically promoting task precedence as effective laxity diminishes, Nuska prioritizes flows with less laxity while preventing requests with loose SLOs from prematurely consuming network bandwidth. We implement Nuska as a pluggable module integrated into vLLM, and evaluate it on an 8-server, 32-GPU testbed as well as through large-scale simulations. Our results demonstrate that Nuska effectively outperforms state-of-the-art baselines, improving the TTFT SLO attainment by 1.2x-2.4x.",
+  "authors": [
+   "Yijun Sun",
+   "Xudong Liao",
+   "Songrun Xie",
+   "Hao Chen",
+   "Han Tian",
+   "Wenxue Li"
+  ],
+  "doi": "2603.17456v2",
+  "cited_by": 0
+ },
+ {
+  "title": "ELIS: Efficient LLM Iterative Scheduling System with Response Length Predictor",
+  "venue": "arXiv preprint",
+  "year": 2025,
+  "abstract": "We propose ELIS, a serving system for Large Language Models (LLMs) featuring an Iterative Shortest Remaining Time First (ISRTF) scheduler designed to efficiently manage inference tasks with the shortest remaining tokens. Current LLM serving systems often employ a first-come-first-served scheduling strategy, which can lead to the \"head-of-line blocking\" problem. To overcome this limitation, it is necessary to predict LLM inference times and apply a shortest job first scheduling strategy. However, due to the auto-regressive nature of LLMs, predicting the inference latency is challenging. ELIS addresses this challenge by training a response length predictor for LLMs using the BGE model, an encoder-based state-of-the-art model. Additionally, we have devised the ISRTF scheduling strategy, an optimization of shortest remaining time first tailored to existing LLM iteration batching. To evaluate our work in an industrial setting, we simulate streams of requests based on our study of real-world user LLM serving trace records. Furthermore, we implemented ELIS as a cloud-native scheduler system on Kubernetes to evaluate its performance in production environments. Our experimental results demonstrate that ISRTF reduces the average job completion time by up to 19.6%.",
+  "authors": [
+   "Seungbeom Choi",
+   "Jeonghoe Goo",
+   "Eunjoo Jeon",
+   "Mingyu Yang",
+   "Minsung Jang"
+  ],
+  "doi": "2505.09142v1",
+  "cited_by": 0
+ },
+ {
+  "title": "PackServe: SLO-Aware Request Scheduling for Agentic LLM Serving at Scale",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Request scheduling is a key challenge in large-scale clusters serving agentic large language model (LLM) workloads. An effective scheduler must preserve key-value cache (KVC) reuse across long, shared prefixes, meet token-level latency service-level objectives (SLOs), and minimize GPU resource footprint. Existing schedulers struggle to reconcile these requirements: request consolidation can sacrifice cache locality and increase prefill/decode interference, compromising both SLO attainment and resource efficiency. We present PackServe, a scheduler designed to reduce resource costs while meeting latency SLOs for agentic LLM serving. PackServe uses compact white-box models to predict latency under prefill/decode interference. Guided by these predictions, it packs requests onto fewer serving instances while preserving KVC reuse and SLO constraints, trading available latency headroom for improved per-instance throughput. Evaluation on 64 NVIDIA H20 GPUs shows that PackServe uses up to 16.8% and 24.6% fewer GPU-hours than state-of-the-art schedulers under 30-ms and 50-ms TPOT targets, respectively, while meeting the target TPOT objectives. PackServe has also been deployed in our production cluster comprising over 1000 GPUs, where it reduces the resource footprint by 34.7% compared with the original production scheduler.",
+  "authors": [
+   "Zhiyuan Tan",
+   "Dejiang Zhu",
+   "Jingzhe Jiang",
+   "Yihao Zheng",
+   "Yang Tian",
+   "Tao Wang"
+  ],
+  "doi": "2609.33224v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Quota-Based Aging for Prediction-Guided Scheduling in LLM Serving",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Large language model (LLM) serving systems use token-level continuous batching to improve resource utilization, but heterogeneous response lengths complicate request scheduling. Prediction-guided short-first scheduling reduces average latency but can severely delay long requests, while unrestricted aging may over-promote delayed long requests under congestion. We propose Quota-Based Aging (QBA), a lightweight policy that combines predicted short-first admission with quota-bounded, debt-enforced promotion of aged predicted-long requests. We also use a reduced M/G/n queueing surrogate, calibrated from simulator traces, to explain first-order mean-latency trends. QBA is evaluated using a serving-aware event-driven simulator that models decode-priority batching, chunked prefill, token-budget constraints, and KV-cache-safe admission. We compare QBA with FCFS, predicted short-first, and aggressive aging under asymmetric prediction errors on synthetic and production-derived workloads. The evaluation considers queueing delay, throughput, utilization, and class-conditional tail performance. Results show that QBA provides a controllable middle ground between aggressive short-first prioritization and unrestricted aging, substantially reducing long-request tail latency while retaining much of the mean-latency benefit of prediction-guided scheduling.",
+  "authors": [
+   "Hanzhi Zhang",
+   "Anxuan Che",
+   "Hang Qi",
+   "Qiyue Li",
+   "Jingjin Wu"
+  ],
+  "doi": "2610.17795v1",
+  "cited_by": 0
+ },
+ {
+  "title": "ProServe: Unified Multi-Priority Request Scheduling for LLM Serving",
+  "venue": "arXiv preprint",
+  "year": 2025,
+  "abstract": "The widespread deployment of large language models (LLMs) for interactive applications necessitates serving systems that can handle thousands of concurrent requests with diverse Service Level Objective (SLO) requirements. A critical yet often overlooked dimension in this context is the inherent priority difference among clients; for instance, business-critical functions demand higher performance guarantees, as fulfilling such requests yields significantly greater business value. However, existing LLM serving schedulers fail to jointly optimize for both SLO attainment and client-level priorities. To bridge this gap, we first formalize multi-priority request scheduling as a service gain maximization problem, where satisfying latency requirements for requests of different priorities contributes varying gain. We propose ProServe, a unified two-tier scheduling framework designed to maximize overall service gain. At the engine layer, SlideBatching dynamically adapts batch formation under varying loads, employing a sliding boundary mechanism to balance latency and priority differentiation. Considering potential preemption, efficient block management adopts asynchronous offloading, pipelined reloading, and adaptive copy-budget control to overlap computation with host-device block transfers. At the service layer, GoRouting performs gain-oriented and capability-aware dispatching across distributed instances, proactively reserving capacity for future high-priority or long requests. Extensive evaluation on four open-source and one industrial dataset shows that ProServe outperforms stat",
+  "authors": [
+   "Weizhe Huang",
+   "Tao Peng",
+   "Tongxuan Liu",
+   "Donghe Jin",
+   "Kang Meng",
+   "Xianzhe Dong"
+  ],
+  "doi": "2512.12928v2",
+  "cited_by": 0
+ },
+ {
+  "title": "A Predictive and Synergistic Two-Layer Scheduling Framework for LLM Serving",
+  "venue": "arXiv preprint",
+  "year": 2025,
+  "abstract": "LLM inference serving typically scales out with a two-tier architecture: a cluster router distributes requests to multiple inference engines, each of which then in turn performs its own internal scheduling. However, this commonly used paradigm suffers from critical, systemic inefficiency caused by the information gaps across two layers. At the cluster-layer, the router mainly relies on lagging, coarse-grained metrics, such as average latency and queue length to make decisions, resulting in \"decision lag\" that leads to suboptimal request routing. At the engine-layer, static heuristic scheduling policies cannot effectively handle the dynamic workloads, leading a poor balance between latency and throughput. Besides, these gaps may cause SLO violations and resource waste, especially in heterogeneous cloud environments. To bridge such gaps, we propose NexusSched, a cross-layer framework that shifts LLM serving system from reactive load balancing to predictive orchestration. The core of NexusSched lies in a structurally-informed online performance model that provides accurate, forward-looking per-step latency and capacity estimations. This model empowers two key components. At the engine-layer, LENS performs SLO-aware, adaptive scheduling, dynamically optimizing batching to meet SLOs under real-time loads. At the cluster-layer, PRISM uses predictive signals to perform state-driven routing, maximizing cluster-wide performance and SLO attainment. Performance evaluations show that NexusSched improves SLO attainment by 43% on average and achieves up to 3x throughput speedup in long-c",
+  "authors": [
+   "Yue Zhang",
+   "Yuansheng Chen",
+   "Xuan Mo",
+   "Alex Xi",
+   "Jialun Li",
+   "WeiGang Wu"
+  ],
+  "doi": "2509.23384v3",
+  "cited_by": 0
+ },
+ {
+  "title": "Efficiency and Cost Alignment in Batched LLM Serving via Resource-Fair Scheduling",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "This paper studies a resource-allocation inefficiency in batched large language model (LLM) serving: heterogeneous requests that share a decode batch impose max-driven computational costs on one another. Because the wall-clock cost of a batch step is largely governed by the largest active KV-cache footprint, a short request co-batched with a long request can experience latency and GPU-resource consumption disproportionate to its own token workload. We formalize this phenomenon as a resource-fair scheduling problem. We develop a mathematical scheduling model that connects within-batch resource fairness to system throughput. The proposed fairness constraint bounds the disparity in decode progress, equivalently KV-cache footprint, among co-batched requests. Based on this model, we design the Insert-Short-Jobs-with-Limit (ISJL) algorithm, a parameterized hybrid batching policy. We prove that ISJL achieves a global competitive-ratio lower bound of $3/4$. We further examine the profit implications of resource-fair scheduling under the token-metered pricing convention used by commercial LLM APIs. Numerical experiments show that ISJL occupies a favorable middle ground between FCFS, which has large batching externalities, and LJF, which is cost-aligned but sacrifices batching flexibility. Thus, ISJL provides a bi-criterion scheduling policy: it maintains high throughput while aligning max-driven batch cost with token-metered revenue.",
+  "authors": [
+   "Dayi Yao",
+   "Zijie Zhou"
+  ],
+  "doi": "2608.02244v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Conveyor: Efficient Tool-aware LLM Serving with Tool Partial Execution",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "The complexity of large language model (LLM) serving workloads has substantially increased due to the integration with external tool invocations, such as ChatGPT plugins. In this paper, we identify a new opportunity for efficient LLM serving for requests that trigger tools: tool partial execution alongside LLM decoding. To this end, we design Conveyor, an efficient LLM serving system optimized for handling requests involving external tools. We introduce a novel interface for tool developers to expose partial execution opportunities to the LLM serving system and a request scheduler that facilitates partial tool execution. Our results demonstrate that tool partial execution can improve request completion latency by up to 38.8%.",
+  "authors": [
+   "Yechen Xu",
+   "Xinhao Kong",
+   "Tingjun Chen",
+   "Danyang Zhuo"
+  ],
+  "doi": "2406.00059v2",
+  "cited_by": 0
+ },
+ {
+  "title": "Geometry-Aware Online Scheduling for LLM Serving: From Theoretical Bound to System Practice",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "The rapid growth of interactive Large Language Model serving has made efficient management of dynamic Key-Value cache footprints increasingly important for inference performance. Modern inference systems overwhelmingly rely on time-centric scheduling heuristics, such as Shortest Job First. However, their classical guarantees are rooted in traditional scheduling modeling, failing to capture the highly dynamic, 2D spatio-temporal geometric growth specific to LLM inference mechanisms. To resolve this, we propose the geometry-aware online scheduling by introducing the Smallest Volume First (SVF) algorithm and its highly efficient variant, 1-bit SVF. Via a novel volume-certificate proof, we establish a worst-case approximation ratio for SVF that approaches \\textbf{3} in the high-concurrency regime of LLM serving, substantially improving upon the prior best constant of 48. Building upon this core breakthrough, we complete a comprehensive theoretical taxonomy analyzing our algorithms across different traffic scenarios and information availability. Practically, we seamlessly integrate our approach as a plug-and-play layer in vLLM. Extensive evaluations on Llama-3.1 models demonstrate comprehensive performance gains: SVF delivers strong reductions in both average and tail latency, while 1-bit SVF, with merely a single bit of information, achieves competitive throughput and latency. This work establishes a theoretically sound and empirically proven approach for resolving memory-constrained scheduling in modern LLM deployments. To facilitate future research, our code is available at h",
+  "authors": [
+   "Li Kong",
+   "Qi Qi",
+   "Yinyu Ye",
+   "Zijie Zhou"
+  ],
+  "doi": "2606.22327v3",
+  "cited_by": 0
+ },
+ {
+  "title": "HexAGenT: Efficient Agentic LLM Serving via Workflow- and Heterogeneity-Aware Scheduling",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Agentic LLM applications increasingly execute user requests as multi-step workflows involving planning, tool use, branching, refinement, and synthesis. In such settings, users experience the end-to-end latency of an entire workflow, not the latency of any single LLM call. In this paper, we study how to schedule online agentic workflows across heterogeneous prefill-decode disaggregated LLM serving clusters to efficiently meet workflow-level latency objectives. The problem is challenging because workflow dependencies are revealed incrementally at runtime, calls have heterogeneous prompts, outputs, and KV-cache requirements, and the prefill and decode stages impose different compute, memory, and transfer constraints across heterogeneous GPUs. To solve this problem, we present HexAGenT, a workflow-aware scheduler for a heterogeneous prefill-decode inference service. HexAGenT models each request as an online-revealed DAG, maintains a running estimate of the workflow's standalone completion horizon, prioritizes ready calls by projected risk of missing that horizon, and jointly selects prefill placement, decode placement, and local queue priority while accounting for KV-cache capacity and cross-stage transfer latency. Across representative agentic workloads and heterogeneous A100/H100/H200 clusters, HexAGenT reduces the SLO scale required for timely workflow completion by an average of 20.1% at 95% attainment and 33.0% at 99% attainment, with maximum reductions of 45.0% and 80.5%, respectively.",
+  "authors": [
+   "You Peng",
+   "Youhe Jiang",
+   "Wenshuang Li",
+   "Xu Xu",
+   "Ke Zhou",
+   "Jiawei Jiang"
+  ],
+  "doi": "2605.16637v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Past-Future Scheduler for LLM Serving under SLA Guarantees",
+  "venue": "ASPLOS (arXiv)",
+  "year": 2025,
+  "abstract": "The exploration and application of Large Language Models (LLMs) is thriving. To reduce deployment costs, continuous batching has become an essential feature in current service frameworks. The effectiveness of continuous batching relies on an accurate estimate of the memory requirements of requests. However, due to the diversity in request output lengths, existing frameworks tend to adopt aggressive or conservative schedulers, which often result in significant overestimation or underestimation of memory consumption. Consequently, they suffer from harmful request evictions or prolonged queuing times, failing to achieve satisfactory throughput under strict Service Level Agreement (SLA) guarantees (a.k.a. goodput), across various LLM application scenarios with differing input-output length distributions. To address this issue, we propose a novel Past-Future scheduler that precisely estimates the peak memory resources required by the running batch via considering the historical distribution of request output lengths and calculating memory occupancy at each future time point. It adapts to applications with all types of input-output length distributions, balancing the trade-off between request queuing and harmful evictions, thereby consistently achieving better goodput. Furthermore, to validate the effectiveness of the proposed scheduler, we developed a high-performance LLM serving framework, LightLLM, that implements the Past-Future scheduler. Compared to existing aggressive or conservative schedulers, LightLLM demonstrates superior goodput, achieving up to 2-3$\\times$ higher goo",
+  "authors": [
+   "Ruihao Gong",
+   "Shihao Bai",
+   "Siyu Wu",
+   "Yunqian Fan",
+   "Zaijun Wang",
+   "Xiuhong Li"
+  ],
+  "doi": "2507.10150v1",
+  "cited_by": 0
+ },
+ {
+  "title": "ExaServe: Large-Scale LLM Serving on Exascale HPC Systems",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Cloud-native LLM serving frameworks have made deployment routine in data centers, yet deploying them on leadership-class supercomputers remains an engineering challenge requiring scheduler integration, MPI launch, accelerator selection, node-local weight staging, and platform-specific patches. We present ExaServe, a pip-installable framework that transforms a declarative YAML specification into a reproducible large-scale LLM serving deployment. Using ExaServe, we deploy LLM serving on ALCF Aurora from 1 to 256 nodes (3072 vLLM replicas). Non-streaming inference scales nearly linearly to 256 nodes, reaching 27.1k requests/s (3.8M tokens/s). Token streaming scales differently: a centralized proxy plateaus at about 4.7k requests/s despite the model servers remaining within the service-level objective. We also identify an O(N^2) Ray Serve control-plane bottleneck that increases cluster bring-up to roughly 30 minutes at 256 nodes. ExaServe provides a practical, reproducible deployment path while exposing key barriers to future exascale LLM serving.",
+  "authors": [
+   "Wenyi Wang",
+   "Shu Shi",
+   "Yadu Babuji",
+   "Ian Foster",
+   "Kyle Chard"
+  ],
+  "doi": "2609.10812v2",
+  "cited_by": 0
+ },
+ {
+  "title": "BurstGPT: A Real-world Workload Dataset to Optimize LLM Serving Systems",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "Serving systems for Large Language Models (LLMs) are often optimized to improve quality of service (QoS) and throughput. However, due to the lack of open-source LLM serving workloads, these systems are frequently evaluated under unrealistic workload assumptions. Consequently, performance may degrade when systems are deployed in real-world scenarios. This work presents BurstGPT, an LLM serving workload with 10.31 million traces from regional Azure OpenAI GPT services over 213 days. BurstGPT captures LLM serving characteristics from user, model and system perspectives: (1) User request concurrency: burstiness variations of requests in Azure OpenAI GPT services, revealing diversified concurrency patterns in different services and model types. (2) User conversation patterns: counts and intervals within conversations for service optimizations. (3) Model response lengths: auto-regressive serving processes of GPT models, showing statistical relations between requests and their responses. (4) System response failures: failures of conversation and API services, showing intensive resource needs and limited availability of LLM services in Azure. The details of the characteristics can serve multiple purposes in LLM serving optimizations, such as system evaluation and trace provisioning. In our demo evaluation with BurstGPT, frequent variations in BurstGPT reveal declines in efficiency, stability, or reliability in realistic LLM serving. We identify that the generalization of KV cache management, scheduling and disaggregation optimizations can be improved under realistic workload evalua",
+  "authors": [
+   "Yuxin Wang",
+   "Yuhan Chen",
+   "Zeyu Li",
+   "Xueze Kang",
+   "Yuchu Fang",
+   "Yeju Zhou"
+  ],
+  "doi": "2401.17644v5",
+  "cited_by": 0
+ },
+ {
+  "title": "PersistentKV: Page-Aware Decode Scheduling for Long-Context LLM Serving on Commodity GPUs",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Autoregressive large language model (LLM) serving is increasingly limited by key-value (KV) cache movement rather than dense matrix multiplication. Modern paged-attention systems reduce fragmentation, and mature kernels like FlashInfer provide highly optimized decode attention. However, the best single-kernel implementation is not always the best serving schedule: low-active long-context decode can under-utilize GPUs, while mixed sequence lengths introduce tension between many exact-length launches and coarse padded batches. We present PersistentKV, a native block-table decode attention engine and page-aware scheduling study for grouped-query attention (GQA). PersistentKV maps work by KV-head group, executes directly over native page tables, and adds a compact workqueue schedule executing only non-empty row-KV-head-sequence-split tasks. On an RTX 3060 (FP16, page size 16, Hq=32, Hkv=8, d=128), a calibrated roofline-style policy selects FlashInfer for small active batches, PersistentKV sequence splitting for batch size 1 (B1) long-context steps, and PersistentKV workqueue scheduling for supported B8 long-context GQA steps. With cost-model constants fixed on calibration traces, five held-out seeds improve mean wall decode-token throughput by 1.04x to 1.08x on B8 bimodal, uniform, and Zipf-like workloads, and by 1.40x on a B1 bucketed trace. For the B4 boundary case and uncalibrated GQA ratios, the policy avoids regressions by routing to FlashInfer. We also report an attention-plus-MLP timing proxy and workload counters showing workqueue scheduling reduces launch fan-out from ",
+  "authors": [
+   "Muhammad Ahmed"
+  ],
+  "doi": "2606.26666v2",
+  "cited_by": 0
+ },
+ {
+  "title": "Token Latency Fairness: Performance Isolation for Multi-Tenant LLM Serving",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "LLM serving is typically offered as a shared, multi-tenant service, where high-demand workloads from one client can cause latency SLO violations for others. Existing solutions for performance isolation equalize client throughput in the long run, for example through queueing and batching fairness. However, these approaches do not provide latency isolation guarantees; as a result, well-behaved clients can still experience significant degradation to their token-level latencies. In this paper, we present FairInference, which provides the novel δ-token fairness guarantee: for a well-behaved client, if a token is generated in d time units in isolation, it will be generated within d + δ time units in multi-tenant execution, providing strong latency isolation guarantees for LLM serving. To achieve this, FairInference addresses a key challenge of LLM serving: bounding delays from sharing GPU resources without support for fine-grained scheduling or resource allocation. In FairInference, the scheduler enforces per-token deadlines, while bounding the delays from GPU compute sharing and accounting for the additional delays introduced by the shared KV caching in GPU memory. We show that FairInference effectively bounds token-level latency spikes for well-behaved clients and improves overall throughput compared to state-of-the-art LLM serving systems.",
+  "authors": [
+   "Dev Bali",
+   "Soujanya Ponnapalli",
+   "Yichuan Wang",
+   "Natacha Crooks",
+   "Scott Shenker",
+   "Matei Zaharia"
+  ],
+  "doi": "2609.18112v1",
+  "cited_by": 0
+ },
+ {
+  "title": "TimelyLLM: Segmented LLM Serving System for Time-sensitive Robotic Applications",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "Large Language Models (LLMs) such as GPT-4 and Llama3 can already comprehend complex commands and process diverse tasks. This advancement facilitates their application in controlling drones and robots for various tasks. However, existing LLM serving systems typically employ a first-come, first-served (FCFS) batching mechanism, which fails to address the time-sensitive requirements of robotic applications. To address it, this paper proposes a new system named TimelyLLM serving multiple robotic agents with time-sensitive requests. TimelyLLM introduces novel mechanisms of segmented generation and scheduling that optimally leverage redundancy between robot plan generation and execution phases. We report an implementation of TimelyLLM on a widely-used LLM serving framework and evaluate it on a range of robotic applications. Our evaluation shows that TimelyLLM improves the time utility up to 1.97x, and reduces the overall waiting time by 84%.",
+  "authors": [
+   "Neiwen Ling",
+   "Guojun Chen",
+   "Lin Zhong"
+  ],
+  "doi": "2412.18695v1",
+  "cited_by": 0
+ },
+ {
+  "title": "TOPAS: Workflow-Aware Prefix-State Scheduling for Multi-Agent LLM Serving",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Prefix caching introduces a fundamental tradeoff in multi-agent large language model (LLM) serving: retaining a long system-prompt key-value (KV) cache for an agent accelerates future calls, yet it reduces the GPU memory available for batching concurrent requests. In multi-stage workflows, existing schedulers tend to prioritize either immediate prefix locality or overall workflow progress. However, under a shared KV cache budget, optimizing either objective in isolation can prolong tasklevel job completion time (JCT) through downstream delays or frequent prefix replacement. To strike a balance, we here propose TOPAS, a Task-Oriented Prefix-Aware Scheduler that jointly decides which agent prefixes to keep in the cache and which requests to schedule for execution. TOPAS scores candidate post-decision states by trading off the expected reduction in each task's longest remaining service path against the near-term benefit of downstream prefix reuse, accounting for the costs of prefix movement and preemption. A task-level aging mechanism is also incorporated to prevent starvation. We implement TOPAS within the SGLang framework and assess its performance on three synthetic DAGs and two MetaGPT software-development workflows. Compared with the best performing baseline for each workload and metric, TOPAS reduces the mean/p99 JCT by up to 39.8%/49.4% on the synthetic workloads, while lowering mean JCT by 9.8% on MetaGPT-SOP and mean/p99 JCT by 22.0%/26.6% on MetaGPT-TL.",
+  "authors": [
+   "Hongqiu Ni",
+   "Han Tian",
+   "Chi Zhang",
+   "Guopeng Li",
+   "Haisheng Tan"
+  ],
+  "doi": "2608.25523v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Efficient Interactive LLM Serving with Proxy Model-based Sequence Length Prediction",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "Large language models (LLMs) have been driving a new wave of interactive AI applications across numerous domains. However, efficiently serving LLM inference requests is challenging due to their unpredictable execution times originating from the autoregressive nature of generative models. Existing LLM serving systems exploit first-come-first-serve (FCFS) scheduling, suffering from head-of-line blocking issues. To address the non-deterministic nature of LLMs and enable efficient interactive LLM serving, we present a speculative shortest-job-first (SSJF) scheduler that uses a light proxy model to predict LLM output sequence lengths. Our open-source SSJF implementation does not require changes to memory management or batching strategies. Evaluations on real-world datasets and production workload traces show that SSJF reduces average job completion times by 30.5-39.6% and increases throughput by 2.2-3.6x compared to FCFS schedulers, across no batching, dynamic batching, and continuous batching settings.",
+  "authors": [
+   "Haoran Qiu",
+   "Weichao Mao",
+   "Archit Patke",
+   "Shengkun Cui",
+   "Saurabh Jha",
+   "Chen Wang"
+  ],
+  "doi": "2404.08509v2",
+  "cited_by": 0
+ }
+]

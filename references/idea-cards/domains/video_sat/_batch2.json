@@ -1,0 +1,361 @@
+[
+ {
+  "title": "Unleashing Collaborative Computing for Adaptive Video Streaming with Multi-objective Optimization in Satellite Terrestrial Networks",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "Satellite-terrestrial networks (STNs) are anticipated to deliver seamless IoT services across expansive regions. Given the constrained resources available for offloading computationally intensive tasks like video streaming, it is crucial to establish collaborative computing among diverse components within STNs. In this paper, we present the task offloading challenge as a multi-objective optimization problem, leveraging the collaboration between ground devices/users and satellites. We propose a collaborative computing scheme that optimally assigns computing tasks to various nodes within STNs to enhance service performance including quality of experience (QoE). This algorithm initially dynamically selects an end-to-end path that balances service time and resource utilization. For each selected path, a multi-agent soft actor-critic (MA-SAC)-based algorithm is introduced to make adaptive decisions and collaboratively assign optimal heterogeneous resources to the given computing tasks. In this algorithm, the ground station bridging satellite network and terrestrial network is treated as agent to extract the information from both STNs and users. Through MA-SAC, multiple agents cooperate to determine the adaptive bitrate and network resources for the arriving tasks. The numerical results demonstrate that our proposal outperforms comparative schemes across various computing tasks in terms of various criteria.",
+  "authors": [
+   "Zhishu Shen",
+   "Qiushi Zheng",
+   "Ziqi Rong",
+   "Jiong Jin",
+   "Atsushi Tagami",
+   "Wei Xiang"
+  ],
+  "doi": "2408.13512v1",
+  "cited_by": 0
+ },
+ {
+  "title": "End-to-End Performance of Video Streaming With MPEG-DASH Over Satellite 5G IAB Networks",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "We present an end-to-end performance evaluation of MPEG-DASH video streaming over a Low-Earth Orbit (LEO) satellite-based 5G Integrated Access and Backhaul (IAB) network. Our objective is to investigate how modern transport protocols and congestion control algorithms affect adaptive video delivery in an integrated satellite-terrestrial network (ISTN), where latency, throughput variation, and playback continuity jointly shape the user Quality-of-Experience (QoE). We implement a simulation framework in ns-3 by adapting open-source modules for the 5G radio access network, LEOS backhaul, transport layer protocols, and MPEG-DASH application behavior. Within this framework, TCP and QUIC are evaluated with multiple congestion control algorithms, including CUBIC, NewReno, and BBR. Performance is assessed using application-level and transport-level metrics, including playback duration, interruption duration, stall count, playback bitrate, throughput, latency, and fairness. The results show that no single configuration is uniformly optimal across all metrics. However, clear tradeoffs are observed among throughput, latency, playback continuity, and fairness. In particular, QUIC-BBR provides the most balanced overall behavior from a streaming QoE perspective, combining adequate playback duration with fewer interruptions and substantially lower latency than other alternatives. These findings highlight the importance of jointly considering transport design and congestion control when evaluating adaptive video streaming over ISTNs.",
+  "authors": [
+   "Muhammad Adeel Zahid",
+   "Ekram Hossain",
+   "Peng Hu"
+  ],
+  "doi": "2604.16634v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Enabling High Error Tolerance in Satellite Video Transmissions by Generative Semantic Communication",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Low Earth orbit (LEO) satellite relays will significantly extend the coverage of mobile networks, enabling users in remote areas to transmit data of real-time events. Nevertheless, the limited power of user devices and the long distance to satellites lead to low signal-to-noise ratio (SNR), which results in high error rates and frequent retransmissions, severely hindering the transmissions of high-dimensional data such as videos. In this paper, we propose a novel method to achieve high error tolerance in satellite-relay video transmissions using generative semantic communications (GSC). For the transmitter, we design and optimize a semantic encoder integrating a pre-trained video encoder with a low-density parity-check (LDPC) encoder, efficiently achieving generalizability and enabling forward error correction. For the receiver, we fine-tune a generative video model using an efficient in-context adaptation algorithm, enabling it to reconstruct videos from error-corrupted semantic information. Simulation results show that our method achieves 2.5 dB higher video peak SNR than conventional semantic communications at an error rate of 45%, and remains robust when the error rate exceeds 80%.",
+  "authors": [
+   "Zixin Zhao",
+   "Jingzhi Hu",
+   "Geoffrey Ye Li"
+  ],
+  "doi": "2604.25184v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Dissecting the Performance of Satellite Network Operators",
+  "venue": "CoNEXT (arXiv)",
+  "year": 2023,
+  "abstract": "The rapid growth of satellite network operators (SNOs) has revolutionized broadband communications, enabling global connectivity and bridging the digital divide. As these networks expand, it is important to evaluate their performance and efficiency. This paper presents the first comprehensive study of SNOs. We take an opportunistic approach and devise a methodology which allows to identify public network measurements performed via SNOs. We apply this methodology to both M-Lab and RIPE public datasets which allowed us to characterize low level performance and footprint of up to 18 SNOs operating in different orbits. Finally, we identify and recruit paid testers on three popular SNOs (Starlink, HughesNet, and ViaSat) to evaluate the performance of popular applications like web browsing and video streaming.",
+  "authors": [
+   "Aravindh Raman",
+   "Matteo Varvello",
+   "Hyunseok Chang",
+   "Nishanth Sastry",
+   "Yasir Zaki"
+  ],
+  "doi": "2310.15808v2",
+  "cited_by": 0
+ },
+ {
+  "title": "StarStream: Live Video Analytics over Space Networking",
+  "venue": "arXiv preprint",
+  "year": 2025,
+  "abstract": "Streaming videos from resource-constrained front-end devices over networks to resource-rich cloud servers has long been a common practice for surveillance and analytics. Most existing live video analytics (LVA) systems, however, have been built over terrestrial networks, limiting their applications during natural disasters and in remote areas that desperately call for real-time visual data delivery and scene analysis. With the recent advent of space networking, in particular, Low Earth Orbit (LEO) satellite constellations such as Starlink, high-speed truly global Internet access is becoming available and affordable. This paper examines the challenges and potentials of LVA over modern LEO satellite networking (LSN). Using Starlink as the testbed, we have carried out extensive in-the-wild measurements to gain insights into its achievable performance for LVA. The results reveal that the uplink bottleneck in today's LSN, together with the volatile network conditions, can significantly affect the service quality of LVA and necessitate prompt adaptation. We accordingly develop StarStream, a novel LSN-adaptive streaming framework for LVA. At its core, StarStream is empowered by a Transformer-based network performance predictor tailored for LSN and a content-aware configuration optimizer. We discuss a series of key design and implementation issues of StarStream and demonstrate its effectiveness and superiority through trace-driven experiments with real-world network and video processing data.",
+  "authors": [
+   "Miao Zhang",
+   "Jiaxing Li",
+   "Haoyuan Zhao",
+   "Linfeng Shen",
+   "Jiangchuan Liu"
+  ],
+  "doi": "2508.14222v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Robust Live Streaming over LEO Satellite Constellations: Measurement, Analysis, and Handover-Aware Adaptation",
+  "venue": "arXiv preprint",
+  "year": 2025,
+  "abstract": "Live streaming has experienced significant growth recently. Yet this rise in popularity contrasts with the reality that a substantial segment of the global population still lacks Internet access. The emergence of Low Earth orbit Satellite Networks (LSNs), such as SpaceX's Starlink and Amazon's Project Kuiper, presents a promising solution to fill this gap. Nevertheless, our measurement study reveals that existing live streaming platforms may not be able to deliver a smooth viewing experience on LSNs due to frequent satellite handovers, which lead to frequent video rebuffering events. Current state-of-the-art learning-based Adaptive Bitrate (ABR) algorithms, even when trained on LSNs' network traces, fail to manage the abrupt network variations associated with satellite handovers effectively. To address these challenges, for the first time, we introduce Satellite-Aware Rate Adaptation (SARA), a versatile and lightweight middleware that can seamlessly integrate with various ABR algorithms to enhance the performance of live streaming over LSNs. SARA intelligently modulates video playback speed and furnishes ABR algorithms with insights derived from the distinctive network characteristics of LSNs, thereby aiding ABR algorithms in making informed bitrate selections and effectively minimizing rebuffering events that occur during satellite handovers. Our extensive evaluation shows that SARA can effectively reduce the rebuffering time by an average of $39.41\\%$ and slightly improve latency by $0.65\\%$ while only introducing an overall loss in bitrate by $0.13\\%$.",
+  "authors": [
+   "Hao Fang",
+   "Haoyuan Zhao",
+   "Jianxin Shi",
+   "Miao Zhang",
+   "Guanzhen Wu",
+   "Yi Ching Chou"
+  ],
+  "doi": "2508.13402v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Watching Stars in Pixels: The Interplay of Traffic Shaping and YouTube Streaming QoE over GEO Satellite Networks",
+  "venue": "arXiv preprint",
+  "year": 2023,
+  "abstract": "Geosynchronous satellite (GEO) networks are a crucial option for users beyond terrestrial connectivity. However, unlike terrestrial networks, GEO networks exhibit high latency and deploy TCP proxies and traffic shapers. The deployment of proxies effectively mitigates the impact of high network latency in GEO networks, while traffic shapers help realize customer-controlled data-saver options that optimize data usage. It is unclear how the interplay between GEO networks' high latency, TCP proxies, and traffic-shaping policies affects the quality of experience (QoE) for commonly used video applications. To fill this gap, we analyze the quality of over $2$k YouTube video sessions streamed across a production GEO network with a $900$Kbps shaping rate. Given the average bit rates for the selected videos, we expected seamless streaming at $360$p or lower resolutions. However, our analysis reveals that this is not the case: $28\\%$ of TCP sessions and $18\\%$ of gQUIC sessions experience rebuffering events, while the median average resolution is only $380$p for TCP and $299$p for gQUIC. Our analysis identifies two key factors contributing to sub-optimal performance: (i)unlike TCP, gQUIC only utilizes $63\\%$ of network capacity; and (ii)YouTube's imperfect chunk request pipelining. As a result of our study, the partner GEO ISP discontinued support for the low-bandwidth data-saving option in U.S. business and residential markets to avoid potential degradation of video quality -- highlighting the practical significance of our findings.",
+  "authors": [
+   "Jiamo Liu",
+   "David Lerner",
+   "Jae Chung",
+   "Udit Paul",
+   "Arpit Gupta",
+   "Elizabeth Belding"
+  ],
+  "doi": "2309.00686v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Media-over-Multipath-QUIC for Realtime Video Applications",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Multipath transports place a client's WiFi, cellular, and satellite networks under one connection, yet real-time video gains little from them. The scheduler that assigns packets to paths sees only bytes, so it cannot tell a keyframe that anchors a second of video from an enhancement frame whose loss costs one image. We show that the limiting factor is not a shortage of path diversity but the absence of a channel through which the application can name what the transport cannot see. Media over QUIC Transport (MoQT), already deployed on production CDNs, carries media as named Objects, and relays forward each Object's metadata without interpreting it. The knowledge the scheduler lacks therefore already flows through the subscriber's relay. We present MoMQ, a MoQT extension that turns this metadata into path decisions. Applications and relay operators install declarative rules at the edge relay that match Object metadata and express delivery preferences against labeled paths. The relay evaluates the rules mechanically, so it acts on video semantics while containing no video logic. On a live testbed spanning Starlink and WiFi, four rules cut P99.9 frame completion time from 384.7 ms under the best transport-only scheduler to 114.1 ms and reduce the required playback buffer by 61.5%. MoMQ is the only configuration that meets the 150 ms interactive latency target. Across relays in two countries and subscribers on two continents, the same rules apply unchanged and retain their advantage wherever the paths remain disjoint.",
+  "authors": [
+   "Tanya Shreedhar",
+   "Zuji Zhou",
+   "Nitinder Mohan",
+   "Fernando Kuipers"
+  ],
+  "doi": "2608.10741v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Securing Satellite Communications: Real-Time Video Encryption Scheme on Satellite Payloads",
+  "venue": "arXiv preprint",
+  "year": 2025,
+  "abstract": "The rapid development of low-Earth orbit (LEO) satellite constellations and satellite communication systems has elevated the importance of secure video transmission, which is the key to applications such as remote sensing, disaster relief, and secure information exchange. In this context, three serious issues arise concerning real-time encryption of videos on satellite embedded devices: (a) the challenge of achieving real-time performance; (b) the limitations posed by the constrained computing performance of satellite payloads; and (c) the potential for excessive power consumption leading to overheating, thereby escalating safety risks. To overcome these challenges, this study introduced a novel approach for encrypting videos by employing two 1D chaotic maps, which was deployed on a satellite for the first time. The experiment on the satellite confirms that our scheme is suitable for complex satellite environments. In addition, the proposed chaotic maps were implemented on a Field Programmable Gate Array (FPGA) platform, and simulation results showed consistency with those obtained on a Raspberry Pi. Experiments on the Raspberry Pi 4B demonstrate exceptional real-time performance and low power consumption, validating both the hardware feasibility and the stability of our design. Rigorous statistical testing also confirms the scheme's resilience against a variety of attacks, underscoring its potential for secure, real-time data transmission in satellite communication systems.",
+  "authors": [
+   "Hanshuo Qiu",
+   "Jing Lian",
+   "Xiaoyuan Wang",
+   "Jizhao Liu"
+  ],
+  "doi": "2503.16287v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Dynamic Pacing for Real-time Satellite Traffic",
+  "venue": "arXiv preprint",
+  "year": 2025,
+  "abstract": "Google's congestion control (GCC) has become a cornerstone for real-time video and audio communication, yet its performance remains fragile in emerging Low Earth Orbit (LEO) networks. In this paper, we study the behavior of videoconferencing systems in LEO constellations. We observe that video quality degrades due to inherent delays and network instability introduced by the high altitude and rapid movement of LEO satellites, with these effects exacerbated by WebRTC's conventional \"one-size-fits-all\" sender-side pacing queue management. To address these challenges, we introduce a data-driven queue management mechanism that tunes the maximum pacing queue capacity based on predicted handover activity, minimizing latency during no-handover periods and prioritizing stability when entering periods of increased handover activity. Our method yields up to 3x improvements in video bitrate and reduces freeze rate by 62% in emulation, while delivering up to a 41% reduction in freeze rate and 40% decrease in mean packet loss on real Starlink constellations compared to WebRTC's default pacing queue policy.",
+  "authors": [
+   "Aashish Gottipati",
+   "Lili Qiu"
+  ],
+  "doi": "2507.09798v2",
+  "cited_by": 0
+ },
+ {
+  "title": "Broadened-beam Uniform Rectangular Array Coefficient Design in LEO SatComs Under Quality of Service and Constant Modulus Constraints",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "Satellite communications (SatComs) are anticipated to deliver global Internet access. Low Earth orbit (LEO) satellites (SATs) offer the advantage of higher downlink capacity due to their reduced link budget compared to medium Earth orbit (MEO) and geostationary Earth orbit (GEO) SATs. In this paper, beam broadening methods for uniform rectangular arrays (URAs) in LEO SatComs were studied. The proposed method is the first of its kind to jointly consider path loss variation from SAT to the user terminal (UT) due to the Earth's curvature to guarantee the quality of service (QoS), constant modulus constraints (CMCs) favored for maximizing power amplifier (PA) efficiency, and out-of-beam radiation suppression to avoid interference. A broadened-beam URA coefficient design problem is formulated and decomposed into two uniform linear array (ULA) design subproblems utilizing Kronecker product beamforming. With this decomposition, the number of beamforming coefficients that need to be optimized is significantly reduced compared to the original URA design problem. The non-convex ULA subproblems are addressed using the semidefinite relaxation (SDR) technique and a convex iterative algorithm. Simulation results reveal the advantages of the proposed method for suppressing the out-of-beam radiation and achieving the design criteria. In addition, channel capacity evaluations are carried out. It demonstrates that the proposed \"broadened-beam\" beamformers can offer capacities that are at least four times greater than those of beamformers employing an array steering vector when the beam trans",
+  "authors": [
+   "Weiting Lin",
+   "Yuchieh Wu",
+   "Borching Su"
+  ],
+  "doi": "2403.07435v3",
+  "cited_by": 0
+ },
+ {
+  "title": "Multipath Adaptive Video Streaming with Multiple Description Neural Video Codec over 5G Networks",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "5G networks employ multiple radio channels to meet growing demands for bandwidth and high-resolution video streaming for emerging applications. However, existing multipath video systems are largely designed around monolithic codecs, which require sufficiently complete chunk delivery, or layered codecs, which depend on timely base-layer delivery. Under fast-varying 5G conditions with blockage, handovers, and heterogeneous path capacities, we observe that decoding dependencies in existing codecs make multipath delivery fragile: transient under-delivery of critical video data can directly trigger stalls and degrade QoE. This paper proposes NeuralMDC, a neural multiple-description video codec co-designed with multipath streaming for dynamic 5G networks. NeuralMDC encodes each video chunk into independently decodable and mutually refinable description streams, each spanning the full chunk. This design changes the multipath delivery unit from dependent packets or layers to independent chunk-level streams, so missing streams primarily reduce quality rather than making the chunk undecodable. Built on NeuralMDC, we develop a user-space multipath streaming system that maps description streams to heterogeneous 5G paths with simple yet effective scheduling logic. Across trace-driven emulation and operational 5G experiments, NeuralMDC improves QoE by 26%-44% over existing monolithic, layered, and neural streaming systems, improves video quality by up to 41.8%, and keeps stall ratios below 0.32%.",
+  "authors": [
+   "Xinyue Hu",
+   "Ziyan Wu",
+   "Jiaxiang Tang",
+   "Wei Ye",
+   "Qixin Zhang",
+   "Eman Ramadan"
+  ],
+  "doi": "2608.22891v1",
+  "cited_by": 0
+ },
+ {
+  "title": "QSMVM: QoS-aware and social-aware multimetric routing protocol for video-streaming services over MANETs",
+  "venue": "arXiv preprint",
+  "year": 2023,
+  "abstract": "A mobile ad hoc network (MANET) is a set of autonomous mobile devices connected by wireless links in a distributed manner and without a fixed infrastructure. Real-time multimedia services, such as video-streaming over MANETs, offers very promising applications, e.g. two members of a group of tourists who want to share a video transmitted through the MANET they form; a video-streaming service deployed over a MANET where users watch a film; among other examples. On the other hand, social web technologies, where people actively interact online with others through social networks, are leading to a socialization of networks. Information of interaction among users is being used to provide socially-enhanced software. To achieve this, we need to know the strength of the relationship between a given user and each user they interact with. This strength of the relationship can be measured through a concept called tie strength (TS), first introduced by Mark Granovetter in 1973. In this article, we modify our previous proposal named multipath multimedia dynamic source routing (MMDSR) protocol to include a social metric TS in the decisions taken by the forwarding algorithm. We find a trade-off between the quality of service (QoS) and the trust level between users who form the forwarding path in the MANET. Our goal is to increase the trust metric while the QoS is not affected significantly.",
+  "authors": [
+   "Efraín Palacios Jara",
+   "Ahmad Mohamad Mezhe",
+   "Mónica Aguilar Igartua",
+   "Rebeca P. Díaz Redondo",
+   "Ana Fernández Vilas"
+  ],
+  "doi": "2312.07414v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Deep Adaptive Rate Allocation in Volatile Heterogeneous Wireless Networks",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Modern multi-access 5G+ networks provide mobile terminals with additional capacity, improving network stability and performance. However, in highly mobile environments such as vehicular networks, supporting multi-access connectivity remains challenging. The rapid fluctuations of wireless link quality often outpace the responsiveness of existing multipath schedulers and transport-layer protocols. This paper addresses this challenge by integrating Transformer-based path state forecasting with a new multipath splitting scheduler called Deep Adaptive Rate Allocation (DARA). The proposed scheduler employs a deep reinforcement learning engine to dynamically compute optimal congestion window fractions on available paths, determining data allocation among them. A six-component normalised reward function with weight-mediated conflict resolution drives a DQN policy that eliminates the observation-reaction lag inherent in reactive schedulers. Performance evaluation uses a Mininet-based Multipath Datagram Congestion Control Protocol testbed with traces from mobile users in vehicular environments. Experimental results demonstrate that DARA achieves better file transfer time reductions compared to learning-based schedulers under moderate-volatility traces. For buffered video streaming, resolution improvements are maintained across all tested conditions. Under controlled burst scenarios with sub-second buffer constraints, DARA achieves substantial rebuffering improvements whilst state-of-the-art schedulers exhibit near-continuous stalling.",
+  "authors": [
+   "Gregorio Maglione",
+   "Veselin Rakocevic",
+   "Markus Amend",
+   "Touraj Soleymani"
+  ],
+  "doi": "2603.20926v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Swarm: Cost-Efficient Video Content Distribution with a Peer-to-Peer System",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "As ByteDance's business expands, the substantial infrastructure expenses associated with centralized Content Delivery Network (CDN) networks have rendered content distribution costs prohibitively high. In response, we embarked on exploring a peer-to-peer (P2P) network as a promising solution to alleviate the escalating costs of content distribution. However, the decentralized nature of P2P often introduces performance challenges, given the diversity and dispersion of peer devices. This study introduces Swarm, ByteDance's innovative hybrid system for video streaming. Swarm seamlessly integrates the robustness of a conventional CDN with the cost-efficiency of a decentralized P2P network. Its primary aim is to provide users with reliable streaming quality while minimizing traffic expenses. To achieve this, Swarm employs a centralized control plane comprised of a tracker cluster, overseeing a data plane with numerous edge residual resources. The tracker also takes on the responsibility of mapping clients to servers. Addressing the performance disparities among individual peer servers, Swarm utilizes our proprietary multipath parallel transmission method for communication between clients and peer servers. Operating stably for six years, Swarm now manages over a hundred thousand peer servers, serving nearly a hundred million users daily and saving the company hundreds of millions of RMB annually. Experimental results affirm that, while significantly cutting costs, Swarm performs on par with traditional CDNs.",
+  "authors": [
+   "Dehui Wei",
+   "Jiao Zhang",
+   "Haozhe Li",
+   "Zhichen Xue",
+   "Yajie Peng",
+   "Xiaofei Pang"
+  ],
+  "doi": "2401.15839v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Deep Reinforcement Learning with Importance Weighted A3C for QoE enhancement in Video Delivery Services",
+  "venue": "arXiv preprint",
+  "year": 2023,
+  "abstract": "Adaptive bitrate (ABR) algorithms are used to adapt the video bitrate based on the network conditions to improve the overall video quality of experience (QoE). Recently, reinforcement learning (RL) and asynchronous advantage actor-critic (A3C) methods have been used to generate adaptive bit rate algorithms and they have been shown to improve the overall QoE as compared to fixed rule ABR algorithms. However, a common issue in the A3C methods is the lag between behaviour policy and target policy. As a result, the behaviour and the target policies are no longer synchronized which results in suboptimal updates. In this work, we present ALISA: An Actor-Learner Architecture with Importance Sampling for efficient learning in ABR algorithms. ALISA incorporates importance sampling weights to give more weightage to relevant experience to address the lag issues with the existing A3C methods. We present the design and implementation of ALISA, and compare its performance to state-of-the-art video rate adaptation algorithms including vanilla A3C implemented in the Pensieve framework and other fixed-rule schedulers like BB, BOLA, and RB. Our results show that ALISA improves average QoE by up to 25%-48% higher average QoE than Pensieve, and even more when compared to fixed-rule schedulers.",
+  "authors": [
+   "Mandan Naresh",
+   "Paresh Saxena",
+   "Manik Gupta"
+  ],
+  "doi": "2304.04527v1",
+  "cited_by": 0
+ },
+ {
+  "title": "XLR (piXel Loss Rate): a Lightweight Indicator to Measure Video QoE in IP Networks",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "A novel Key Quality Indicator for video delivery applications, XLR (piXel Loss Rate), is defined, characterized, and evaluated. The proposed indicator is an objective measure that captures the effects of transmission errors in the received video, has a good correlation with subjective Mean Opinion Scores, and provides comparable results with state-of-the-art Full-Reference metrics. Moreover, XLR can be estimated using only a lightweight analysis on the compressed bitstream, thus allowing a No-Reference operational method. Therefore, XLR can be used for measuring the quality of experience without latency at any network location. Thus, it is a relevant tool for network planning, specially in new high-demanding scenarios. The experiments carried out show the outstanding performance of its linear-dimension score and the reliability of the bitstream-based estimation.",
+  "authors": [
+   "César Díaz",
+   "Pablo Pérez",
+   "Julián Cabrera",
+   "Jaime Ruiz",
+   "Narciso García"
+  ],
+  "doi": "2402.05820v1",
+  "cited_by": 0
+ },
+ {
+  "title": "ProCAVE: A Self-Adaptive, Full-Lifecycle Edge Caching Framework for Video Streaming via Predictive Bandwidth Estimation and Preference-Aware Deep Reinforcement Learning",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "The growing demand for mobile video streaming requires edge delivery systems that adapt efficiently to rapid network fluctuations and diverse user preferences. Existing approaches such as FlyCache rely on reactive ABR heuristics and loosely coupled cache policies, limiting their responsiveness and coordination under real-world wireless dynamics. We propose ProCAVE (Proactive Caching with Adaptive Video Experience), a self-adaptive DRL-based framework that unifies predictive bandwidth modeling, proactive bitrate selection, and preference-aware cache control. ProCAVE employs: (i) a lightweight Transformer for short-term throughput forecasting; (ii) a PPO-driven ABR agent; and (iii) a DDPG-based continuous cache controller operating on a high-dimensional global state. Experiments using MovieLens preference traces and Ghent 4G bandwidth measurements show that ProCAVE improves byte hit rate, reduces backhaul load, and enhances QoE compared with FlyCache and other baselines. These results highlight the benefits of predictive, DRL-coordinated control for efficient and user-centric edge video delivery.",
+  "authors": [
+   "Yeganeh Chatri",
+   "Behzad Akbari",
+   "Foad Ghaderi",
+   "Pejman Goudarzi"
+  ],
+  "doi": "2608.03313v1",
+  "cited_by": 0
+ },
+ {
+  "title": "BOLA360: Near-optimal View and Bitrate Adaptation for 360-degree Video Streaming",
+  "venue": "arXiv preprint",
+  "year": 2023,
+  "abstract": "Recent advances in omnidirectional cameras and AR/VR headsets have spurred the adoption of 360-degree videos that are widely believed to be the future of online video streaming. 360-degree videos allow users to wear a head-mounted display (HMD) and experience the video as if they are physically present in the scene. Streaming high-quality 360-degree videos at scale is an unsolved problem that is more challenging than traditional (2D) video delivery. The data rate required to stream 360-degree videos is an order of magnitude more than traditional videos. Further, the penalty for rebuffering events where the video freezes or displays a blank screen is more severe as it may cause cybersickness. We propose an online adaptive bitrate (ABR) algorithm for 360-degree videos called BOLA360 that runs inside the client's video player and orchestrates the download of video segments from the server so as to maximize the quality-of-experience (QoE) of the user. BOLA360 conserves bandwidth by downloading only those video segments that are likely to fall within the field-of-view (FOV) of the user. In addition, BOLA360 continually adapts the bitrate of the downloaded video segments so as to enable a smooth playback without rebuffering. We prove that BOLA360 is near-optimal with respect to an optimal offline algorithm that maximizes QoE. Further, we evaluate BOLA360 on a wide range of network and user head movement profiles and show that it provides $13.6\\%$ to $372.5\\%$ more QoE than state-of-the-art algorithms. While ABR algorithms for traditional (2D) videos have been well-studied over th",
+  "authors": [
+   "Ali Zeynali",
+   "Mahsa Sahebdel",
+   "Mohammad Hajiesmaili",
+   "Ramesh K. Sitaraman"
+  ],
+  "doi": "2309.04023v2",
+  "cited_by": 0
+ },
+ {
+  "title": "Objective Video Quality Assessment in FWA-Based Over-the-Top Content Delivery Across Open Source 5G Networks",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "This paper presents a comprehensive experimental video quality assessment in 5G-based Fixed Wireless Access (FWA) networks, leveraging a real open source 5G network testbed. Addressing the critical need for robust UHD video delivery, the study systematically investigates the impact of transmission modes (SISO and MIMO), modulation schemes (64-QAM and 256-QAM), and network load (one to five users) on both network throughput and perceived video quality. Unlike simulation-based approaches, our methodology integrates automated streaming campaigns with objective full-reference Quality of Experience (QoE) metrics (PSNR, ssim, and VMAF) computed from 4K video streams delivered via MPEG-DASH, enabling frame-level correlation between network performance and user experience. Key findings demonstrate that MIMO consistently outperforms SISO, sustaining higher throughput and superior visual quality even under increasing user demand. Specifically, MIMO with 256-QAM maintained VMAF scores above the visually lossless threshold with five concurrent users, while SISO configurations experienced significant degradation. These results provide empirical evidence for the critical role of spatial diversity and higher-order modulation in ensuring reliable UHD video delivery over FWA. The proposed reproducible framework for detailed quality assessment offers valuable insights for future optimization of 5G FWA deployments, contributing to the practical understanding and deployment strategies for high-quality video services in Open RAN environments.",
+  "authors": [
+   "Nelson Ion",
+   "FlÁvio Silva",
+   "Paulo Silva",
+   "Ricardo Silva",
+   "Mathews Lima",
+   "Daniel Luna"
+  ],
+  "doi": "2609.25423v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Stateless Network-Aware Adaptive Bitrate Streaming over IPFS",
+  "venue": "arXiv preprint",
+  "year": 2026,
+  "abstract": "Modern content delivery is increasingly decentralized, improving availability, cost, and reach for geographically distributed users. The InterPlanetary File System (IPFS) is a promising approach that uses content-based identifiers distributed across a global peer-to-peer network. Although IPFS improves fault tolerance, resilience, and censorship resistance, its unpredictable environment introduces significant performance variability that limits conventional Adaptive Bitrate (ABR) streaming and degrades Quality of Experience (QoE). Recent network-aware ABR solutions address this by incorporating IPFS-specific information into bitrate decisions. However, they rely on maintaining continuously synchronized state across consumers and providers, which can quickly become stale under peer churn, provider migrations, network partitions, and changing content distributions, making existing policies less effective. We investigate whether network-aware ABR can remain effective without synchronized adaptation state, and present a stateless network-aware ABR policy for IPFS-based video streaming. Our approach replaces provider-stateful adaptation with an observation-driven policy that recomputes the bitrate for each segment using only locally observable request-time signals. To preserve adaptation context without provider-side state, the client embeds its adaptation state in HTTP headers, keeping it under client control and carried transparently across requests. By eliminating cross-provider state synchronization, the framework improves robustness to failures and network reconfigurations ",
+  "authors": [
+   "Iliya Mirzaei",
+   "Shabnam Jafarzade Mojaveri",
+   "Amirhossein Najafizadeh"
+  ],
+  "doi": "2606.29574v1",
+  "cited_by": 0
+ },
+ {
+  "title": "Understanding User Behavior in Volumetric Video Watching: Dataset, Analysis and Prediction",
+  "venue": "ACM MM (arXiv)",
+  "year": 2023,
+  "abstract": "Volumetric video emerges as a new attractive video paradigm in recent years since it provides an immersive and interactive 3D viewing experience with six degree-of-freedom (DoF). Unlike traditional 2D or panoramic videos, volumetric videos require dense point clouds, voxels, meshes, or huge neural models to depict volumetric scenes, which results in a prohibitively high bandwidth burden for video delivery. Users' behavior analysis, especially the viewport and gaze analysis, then plays a significant role in prioritizing the content streaming within users' viewport and degrading the remaining content to maximize user QoE with limited bandwidth. Although understanding user behavior is crucial, to the best of our best knowledge, there are no available 3D volumetric video viewing datasets containing fine-grained user interactivity features, not to mention further analysis and behavior prediction. In this paper, we for the first time release a volumetric video viewing behavior dataset, with a large scale, multiple dimensions, and diverse conditions. We conduct an in-depth analysis to understand user behaviors when viewing volumetric videos. Interesting findings on user viewport, gaze, and motion preference related to different videos and users are revealed. We finally design a transformer-based viewport prediction model that fuses the features of both gaze and motion, which is able to achieve high accuracy at various conditions. Our prediction model is expected to further benefit volumetric video streaming optimization. Our dataset, along with the corresponding visualization tool",
+  "authors": [
+   "Kaiyuan Hu",
+   "Haowen Yang",
+   "Yili Jin",
+   "Junhua Liu",
+   "Yongting Chen",
+   "Miao Zhang"
+  ],
+  "doi": "2308.07578v2",
+  "cited_by": 0
+ },
+ {
+  "title": "Video Quality Monitoring for Remote Autonomous Vehicle Control",
+  "venue": "arXiv preprint",
+  "year": 2025,
+  "abstract": "The delivery of high-quality, low-latency video streams is critical for remote autonomous vehicle control, where operators must intervene in real time. However, reliable video delivery over Fourth/Fifth-Generation (4G/5G) mobile networks is challenging due to signal variability, mobility-induced handovers, and transient congestion. In this paper, we present a comprehensive blueprint for an integrated video quality monitoring system, tailored to remote autonomous vehicle operation. Our proposed system includes subsystems for data collection onboard the vehicle, video capture and compression, data transmission to edge servers, real-time streaming data management, Artificial Intelligence (AI) model deployment and inference execution, and proactive decision-making based on predicted video quality. The AI models are trained on a hybrid dataset that combines field-trial measurements with synthetic stress segments and covers Long Short-Term Memory (LSTM), Gated Recurrent Unit (GRU), and encoder-only Transformer architectures. As a proof of concept, we benchmark 20 variants from these model classes together with feed-forward Deep Neural Network (DNN) and linear-regression baselines, reporting accuracy and inference latency. Finally, we study the trade-offs between onboard and edge-based inference. We further discuss the use of explainable AI techniques to enhance transparency and accountability during critical remote-control interventions. Our proactive approach to network adaptation and Quality of Experience (QoE) monitoring aims to enhance remote vehicle operation over next-gener",
+  "authors": [
+   "Dimitrios Kafetzis",
+   "Nikos Fotiou",
+   "Savvas Argyropoulos",
+   "Jad Nasreddine",
+   "Iordanis Koutsopoulos"
+  ],
+  "doi": "2506.03166v1",
+  "cited_by": 0
+ },
+ {
+  "title": "A 3D Framework for Improving Low-Latency Multi-Channel Live Streaming",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "The advent of 5G has driven the demand for high-quality, low-latency live streaming. However, challenges such as managing the increased data volume, ensuring synchronization across multiple streams, and maintaining consistent quality under varying network conditions persist, particularly in real-time video streaming. To address these issues, we propose a novel framework that leverages 3D virtual environments within game engines (e.g., Unity 3D) to optimize multi-channel live streaming. Our approach consolidates multi-camera video data into a single stream using multiple virtual 3D canvases, significantly increasing channel amounts while reducing latency and enhancing user flexibility. For demonstration of our approach, we utilize the Unity 3D engine to integrate multiple video inputs into a single-channel stream, supporting one-to-many broadcasting, one-to-one video calling, and real-time control of video channels. By mapping video data onto a world-space canvas and capturing it via an in-world camera, we minimize redundant data transmission, achieving efficient, low-latency streaming. Our results demonstrate that this method outperforms some existing multi-channel live streaming solutions in both latency reduction and user interaction responsiveness improvement. Our live video streaming system affiliated with this paper is also open-source at https://github.com/Aizierjiang/LiveStreaming.",
+  "authors": [
+   "Aizierjiang Aiersilan",
+   "Zhiqiang Wang"
+  ],
+  "doi": "2410.16284v2",
+  "cited_by": 0
+ },
+ {
+  "title": "Towards Low-Latency and Energy-Efficient Hybrid P2P-CDN Live Video Streaming",
+  "venue": "arXiv preprint",
+  "year": 2024,
+  "abstract": "Streaming segmented videos over the Hypertext Transfer Protocol (HTTP) is an increasingly popular approach in both live and video-on-demand (VoD) applications. However, designing a scalable and adaptable framework that reduces servers energy consumption and supports low latency and high quality services, particularly for live video streaming scenarios, is still challenging for Over-The-Top (OTT) service providers. To address such challenges, this paper introduces a new hybrid P2P-CDN framework that leverages new networking and computing paradigms, i.e., Network Function Virtualization (NFV) and edge computing for live video streaming. The proposed framework introduces a multi-layer architecture and a tree of possible actions therein (an action tree), taking into account all available resources from peers, edge, and CDN servers to efficiently distribute video fetching and transcoding tasks across a hybrid P2P-CDN network, consequently enhancing the users latency and video quality. We also discuss our testbed designed to validate the framework and compare it with baseline methods. The experimental results indicate that the proposed framework improves user Quality of Experience (QoE), reduces client serving latency, and improves edge server energy consumption compared to baseline approaches.",
+  "authors": [
+   "Reza Farahani",
+   "Christian Timmerer",
+   "Hermann Hellwagner"
+  ],
+  "doi": "2403.16985v1",
+  "cited_by": 0
+ }
+]
