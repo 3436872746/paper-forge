@@ -1,38 +1,60 @@
-# paper-forge
+# paper-forge — when you use it, and what you get
 
-A step-by-step workflow for empirical computer-systems papers, plus scripts that
-check the mechanical parts.
+Not a tutorial. A checker and reference library you call while working:
+you bring the draft, plan or results you already have, and it returns specific
+checks, comparisons and edits.
 
-**New here?** Read the Chinese walkthrough first — it explains every step in plain
-language for someone who has never written a paper: **[README.zh.md](README.zh.md)**
-(10 steps, each with *what to do / why / which file / exit check*, plus a glossary).
+中文说明：[README.zh.md](README.zh.md)
 
-## The pipeline
+## When you would use it
 
-```
-1 topic → 2 literature → 3 one-sentence claim → 4 experiment design →
-5 run → 6 analyse → 7 figures → 8 write → 9 pre-submission audit → 10 review & archive
-```
-
-| Step | You decide | Open this |
+| Situation | What it gives you | What you end up with |
 |---|---|---|
-| 1 Topic | the question and what would falsify it | `references/writing.md`, `templates/abstract_intro.md` |
-| 2 Literature | the three closest papers and your difference from each | `references/literature-review.md`, `references/idea-cards/INDEX.md` |
-| 3 Claim | condition, change, metric, threshold | `references/writing.md` |
-| 4 Design | arms, placebo, floor, paired unit, pre-registered criteria | `references/experiment-design.md`, `references/gates.md` |
-| 5 Run | batch manifest, explicit OUT, seeds | `references/reproducibility.md` |
-| 6 Analyse | paired differences above the floor; permutation when no machine time | `references/stats.md`, `scripts/stats_paired.py` |
-| 7 Figures | one message per figure, vector first | `references/figures.md` |
-| 8 Write | title, five-sentence abstract, six-paragraph intro, limits in one place | `references/writing.md` |
-| 9 Audit | numbers, citations, pages, anonymity, from-zero build | `references/integrity-audit.md`, `references/submission.md`, `scripts/` |
-| 10 Review | triage comments, revision whitelist, record what failed | `references/review-response.md`, `references/integrity-audit.md` |
+| "I am entering this direction; what do top-venue papers actually do?" | The venue bar for that direction: 50 papers' evidence types, scale, metrics, and what they leave out | A one-page comparison, with `N/50` counts |
+| "Is my experiment plan enough?" | The venue bar's 12–15 checks applied to your plan | A filled self-audit table: venue norm / my draft / gap / fix |
+| "Is this difference real?" | Paired statistics plus your own identical-arm floor | Paired differences, interval, floor verdict |
+| "Is this sentence defensible?" | Claim–evidence alignment with four statuses (aligned / overstated / unsupported / insufficient) | One line per claim: status, reason, which experiment to add |
+| "Reviews are back; what first?" | Triage into answer-now / needs-experiment / concede-boundary, with stable IDs | An ordered plan; next round proves each item was handled |
+| "Last check before submitting" | Three scripts plus a checklist | A report on citations, pages, and a from-zero build |
+| "I need related work and stealable moves" | 250 idea cards and per-direction move lists | Ten transferable moves, each traced to a card and paper |
+| "Do the numbers in the paper match the files?" | Four audit layers | A number → file → script trace table |
+| "The figure is unclear, or needs to be vector" | Figure rules plus companion skills | A one-message-per-figure check; vector redraw |
+| "This paragraph hedges too much" | `anti-defensive-writing` | Tone removed, scope kept |
 
-## Contents
+## How you call it
+
+In Claude Code, just say what you have:
+
+- "Audit my experiment plan against the `llm_sched` venue bar."
+- "These two CSVs are two arms of the same batch — paired differences and floor."
+- "Mark the status of each claim in this abstract."
+- "Triage these reviewer comments."
+- "Run the pre-submission checks."
+
+Without Claude Code: everything is Markdown, and the scripts use only the Python
+standard library.
+
+## What you get
+
+Not advice to "think harder" — artifacts:
+
+- a filled self-audit table against the venue bar;
+- a claim ledger: claim → evidence file → experiment id → status;
+- a literature triage matrix: problem / assumption / evidence / boundary / your difference;
+- an audit report: citations, pages, overfull boxes, from-zero build;
+- a gap list: which missing item triggers which reviewer objection, and where the fix lives.
+
+## Where things are
 
 ```
-SKILL.md                     six phases and the one-screen gate
-README.zh.md                 detailed Chinese walkthrough (start here)
+SKILL.md                     entry point: six phases, one-screen gate
 references/
+  idea-cards/venue-bar.md                   general systems/ML (100 papers)
+  idea-cards/domains/llm_sched/venue-bar.md LLM inference scheduling
+  idea-cards/domains/video_sat/venue-bar.md video / satellite transmission
+  idea-cards/domains/security/venue-bar.md  security
+  integrity-audit.md         four audit layers, claim ledger, review rounds
+  literature-review.md       search → screen → triage matrix → citation check
   gates.md                   9 gates, 14 rules, 7 disease types
   experiment-design.md       arms, controls, pre-registration, batch manifest
   stats.md                   paired unit, intervals, floor, permutation test
@@ -41,56 +63,30 @@ references/
   submission.md              template, pages, anonymity, authors/COI
   review-response.md         triage, order of work, response letter
   reproducibility.md         artifacts, build hygiene, long jobs
-  literature-review.md       search → screen → triage matrix → citation check
-  integrity-audit.md         four audit layers, claim ledger, review rounds
-  casebook.md                40 silent traps with a one-line check each
+  casebook.md                40 silent traps with a one-line check
   examples.md                worked examples from published papers
-  external-skills.md         what was distilled from 10 open research-skill repos
-  idea-cards/
-    INDEX.md                 all 250 papers (title, venue, year, DOI)
-    design-moves.md          100 papers → 40 reusable moves
-    cards_batch1..5.md       100 idea cards
-    domains/llm_sched/       50 LLM-scheduling papers + cards + 18 moves
-    domains/video_sat/       50 video/satellite papers + cards + 18 moves
-    domains/security/        50 security papers + cards + 18 moves
-scripts/
-  check_refs.py              cite order vs .bbl, undefined refs, placeholders
-  page_audit.py              pages, overfull boxes, references page
-  stats_paired.py            paired differences, interval, permutation test
-  build_from_zero.sh         build a package from zero and audit it
-templates/
-  ieee6p.tex                 IEEE conference 6-page starter, clean preamble
-  abstract_intro.md          five-sentence abstract / six-paragraph intro skeleton
+  external-skills.md         what was taken from 10 open research-skill repos
+  idea-cards/INDEX.md        all 250 papers (title, venue, year, DOI)
+  idea-cards/design-moves.md 100 papers → 40 reusable moves
+  idea-cards/cards_batch1..5.md
+  idea-cards/domains/<pack>/ 50 papers + 50 cards + 18 moves + venue bar
+scripts/                     check_refs.py, page_audit.py, stats_paired.py,
+                             build_from_zero.sh
+templates/                   ieee6p.tex, abstract_intro.md
 ```
 
-## Where the content comes from
+## What is inside, and where it came from
 
-- **250 papers as methodology inputs**: 100 general systems/ML + 50 LLM scheduling
-  + 50 video/satellite + 50 security → idea cards and design moves. Abstracts only;
-  unstated fields say `not stated in abstract`. Full list in
-  `references/idea-cards/INDEX.md`.
-- **Four existing skills**: `anti-defensive-writing` (tone without losing scope),
-  `schematic-figure` and `dataviz` (figures), `pdf-figure-vector` (redraw as vector).
-- **Ten open research-skill repositories** (55.8k down to 453 stars): see
-  `references/external-skills.md` for what was taken and what was rejected.
+- **250 papers** (100 general systems/ML + 50 LLM scheduling + 50 video/satellite
+  + 50 security) → idea cards and design moves. Abstracts only; unstated fields
+  say `not stated in abstract`.
+- **Four existing skills**: tone, figures, charts, vector redraw.
+- **Ten open research-skill repositories**, 55.8k to 453 stars — what was taken
+  and what was rejected is recorded in `references/external-skills.md`.
 
-## Install
+## What it does not do
 
-Copy this directory into your skills folder (the folder must be named
-`paper-forge`):
-
-- Claude Code user-level: `~/.claude/skills/paper-forge/`
-- Project-level: `<repo>/.claude/skills/paper-forge/`
-
-Everything is plain Markdown plus standard-library Python; it also works as a
-handbook without any agent.
-
-## Principle
-
-Every rule exists because a failure produced a plausible number or a plausible
-sentence without raising an error. The skill is meant to be edited: add a new trap
-to `casebook.md` with its check.
-
-## License
-
-MIT. No unpublished data, drafts, or results are included.
+- It does not run experiments or decide what your data means.
+- It does not assert a venue norm the corpus does not show; counts are `N/50`.
+- Cards come from abstracts; verify a mechanism against the paper before citing it.
+- The statistics advice targets small-repeat systems experiments, not online A/B.

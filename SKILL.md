@@ -17,8 +17,8 @@ did not raise an error — it produced plausible numbers or plausible prose.
 - Making or revising figures.
 - Triaging reviewer comments.
 
-Full ten-step walkthrough for a first paper (plain language, Chinese):
-`README.zh.md`. This file is the condensed methodology.
+What the skill is used for, and when: `README.zh.md` (Chinese) / `README.md`.
+This file is the condensed methodology.
 
 ## Six phases
 
@@ -118,6 +118,24 @@ references/idea-cards/domains/security/    prompt injection, jailbreak, side cha
 
 Packs are built from arXiv abstracts; a card says `arXiv` unless the authors recorded
 a venue. Scan the pack's `design-moves.md` first, then the cards.
+
+Every pack also has a **`venue-bar.md`**: what the 50 papers in that direction
+actually study, their evidence/scale baseline with counts, a 12–15 item checklist,
+the ten questions a reviewer will ask, a blank self-audit table, and the practices
+not to copy.
+
+## Advising and self-audit against the venue bar
+
+When the user asks "is this enough?", "what should I add?", or "review my plan",
+do not answer from generic taste:
+
+1. Identify the direction and open the pack's `venue-bar.md`.
+2. Fill its self-audit table from the user's draft: my draft / gap / action.
+3. Cite the check number and the cards behind it for every gap.
+4. For each gap, check `design-moves.md` for the move that would close it.
+5. Never assert a venue norm the corpus does not show. Counts are "N/50 abstracts",
+   not "everyone does this".
+6. End with the three reviewer questions most likely to be fatal for that draft.
 
 ## Literature review and integrity audit
 

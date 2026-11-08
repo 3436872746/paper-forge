@@ -11,6 +11,8 @@ _corpus.json       the 100-paper general corpus (title, venue, year, abstract, d
 _batchN.json       input slices for distillation
 cards_batchN.md    20 cards per batch (5 files, 100 cards)
 design-moves.md    deduplicated moves, after reading the cards
+venue-bar.md       what these 100 papers actually study, evidence/scale counts,
+                   a 12-15 item checklist, reviewer questions, self-audit table
 
 domains/
   llm_sched/       50 papers: LLM inference scheduling
@@ -21,6 +23,8 @@ domains/
     _batch1,2.json 25-paper input slices
     cards_batch1,2.md  25 cards per batch
     design-moves.md    deduplicated moves for the domain
+    venue-bar.md       what the 50 papers actually study, evidence/scale counts,
+                       a 12-15 item checklist, reviewer questions, self-audit table
 ```
 
 ## Selection
