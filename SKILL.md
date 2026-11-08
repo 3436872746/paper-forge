@@ -17,6 +17,9 @@ did not raise an error — it produced plausible numbers or plausible prose.
 - Making or revising figures.
 - Triaging reviewer comments.
 
+Full ten-step walkthrough for a first paper (plain language, Chinese):
+`README.zh.md`. This file is the condensed methodology.
+
 ## Six phases
 
 | Phase | Goal | Exit check |
@@ -115,6 +118,14 @@ references/idea-cards/domains/security/    prompt injection, jailbreak, side cha
 
 Packs are built from arXiv abstracts; a card says `arXiv` unless the authors recorded
 a venue. Scan the pack's `design-moves.md` first, then the cards.
+
+## Literature review and integrity audit
+
+- `references/literature-review.md` — three-column search terms, two-pass
+  screening, triage matrix, four-point citation check, stop rule.
+- `references/integrity-audit.md` — four audit layers with split ownership, claim
+  ledger with a status enum, declaration before every run, fresh-context review
+  rounds, stable issue IDs, revision whitelist, session epilogue.
 
 ## Stop rules
 
