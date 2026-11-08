@@ -1,5 +1,7 @@
 # Design moves — distilled from 100 papers (2023–2026)
 
+> 中文版: [design-moves.zh.md](design-moves.zh.md)
+
 100 cards -> 40 reusable moves, grouped by phase. Each move is an imperative and a
 one-line reason. The cards (with titles/venues) are in `cards_batch1..5.md`; the
 selection and venue breakdown are in `README.md`.

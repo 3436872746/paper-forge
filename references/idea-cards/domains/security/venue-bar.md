@@ -1,5 +1,7 @@
 # Venue bar — security (50 papers, 2023–2026)
 
+> 中文版: [venue-bar.zh.md](venue-bar.zh.md)
+
 This file lets someone working in this direction hold their draft or experiment plan against what the 50 papers in this corpus actually do, and self-audit before a reviewer does it for them.
 It is derived only from the abstracts, so every claim below is a claim about what an abstract says, not about what the paper does.
 Card citations use the convention `(cards 1-7, 2-13)`: batch-card, so `1-7` is card 7 of `cards_batch1.md` and `2-13` is card 13 of `cards_batch2.md`.

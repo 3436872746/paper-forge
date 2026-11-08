@@ -1,10 +1,14 @@
 # paper-forge — when you use it, and what you get
 
+> 中文版: [README.zh.md](README.zh.md)
+
 Not a tutorial. A checker and reference library you call while working:
 you bring the draft, plan or results you already have, and it returns specific
 checks, comparisons and edits.
 
 中文说明：[README.zh.md](README.zh.md)
+Every document in this repository has a Simplified-Chinese sibling (`*.zh.md`);
+the English file stays as the source of record.
 
 ## When you would use it
 

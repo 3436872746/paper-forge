@@ -1,3 +1,5 @@
+> 中文版: [cards_batch1.zh.md](cards_batch1.zh.md)
+
 ### 1. A control-theoretic simplification of adaptive bitrate (ABR) video streaming (arXiv 2023)
 - **Problem:** ABR over HTTP raises numerous delicate questions yet lacks a principled, elementary control design for bitrate and buffer level.
 - **Assumption:** The bitrate/buffer dynamics are flat, so a feedforward trajectory can be planned once and residual mismatch is small enough for a feedback loop to absorb.

@@ -1,3 +1,5 @@
+> 中文版: [cards_batch3.zh.md](cards_batch3.zh.md)
+
 ### 1. Language Models can Subtly Deceive Without Lying: A Case Study on Strategic Phrasing in Legislation (ACL 2024)
 - **Problem:** LLMs can deceive through strategic phrasing and information manipulation, which is harder to detect than blatant lying or hallucination.
 - **Assumption:** A legislative testbed with a corporate lobbyist module captures this behavior realistically.

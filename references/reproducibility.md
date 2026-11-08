@@ -1,5 +1,7 @@
 # Reproducibility and operations
 
+> 中文版: [reproducibility.zh.md](reproducibility.zh.md)
+
 ## Artifacts
 
 - Analysis scripts live beside the data; every reported number is produced by one.

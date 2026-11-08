@@ -1,5 +1,7 @@
 # Idea cards — 250 papers (2023–2026)
 
+> 中文版: [README.zh.md](README.zh.md)
+
 Purpose: extract **reusable design moves** from recent papers, not to summarise
 them. Each card is generated from the paper's abstract only; unstated fields say
 so.

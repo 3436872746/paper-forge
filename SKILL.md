@@ -5,6 +5,8 @@ description: End-to-end workflow for producing an empirical computer-systems pap
 
 # Paper Forge
 
+> 中文版: [SKILL.zh.md](SKILL.zh.md)
+
 A production line for empirical CS papers: **phases + gates + scripts + casebook**.
 It is not a collection of paper summaries. Every rule below came from a failure that
 did not raise an error — it produced plausible numbers or plausible prose.

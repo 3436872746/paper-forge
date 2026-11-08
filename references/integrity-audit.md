@@ -1,5 +1,7 @@
 # Integrity audit — four layers, one owner each
 
+> 中文版: [integrity-audit.zh.md](integrity-audit.zh.md)
+
 The rule this file exists for: **nobody audits their own work**, and a claim may be
 stated only as strongly as its evidence earns.
 

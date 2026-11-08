@@ -1,3 +1,5 @@
+> 中文版: [cards_batch1.zh.md](cards_batch1.zh.md)
+
 ### 1. Automatic and Universal Prompt Injection Attacks against Large Language Models (arXiv 2024)
 - **Problem:** Prompt-injection research lacks a unified goal for what an attack is trying to achieve and depends on hand-crafted prompts, so robustness assessments are neither comprehensive nor comparable.
 - **Assumption:** A small set of optimized injected examples generalizes to unseen test inputs and survives defensive measures — i.e. gradients are available through the LLM-integrated application at attack time.

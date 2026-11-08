@@ -1,3 +1,5 @@
+> 中文版: [cards_batch5.zh.md](cards_batch5.zh.md)
+
 ### 1. AUM: Unleashing the Efficiency Potential of Shared Processors with Accelerator Units for LLM Serving (HPCA 2026)
 - **Problem:** Dedicating AU-enabled CPUs exclusively to LLM serving wastes resources; sharing with general workloads causes up to 50% performance/efficiency degradation because managers are oblivious to Accelerator Unit Variations.
 - **Assumption:** AU behavior varies along three dimensions — usage patterns, compulsory frequency interference, resource bounds — and can be captured in a discrete profiled model.

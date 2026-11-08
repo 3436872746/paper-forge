@@ -1,5 +1,7 @@
 # Figures
 
+> 中文版: [figures.zh.md](figures.zh.md)
+
 ## Rules
 
 1. **Vector first**: PDF/SVG for plots and diagrams. Raster only when the source is

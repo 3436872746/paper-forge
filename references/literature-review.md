@@ -1,5 +1,7 @@
 # Literature review — from a question to a defensible related-work section
 
+> 中文版: [literature-review.zh.md](literature-review.zh.md)
+
 Goal: not "read everything", but **place your claim on an axis** and be able to say,
 for the three closest papers, exactly which sentence separates you from each.
 

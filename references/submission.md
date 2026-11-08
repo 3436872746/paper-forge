@@ -1,5 +1,7 @@
 # Submission checklist
 
+> 中文版: [submission.zh.md](submission.zh.md)
+
 ## Format
 
 - Use the venue's **current** template. If the CFP changed template families

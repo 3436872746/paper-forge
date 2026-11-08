@@ -1,5 +1,7 @@
 # Abstract and Introduction templates
 
+> 中文版: [abstract_intro.zh.md](abstract_intro.zh.md)
+
 ## Abstract (five sentences)
 
 1. **Problem.** `<Setting> relies on <assumption>; the impact of <the failure mode>

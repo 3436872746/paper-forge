@@ -1,3 +1,5 @@
+> 中文版: [cards_batch2.zh.md](cards_batch2.zh.md)
+
 ### 1. HAServe: Horizon-Aware Scheduling and Memory Co-Design for Efficient LLM Serving (arXiv 2026)
 - **Problem:** Online requests share context but differ in prefix structure and arrival timing, and finite capacity couples admission with KV retention so neither can be decided well alone.
 - **Assumption:** A unified view of visible demand — exact prefix paths, permitted serializations, released consumers — is enough to predict the latency cost of joint admission/KV-retention candidates as rates vary.

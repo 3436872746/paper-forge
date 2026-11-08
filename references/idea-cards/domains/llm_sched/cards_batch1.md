@@ -1,3 +1,5 @@
+> 中文版: [cards_batch1.zh.md](cards_batch1.zh.md)
+
 ### 1. Preble: Efficient Distributed Prompt Scheduling for LLM Serving (arXiv 2024)
 - **Problem:** Prompts now repeat large shared parts across requests, but every KV-reuse proposal is confined to a single GPU while production serving is distributed.
 - **Assumption:** Prompt sharing is common enough in real traffic that KV reuse gains can be traded against load balance without one destroying the other.

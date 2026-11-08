@@ -1,3 +1,5 @@
+> 中文版: [cards_batch2.zh.md](cards_batch2.zh.md)
+
 ### 1. ORCHES: Orchestrated Test-Time-Compute-based LLM Reasoning on Collaborative GPU-PIM HEterogeneous System (MICRO 2025)
 - **Problem:** Test-time-compute pipelines bottleneck latency on edge devices via variable parallelism, branch dependencies, and branch pruning.
 - **Assumption:** LLMs are memory-bound, so processing-in-memory can cut data movement.

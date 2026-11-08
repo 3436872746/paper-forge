@@ -1,3 +1,5 @@
+> 中文版: [cards_batch2.zh.md](cards_batch2.zh.md)
+
 ### 1. Unleashing Collaborative Computing for Adaptive Video Streaming with Multi-objective Optimization in Satellite Terrestrial Networks (arXiv 2024)
 - **Problem:** Satellite-terrestrial networks have too few resources to offload compute-intensive video streaming tasks, so service quality and QoE suffer.
 - **Assumption:** The ground station bridging satellite and terrestrial networks can act as an agent that sees both sides, and multiple such agents negotiating beats centralized assignment.

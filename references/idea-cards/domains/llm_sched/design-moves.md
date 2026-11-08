@@ -1,5 +1,7 @@
 # Design moves — 50 LLM inference scheduling papers (2023–2026)
 
+> 中文版: [design-moves.zh.md](design-moves.zh.md)
+
 Corpus: 50 cards, 2023–2026, LLM inference scheduling — serving, scheduling, KV cache, SLOs, prefill/decode disaggregation, batching, speculative decoding — deduplicated into 18 moves.
 Venue labels are arXiv unless the card recorded another venue (ATC, ASPLOS, MLSys); cards are abstract-only, so each move is bounded by what an abstract supports.
 Card numbers run 1–25 per batch: `(cards 1-7, 2-13)` means batch 1 card 7 and batch 2 card 13.

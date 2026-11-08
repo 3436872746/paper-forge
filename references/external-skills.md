@@ -1,5 +1,7 @@
 # External research skills we distilled (10 repos)
 
+> 中文版: [external-skills.zh.md](external-skills.zh.md)
+
 > Collected 2026-11-08. Selection: GitHub search sorted by stars, restricted to
 > repositories whose subject is **academic research / paper writing**, read from
 > their READMEs. We took **ideas only** — no text, code, or dependency was copied,

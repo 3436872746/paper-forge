@@ -1,3 +1,5 @@
+> 中文版: [cards_batch2.zh.md](cards_batch2.zh.md)
+
 ### 1. Application-Specific Power Side-Channel Attacks and Countermeasures: A Survey (arXiv 2025)
 - **Problem:** Existing power side-channel surveys focus almost only on cryptographic implementations, leaving attacks in other application domains uncharacterized.
 - **Assumption:** Recent power side-channel work across application domains can be meaningfully classified and compared along application-specific axes.

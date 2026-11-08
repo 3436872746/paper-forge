@@ -1,3 +1,5 @@
+> 中文版: [cards_batch4.zh.md](cards_batch4.zh.md)
+
 ### 1. Batched in Back: Characterizing and Optimizing Offline LLM Inference in Production with ACDC (SOSP 2026)
 - **Problem:** Offline inference eats up to 30% of production GPUs yet is understudied; neither online nor offline frameworks exploit its properties.
 - **Assumption:** Offline workloads are inherently deterministic and throughput-oriented; online prefill leaves capacity bubbles offline work can harvest.

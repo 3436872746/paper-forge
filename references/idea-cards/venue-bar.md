@@ -1,5 +1,7 @@
 # Venue bar — empirical systems and ML (100 papers, 2023–2026)
 
+> 中文版: [venue-bar.zh.md](venue-bar.zh.md)
+
 This file lets someone writing an empirical systems or ML paper hold their draft or experiment plan against what the 100 papers in this corpus actually claim, and self-audit before a reviewer does it for them.
 It is derived only from the abstracts (and the cards distilled from them), so every statement below is about what an abstract says, not about what the paper does; where an abstract is silent the file says so rather than assuming.
 Card citations use the convention `(cards 1-7, 3-12)`, meaning batch-card: `1-7` is card 7 of `cards_batch1.md`; the corpus ships five card files of 20 cards each, numbered 1–5 in corpus file order.

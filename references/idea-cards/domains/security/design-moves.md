@@ -1,5 +1,7 @@
 # Design moves — security corpus (2023–2026)
 
+> 中文版: [design-moves.zh.md](design-moves.zh.md)
+
 50 abstract-only cards (25 per batch) → 18 reusable moves, grouped by phase.
 Corpus: prompt injection, jailbreak, side channels, fuzzing, supply chain, membership inference / model extraction, adversarial ML.
 Venue labels are arXiv unless the card recorded otherwise (CCS, USENIX Security, S&P, NeurIPS, ICML, ICLR);

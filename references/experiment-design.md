@@ -1,5 +1,7 @@
 # Experiment design
 
+> 中文版: [experiment-design.zh.md](experiment-design.zh.md)
+
 ## 1. Arms and controls
 
 Every batch contains:

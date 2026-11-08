@@ -1,5 +1,7 @@
 # Responding to reviewers
 
+> 中文版: [review-response.zh.md](review-response.zh.md)
+
 ## Triage every comment into one of three buckets
 
 1. **Factual defect** — a number, a citation, a claim/evidence mismatch.

@@ -1,5 +1,7 @@
 # Statistics for systems papers
 
+> 中文版: [stats.zh.md](stats.zh.md)
+
 ## Unit of analysis
 
 - Machine-time batches: the **round** is the paired unit (same arrival set,

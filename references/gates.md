@@ -1,5 +1,7 @@
 # Gates and rules
 
+> 中文版: [gates.zh.md](gates.zh.md)
+
 Nine gates before handing over a command, a batch, or a claim. Each one is here
 because it was violated once and the violation was silent.
 

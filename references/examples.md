@@ -1,5 +1,7 @@
 # Worked examples from published papers
 
+> 中文版: [examples.zh.md](examples.zh.md)
+
 Use these as illustrations. They are public, citable, and unrelated to any
 unpublished manuscript.
 

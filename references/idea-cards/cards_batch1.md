@@ -1,3 +1,5 @@
+> 中文版: [cards_batch1.zh.md](cards_batch1.zh.md)
+
 ### 1. Taming Throughput-Latency Tradeoff in LLM Inference with Sarathi-Serve (OSDI 2024)
 - **Problem:** Batching interleaves prefill and decode, so high throughput and low latency conflict.
 - **Assumption:** Equal-sized prefill chunks let new requests join without pausing decodes; uniform batches shrink pipeline bubbles.

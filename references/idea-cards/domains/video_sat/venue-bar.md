@@ -1,5 +1,7 @@
 # Venue bar — video streaming and satellite/LEO transmission (50 papers, 2023–2026)
 
+> 中文版: [venue-bar.zh.md](venue-bar.zh.md)
+
 This file is a comparison bar for someone drafting a paper or an experiment plan on adaptive video streaming, satellite/LEO transmission, and QoE: it states what the 50 papers in this corpus actually do, so a draft can be audited against it before submission.
 
 It is derived only from the abstracts and the abstract-level idea cards in this folder. Where an abstract is silent, truncated, or omitted a detail, this file says "the abstracts do not say" and does not fill the gap from outside knowledge.

@@ -1,5 +1,7 @@
 # Paper index — 250 papers (2023–2026)
 
+> 中文版: [INDEX.zh.md](INDEX.zh.md)
+
 Generated from the four `_corpus.json` files. One line per paper:
 title, venue, year, DOI. Cards for each are in the sibling `cards_batch*.md`;
 the distilled moves are in `design-moves.md` (general) and each domain folder.

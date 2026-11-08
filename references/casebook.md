@@ -1,5 +1,7 @@
 # Casebook — silent traps
 
+> 中文版: [casebook.zh.md](casebook.zh.md)
+
 Each entry: symptom -> root cause -> check. All are from real papers; details are
 generalised, and no entry refers to an unpublished manuscript. Published worked
 examples are in `examples.md`. Read this list once before submission.

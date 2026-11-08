@@ -1,5 +1,7 @@
 # Venue bar — LLM inference scheduling (50 papers, 2023–2026)
 
+> 中文版: [venue-bar.zh.md](venue-bar.zh.md)
+
 This file is a comparison bar for anyone writing or planning work in LLM inference scheduling: hold your draft and your experiment plan against what these 50 papers actually do.
 It is derived only from the abstracts (and the idea cards built from them) — nothing here comes from full texts, so "the abstracts do not say" means exactly that.
 Card citations use the convention `(cards 1-7, 2-13)`: first number = batch, second = card number in that batch; 1-1 … 1-25 and 2-1 … 2-25 are the 50 papers.

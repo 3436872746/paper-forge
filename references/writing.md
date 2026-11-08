@@ -1,5 +1,7 @@
 # Writing a systems paper
 
+> 中文版: [writing.zh.md](writing.zh.md)
+
 ## Title
 
 Name the phenomenon and the setting. Avoid adjectives that the evaluation does not

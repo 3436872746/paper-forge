@@ -1,5 +1,7 @@
 # Design moves — distilled from 50 papers (2023–2026)
 
+> 中文版: [design-moves.zh.md](design-moves.zh.md)
+
 Corpus: 50 idea cards on video streaming and satellite/LEO transmission — adaptive
 bitrate, low latency, Starlink/LEO, multipath, QoE, live video — published 2023–2026.
 Venue labels are arXiv unless the authors recorded otherwise (three cards name a
