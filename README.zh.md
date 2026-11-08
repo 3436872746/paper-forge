@@ -126,7 +126,7 @@ idea-cards/
 
 ---
 
-## 四、里面到底做了什么（方法，不是口号）
+## 四、里面到底做了什么
 
 ### 4.1 六阶段流水线
 
@@ -158,7 +158,7 @@ I "干跑"会不会碰真进程/真文件。
 
 细节：`references/stats.md`、`references/experiment-design.md`。
 
-### 4.4 案例库怎么来的
+### 4.4 案例库从何而来
 
 `references/casebook.md` 的 40 条，对应的是 40 次真实踩坑，例如：
 
@@ -214,9 +214,8 @@ bash scripts/build_from_zero.sh submission.zip main.tex
 - **加一个专题域** → 在 `references/idea-cards/domains/<name>/` 下放 `_corpus.json`（字段见现有文件）+ `cards_batchN.md` + `design-moves.md`。
 - 原则：**只收"会静默出错"的规则**。会报错的坑不值得写进来，编译器会替你抓。
 
-## 八、边界（先说清楚）
+## 八、边界
 
 - 卡片只来自摘要，**不是**论文精读笔记；引用前必回原文。
 - 统计建议面向"系统论文的少量重复运行"，不适用于大规模 A/B 平台实验。
 - 模板是 IEEE 会议六页起步件，投其他模板时保留结构、替换导言。
-- 本仓库不包含任何未发表论文的数据、结论或草稿。
