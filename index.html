@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>实验体检 LabCheck</title>
+<meta name="description" content="把实验结果贴进来，检查它在统计和可复现性上有没有问题。" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="brand">
+      <div class="logo">LC</div>
+      <div>
+        <h1>实验体检</h1>
+        <p class="sub">从选方向到投稿，一条论文流水线。</p>
+      </div>
+    </div>
+    <nav class="topnav" aria-label="工具">
+      <button class="ghost" id="btn-history">历史</button>
+      <button class="ghost" id="btn-knowledge">判据库</button>
+      <button class="ghost" id="btn-settings">设置</button>
+    </nav>
+  </div>
+</header>
+
+<div class="progress">
+  <div class="wrap">
+    <ol class="rail" id="rail" aria-label="各站进度">
+      <li data-station="topic"><a href="#topic"><i class="dot" aria-hidden="true"></i><span>选方向</span></a></li>
+      <li data-station="framing"><a href="#framing"><i class="dot" aria-hidden="true"></i><span>定框</span></a></li>
+      <li data-station="design"><a href="#design"><i class="dot" aria-hidden="true"></i><span>设计</span></a></li>
+      <li data-station="batch"><a href="#batch"><i class="dot" aria-hidden="true"></i><span>跑批</span></a></li>
+      <li data-station="analysis"><a href="#analysis"><i class="dot" aria-hidden="true"></i><span>分析</span></a></li>
+      <li data-station="writing"><a href="#writing"><i class="dot" aria-hidden="true"></i><span>写作</span></a></li>
+      <li data-station="submit"><a href="#submit"><i class="dot" aria-hidden="true"></i><span>投稿</span></a></li>
+    </ol>
+  </div>
+</div>
+
+<div class="lede-bar">
+  <div class="wrap">
+    <p>七个站，一条论文流水线。红牌是会被打回的硬伤，黄牌是建议补的，每条都附改法和出处。</p>
+  </div>
+</div>
+
+<main class="wrap stations">
+
+  <section class="station" data-station="topic" hidden>
+    <div class="station-sheet topic-sheet">
+      <h2>这个方向，顶会已经做到哪了</h2>
+      <div class="topic-controls">
+        <div class="chips" id="domain-chips" role="group" aria-label="研究方向">
+          <button type="button" class="chip" data-domain="general">通用系统与 ML</button>
+          <button type="button" class="chip" data-domain="llm_sched">LLM 推理调度</button>
+          <button type="button" class="chip" data-domain="video_sat">视频与卫星传输</button>
+          <button type="button" class="chip" data-domain="security">网络安全</button>
+        </div>
+        <input type="search" id="topic-query" placeholder="关键词，比如 kv cache、量化、攻击检测" aria-label="关键词" />
+      </div>
+      <p class="topic-stats" id="topic-stats"></p>
+      <div class="venue" id="topic-venue"></div>
+      <div class="topic-list" id="topic-list"></div>
+      <div class="empty" id="topic-empty" hidden>
+        <p>这批语料里没有这个方向。</p>
+        <p class="hint">语料是 250 篇顶会论文的摘要卡片，没覆盖到的方向不会编。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="station" data-station="framing" hidden>
+    <div class="station-sheet craft-sheet form-grid">
+      <h2>定框</h2>
+      <p class="station-q">你的主张，能不能被一个实验证伪。</p>
+
+      <label class="field">
+        <span class="label">一句话主张</span>
+        <input type="text" id="framing-claim" placeholder="例：chunked-prefill 在不抬高尾部延迟的前提下提高吞吐" />
+      </label>
+      <label class="field">
+        <span class="label">什么结果会说明你错了</span>
+        <textarea id="framing-falsifier" rows="3" placeholder="例：如果吞吐提升低于 5%，或者 p99 延迟上升超过 10%，这个主张就不成立。"></textarea>
+      </label>
+      <label class="field half">
+        <span class="label">指标</span>
+        <select id="framing-metric">
+          <option value="latency">延迟</option>
+          <option value="throughput">吞吐</option>
+          <option value="accuracy">准确率</option>
+          <option value="other">其他</option>
+        </select>
+      </label>
+      <div class="actions">
+        <button class="primary" id="btn-framing">检查</button>
+        <button class="link" id="btn-framing-sample">载入一个示例</button>
+      </div>
+
+      <div id="framing-result" hidden>
+        <div class="verdict" id="framing-verdict"></div>
+        <h3 class="section-title">逐条</h3>
+        <div class="findings" id="framing-findings"></div>
+        <div class="prescription">
+          <div class="prescription-head">
+            <h3>框定卡</h3>
+            <div class="prescription-actions">
+              <button class="ghost small" id="btn-framing-copy">复制</button>
+            </div>
+          </div>
+          <pre class="prescription-text" id="framing-card"></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="station" data-station="design" hidden>
+    <div class="station-sheet craft-sheet form-grid">
+      <h2>设计</h2>
+      <p class="station-q">实验跑之前，该定的东西定了没有。</p>
+
+      <label class="field">
+        <span class="label">实验组（每行一个）</span>
+        <textarea id="design-arms" rows="3" placeholder="例：chunked-prefill K=4&#10;chunked-prefill K=8"></textarea>
+      </label>
+      <label class="field half">
+        <span class="label">对照组</span>
+        <input type="text" id="design-control" placeholder="例：默认 batching" />
+      </label>
+      <div class="field half">
+        <label class="checks one"><input type="checkbox" id="design-placebo" /> 有空跑组：两个完全相同的条件各跑一遍，用来看噪声有多大</label>
+      </div>
+      <label class="field half">
+        <span class="label">比较单位</span>
+        <select id="design-unit">
+          <option value="run">一次运行</option>
+          <option value="request">一条请求</option>
+        </select>
+      </label>
+      <label class="field half">
+        <span class="label">计划轮数</span>
+        <input type="number" id="design-rounds" min="0" placeholder="例：5" />
+      </label>
+      <label class="field">
+        <span class="label">成功标准（跑之前写死）</span>
+        <textarea id="design-criterion" rows="2" placeholder="例：吞吐提升 ≥10%，且 p99 延迟不上升"></textarea>
+      </label>
+      <label class="field">
+        <span class="label">这次会变的变量（每行一个）</span>
+        <textarea id="design-vars" rows="2" placeholder="例：chunk 大小"></textarea>
+      </label>
+
+      <div class="actions">
+        <button class="primary" id="btn-design">检查</button>
+        <button class="link" id="btn-design-sample">载入一个示例</button>
+      </div>
+
+      <div id="design-result" hidden>
+        <div class="verdict" id="design-verdict"></div>
+        <h3 class="section-title">逐条</h3>
+        <div class="findings" id="design-findings"></div>
+        <div class="prescription">
+          <div class="prescription-head">
+            <h3>实验卡</h3>
+            <div class="prescription-actions">
+              <button class="ghost small" id="btn-design-copy">复制</button>
+            </div>
+          </div>
+          <pre class="prescription-text" id="design-card"></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="station" data-station="batch" hidden>
+    <div class="station-sheet craft-sheet form-grid">
+      <h2>跑批</h2>
+      <p class="station-q">这个批次，别人能不能原样再跑一遍。</p>
+
+      <label class="field half">
+        <span class="label">实验名</span>
+        <input type="text" id="batch-name" placeholder="例：chunked-prefill-ablation" />
+      </label>
+      <label class="field half">
+        <span class="label">输出目录</span>
+        <input type="text" id="batch-dir" placeholder="例：out/2026-11-17-prefill-v3" />
+      </label>
+      <label class="field">
+        <span class="label">启动命令</span>
+        <textarea id="batch-cmd" rows="2" spellcheck="false" placeholder="例：DRY=1 python run.py --out out/2026-11-17-prefill-v3"></textarea>
+      </label>
+      <label class="field half">
+        <span class="label">代码版本</span>
+        <input type="text" id="batch-version" placeholder="例：a1b2c3d 或 main@11-17" />
+      </label>
+      <label class="field half">
+        <span class="label">种子</span>
+        <input type="text" id="batch-seeds" placeholder="例：1,2,3,4,5" />
+      </label>
+      <label class="field half">
+        <span class="label">机器</span>
+        <input type="text" id="batch-machine" placeholder="例：183.175.14.206 的 A100 节点" />
+      </label>
+      <div class="field half">
+        <label class="checks one"><input type="checkbox" id="batch-dry" /> 这次是试运行</label>
+      </div>
+
+      <div class="actions">
+        <button class="primary" id="btn-batch">检查</button>
+        <button class="link" id="btn-batch-sample">载入一个示例</button>
+      </div>
+
+      <div id="batch-result" hidden>
+        <div class="verdict" id="batch-verdict"></div>
+        <h3 class="section-title">逐条</h3>
+        <div class="findings" id="batch-findings"></div>
+        <div class="prescription">
+          <div class="prescription-head">
+            <h3>批次卡</h3>
+            <div class="prescription-actions">
+              <button class="ghost small" id="btn-batch-copy">复制</button>
+            </div>
+          </div>
+          <pre class="prescription-text" id="batch-card"></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="station" data-station="analysis" hidden>
+    <div class="hero">
+      <h2>把结果贴进来，<br>先被数据审一遍。</h2>
+      <p>这是一个实验自查工具：贴上你的实验数字，它替你查显著性、基线、重复次数这些审稿人会抠的地方，逐条给改法和出处。不用注册，数字不上传。</p>
+      <div class="hero-guide">
+        <ol class="guide-steps">
+          <li><strong>贴数据</strong>：对照组、方法 A 各占一行，数字用逗号隔开（不知道写什么就点「载入一个示例」）</li>
+          <li><strong>出报告</strong>：点「开始体检」，右边立刻出结果，不用等</li>
+          <li><strong>照着改</strong>：红牌是会被打回的硬伤，黄牌是建议补的；每条都写清为什么、怎么改</li>
+        </ol>
+        <p class="guide-map">顶上那一条是论文流水线的七站——选方向、定框、设计、跑批、分析、写作、投稿。你现在在「分析」站；其余各站收的是对应材料（方向关键词、主张、实验设计、批次信息、摘要、参考文献），随时点过去。</p>
+      </div>
+    </div>
+    <div class="layout">
+
+      <section class="panel" id="input-panel">
+        <h2 class="panel-title">你的结果</h2>
+
+        <div class="field">
+          <span class="label">这是什么场景</span>
+          <div class="chips" id="scene-chips" role="radiogroup" aria-label="场景">
+            <button type="button" class="chip active" data-scene="ab" aria-pressed="true">两组对照</button>
+            <button type="button" class="chip" data-scene="multi" aria-pressed="false">三组以上</button>
+            <button type="button" class="chip" data-scene="time" aria-pressed="false">时间序列</button>
+            <button type="button" class="chip" data-scene="llm" aria-pressed="false">LLM 实验</button>
+          </div>
+        </div>
+
+        <label class="field">
+          <span class="label">指标是什么</span>
+          <select id="metric">
+            <option value="latency">延迟（越低越好）</option>
+            <option value="throughput">吞吐（越高越好）</option>
+            <option value="accuracy">准确率 / 分数</option>
+            <option value="other">其他</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span class="label">数据</span>
+          <textarea id="data-input" rows="4" spellcheck="false"
+            placeholder="每行一组，例如：&#10;对照组: 412, 398, 405&#10;方法A: 356, 341, 349&#10;&#10;也可以从 Excel 直接粘贴，第一行是组名。"></textarea>
+          <span class="hint">支持三种写法：<code>组名: 1, 2, 3</code>；Excel 复制过来的表；<code>组名,数值</code> 每行一条。</span>
+        </label>
+
+        <label class="field">
+          <span class="label">你是怎么做的</span>
+          <textarea id="note-input" rows="2"
+            placeholder="一句话就行。比如：三组各跑 3 次，两两做了 t 检验，A 比对照快 13%，写进了摘要。"></textarea>
+          <span class="hint">这里写的内容我也会看：如果你写了「显著」但算出来不显著，会被标出来。</span>
+        </label>
+
+        <details class="field details">
+          <summary>补充事实（勾了会少冤枉你）</summary>
+          <div class="checks">
+            <label><input type="checkbox" id="f-correction" /> 做了多重比较校正</label>
+            <label><input type="checkbox" id="f-effect" /> 报了效应量或置信区间</label>
+            <label><input type="checkbox" id="f-baseline" /> 有公平的基线</label>
+            <label><input type="checkbox" id="f-repeat" /> 整批重复跑过不止一次</label>
+            <label><input type="checkbox" id="f-tune" /> 在测试集上调过参数</label>
+            <label><input type="checkbox" id="f-seed" /> LLM 的 seed / 温度 / 解码参数都记了</label>
+            <label><input type="checkbox" id="f-errbar" /> 图里误差棒的含义写清楚了</label>
+            <label><input type="checkbox" id="f-power" /> 事先算过样本量或功效</label>
+          </div>
+        </details>
+
+        <div class="actions">
+          <button class="primary" id="btn-run">开始体检</button>
+          <button class="link" id="btn-sample">载入一个示例</button>
+        </div>
+        <p class="hint checks-preview">会查：多重比较、效应量、基线、重复、调参、seed、误差棒、样本量。每条判据在「判据库」里能查到出处。</p>
+        <p class="err" id="parse-error" hidden></p>
+      </section>
+
+      <section class="panel" id="report-panel">
+        <h2 class="panel-title">体检报告</h2>
+        <div class="empty" id="empty-state">
+          <p>还没有结果。左边贴一组数字，或者点「载入一个示例」。</p>
+        </div>
+
+        <div id="report" hidden>
+          <p class="demo-note" id="demo-note" hidden>左边是示例数据，右边是它体检出来的结果。把数据换成你自己的，再点一次「开始体检」。</p>
+
+          <div class="verdict" id="summary" aria-live="polite"></div>
+
+          <h3 class="section-title">数据概览</h3>
+          <div class="table-wrap" id="stat-table"></div>
+          <div class="scatter" id="scatter"></div>
+
+          <h3 class="section-title">查出来的问题</h3>
+          <div class="findings" id="findings"></div>
+
+          <div class="prescription">
+            <div class="prescription-head">
+              <h3>投稿前要补的</h3>
+              <div class="prescription-actions">
+                <button class="ghost small" id="btn-expand">用模型展开成段落</button>
+                <button class="ghost small" id="btn-copy">复制</button>
+                <button class="ghost small" id="btn-download">下载 .md</button>
+              </div>
+            </div>
+            <pre id="prescription-text" class="prescription-text"></pre>
+            <p class="hint" id="expand-hint"></p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </section>
+
+  <section class="station" data-station="writing" hidden>
+    <div class="station-sheet craft-sheet">
+      <h2>写作</h2>
+      <p class="station-q">这句话，证据撑得住吗。</p>
+
+      <label class="field">
+        <span class="label">贴一段摘要、结论或贡献列表</span>
+        <textarea id="writing-text" rows="7" spellcheck="false"
+          placeholder="例：我们的方法显著优于现有方案，首次实现了端到端加速。在 A100 上，相比 vLLM，吞吐提升 1.8 倍（n=5）。"></textarea>
+      </label>
+      <div class="actions">
+        <button class="primary" id="btn-writing">逐句查</button>
+        <button class="link" id="btn-writing-sample">载入一个示例</button>
+      </div>
+
+      <div id="writing-result" hidden>
+        <div class="verdict" id="writing-verdict"></div>
+
+        <h3 class="section-title">逐句</h3>
+        <div class="sentences" id="writing-sentences"></div>
+
+        <h3 class="section-title">摘要五句</h3>
+        <div class="five" id="writing-five"></div>
+
+        <div class="prescription">
+          <div class="prescription-head">
+            <h3>改法清单</h3>
+            <div class="prescription-actions">
+              <button class="ghost small" id="btn-writing-copy">复制</button>
+            </div>
+          </div>
+          <pre class="prescription-text" id="writing-fix"></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="station" data-station="submit" hidden>
+    <div class="station-sheet craft-sheet">
+      <h2>投稿</h2>
+      <p class="station-q">参考文献查一遍，评审意见分个类。</p>
+
+      <div class="subtabs" role="tablist">
+        <button class="subtab active" data-sub="refs" role="tab" aria-selected="true">参考文献</button>
+        <button class="subtab" data-sub="comments" role="tab" aria-selected="false">评审意见</button>
+        <button class="subtab" data-sub="checklist" role="tab" aria-selected="false">投稿清单</button>
+      </div>
+
+      <div class="subpane" data-sub="refs">
+        <label class="field">
+          <span class="label">参考文献列表（一行一条，编号开头）</span>
+          <textarea id="refs-text" rows="8" spellcheck="false" placeholder="[1] Sarathi-Serve. OSDI 2024.&#10;[2] DistServe. OSDI 2024."></textarea>
+        </label>
+        <div class="actions">
+          <button class="primary" id="btn-refs">检查</button>
+          <button class="link" id="btn-refs-sample">载入一个示例</button>
+        </div>
+        <div id="refs-result" hidden>
+          <div class="verdict" id="refs-verdict"></div>
+          <div class="findings" id="refs-findings"></div>
+        </div>
+      </div>
+
+      <div class="subpane" data-sub="comments" hidden>
+        <label class="field">
+          <span class="label">评审意见（空行分段，或按 1. 2. 3. 编号）</span>
+          <textarea id="comments-text" rows="8" placeholder="Reviewer 1:&#10;Please clarify the baseline configuration.&#10;&#10;The evaluation lacks an ablation on chunk size."></textarea>
+        </label>
+        <div class="actions">
+          <button class="primary" id="btn-comments">分类</button>
+          <button class="link" id="btn-comments-sample">载入一个示例</button>
+        </div>
+        <div id="comments-result" hidden>
+          <div class="triage" id="triage"></div>
+        </div>
+      </div>
+
+      <div class="subpane" data-sub="checklist" hidden>
+        <p class="checklead">打包前逐项过一遍，八项全过再上传。</p>
+        <div class="checklist" id="checklist"></div>
+        <p class="checkprogress" id="checkprogress"></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap footer">
+  <p>数字只在浏览器里算；点「用模型展开」时，才会把这份报告发给你自己配置的模型。</p>
+</footer>
+
+<div class="modal" id="modal-settings" hidden>
+  <div class="modal-box">
+    <h3>设置</h3>
+    <p class="muted">不填也能用，「用模型展开」那一步会退回本地模板。</p>
+    <label class="field">
+      <span class="label">API Key</span>
+      <input type="password" id="cfg-key" placeholder="sk-..." autocomplete="off" />
+    </label>
+    <label class="field">
+      <span class="label">Base URL</span>
+      <input type="text" id="cfg-base" placeholder="https://dashscope.aliyuncs.com/compatible-mode/v1" />
+    </label>
+    <label class="field">
+      <span class="label">模型</span>
+      <input type="text" id="cfg-model" placeholder="qwen-plus" />
+    </label>
+    <p class="hint">Key 只存在这台浏览器的 localStorage 里，不会上传到别处。</p>
+    <div class="modal-actions">
+      <button class="ghost" id="btn-settings-cancel">取消</button>
+      <button class="primary" id="btn-settings-save">保存</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal-knowledge" hidden>
+  <div class="modal-box wide">
+    <h3>判据库</h3>
+    <p class="muted">报告里每一条，都能在这里找到出处和改法。</p>
+    <input type="search" id="kb-search" placeholder="搜关键词，比如 多重比较、n=3、seed" />
+    <div class="kb-list" id="kb-list"></div>
+    <div class="modal-actions">
+      <button class="primary" id="btn-knowledge-close">关了</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal-history" hidden>
+  <div class="modal-box">
+    <h3>历史</h3>
+    <p class="muted">最近 20 次体检，只存在这台浏览器里。点一条恢复那次的输入并重新体检。</p>
+    <div class="hist-list" id="history-list"></div>
+    <div class="modal-actions">
+      <button class="primary" id="btn-history-close">关了</button>
+    </div>
+  </div>
+</div>
+
+<script src="corpus.js"></script>
+<script src="rules.js"></script>
+<script src="project.js"></script>
+<script src="venue.js"></script>
+<script src="app.js"></script>
+<script src="craft.js"></script>
+<script src="flow.js"></script>
+</body>
+</html>
